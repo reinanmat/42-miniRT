@@ -82,6 +82,8 @@ int		get_color(t_color color);
 //render
 int		render(t_data data);
 
+//hit
+double	hit_sphere(t_point center, double radius, t_ray ray);
 
 //mlx functions
 void	mlx_close_window(t_mlx *mlx);
