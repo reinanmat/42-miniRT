@@ -6,19 +6,19 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/20 12:26:12 by revieira         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:06:33 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-void	render_background(t_mlx mlx)
+void	render_background(t_cam cam, t_mlx mlx)
 {
 	int		x;
 	int		y;
 	int		i;
 	int		j;
-	t_color	color;
+	t_point	point_color;
 
 	j = HEIGHT - 1;
 	y = 0;
@@ -28,10 +28,8 @@ void	render_background(t_mlx mlx)
 		x = 0;
 		while (i < WIDTH - 1)
 		{
-			color.x = (double)i / (WIDTH - 1);
-			color.y = (double)j / (HEIGHT - 1);
-			color.z = 0.25;
-			mlx_img_pix_put(&mlx.img, x, y, get_color(color));
+			point_color = calculate_point_color(i, j, cam);
+			mlx_img_pix_put(&mlx.img, x, y, get_color(point_color));
 			x++;
 			i++;
 		}
@@ -40,9 +38,10 @@ void	render_background(t_mlx mlx)
 	}
 }
 
-int	render(t_mlx mlx)
+int	render(t_data data)
 {
-	render_background(mlx);
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.img.mlx_img, 0, 0);
+	render_background(data.cam, data.mlx);
+	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
+		data.mlx.img.mlx_img, 0, 0);
 	return (0);
 }
