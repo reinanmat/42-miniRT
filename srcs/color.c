@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/20 12:26:18 by revieira         ###   ########.fr       */
+/*   Created: 2023/06/20 12:25:05 by revieira          #+#    #+#             */
+/*   Updated: 2023/06/20 12:25:42 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-t_mlx	init_mlx(void)
+int	get_color(t_color color)
 {
-	t_mlx	mlx;
+	int	r;
+	int	g;
+	int	b;
 
-	mlx_create_window(&mlx);
-	mlx_create_img(&mlx);
-	mlx_hooks(&mlx);
-	return (mlx);
-}
-
-int	main(void)
-{
-	t_mlx	mlx;
-
-	mlx = init_mlx();
-	render(mlx);
-	mlx_loop(mlx.mlx_ptr);
+	r = color.x * 255.999;
+	g = color.y * 255.999;
+	b = color.z * 255.999;
+	return (r << 16 | g << 8 | b);
 }
