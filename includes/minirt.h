@@ -88,4 +88,17 @@ void	mlx_create_window(t_mlx *mlx);
 void	mlx_hooks(t_mlx *mlx);
 void	mlx_img_pix_put(t_img *img, int x, int y, int color);
 
+//vec operators
+t_point	add(t_point a, t_point b);
+t_point	minus(t_point a, t_point b);
+t_point	multiply(t_point a, t_point b);
+t_point	multiply_n(t_point a, double n);
+t_point	division(t_point a, t_point b);
+t_point	division_n(t_point a, double n);
+double	lenght_square(t_point a);
+double	lenght(t_point a);
+t_point	unit_vector(t_point a);
+double	dot(t_point m1, t_point m2);
+t_point	at(t_ray ray, double t);
+
 #endif
