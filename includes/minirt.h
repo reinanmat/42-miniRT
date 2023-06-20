@@ -14,8 +14,9 @@
 # define MINIRT_H
 
 # define WINDOW_NAME "minirt"
-# define WIDTH 400
-# define HEIGHT 400
+# define ASPECT_RADIO (float)(16.0/9.0)
+# define WIDTH 1200
+# define HEIGHT (int)(WIDTH/ASPECT_RADIO)
 
 # define KEY_ESC 0xff1b
 
