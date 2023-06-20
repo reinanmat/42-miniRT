@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/20 17:23:25 by revieira         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:16:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ typedef t_point	t_color;
 int		get_color(t_color color);
 
 //render
-int		render(t_mlx mlx);
+int		render(t_data data);
+
 
 //mlx functions
 void	mlx_close_window(t_mlx *mlx);
