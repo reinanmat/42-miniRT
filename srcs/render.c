@@ -12,6 +12,29 @@
 
 #include "../includes/minirt.h"
 
+t_point	ray_color(t_ray ray)
+{
+	t_point	direction;
+	t_point	color;
+	t_point	aux1;
+	t_point	aux2;
+	double	t;
+
+	t = hit_sphere((t_point){0, 0, -1}, 0.7, ray);
+	if (t > 0)
+	{
+		aux1 = unit_vector(minus(at(ray, t), (t_point){0, 0, -1}));
+		color = multiply_n((t_point){aux1.x + 1, aux1.y + 1, aux1.z + 1}, 0.5);
+		return (color);
+	}
+	direction = unit_vector(ray.direction);
+	t = 0.5 * (direction.y + 1.0);
+	aux1 = multiply_n((t_point){1.0, 1.0, 1.0}, (1.0 - t));
+	aux2 = multiply_n((t_point){0.5, 0.7, 1.0}, t);
+	color = add(aux1, aux2);
+	return (color);
+}
+
 t_ray	get_ray(double u, double v, t_cam cam)
 {
 	t_ray	ray;
