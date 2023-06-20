@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/20 12:27:39 by revieira         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:23:25 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,21 @@ typedef struct s_mlx
 	t_img	img;
 }	t_mlx;
 
-typedef struct s_color
+typedef struct s_point
 {
 	double	x;
 	double	y;
 	double	z;
-}	t_color;
+}	t_point;
+
 
 typedef struct s_data
 {
 	t_mlx	mlx;
+	t_cam	cam;
 }	t_data;
+
+typedef t_point	t_color;
 
 //color
 int		get_color(t_color color);
