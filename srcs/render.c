@@ -12,6 +12,19 @@
 
 #include "../includes/minirt.h"
 
+t_ray	get_ray(double u, double v, t_cam cam)
+{
+	t_ray	ray;
+	t_point	aux1;
+	t_point	aux2;
+
+	aux1 = add(cam.lower_left_corner, multiply_n(cam.horizontal, u));
+	aux2 = minus(multiply_n(cam.vertical, v), cam.origin);
+	ray.direction = add(aux1, aux2);
+	ray.origin = cam.origin;
+	return (ray);
+}
+
 t_point	calculate_point_color(int x, int y, t_cam cam)
 {
 	double	u;
