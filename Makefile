@@ -7,11 +7,14 @@ LIBFT_PATH =	./libft
 FILES =			main \
 				render \
 				color \
+				operators \
+				hit_sphere \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
 				mlx/mlx_img_pix_put \
 				mlx/mlx_close_window \
-				mlx/mlx_create_window
+				mlx/mlx_create_window \
+				utils_tests
 
 
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))
