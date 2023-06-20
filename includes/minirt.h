@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/19 14:13:36 by revieira         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:27:39 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ typedef struct s_data
 
 //color
 int		get_color(t_color color);
-
-void	ft_free(void *ptr);
 
 //render
 int		render(t_mlx mlx);
