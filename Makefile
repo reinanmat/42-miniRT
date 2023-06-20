@@ -5,6 +5,8 @@ OBJS_PATH =		./objs
 LIBFT_PATH =	./libft
 
 FILES =			main \
+				render \
+				color \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
 				mlx/mlx_img_pix_put \
