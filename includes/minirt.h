@@ -105,4 +105,8 @@ t_point	unit_vector(t_point a);
 double	dot(t_point m1, t_point m2);
 t_point	at(t_ray ray, double t);
 
+//utils
+void	print_point(t_point point);
+void	print_cam(t_cam cam);
+
 #endif
