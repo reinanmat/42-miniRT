@@ -50,6 +50,17 @@ typedef struct s_point
 	double	z;
 }	t_point;
 
+typedef struct s_cam
+{
+	double	viewport_height;
+	double	viemport_width;
+	double	focal_length;
+	t_point	origin;
+	t_point	horizontal;
+	t_point	vertical;
+	t_point	lower_left_corner;
+}	t_cam;
+
 
 typedef struct s_data
 {
