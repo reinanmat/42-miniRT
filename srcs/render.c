@@ -12,6 +12,20 @@
 
 #include "../includes/minirt.h"
 
+t_point	calculate_point_color(int x, int y, t_cam cam)
+{
+	double	u;
+	double	v;
+	t_ray	ray;
+	t_point	point_color;
+
+	u = (double)x / (WIDTH - 1);
+	v = (double)y / (HEIGHT - 1);
+	ray = get_ray(u, v, cam);
+	point_color = ray_color(ray);
+	return (point_color);
+}
+
 void	render_background(t_cam cam, t_mlx mlx)
 {
 	int		x;
