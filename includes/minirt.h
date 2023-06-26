@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/20 18:16:58 by revieira         ###   ########.fr       */
+/*   Updated: 2023/06/26 18:17:00 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define MINIRT_H
 
 # define WINDOW_NAME "minirt"
-# define ASPECT_RADIO (float)(16.0/9.0)
 # define WIDTH 1200
-# define HEIGHT (int)(WIDTH/ASPECT_RADIO)
+# define HEIGHT (int)(WIDTH/16.0*9.0)
 
 # define KEY_ESC 0xff1b
 
