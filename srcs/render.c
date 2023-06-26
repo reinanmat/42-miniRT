@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/14 17:30:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:25:03 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	render_world(t_world world, t_mlx mlx)
 	}
 }
 
-int	render(t_data data)
+int	render(t_data data, int height)
 {
 	render_world(data.world, data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,

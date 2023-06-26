@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/21 17:19:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:21:40 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,9 @@ t_world	init_world(void)
 int	main(void)
 {
 	t_data	data;
+	int		height;
 
+	height = (WIDTH / 16) * 9;
 	data.mlx = init_mlx();
 	data.world = init_world();
 	render(data);
