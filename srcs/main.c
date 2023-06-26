@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/26 18:16:45 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:17:16 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ t_mlx	init_mlx(void)
 int	main(void)
 {
 	t_data	data;
+	int		height;
 
+	height = (WIDTH / 16) * 9;
 	data.mlx = init_mlx();
 	data.cam = init_cam();
-	render(data);
+	render(data, height);
 	mlx_loop(data.mlx.mlx_ptr);
 }

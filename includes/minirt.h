@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/26 18:17:00 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:06:08 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # define WINDOW_NAME "minirt"
 # define WIDTH 1200
-# define HEIGHT (int)(WIDTH/16.0*9.0)
 
 # define KEY_ESC 0xff1b
 
@@ -79,7 +78,7 @@ typedef t_point	t_color;
 int		get_color(t_color color);
 
 //render
-int		render(t_data data);
+int		render(t_data data, int height);
 
 //hit
 double	hit_sphere(t_point center, double radius, t_ray ray);
