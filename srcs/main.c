@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/26 20:17:16 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:26:38 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ t_point	get_lower_left_corner(t_cam cam)
 t_cam	init_cam(void)
 {
 	t_cam	cam;
-	float	aspect_ratio;
 
-	aspect_ratio = 16.0 / 9.0;
-	cam.viewport_height = 4.0;
-	cam.viemport_width = cam.viewport_height * aspect_ratio;
 	cam.focal_length = 1.0;
+	cam.viewport_height = 4.0;
+	cam.viemport_width = (cam.viewport_height * 16) / 9;
 	cam.origin = (t_point){0, 0, 0};
 	cam.horizontal = (t_point){cam.viemport_width, 0, 0};
 	cam.vertical = (t_point){0, cam.viewport_height, 0};
