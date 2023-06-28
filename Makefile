@@ -14,7 +14,8 @@ FILES =			main \
 				mlx/mlx_img_pix_put \
 				mlx/mlx_close_window \
 				mlx/mlx_create_window \
-				utils_tests
+				utils_tests \
+				file_parsing/parse
 
 
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))

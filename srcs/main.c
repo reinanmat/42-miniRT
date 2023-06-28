@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/27 17:26:38 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:49:48 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,17 @@ t_mlx	init_mlx(void)
 	return (mlx);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 	int		height;
 
+	if (argc != 2)
+		exit (1);
+	else if (received_invalid_param(argv[1]))
+		exit(1);
+	printf("Success\n");
+	exit(0);
 	height = (WIDTH / 16) * 9;
 	data.mlx = init_mlx();
 	data.cam = init_cam();
