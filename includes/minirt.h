@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/21 17:20:30 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:33:46 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 # include <mlx.h>
 # include <X11/keysym.h>
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
