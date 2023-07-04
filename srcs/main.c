@@ -30,8 +30,13 @@ t_cam	init_cam(void)
 {
 	t_cam	cam;
 	double	aspect_ratio;
+	double	vertical_fov;
+	double	vertical_fov_radians;
 
-	cam.viewport_height = 4.0;
+	vertical_fov = 105.0;
+	vertical_fov_radians = vertical_fov * PI / 180.0;
+	aspect_ratio = 16.0 / 9.0;
+	cam.viewport_height = 2.0 * tan(vertical_fov_radians / 2.0);
 	cam.viemport_width = cam.viewport_height * aspect_ratio;
 	cam.focal_length = 1.0;
 	cam.viewport_height = 4.0;
