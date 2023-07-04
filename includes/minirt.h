@@ -19,6 +19,8 @@
 
 # define KEY_ESC 0xff1b
 
+# define PI 3.14159265358979323846264338327950288419716939937510L
+
 # include <mlx.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
