@@ -6,15 +6,15 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/04 18:22:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/04 18:48:08 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# define WIDTH 1600
-# define HEIGHT 900
+# define WIDTH 1024
+# define HEIGHT 576
 # define WINDOW_NAME "minirt"
 
 # define KEY_ESC 0xff1b
