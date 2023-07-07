@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/20 18:06:33 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:28:01 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ t_point	ray_color(t_ray ray)
 	if (t > 0)
 	{
 		aux1 = unit_vector(minus(at(ray, t), (t_point){0, 0, -1}));
-		color = multiply_n((t_point){aux1.x + 1, aux1.y + 1, aux1.z + 1}, 0.5);
+		color = s_multiply((t_point){aux1.x + 1, aux1.y + 1, aux1.z + 1}, 0.5);
 		return (color);
 	}
 	direction = unit_vector(ray.direction);
 	t = 0.5 * (direction.y + 1.0);
-	aux1 = multiply_n((t_point){1.0, 1.0, 1.0}, (1.0 - t));
-	aux2 = multiply_n((t_point){0.5, 0.7, 1.0}, t);
+	aux1 = s_multiply((t_point){1.0, 1.0, 1.0}, (1.0 - t));
+	aux2 = s_multiply((t_point){0.5, 0.7, 1.0}, t);
 	color = add(aux1, aux2);
 	return (color);
 }
@@ -41,8 +41,8 @@ t_ray	get_ray(double u, double v, t_cam cam)
 	t_point	aux1;
 	t_point	aux2;
 
-	aux1 = add(cam.lower_left_corner, multiply_n(cam.horizontal, u));
-	aux2 = minus(multiply_n(cam.vertical, v), cam.origin);
+	aux1 = add(cam.lower_left_corner, s_multiply(cam.horizontal, u));
+	aux2 = minus(s_multiply(cam.vertical, v), cam.origin);
 	ray.direction = add(aux1, aux2);
 	ray.origin = cam.origin;
 	return (ray);
