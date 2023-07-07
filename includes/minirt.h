@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 13:53:55 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:16:41 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@
 # include <math.h>
 # include "../libft/libft.h"
 
+typedef struct s_point
+{
+	double	x;
+	double	y;
+	double	z;
+}	t_point;
+
+typedef t_point	t_color;
+typedef t_point	t_vec3;
+
 typedef struct s_img
 {
 	void	*mlx_img;
@@ -45,13 +55,6 @@ typedef struct s_mlx
 	t_img	img;
 }	t_mlx;
 
-typedef struct s_point
-{
-	double	x;
-	double	y;
-	double	z;
-}	t_point;
-
 typedef struct s_cam
 {
 	double	viewport_height;
@@ -66,7 +69,7 @@ typedef struct s_cam
 typedef struct s_ray
 {
 	t_point	origin;
-	t_point	direction;
+	t_vec3	direction;
 }	t_ray;
 
 typedef struct s_data
@@ -74,9 +77,6 @@ typedef struct s_data
 	t_mlx	mlx;
 	t_cam	cam;
 }	t_data;
-
-typedef t_point	t_color;
-typedef t_point	t_vec3;
 
 //color
 int		get_color(t_color color);

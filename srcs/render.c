@@ -6,16 +6,16 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 11:28:01 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:08:00 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-t_point	ray_color(t_ray ray)
+t_color	ray_color(t_ray ray)
 {
-	t_point	direction;
-	t_point	color;
+	t_vec3	direction;
+	t_color	color;
 	t_point	aux1;
 	t_point	aux2;
 	double	t;
@@ -48,18 +48,18 @@ t_ray	get_ray(double u, double v, t_cam cam)
 	return (ray);
 }
 
-t_point	calculate_point_color(int x, int y, t_cam cam)
+t_color	calculate_ray_color(int x, int y, t_cam cam)
 {
 	double	u;
 	double	v;
 	t_ray	ray;
-	t_point	point_color;
+	t_color	color;
 
 	u = (double)x / (WIDTH - 1);
 	v = (double)y / (HEIGHT - 1);
 	ray = get_ray(u, v, cam);
-	point_color = ray_color(ray);
-	return (point_color);
+	color = ray_color(ray);
+	return (color);
 }
 
 void	render_background(t_cam cam, t_mlx mlx)
@@ -68,7 +68,7 @@ void	render_background(t_cam cam, t_mlx mlx)
 	int		y;
 	int		i;
 	int		j;
-	t_point	point_color;
+	t_color	ray_color;
 
 	j = HEIGHT - 1;
 	y = 0;
@@ -78,8 +78,8 @@ void	render_background(t_cam cam, t_mlx mlx)
 		x = 0;
 		while (i < WIDTH - 1)
 		{
-			point_color = calculate_point_color(i, j, cam);
-			mlx_img_pix_put(&mlx.img, x, y, get_color(point_color));
+			ray_color = calculate_ray_color(i, j, cam);
+			mlx_img_pix_put(&mlx.img, x, y, get_color(ray_color));
 			x++;
 			i++;
 		}
