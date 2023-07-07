@@ -23,11 +23,11 @@ t_point	ray_color(t_ray ray)
 	t = hit_sphere((t_point){0, 0, -1}, 0.7, ray);
 	if (t > 0)
 	{
-		aux1 = unit_vector(minus(at(ray, t), (t_point){0, 0, -1}));
+		aux1 = normalize(minus(at(ray, t), (t_point){0, 0, -1}));
 		color = s_multiply((t_point){aux1.x + 1, aux1.y + 1, aux1.z + 1}, 0.5);
 		return (color);
 	}
-	direction = unit_vector(ray.direction);
+	direction = normalize(ray.direction);
 	t = 0.5 * (direction.y + 1.0);
 	aux1 = s_multiply((t_point){1.0, 1.0, 1.0}, (1.0 - t));
 	aux2 = s_multiply((t_point){0.5, 0.7, 1.0}, t);
