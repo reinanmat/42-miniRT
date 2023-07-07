@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:02:44 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/06/19 14:04:21 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:43:41 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -72,8 +72,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_itoa(int n);
 char		*ft_strtrim(char const *s1, char const *set);
-char		**ft_split(char const *s);
-char		**ft_split_old(const char *str, char c);
+char		**ft_split(char const *s, char c);
 void		*ft_memset(void *b, int c, size_t len);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_memcpy(void *dst, const void *src, size_t n);

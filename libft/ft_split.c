@@ -3,75 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 19:27:54 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/04/03 16:36:40 by fnacarel         ###   ########.fr       */
+/*   Created: 2023/03/17 16:35:48 by revieira          #+#    #+#             */
+/*   Updated: 2023/07/07 18:44:19 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	ft_is_space(char c)
+static int	count_words(const char *s, char c)
 {
-	if (c == ' ' || (c >= 9 && c <= 13))
-		return (1);
-	return (0);
-}
+	size_t	words;
 
-static int	len_until_set(char const *s)
-{
-	int	count;
-
-	count = 0;
-	while (!ft_is_space(*s) && *s)
-	{
-		s++;
-		count++;
-	}
-	return (count);
-}
-
-static int	number_of_words(char const *s)
-{
-	int		count;
-
-	count = 0;
+	words = 0;
 	while (*s)
 	{
-		if (!ft_is_space(*s))
-			count++;
-		while (!ft_is_space(*s) && *s)
+		while (*s == c)
 			s++;
-		while (ft_is_space(*s) && *s)
+		if (*s && *s != c)
+			words++;
+		while (*s && *s != c)
 			s++;
 	}
-	return (count);
+	return (words);
 }
 
-char	**ft_split(char const *s)
+char	**ft_split(const char *s, char c)
 {
 	int		i;
-	int		words;
-	int		len_current_word;
-	char	**splitted_string;
+	char	**lst;
+	size_t	curr_word_len;
 
 	i = 0;
 	if (!s)
-		return (NULL);
-	words = number_of_words(s);
-	splitted_string = ft_calloc(words + 1, sizeof(char *));
-	while (*s && words != 0)
+		return (0);
+	lst = (char **)ft_calloc(sizeof(char *), count_words(s, c) + 1);
+	if (!lst)
+		return (0);
+	while (*s)
 	{
-		if (!ft_is_space(*s))
+		while (*s == c)
+			s++;
+		if (*s)
 		{
-			len_current_word = len_until_set(s);
-			*(splitted_string + i) = ft_substr(s, 0, len_current_word);
-			i++;
+			if (!ft_strchr(s, c))
+				curr_word_len = ft_strlen((char *)s);
+			else
+				curr_word_len = ft_strchr(s, c) - s;
+			lst[i++] = ft_substr(s, 0, curr_word_len);
+			s += curr_word_len;
 		}
-		while (!ft_is_space(*s) && *s)
-			s++;
-		while (ft_is_space(*s) && *s)
-			s++;
 	}
-	return (splitted_string);
+	return (lst);
 }
