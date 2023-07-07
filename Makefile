@@ -19,6 +19,9 @@ FILES =			main \
 				color/color \
 				color/gradient_color \
 				mlx/mlx_hooks \
+				vec_operations/basic_operations \
+				vec_operations/scalar_operations \
+				vec_operations/extra_operations \
 				mlx/mlx_create_img \
 				mlx/mlx_img_pix_put \
 				mlx/mlx_close_window \
