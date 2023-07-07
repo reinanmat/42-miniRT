@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/04 18:48:08 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:33:41 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_data
 }	t_data;
 
 typedef t_point	t_color;
+typedef t_point	t_vec3;
 
 //color
 int		get_color(t_color color);
@@ -94,17 +95,17 @@ void	mlx_hooks(t_mlx *mlx);
 void	mlx_img_pix_put(t_img *img, int x, int y, int color);
 
 //vec operators
-t_point	add(t_point a, t_point b);
-t_point	minus(t_point a, t_point b);
-t_point	multiply(t_point a, t_point b);
-t_point	multiply_n(t_point a, double n);
-t_point	division(t_point a, t_point b);
-t_point	division_n(t_point a, double n);
-double	lenght_square(t_point a);
-double	lenght(t_point a);
-t_point	unit_vector(t_point a);
-double	dot(t_point m1, t_point m2);
-t_point	at(t_ray ray, double t);
+t_vec3	add(t_vec3 a, t_vec3 b);
+t_vec3	minus(t_vec3 a, t_vec3 b);
+t_vec3	multiply(t_vec3 a, t_vec3 b);
+t_vec3	division(t_vec3 a, t_vec3 b);
+t_vec3	s_multiply(t_vec3 a, double n);
+t_vec3	s_division(t_vec3 a, double n);
+double	length_square(t_vec3 a);
+double	magnitude(t_vec3 a);
+t_vec3	normalize(t_vec3 a);
+double	dot(t_vec3 m1, t_vec3 m2);
+t_vec3	at(t_ray ray, double t);
 
 //utils
 void	print_point(t_point point);
