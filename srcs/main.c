@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 11:27:06 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:03:07 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ t_cam	init_cam(void)
 	vertical_fov_radians = vertical_fov * PI / 180.0;
 	aspect_ratio = 16.0 / 9.0;
 	cam.viewport_height = 2.0 * tan(vertical_fov_radians / 2.0);
-	cam.viemport_width = cam.viewport_height * aspect_ratio;
+	cam.viewport_width = cam.viewport_height * aspect_ratio;
 	cam.focal_length = 0.5;
 	cam.origin = (t_point){0, 0, 0};
-	cam.horizontal = (t_point){cam.viemport_width, 0, 0};
+	cam.horizontal = (t_point){cam.viewport_width, 0, 0};
 	cam.vertical = (t_point){0, cam.viewport_height, 0};
 	cam.lower_left_corner = get_lower_left_corner(cam);
 	return (cam);

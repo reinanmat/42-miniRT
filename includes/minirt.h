@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 11:33:41 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/07 13:53:55 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_point
 typedef struct s_cam
 {
 	double	viewport_height;
-	double	viemport_width;
+	double	viewport_width;
 	double	focal_length;
 	t_point	origin;
 	t_point	horizontal;
