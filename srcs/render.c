@@ -26,7 +26,7 @@ t_color	calculate_ray_color(int x, int y, t_world world)
 	return (color);
 }
 
-void	render_background(t_cam cam, t_mlx mlx)
+void	render_world(t_world world, t_mlx mlx)
 {
 	int		x;
 	int		y;
@@ -42,7 +42,7 @@ void	render_background(t_cam cam, t_mlx mlx)
 		x = 0;
 		while (i < WIDTH - 1)
 		{
-			ray_color = calculate_ray_color(i, j, cam);
+			ray_color = calculate_ray_color(i, j, world);
 			mlx_img_pix_put(&mlx.img, x, y, get_color(ray_color));
 			x++;
 			i++;
@@ -54,7 +54,7 @@ void	render_background(t_cam cam, t_mlx mlx)
 
 int	render(t_data data)
 {
-	render_background(data.cam, data.mlx);
+	render_world(data.world, data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
 		data.mlx.img.mlx_img, 0, 0);
 	return (0);
