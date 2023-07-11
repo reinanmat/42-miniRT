@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 14:03:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:45:15 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,53 @@ t_mlx	init_mlx(void)
 	return (mlx);
 }
 
+t_light	init_light(t_color color)
+{
+	t_light	light;
+
+	light.position = (t_point){0, 0, 0};
+	light.color = color;
+	light.brightness = 0.5;
+	return (light);
+}
+
+t_hittable	*add_objects(void)
+{
+	t_hittable	*objects;
+
+	hittable_add(1, sp((t_point){0, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){-1, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){1, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){1, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){-1, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){0, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){0, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){-1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){-1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){0, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){0, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	hittable_add(1, sp((t_point){1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	return (objects);
+}
+
+t_world	init_world(void)
+{
+	t_world		world;
+
+	world.cam = init_cam();
+	world.light = init_light((t_point){1, 1, 1});
+	world.ambient_light = init_light((t_point){0, 1, 1});
+	world.objects = add_objects();
+	return (world);
+}
+
 int	main(void)
 {
 	t_data	data;
 
 	data.mlx = init_mlx();
-	data.cam = init_cam();
+	data.world = init_world();
 	render(data);
 	mlx_loop(data.mlx.mlx_ptr);
 }
