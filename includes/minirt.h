@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/10 13:26:41 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:02:43 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+# include "vec3.h"
 # include "../libft/libft.h"
-
-typedef struct s_point
-{
-	double	x;
-	double	y;
-	double	z;
-}	t_point;
-
-typedef t_point	t_color;
-typedef t_point	t_vec3;
 
 typedef struct s_img
 {
@@ -119,9 +110,6 @@ typedef struct s_data
 	t_world	world;
 }	t_data;
 
-//color
-int		get_color(t_color color);
-
 //render
 int		render(t_data data);
 
@@ -134,19 +122,6 @@ void	mlx_create_img(t_mlx *mlx);
 void	mlx_create_window(t_mlx *mlx);
 void	mlx_hooks(t_mlx *mlx);
 void	mlx_img_pix_put(t_img *img, int x, int y, int color);
-
-//vec operators
-t_vec3	add(t_vec3 a, t_vec3 b);
-t_vec3	minus(t_vec3 a, t_vec3 b);
-t_vec3	multiply(t_vec3 a, t_vec3 b);
-t_vec3	division(t_vec3 a, t_vec3 b);
-t_vec3	s_multiply(t_vec3 a, double n);
-t_vec3	s_division(t_vec3 a, double n);
-double	length_square(t_vec3 a);
-double	magnitude(t_vec3 a);
-t_vec3	normalize(t_vec3 a);
-double	dot(t_vec3 m1, t_vec3 m2);
-t_vec3	at(t_ray ray, double t);
 
 //utils
 void	print_point(t_point point);
