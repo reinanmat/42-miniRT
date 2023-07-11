@@ -7,7 +7,10 @@ LIBFT_PATH =	./libft
 FILES =			main \
 				render \
 				color \
+				ray \
+				objects \
 				hittable/hit \
+				hittable/hittable_lst \
 				mlx/mlx_hooks \
 				vec_operations/basic_operations \
 				vec_operations/scalar_operations \
