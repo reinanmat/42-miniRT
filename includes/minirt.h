@@ -30,6 +30,7 @@
 # include "vec3.h"
 # include "ray.h"
 # include "world.h"
+# include "hittable.h"
 # include "objects.h"
 # include "../libft/libft.h"
 
@@ -59,7 +60,8 @@ typedef struct s_data
 int		render(t_data data);
 
 //hit
-double	hit_sphere(t_point center, double radius, t_ray ray);
+double	hittable(t_hittable **hittable_lst, t_ray ray);
+double	hit_sphere(t_sphere sphere, t_ray ray);
 
 //mlx functions
 void	mlx_close_window(t_mlx *mlx);
