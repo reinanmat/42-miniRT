@@ -6,49 +6,13 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 14:08:00 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/10 13:31:24 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-t_color	ray_color(t_ray ray)
-{
-	t_vec3	direction;
-	t_color	color;
-	t_point	aux1;
-	t_point	aux2;
-	double	t;
-
-	t = hit_sphere((t_point){0, 0, -1}, 0.7, ray);
-	if (t > 0)
-	{
-		aux1 = normalize(minus(at(ray, t), (t_point){0, 0, -1}));
-		color = s_multiply((t_point){aux1.x + 1, aux1.y + 1, aux1.z + 1}, 0.5);
-		return (color);
-	}
-	direction = normalize(ray.direction);
-	t = 0.5 * (direction.y + 1.0);
-	aux1 = s_multiply((t_point){1.0, 1.0, 1.0}, (1.0 - t));
-	aux2 = s_multiply((t_point){0.5, 0.7, 1.0}, t);
-	color = add(aux1, aux2);
-	return (color);
-}
-
-t_ray	get_ray(double u, double v, t_cam cam)
-{
-	t_ray	ray;
-	t_point	aux1;
-	t_point	aux2;
-
-	aux1 = add(cam.lower_left_corner, s_multiply(cam.horizontal, u));
-	aux2 = minus(s_multiply(cam.vertical, v), cam.origin);
-	ray.direction = add(aux1, aux2);
-	ray.origin = cam.origin;
-	return (ray);
-}
-
-t_color	calculate_ray_color(int x, int y, t_cam cam)
+t_color	calculate_ray_color(int x, int y, t_world world)
 {
 	double	u;
 	double	v;
@@ -57,8 +21,8 @@ t_color	calculate_ray_color(int x, int y, t_cam cam)
 
 	u = (double)x / (WIDTH - 1);
 	v = (double)y / (HEIGHT - 1);
-	ray = get_ray(u, v, cam);
-	color = ray_color(ray);
+	ray = get_ray(u, v, world.cam);
+	color = ray_color(ray, world);
 	return (color);
 }
 
