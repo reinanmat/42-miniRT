@@ -30,6 +30,7 @@
 # include "vec3.h"
 # include "ray.h"
 # include "world.h"
+# include "objects.h"
 # include "../libft/libft.h"
 
 typedef struct s_img
@@ -47,29 +48,6 @@ typedef struct s_mlx
 	void	*win_ptr;
 	t_img	img;
 }	t_mlx;
-
-typedef struct s_sphere
-{
-	t_point center;
-	double	radius;
-	t_color	color;
-}	t_sphere;
-
-typedef struct s_cylinder
-{
-	t_point center;
-	t_vec3	vector;
-	double	radius;
-	double	height;
-	t_color	color;
-}	t_cylinder;
-
-typedef struct s_plane
-{
-	t_point	center;
-	t_vec3	vector;
-	t_color	color;
-}	t_plane;
 
 typedef struct s_data
 {
