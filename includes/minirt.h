@@ -28,6 +28,7 @@
 # include <unistd.h>
 # include <math.h>
 # include "vec3.h"
+# include "ray.h"
 # include "../libft/libft.h"
 
 typedef struct s_img
@@ -58,11 +59,6 @@ typedef struct s_cam
 	t_point	lower_left_corner;
 }	t_cam;
 
-typedef struct s_ray
-{
-	t_point	origin;
-	t_vec3	direction;
-}	t_ray;
 
 typedef struct s_light
 {
