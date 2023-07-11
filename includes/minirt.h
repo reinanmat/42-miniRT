@@ -29,6 +29,7 @@
 # include <math.h>
 # include "vec3.h"
 # include "ray.h"
+# include "world.h"
 # include "../libft/libft.h"
 
 typedef struct s_img
@@ -46,26 +47,6 @@ typedef struct s_mlx
 	void	*win_ptr;
 	t_img	img;
 }	t_mlx;
-
-typedef struct s_cam
-{
-	double	fov;
-	double	viewport_height;
-	double	viewport_width;
-	double	focal_length;
-	t_point	origin;
-	t_point	horizontal;
-	t_point	vertical;
-	t_point	lower_left_corner;
-}	t_cam;
-
-
-typedef struct s_light
-{
-	t_color	color;
-	t_point	position;
-	double	brightness;
-}	t_light;
 
 typedef struct s_sphere
 {
@@ -89,16 +70,6 @@ typedef struct s_plane
 	t_vec3	vector;
 	t_color	color;
 }	t_plane;
-
-typedef struct s_world
-{
-	t_cam		cam;
-	t_light		light;
-	t_light		ambient_light;
-	t_sphere	*sp;
-	t_cylinder	*cy;
-	t_plane		*pl;
-}	t_world;
 
 typedef struct s_data
 {
