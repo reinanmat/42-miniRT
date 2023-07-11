@@ -6,11 +6,28 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/14 12:22:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:26:47 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
+
+void	print_hittable(t_hittable **hittable)
+{
+	t_hittable	*aux;
+
+	aux = *hittable;
+	while (aux)
+	{
+		if (aux->type == 1)
+		{
+			print_point(aux->sp->center);
+			print_point(aux->sp->color);
+			printf("%f\n", aux->sp->radius);
+		}
+		aux = aux->next;
+	}
+}
 
 void	print_point(t_point point)
 {
