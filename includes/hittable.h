@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:13:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/11 17:14:15 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:17:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define HITTABLE_H
 
 # include "objects.h"
+
+typedef struct s_range
+{
+	double min;
+	double max;
+}	t_range;
 
 typedef struct s_hit
 {
