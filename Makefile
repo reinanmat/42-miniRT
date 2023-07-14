@@ -10,6 +10,7 @@ FILES =			main \
 				ray \
 				objects \
 				hittable/hit \
+				hittable/hit_sphere \
 				hittable/hittable_lst \
 				mlx/mlx_hooks \
 				vec_operations/basic_operations \
