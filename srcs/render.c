@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/10 13:31:24 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:30:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_color	calculate_ray_color(int x, int y, t_world world)
 	t_ray	ray;
 	t_color	color;
 
-	u = (double)x / (WIDTH - 1);
-	v = (double)y / (HEIGHT - 1);
+	u = (double)x / WIDTH;
+	v = (double)y / HEIGHT;
 	ray = get_ray(u, v, world.cam);
 	color = ray_color(ray, world);
 	return (color);
@@ -30,25 +30,19 @@ void	render_world(t_world world, t_mlx mlx)
 {
 	int		x;
 	int		y;
-	int		i;
-	int		j;
 	t_color	ray_color;
 
-	j = HEIGHT - 1;
-	y = 0;
-	while (j >= 0)
+	y = HEIGHT;
+	while (y >= 0)
 	{
-		i = 0;
 		x = 0;
-		while (i < WIDTH - 1)
+		while (x <= WIDTH)
 		{
-			ray_color = calculate_ray_color(i, j, world);
-			mlx_img_pix_put(&mlx.img, x, y, get_color(ray_color));
+			ray_color = calculate_ray_color(x, y, world);
+			mlx_img_pix_put(&mlx.img, x, HEIGHT - y, get_color(ray_color));
 			x++;
-			i++;
 		}
-		y++;
-		j--;
+		y--;
 	}
 }
 
