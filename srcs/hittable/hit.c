@@ -6,45 +6,27 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:12:09 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/11 17:44:44 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:12:49 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-double	hit_sphere(t_sphere sphere, t_ray ray)
+int	hit_anything(t_hittable *objects, t_ray ray, t_range range, t_hit *hit)
 {
-	double	a;
-	double	b;
-	double	c;
-	double	discriminant;
-	t_point	oc;
+	int		hit_anything;
+	t_hit	tmp_hit;
 
-	oc = minus(ray.origin, sphere.center);
-	a = length_square(ray.direction);
-	b = dot(oc, ray.direction);
-	c = length_square(oc) - sphere.radius * sphere.radius;
-	discriminant = b * b - a * c;
-	if (discriminant < 0)
-		return (-1.0);
-	else
-		return ((-b - sqrt(discriminant)) / a);
-}
-
-double	hittable(t_hittable **objects, t_ray ray)
-{
-	double		t;
-	t_hittable	*aux;
-
-	t = -1.0;
-	aux = *objects;
-	while (aux)
+	hit_anything = 0;
+	while (objects)
 	{
-		if (aux->type == 1)
-			t = hit_sphere(*aux->sp, ray);
-		if (t > 0)
-			break ;
-		aux = aux->next;
+		if (objects->type == 1 && hit_sphere(*objects->sp, ray, range, &tmp_hit))
+		{
+			hit_anything = 1;
+			range.max = tmp_hit.t;
+			*hit = tmp_hit;
+		}
+		objects = objects->next;
 	}
-	return (t);
+	return (hit_anything);
 }
