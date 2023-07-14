@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/11 17:45:15 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:23:30 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ t_cam	init_cam(void)
 	double	vertical_fov;
 	double	vertical_fov_radians;
 
-	vertical_fov = 90.0;
+	vertical_fov = 120.0;
 	vertical_fov_radians = vertical_fov * PI / 180.0;
 	aspect_ratio = 16.0 / 9.0;
 	cam.viewport_height = 2.0 * tan(vertical_fov_radians / 2.0);
 	cam.viewport_width = cam.viewport_height * aspect_ratio;
-	cam.focal_length = 0.5;
+	cam.focal_length = 1.0;
 	cam.origin = (t_point){0, 0, 0};
 	cam.horizontal = (t_point){cam.viewport_width, 0, 0};
 	cam.vertical = (t_point){0, cam.viewport_height, 0};
@@ -69,20 +69,14 @@ t_light	init_light(t_color color)
 t_hittable	*add_objects(void)
 {
 	t_hittable	*objects;
+	t_sphere	*sp1;
+	t_sphere	*floor;
 
-	hittable_add(1, sp((t_point){0, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){-1, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){1, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){1, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){-1, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){0, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){0, -1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){-1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){-1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){0, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){0, 1, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
-	hittable_add(1, sp((t_point){1, 0, -1}, 0.75, (t_point){0, 0, 1}), &objects);
+	objects = NULL;
+	sp1 = sp((t_point){0, 0, -1}, 0.75, (t_color){0, 0, 1});
+	floor = sp((t_point){0, -1000.5, 0}, 999.5, (t_color){0, 0, 1});
+	hittable_add(1, sp1, &objects);
+	hittable_add(1, floor, &objects);
 	return (objects);
 }
 
