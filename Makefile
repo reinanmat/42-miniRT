@@ -34,6 +34,7 @@ FILES =			main \
 				file_parsing/parse_aux_functions/is_valid_sphere \
 				file_parsing/parse_aux_functions/is_valid_plane \
 				file_parsing/parse_aux_functions/is_valid_cylinder \
+				file_parsing/parse_aux_functions/is_valid_rgb_set \
 				aux_functions/reset_fd
 
 

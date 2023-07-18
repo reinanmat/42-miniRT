@@ -87,5 +87,6 @@ int		is_valid_light(char **params, int number_of_params);
 int		is_valid_sphere(char **params, int number_of_params);
 int		is_valid_plane(char **params, int number_of_params);
 int		is_valid_cylinder(char **params, int number_of_params);
+int		is_valid_rgb_set(const char *str);
 
 #endif
