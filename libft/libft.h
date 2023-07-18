@@ -106,6 +106,7 @@ int			ft_strcmp(const char *s1, const char *s2);
 long int	ft_labs(long int i);
 long int	ft_latoi(const char *nptr);
 void		ft_free(void *ptr);
+char		**ft_split_whitespaces(char const *s);
 double		ft_atof(const char *str);
 
 #endif
