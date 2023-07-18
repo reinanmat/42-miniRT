@@ -17,6 +17,12 @@ FILES =			main \
 				utils_tests \
 				file_parsing/parse \
 				file_parsing/parse_aux_functions/is_valid_identifier \
+				file_parsing/parse_aux_functions/is_valid_ambient_lightning \
+				file_parsing/parse_aux_functions/is_valid_camera \
+				file_parsing/parse_aux_functions/is_valid_light \
+				file_parsing/parse_aux_functions/is_valid_sphere \
+				file_parsing/parse_aux_functions/is_valid_plane \
+				file_parsing/parse_aux_functions/is_valid_cylinder \
 				aux_functions/reset_fd
 
 

@@ -113,5 +113,11 @@ int		reset_fd(int fd, char *filename);
 //file parsing
 int		received_invalid_param(char *filename);
 int		is_valid_identifier(char *identifier);
+int		is_valid_ambient_lightning(char **params, int number_of_params);
+int		is_valid_camera(char **params, int number_of_params);
+int		is_valid_light(char **params, int number_of_params);
+int		is_valid_sphere(char **params, int number_of_params);
+int		is_valid_plane(char **params, int number_of_params);
+int		is_valid_cylinder(char **params, int number_of_params);
 
 #endif
