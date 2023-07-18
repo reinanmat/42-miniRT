@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:02:44 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/07 18:43:41 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:32:03 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -106,5 +106,6 @@ int			ft_strcmp(const char *s1, const char *s2);
 long int	ft_labs(long int i);
 long int	ft_latoi(const char *nptr);
 void		ft_free(void *ptr);
+double		ft_atof(const char *str);
 
 #endif
