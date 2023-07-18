@@ -55,6 +55,29 @@ char	*get_file_content(int fd, char *filename)
 	return (file_content);
 }
 
+int	has_invalid_identifier(char **lines)
+{
+	int		i;
+	char	**splitted_identifer;
+
+	i = 0;
+	while (lines[i])
+	{
+		splitted_identifer = ft_split(lines[i], ' ');
+		if (!is_valid_identifier(splitted_identifer[0]))
+		{
+			ft_putstr_fd("Invalid identifier '", 2);
+			ft_putstr_fd(splitted_identifer[0], 2);
+			ft_putstr_fd("' not supported.\n", 2);
+			ft_free_matrix((void **)splitted_identifer);
+			return (1);
+		}
+		ft_free_matrix((void **)splitted_identifer);
+		i++;
+	}
+	return (0);
+}
+
 int	received_invalid_param(char *filename)
 {
 	int	fd;
