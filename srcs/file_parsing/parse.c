@@ -78,6 +78,32 @@ int	has_invalid_identifier(char **lines)
 	return (0);
 }
 
+int	file_content_is_valid(int fd, char *filename)
+{
+	char	**lines;
+	char	*file_content;
+
+	file_content = get_file_content(fd, filename);
+	if (!file_content)
+		return (0);
+	lines = ft_split(file_content, '\n');
+	free(file_content);
+	trim_lines(lines);
+	if (!expected_number_of_identifiers(lines))
+	{
+		ft_putstr_fd("Unexpected number of identifiers.\n", 2);
+		ft_free_matrix((void **)lines);
+		return (0);
+	}
+	else if (has_invalid_identifier(lines) || !map_parsed_successfully(lines))
+	{
+		ft_free_matrix((void **)lines);
+		return (0);
+	}
+	ft_free_matrix((void **)lines);
+	return (1);
+}
+
 int	received_invalid_param(char *filename)
 {
 	int	fd;
@@ -86,6 +112,8 @@ int	received_invalid_param(char *filename)
 	if (fd == -1)
 		return (1);
 	else if (!file_ends_with_rt(filename))
+		return (1);
+	else if (!file_content_is_valid(fd, filename))
 		return (1);
 	return (0);
 }

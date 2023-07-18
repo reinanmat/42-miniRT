@@ -66,6 +66,9 @@ fclean: clean
 	rm -f $(NAME)
 	make -C $(LIBFT_PATH) fclean --no-print-directory
 
+valg:
+	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes ./miniRT file.rt
+
 re: fclean all
 
 .PHONY: all clean fclean re
