@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/18 18:42:48 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/18 19:23:43 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ int		reset_fd(int fd, char *filename);
 
 //file parsing
 int		received_invalid_param(char *filename);
+int		is_valid_identifier(char *identifier);
 
 #endif
