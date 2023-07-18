@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/27 21:50:16 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:42:48 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ t_point	at(t_ray ray, double t);
 //utils
 void	print_point(t_point point);
 void	print_cam(t_cam cam);
+int		reset_fd(int fd, char *filename);
 
 //file parsing
 int		received_invalid_param(char *filename);
