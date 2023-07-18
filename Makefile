@@ -25,6 +25,7 @@ FILES =			main \
 				mlx/mlx_create_window \
 				utils_tests \
 				file_parsing/parse \
+				file_parsing/parse_aux_functions/trim_lines \
 				file_parsing/parse_aux_functions/is_valid_identifier \
 				file_parsing/parse_aux_functions/is_valid_ambient_lightning \
 				file_parsing/parse_aux_functions/is_valid_camera \
