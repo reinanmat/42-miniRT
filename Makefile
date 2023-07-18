@@ -25,7 +25,9 @@ FILES =			main \
 				mlx/mlx_create_window \
 				utils_tests \
 				file_parsing/parse \
+				file_parsing/parse_aux_functions/is_valid_identifier \
 				aux_functions/reset_fd
+
 
 
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))
