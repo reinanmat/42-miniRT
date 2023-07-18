@@ -112,6 +112,7 @@ int		reset_fd(int fd, char *filename);
 
 //file parsing
 int		received_invalid_param(char *filename);
+int		expected_number_of_identifiers(char **lines);
 void	trim_lines(char **lines);
 int		is_valid_identifier(char *identifier);
 int		is_valid_ambient_lightning(char **params, int number_of_params);
