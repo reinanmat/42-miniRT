@@ -127,6 +127,7 @@ int		set_contain_only_numbers(const char *str);
 int		is_valid_rgb_set(const char *str);
 int		is_valid_lighting_ratio(const char *str);
 int		expected_number_of_fields(const char *str, int expected_fields);
+int		is_valid_3d_normalized_vec(const char *str);
 int		count_dots(const char *str);
 
 #endif
