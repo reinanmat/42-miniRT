@@ -39,6 +39,7 @@ FILES =			main \
 				file_parsing/parse_aux_functions/is_valid_rgb_set \
 				file_parsing/parse_aux_functions/set_contain_only_numbers \
 				file_parsing/parse_aux_functions/is_valid_lighting_ratio \
+				file_parsing/parse_aux_functions/is_valid_coordinates \
 				file_parsing/parse_aux_functions/expected_number_of_fields \
 				file_parsing/parse_aux_functions/is_valid_3d_normalized_vec \
 				file_parsing/parse_aux_functions/count_dots \
