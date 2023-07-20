@@ -1,21 +1,22 @@
-NAME = 			miniRT
 
+NAME = 			miniRT
 SRCS_PATH =		./srcs
 OBJS_PATH =		./objs
 LIBFT_PATH =	./libft
 
 FILES =			main \
 				render \
-				color \
 				ray \
 				objects \
 				hittable/hit \
 				hittable/hit_sphere \
 				hittable/hittable_lst \
+				vectors/basic_operations \
+				vectors/scalar_operations \
+				vectors/extra_operations \
+				color/color \
+				color/gradient_color \
 				mlx/mlx_hooks \
-				vec_operations/basic_operations \
-				vec_operations/scalar_operations \
-				vec_operations/extra_operations \
 				mlx/mlx_create_img \
 				mlx/mlx_img_pix_put \
 				mlx/mlx_close_window \
