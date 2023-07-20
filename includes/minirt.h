@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/20 14:59:10 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:07:06 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int		expected_number_of_identifiers(char **lines);
 void	trim_lines(char **lines);
 int		map_parsed_successfully(char **lines);
 int		is_valid_identifier(char *identifier);
-int		is_valid_ambient_lightning(char **params, int number_of_params);
+int		is_valid_ambient_lighting(char **params, int number_of_params);
 int		is_valid_camera(char **params, int number_of_params);
 int		is_valid_light(char **params, int number_of_params);
 int		is_valid_sphere(char **params, int number_of_params);
