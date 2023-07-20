@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/20 15:21:58 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/20 18:07:10 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ int		is_number(const char *str);
 int		set_contain_only_numbers(const char *str);
 int		is_valid_rgb_set(const char *str);
 int		is_valid_lighting_ratio(const char *str);
+int		expected_number_of_fields(const char *str, int expected_fields);
 int		count_dots(const char *str);
 
 #endif
