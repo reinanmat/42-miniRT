@@ -6,8 +6,9 @@ LIBFT_PATH =	./libft
 
 FILES =			main \
 				render \
-				ray \
 				objects \
+				ray/ray \
+				ray/ray_color \
 				hittable/hit \
 				hittable/hit_sphere \
 				hittable/hittable_lst \
