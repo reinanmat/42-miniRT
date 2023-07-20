@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:43:53 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/20 18:06:51 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:06:05 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
@@ -22,7 +22,7 @@ static int	between_expected_range(const char *str)
 	while (rgb[i])
 	{
 		value = atof(rgb[i]);
-		if (value < 0.0 || value > 1.0)
+		if (value < -1.0 || value > 1.0)
 		{
 			ft_free_matrix((void **)rgb);
 			return (0);
