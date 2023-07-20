@@ -5,6 +5,7 @@ OBJS_PATH =		./objs
 LIBFT_PATH =	./libft
 
 FILES =			main \
+				return_struct \
 				render \
 				objects \
 				ray/ray \
