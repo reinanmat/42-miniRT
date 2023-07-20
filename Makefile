@@ -38,6 +38,7 @@ FILES =			main \
 				file_parsing/parse_aux_functions/is_number \
 				file_parsing/parse_aux_functions/is_valid_rgb_set \
 				file_parsing/parse_aux_functions/set_contain_only_numbers \
+				file_parsing/parse_aux_functions/is_valid_lightning_ratio \
 				aux_functions/reset_fd
 
 

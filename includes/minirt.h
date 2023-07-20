@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/21 18:04:48 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:06:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ int		is_valid_cylinder(char **params, int number_of_params);
 int		is_number(const char *str);
 int		set_contain_only_numbers(const char *str);
 int		is_valid_rgb_set(const char *str);
+int		is_valid_lighting_ratio(const char *str);
 
 #endif
