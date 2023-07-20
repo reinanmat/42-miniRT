@@ -29,7 +29,7 @@ FILES =			main \
 				file_parsing/parse_aux_functions/expected_number_of_identifiers \
 				file_parsing/parse_aux_functions/trim_lines \
 				file_parsing/parse_aux_functions/is_valid_identifier \
-				file_parsing/parse_aux_functions/is_valid_ambient_lightning \
+				file_parsing/parse_aux_functions/is_valid_ambient_lighting \
 				file_parsing/parse_aux_functions/is_valid_camera \
 				file_parsing/parse_aux_functions/is_valid_light \
 				file_parsing/parse_aux_functions/is_valid_sphere \
@@ -38,7 +38,7 @@ FILES =			main \
 				file_parsing/parse_aux_functions/is_number \
 				file_parsing/parse_aux_functions/is_valid_rgb_set \
 				file_parsing/parse_aux_functions/set_contain_only_numbers \
-				file_parsing/parse_aux_functions/is_valid_lightning_ratio \
+				file_parsing/parse_aux_functions/is_valid_lighting_ratio \
 				aux_functions/reset_fd
 
 

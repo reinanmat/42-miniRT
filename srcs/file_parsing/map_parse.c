@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:31:39 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/18 17:19:36 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:07:39 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -17,7 +17,7 @@ int	parse_element(char *identifier, char **element)
 
 	number_of_params = ft_count_matrix((void **) element + 1);
 	if (ft_strcmp(identifier, "A") == 0)
-		return (is_valid_ambient_lightning(element, number_of_params));
+		return (is_valid_ambient_lighting(element, number_of_params));
 	else if (ft_strcmp(identifier, "C") == 0)
 		return (is_valid_camera(element, number_of_params));
 	else if (ft_strcmp(identifier, "L") == 0)
