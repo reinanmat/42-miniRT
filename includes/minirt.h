@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/21 18:32:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:35:05 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct s_data
 }	t_data;
 
 //render
-int		render(t_data data, int height);
+int		render(t_data data);
 
 //hit
 int		hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit);
