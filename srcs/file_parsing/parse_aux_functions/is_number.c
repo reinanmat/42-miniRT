@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:31:28 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/20 16:47:55 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/21 12:20:48 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
@@ -34,7 +34,7 @@ int is_number(const char *str)
 		post_dot_count++;
 		str++;
 	}
-	if (post_dot_count == 0 || digit_count == 0 || *str != '\0')
+	if (digit_count == 0 || *str != '\0')
 		return (0);
 	return (1);
 }
