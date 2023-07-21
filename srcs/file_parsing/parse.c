@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:04:20 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/18 19:14:31 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/21 12:18:51 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -63,7 +63,7 @@ int	has_invalid_identifier(char **lines)
 	i = 0;
 	while (lines[i])
 	{
-		splitted_identifer = ft_split(lines[i], ' ');
+		splitted_identifer = ft_split_whitespaces(lines[i]);
 		if (!is_valid_identifier(splitted_identifer[0]))
 		{
 			ft_putstr_fd("Invalid identifier '", 2);
