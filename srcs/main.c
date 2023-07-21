@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/21 18:29:43 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:58:46 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ t_world	init_world(void)
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	int		height;
 
 	if (argc != 2)
 		exit (1);
@@ -102,7 +101,6 @@ int	main(int argc, char **argv)
 		exit(1);
 	printf("Success\n");
 	exit(0);
-	height = (WIDTH / 16) * 9;
 	data.mlx = init_mlx();
 	data.world = init_world();
 	render(data);
