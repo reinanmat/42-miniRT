@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:31:39 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/20 15:07:39 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:59:39 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -46,6 +46,7 @@ int	map_parsed_successfully(char **lines)
 			ft_free_matrix((void **)line_to_parse);
 			return (0);
 		}
+		ft_free_matrix((void **)line_to_parse);
 		i++;
 	}
 	return (1);

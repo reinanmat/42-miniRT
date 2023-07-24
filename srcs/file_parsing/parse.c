@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:04:20 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/21 12:18:51 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:56:29 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -21,17 +21,18 @@ int	file_opened_successfully(char *filename)
 	return (fd);
 }
 
-int	file_ends_with_rt(char *filename)
+int	file_ends_with_rt(int fd, char *filename)
 {
 	int		len;
 	char	*file_extension;
 
 	len = ft_strlen(filename);
 	file_extension = ft_strrchr(filename, '.');
-	if (len < 4 || !file_extension)
+	if (len < 4 || !file_extension || ft_strcmp(file_extension, ".rt") != 0)
+	{
+		close(fd);
 		return (0);
-	else if (ft_strcmp(file_extension, ".rt") != 0)
-		return (0);
+	}
 	return (1);
 }
 
@@ -51,7 +52,7 @@ char	*get_file_content(int fd, char *filename)
 	new_fd = reset_fd(fd, filename);
 	read(new_fd, file_content, i);
 	file_content[i] = '\0';
-	reset_fd(fd, filename);
+	close(fd);
 	return (file_content);
 }
 
@@ -111,7 +112,7 @@ int	received_invalid_param(char *filename)
 	fd = file_opened_successfully(filename);
 	if (fd == -1)
 		return (1);
-	else if (!file_ends_with_rt(filename))
+	else if (!file_ends_with_rt(fd, filename))
 		return (1);
 	else if (!file_content_is_valid(fd, filename))
 		return (1);
