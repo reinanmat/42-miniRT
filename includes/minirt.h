@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/21 18:52:38 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/24 19:16:49 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	mlx_img_pix_put(t_img *img, int x, int y, int color);
 void	print_point(t_point point);
 void	print_cam(t_cam cam);
 int		reset_fd(int fd, char *filename);
+void	assign_t_point(t_point *coordinate, char *param);
 
 //file parsing
 int		received_invalid_param(char *filename);
