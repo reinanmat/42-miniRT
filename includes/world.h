@@ -43,4 +43,6 @@ typedef struct s_world
 	t_hittable	*objects;
 }	t_world;
 
+t_world	init_world(char *filename);
+
 #endif
