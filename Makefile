@@ -79,8 +79,8 @@ fclean: clean
 	rm -f $(NAME)
 	make -C $(LIBFT_PATH) fclean --no-print-directory
 
-valg:
-	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes ./miniRT file.rt
+valg: $(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes ./miniRT $(param1)
 
 re: fclean all
 
