@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:58:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/11 14:45:26 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/24 19:12:50 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_cam
 	double	viewport_height;
 	double	viewport_width;
 	double	focal_length;
-	t_vec3	origin;
+	t_point	coordinate;
 	t_vec3	horizontal;
 	t_vec3	vertical;
 	t_point	lower_left_corner;
@@ -31,7 +31,7 @@ typedef struct s_cam
 typedef struct s_light
 {
 	t_color	color;
-	t_point	position;
+	t_point	coordinate;
 	double	brightness;
 }	t_light;
 
