@@ -44,6 +44,7 @@ FILES =			main \
 				file_parsing/parse_aux_functions/is_valid_3d_normalized_vec \
 				file_parsing/parse_aux_functions/count_dots \
 				aux_functions/reset_fd \
+				aux_functions/get_file_content \
 				aux_functions/assign_t_point
 
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))

@@ -75,6 +75,7 @@ void	mlx_img_pix_put(t_img *img, int x, int y, int color);
 void	print_point(t_point point);
 void	print_cam(t_cam cam);
 int		reset_fd(int fd, char *filename);
+char	*get_file_content(int fd, char *filename);
 void	assign_t_point(t_point *coordinate, char *param);
 
 //file parsing
