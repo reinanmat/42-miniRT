@@ -76,6 +76,7 @@ void	print_point(t_point point);
 void	print_cam(t_cam cam);
 int		reset_fd(int fd, char *filename);
 char	*get_file_content(int fd, char *filename);
+char	**get_splitted_identifier(char **lines, char *identifier);
 void	assign_t_point(t_point *coordinate, char *param);
 
 //file parsing
