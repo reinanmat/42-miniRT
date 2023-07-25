@@ -36,11 +36,17 @@ typedef struct s_light
 	double	brightness;
 }	t_light;
 
+typedef struct s_amb_light
+{
+	t_color	color;
+	double	light_ratio;
+}	t_amb_light;
+
 typedef struct s_world
 {
 	t_cam		cam;
 	t_light		light;
-	t_light		ambient_light;
+	t_amb_light	ambient_light;
 	t_hittable	*objects;
 }	t_world;
 

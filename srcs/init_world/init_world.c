@@ -49,6 +49,18 @@ static t_cam	init_cam(char **lines)
 	return (cam);
 }
 
+static t_amb_light	init_ambient_light(char **lines)
+{
+	t_amb_light	amb_light;
+	char		**config;
+
+	config = get_splitted_identifier(lines, "A");
+	amb_light.light_ratio = ft_atof(config[1]);
+	assign_t_point(&amb_light.color, config[2]);
+	ft_free_matrix((void **)config);
+	return (amb_light);
+}
+
 t_world	init_world(char *filename)
 {
 	int			fd;
@@ -62,6 +74,7 @@ t_world	init_world(char *filename)
 	free(file_content);
 	trim_lines(lines);
 	world.cam = init_cam(lines);
+	world.ambient_light = init_ambient_light(lines);
 	ft_free_matrix((void **)lines);
 	return (world);
 }
