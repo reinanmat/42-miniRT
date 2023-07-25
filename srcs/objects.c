@@ -36,10 +36,13 @@ t_cylinder	*cylinder(char **config)
 	return (cy);
 }
 
-t_plane	*pl(void)
+t_plane	*plane(char **config)
 {
 	t_plane	*pl;
 
-	pl = NULL;
+	pl = malloc(sizeof(t_plane));
+	assign_t_point(&pl->center, config[1]);
+	assign_t_point(&pl->vector, config[2]);
+	assign_t_point(&pl->color, config[3]);
 	return (pl);
 }
