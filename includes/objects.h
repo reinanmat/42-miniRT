@@ -39,5 +39,6 @@ typedef struct s_plane
 }	t_plane;
 
 t_sphere	*sphere(char **config);
+t_cylinder	*cylinder(char **config);
 
 #endif

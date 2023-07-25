@@ -23,11 +23,16 @@ t_sphere	*sphere(char **config)
 	return (sp);
 }
 
-t_cylinder	*cy(void)
+t_cylinder	*cylinder(char **config)
 {
 	t_cylinder	*cy;
 
-	cy = NULL;
+	cy = malloc(sizeof(t_cylinder));
+	cy->height = ft_atof(config[4]);
+	cy->diameter = ft_atof(config[3]);
+	assign_t_point(&cy->color, config[5]);
+	assign_t_point(&cy->center, config[1]);
+	assign_t_point(&cy->vector, config[2]);
 	return (cy);
 }
 
