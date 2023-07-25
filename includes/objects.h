@@ -38,6 +38,6 @@ typedef struct s_plane
 	t_color	color;
 }	t_plane;
 
-t_sphere	*sp(t_point center, double radius, t_color color);
+t_sphere	*sphere(char **config);
 
 #endif

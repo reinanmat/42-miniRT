@@ -6,20 +6,20 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/11 17:41:31 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/25 19:38:37 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-t_sphere	*sp(t_point center, double radius, t_color color)
+t_sphere	*sphere(char **config)
 {
 	t_sphere	*sp;
 
-	sp = ft_calloc(sizeof(t_sphere), 1);
-	sp->center = center;
-	sp->radius = radius;
-	sp->color = color;
+	sp = malloc(sizeof(t_sphere));
+	sp->radius = ft_atof(config[2]) / 2;
+	assign_t_point(&sp->color, config[3]);
+	assign_t_point(&sp->center, config[1]);
 	return (sp);
 }
 
