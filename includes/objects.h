@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/11 16:37:04 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/25 19:38:26 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_cylinder
 {
 	t_point	center;
 	t_vec3	vector;
-	double	radius;
+	double	diameter;
 	double	height;
 	t_color	color;
 }	t_cylinder;
