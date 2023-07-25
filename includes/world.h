@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:58:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/24 19:12:50 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/25 18:52:34 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_cam
 	double	viewport_width;
 	double	focal_length;
 	t_point	coordinate;
+	t_vec3	orientation_vec;
 	t_vec3	horizontal;
 	t_vec3	vertical;
 	t_point	lower_left_corner;

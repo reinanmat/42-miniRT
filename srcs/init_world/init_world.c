@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/24 19:23:29 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/25 18:58:12 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -34,13 +34,14 @@ static t_cam	init_cam(char **lines)
 	double	vertical_fov_radians;
 
 	config = get_splitted_identifier(lines, "C");
-	vertical_fov = ft_atof(config[3]);;
+	vertical_fov = ft_atof(config[3]);
 	vertical_fov_radians = vertical_fov * PI / 180.0;
 	aspect_ratio = 16.0 / 9.0;
 	cam.viewport_height = 2.0 * tan(vertical_fov_radians / 2.0);
 	cam.viewport_width = cam.viewport_height * aspect_ratio;
 	cam.focal_length = 1.0;
 	assign_t_point(&cam.coordinate, config[1]);
+	assign_t_point(&cam.orientation_vec, config[2]);
 	cam.horizontal = (t_point){cam.viewport_width, 0, 0};
 	cam.vertical = (t_point){0, cam.viewport_height, 0};
 	cam.lower_left_corner = get_lower_left_corner(cam);
