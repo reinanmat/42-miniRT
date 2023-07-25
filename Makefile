@@ -45,6 +45,7 @@ FILES =			main \
 				file_parsing/parse_aux_functions/count_dots \
 				init_world/init_world \
 				init_world/get_splitted_identifier \
+				init_world/init_objects \
 				aux_functions/reset_fd \
 				aux_functions/get_file_content \
 				aux_functions/assign_t_point

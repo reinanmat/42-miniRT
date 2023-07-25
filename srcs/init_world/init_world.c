@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/25 18:58:12 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/25 19:50:38 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -88,6 +88,7 @@ t_world	init_world(char *filename)
 	world.cam = init_cam(lines);
 	world.ambient_light = init_ambient_light(lines);
 	world.light = init_light(lines);
+	world.objects = init_objects(lines);
 	ft_free_matrix((void **)lines);
 	return (world);
 }

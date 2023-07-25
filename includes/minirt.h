@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/24 19:16:49 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/25 19:40:45 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,8 @@ int		is_valid_coordinates(const char *str);
 int		expected_number_of_fields(const char *str, int expected_fields);
 int		is_valid_3d_normalized_vec(const char *str);
 int		count_dots(const char *str);
+
+//init
+t_hittable	*init_objects(char **lines);
 
 #endif
