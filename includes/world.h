@@ -31,7 +31,6 @@ typedef struct s_cam
 
 typedef struct s_light
 {
-	t_color	color;
 	t_point	coordinate;
 	double	brightness;
 }	t_light;
