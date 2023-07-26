@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:31:26 by revieira          #+#    #+#             */
-/*   Updated: 2023/06/26 20:19:53 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:11:21 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void	mlx_create_window(t_mlx *mlx)
 {
-	int	height;
-
-	height = (WIDTH / 16) * 9;
 	mlx->mlx_ptr = mlx_init();
 	if (!mlx->mlx_ptr)
 		return ;
-	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIDTH, height, WINDOW_NAME);
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIDTH, HEIGHT, WINDOW_NAME);
 	if (!mlx->win_ptr)
 	{
 		ft_free(mlx->mlx_ptr);
