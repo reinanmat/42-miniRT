@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:13:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/26 14:19:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:41:51 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	close_program(t_data *data)
 {
 	mlx_close_window(&data->mlx);
-	clean_hittable(&data->world.objects);	
+	clean_hittable(&data->world.objects);
 	exit(0);
 }
 
