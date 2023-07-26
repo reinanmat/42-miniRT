@@ -13,6 +13,7 @@ FILES =			main \
 				hittable/hit \
 				hittable/hit_sphere \
 				hittable/hittable_lst \
+				hittable/clean_hittable \
 				vectors/basic_operations \
 				vectors/scalar_operations \
 				vectors/extra_operations \
