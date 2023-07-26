@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:13:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/25 19:31:58 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:07:39 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_hit
 	t_point	point;
 	t_vec3	normal;
 	double	t;
+	t_color	color;
 }	t_hit;
 
 typedef struct s_hittable

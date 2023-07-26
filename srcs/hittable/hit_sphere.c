@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:43:39 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/14 18:11:19 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:21:24 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ int	hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit)
 	hit->t = root;
 	hit->point = at(ray, root);
 	hit->normal = set_face_normal(ray, hit->point, sphere);
+	hit->color = sphere.color;
 	return (1);
 }
