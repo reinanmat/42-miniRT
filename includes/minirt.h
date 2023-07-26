@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/25 19:40:45 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:18:14 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		hit_anything(t_hittable *objects, t_ray ray, t_range range, t_hit *hit);
 void	mlx_close_window(t_mlx *mlx);
 void	mlx_create_img(t_mlx *mlx);
 void	mlx_create_window(t_mlx *mlx);
-void	mlx_hooks(t_mlx *mlx);
+void	mlx_hooks(t_data *data);
 void	mlx_img_pix_put(t_img *img, int x, int y, int color);
 
 //utils
