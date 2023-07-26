@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:05 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/20 13:25:21 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:31:23 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	get_color(t_color color)
 	int	g;
 	int	b;
 
-	r = color.x * 255.999;
-	g = color.y * 255.999;
-	b = color.z * 255.999;
+	r = color.x;
+	g = color.y;
+	b = color.z;
 	return (r << 16 | g << 8 | b);
 }
