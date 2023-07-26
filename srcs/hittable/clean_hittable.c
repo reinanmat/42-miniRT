@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:37:54 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/11 17:43:29 by revieira         ###   ########.fr       */
+/*   Updated: 2023/07/26 16:00:15 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	clean_hittable(t_hittable **hittable_lst)
 	next = *hittable_lst;
 	while (next)
 	{
-		next = curr->next;
+		curr = next;
+		next = next->next;
 		ft_free(curr->sp);
 		ft_free(curr->cy);
 		ft_free(curr->pl);

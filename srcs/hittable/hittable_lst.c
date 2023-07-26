@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:33:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/25 19:31:48 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:57:12 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	add_sphere(t_sphere *sp, t_hittable **hittable_lst)
 	new_node = ft_calloc(sizeof(t_hittable), 1);
 	new_node->type = 1;
 	new_node->sp = sp;
+	new_node->cy = NULL;
+	new_node->pl = NULL;
 	new_node->next = NULL;
 	add_node(new_node, hittable_lst);
 }
@@ -45,6 +47,8 @@ void	add_cylinder(t_cylinder *cy, t_hittable **hittable_lst)
 	new_node = ft_calloc(sizeof(t_hittable), 1);
 	new_node->type = 2;
 	new_node->cy = cy;
+	new_node->sp = NULL;
+	new_node->pl = NULL;
 	new_node->next = NULL;
 	add_node(new_node, hittable_lst);
 }
@@ -56,6 +60,8 @@ void	add_plane(t_plane *pl, t_hittable **hittable_lst)
 	new_node = ft_calloc(sizeof(t_hittable), 1);
 	new_node->type = 3;
 	new_node->pl = pl;
+	new_node->sp = NULL;
+	new_node->cy = NULL;
 	new_node->next = NULL;
 	add_node(new_node, hittable_lst);
 }
