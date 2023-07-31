@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/28 19:25:59 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:18:56 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -30,6 +30,7 @@ void	mount_line(t_matrix	*a, int curr_row, int row, t_matrix cpy)
 		col++;
 	}
 }
+
 
 t_matrix	submatrix(t_matrix a, int row, int col)
 {
@@ -58,6 +59,14 @@ t_matrix	submatrix(t_matrix a, int row, int col)
 		k++;
 	}
 	return (s_a);
+}
+
+int			minor(t_matrix a, int row, int col)
+{
+	t_matrix	sub;
+
+	sub = submatrix(a, row, col);
+	return (sub.matr[0][0] * sub.matr[1][1] - sub.matr[0][1] * sub.matr[1][0]);
 }
 
 t_matrix	transpose_matrix(t_matrix a)
@@ -153,28 +162,19 @@ int main(void)
 {
 	t_matrix	matrix;
 
-	matrix.matr[0][0] = -6;
-	matrix.matr[0][1] = 1;
-	matrix.matr[0][2] = 1;
-	matrix.matr[0][3] = 6;
+	matrix.matr[0][0] = 3;
+	matrix.matr[0][1] = 5;
+	matrix.matr[0][2] = 0;
 
-	matrix.matr[1][0] = -8;
-	matrix.matr[1][1] = 5;
-	matrix.matr[1][2] = 8;
-	matrix.matr[1][3] = 6;
+	matrix.matr[1][0] = 2;
+	matrix.matr[1][1] = -1;
+	matrix.matr[1][2] = -7;
 
-	matrix.matr[2][0] = -1;
-	matrix.matr[2][1] = 0;
-	matrix.matr[2][2] = 8;
-	matrix.matr[2][3] = 2;
+	matrix.matr[2][0] = 6;
+	matrix.matr[2][1] = -1;
+	matrix.matr[2][2] = 5;
 
-	matrix.matr[3][0] = -7;
-	matrix.matr[3][1] = 1;
-	matrix.matr[3][2] = -1;
-	matrix.matr[3][3] = 1;
-	matrix.rows = 4;
-	matrix.cols = 4;
-	t_matrix matr2 = submatrix(matrix, 3, 3);
-	printf("\n\n");
-	print_matrix2(submatrix(matr2, 2, 2));
+	matrix.rows = 3;
+	matrix.cols = 3;
+	printf("%d\n", minor(matrix, 1, 0));
 }
