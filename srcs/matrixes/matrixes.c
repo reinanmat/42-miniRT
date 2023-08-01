@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/01 13:56:14 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/01 16:41:39 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -18,6 +18,8 @@ typedef struct s_matrix
 	int		rows;
 	int		cols;
 }	t_matrix;
+
+int			determinant(t_matrix a);
 
 t_matrix	submatrix(t_matrix a, int row, int col)
 {
@@ -147,29 +149,92 @@ t_matrix	identity_matrix(void)
 
 int	cofactor(t_matrix a, int row, int col)
 {
-	if (row + col % 2 == 0)
-		return (minor(a, row, col));
-	return (-minor(a, row,col));
+	if (a.rows == 4 && a.cols == 4)
+	{
+		a = submatrix(a, row, col);
+		if (row + col % 2 != 0)
+			return (-determinant(a));
+		return (determinant(a));
+	}
+	if (row + col % 2 != 0)
+		return (-minor(a, row,col));
+	return (minor(a, row, col));
+}
+
+int			determinant(t_matrix a)
+{
+	int	i;
+	t_matrix	bla;
+	int	det;
+
+	i = 0;
+	det = 0;
+	while (i < a.cols)
+	{
+		if (a.rows == 4 && a.cols == 4)
+		{
+			bla = submatrix(a, 0, i);
+			det += a.matr[0][i] * determinant(bla);
+		}
+		else
+			det += a.matr[0][i] * cofactor(a, 0, i);
+		i++;
+	}
+	return (det);
 }
 
 int main(void)
 {
 	t_matrix	matrix;
+	t_matrix	matr2;
 
-	matrix.matr[0][0] = 3;
-	matrix.matr[0][1] = 5;
-	matrix.matr[0][2] = 0;
+	matrix.matr[0][0] = 1;
+	matrix.matr[0][1] = 2;
+	matrix.matr[0][2] = 6;
 
-	matrix.matr[1][0] = 2;
-	matrix.matr[1][1] = -1;
-	matrix.matr[1][2] = -7;
+	matrix.matr[1][0] = -5;
+	matrix.matr[1][1] = 8;
+	matrix.matr[1][2] = -4;
 
-	matrix.matr[2][0] = 6;
-	matrix.matr[2][1] = -1;
-	matrix.matr[2][2] = 5;
+	matrix.matr[2][0] = 2;
+	matrix.matr[2][1] = 6;
+	matrix.matr[2][2] = 4;
 
 	matrix.rows = 3;
 	matrix.cols = 3;
+	printf("---TEST 00----\n");
 	printf("%d\n", cofactor(matrix, 0, 0));
-	printf("%d\n", cofactor(matrix, 1, 0));
+	printf("%d\n", cofactor(matrix, 0, 1));
+	printf("%d\n", cofactor(matrix, 0, 2));
+	printf("determinant: %d\n", determinant(matrix));
+	printf("\n\n");
+
+	matr2.matr[0][0] = -2;
+	matr2.matr[0][1] = -8;
+	matr2.matr[0][2] = 3;
+	matr2.matr[0][3] = 5;
+
+	matr2.matr[1][0] = -3;
+	matr2.matr[1][1] = 1;
+	matr2.matr[1][2] = 7;
+	matr2.matr[1][3] = 3;
+
+	matr2.matr[2][0] = 1;
+	matr2.matr[2][1] = 2;
+	matr2.matr[2][2] = -9;
+	matr2.matr[2][3] = 6;
+
+	matr2.matr[3][0] = -6;
+	matr2.matr[3][1] = 7;
+	matr2.matr[3][2] = 7;
+	matr2.matr[3][3] = -9;
+
+	matr2.rows = 4;
+	matr2.cols = 4;
+	printf("---TEST 01----\n");
+	printf("%d\n", cofactor(matr2, 0, 0));
+	printf("%d\n", cofactor(matr2, 0, 1));
+	printf("%d\n", cofactor(matr2, 0, 2));
+	printf("%d\n", cofactor(matr2, 0, 3));
+	printf("determinant: %d\n", determinant(matr2));
 }
