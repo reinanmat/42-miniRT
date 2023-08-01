@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/31 16:18:56 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/01 13:56:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -18,19 +18,6 @@ typedef struct s_matrix
 	int		rows;
 	int		cols;
 }	t_matrix;
-
-void	mount_line(t_matrix	*a, int curr_row, int row, t_matrix cpy)
-{
-	int	col;
-
-	col = 0;
-	while (col < cpy.cols)
-	{
-		a->matr[curr_row][col] = cpy.matr[row][col];
-		col++;
-	}
-}
-
 
 t_matrix	submatrix(t_matrix a, int row, int col)
 {
@@ -158,6 +145,13 @@ t_matrix	identity_matrix(void)
 	return (matrix);
 }
 
+int	cofactor(t_matrix a, int row, int col)
+{
+	if (row + col % 2 == 0)
+		return (minor(a, row, col));
+	return (-minor(a, row,col));
+}
+
 int main(void)
 {
 	t_matrix	matrix;
@@ -176,5 +170,6 @@ int main(void)
 
 	matrix.rows = 3;
 	matrix.cols = 3;
-	printf("%d\n", minor(matrix, 1, 0));
+	printf("%d\n", cofactor(matrix, 0, 0));
+	printf("%d\n", cofactor(matrix, 1, 0));
 }
