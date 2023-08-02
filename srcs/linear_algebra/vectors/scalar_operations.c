@@ -6,11 +6,11 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:06:54 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 11:22:46 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/02 18:31:05 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minirt.h"
+#include "../../../includes/minirt.h"
 
 t_vec3	s_multiply(t_vec3 a, double n)
 {

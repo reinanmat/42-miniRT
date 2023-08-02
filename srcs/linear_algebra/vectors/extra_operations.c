@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basic_operations.c                                 :+:      :+:    :+:   */
+/*   extra_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 11:01:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/07 11:03:43 by revieira         ###   ########.fr       */
+/*   Created: 2023/06/20 14:33:32 by revieira          #+#    #+#             */
+/*   Updated: 2023/08/02 18:30:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minirt.h"
+#include "../../../includes/minirt.h"
 
-t_vec3	add(t_vec3 a, t_vec3 b)
+double	length_square(t_vec3 a)
 {
-	return ((t_vec3){a.x + b.x, a.y + b.y, a.z + b.z});
+	return (a.x * a.x + a.y * a.y + a.z * a.z);
 }
 
-t_vec3	minus(t_vec3 a, t_vec3 b)
+double	magnitude(t_vec3 a)
 {
-	return ((t_vec3){a.x - b.x, a.y - b.y, a.z - b.z});
+	return (sqrt(length_square(a)));
 }
 
-t_vec3	multiply(t_vec3 a, t_vec3 b)
+t_vec3	normalize(t_vec3 a)
 {
-	return ((t_vec3){a.x * b.x, a.y * b.y, a.z * b.z});
+	return (s_division(a, magnitude(a)));
 }
 
-t_vec3	division(t_vec3 a, t_vec3 b)
+double	dot(t_vec3 a, t_vec3 b)
 {
-	return ((t_vec3){a.x / b.x, a.y / b.y, a.z / b.z});
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
+}
+
+t_vec3	at(t_ray ray, double t)
+{
+	return (add(ray.origin, s_multiply(ray.direction, t)));
 }
