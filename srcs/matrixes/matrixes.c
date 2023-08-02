@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/02 17:00:07 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:13:34 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -201,6 +201,7 @@ t_matrix	inverse(t_matrix a)
 
 	i = -1;
 	det = determinant(a);
+	a = transpose_matrix(a);
 	a_inv.rows = a.rows;
 	a_inv.cols = a.cols;
 	while (++i < a.rows)
@@ -209,8 +210,7 @@ t_matrix	inverse(t_matrix a)
 		while (++j < a.cols)
 		{
 			cof = cofactor(a, i, j);
-			printf("cofactor %d, %d: %d\n", i, j, cof);
-			a_inv.matr[j][i] = ((double) cof) / det;
+			a_inv.matr[i][j] = ((double) cof) / det;
 		}
 	}
 	return (a_inv);
