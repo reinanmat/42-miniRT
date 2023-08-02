@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/01 16:41:39 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/02 14:04:13 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -164,20 +164,13 @@ int	cofactor(t_matrix a, int row, int col)
 int			determinant(t_matrix a)
 {
 	int	i;
-	t_matrix	bla;
 	int	det;
 
 	i = 0;
 	det = 0;
 	while (i < a.cols)
 	{
-		if (a.rows == 4 && a.cols == 4)
-		{
-			bla = submatrix(a, 0, i);
-			det += a.matr[0][i] * determinant(bla);
-		}
-		else
-			det += a.matr[0][i] * cofactor(a, 0, i);
+		det += a.matr[0][i] * cofactor(a, 0, i);
 		i++;
 	}
 	return (det);
