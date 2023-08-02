@@ -17,6 +17,9 @@ FILES =			main \
 				vectors/basic_operations \
 				vectors/scalar_operations \
 				vectors/extra_operations \
+				linear_algebra/matrices/matrix_create \
+				linear_algebra/matrices/matrix_operators \
+				linear_algebra/matrices/matrix_utils \
 				color/color \
 				color/gradient_color \
 				mlx/mlx_hooks \
