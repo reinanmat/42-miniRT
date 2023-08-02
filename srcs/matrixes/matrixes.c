@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/02 15:15:09 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/02 16:48:50 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -152,11 +152,11 @@ int	cofactor(t_matrix a, int row, int col)
 	if (a.rows == 4 && a.cols == 4)
 	{
 		a = submatrix(a, row, col);
-		if (row + col % 2 != 0)
+		if ((row + col) % 2 != 0)
 			return (-determinant(a));
 		return (determinant(a));
 	}
-	if (row + col % 2 != 0)
+	if ((row + col) % 2 != 0)
 		return (-minor(a, row, col));
 	return (minor(a, row, col));
 }
