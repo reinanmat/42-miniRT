@@ -14,9 +14,9 @@ FILES =			main \
 				hittable/hit_sphere \
 				hittable/hittable_lst \
 				hittable/clean_hittable \
-				vectors/basic_operations \
-				vectors/scalar_operations \
-				vectors/extra_operations \
+				linear_algebra/vectors/basic_operations \
+				linear_algebra/vectors/scalar_operations \
+				linear_algebra/vectors/extra_operations \
 				linear_algebra/matrices/matrix_create \
 				linear_algebra/matrices/matrix_operators \
 				linear_algebra/matrices/matrix_utils \
