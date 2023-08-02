@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/02 16:48:50 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:00:07 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -65,6 +65,8 @@ t_matrix	transpose_matrix(t_matrix a)
 	t_matrix	t_a;
 
 	i = 0;
+	t_a.rows = a.rows;
+	t_a.cols = a.cols;
 	while (i < a.rows)
 	{
 		j = 0;
@@ -107,6 +109,8 @@ t_matrix	multiply_matrix(t_matrix a, t_matrix b)
 	t_matrix	c;
 
 	i = 0;
+	c.rows = a.rows;
+	c.cols = b.cols;
 	while (i < a.rows)
 	{
 		j = 0;
