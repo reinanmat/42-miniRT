@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/02 18:18:26 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/02 19:13:40 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,9 @@ int		count_dots(const char *str);
 
 //init
 t_hittable	*init_objects(char **lines);
+
+//linear algebra
+t_matrix	point_to_matrix(t_point point);
+t_point		matrix_to_point(t_matrix a);
 
 #endif

@@ -20,6 +20,7 @@ FILES =			main \
 				linear_algebra/matrices/matrix_create \
 				linear_algebra/matrices/matrix_operators \
 				linear_algebra/matrices/matrix_utils \
+				linear_algebra/conversions \
 				color/color \
 				color/gradient_color \
 				mlx/mlx_hooks \
