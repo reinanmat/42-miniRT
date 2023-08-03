@@ -22,6 +22,7 @@ FILES =			main \
 				linear_algebra/matrices/matrix_utils \
 				linear_algebra/matrices/matrix_transform \
 				linear_algebra/conversions \
+				linear_algebra/transform \
 				color/color \
 				color/gradient_color \
 				mlx/mlx_hooks \
