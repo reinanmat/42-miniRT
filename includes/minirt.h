@@ -107,5 +107,6 @@ t_hittable	*init_objects(char **lines);
 //linear algebra
 t_matrix	point_to_matrix(t_point point);
 t_point		matrix_to_point(t_matrix a);
+t_matrix	translation_matrix(t_point x);
 
 #endif
