@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/02 19:13:40 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/03 15:27:45 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,9 @@ t_matrix	point_to_matrix(t_point point);
 t_point		matrix_to_point(t_matrix a);
 void		apply_transformation(t_point *pos, t_matrix transformation);
 t_matrix	translation_matrix(t_point x);
+t_matrix	scaling_matrix(t_point x);
+t_matrix	rotate_x_matrix(double radians);
+t_matrix	rotate_y_matrix(double radians);
+t_matrix	rotate_z_matrix(double radians);
 
 #endif
