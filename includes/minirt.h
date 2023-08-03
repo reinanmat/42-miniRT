@@ -110,6 +110,7 @@ t_point		matrix_to_point(t_matrix a);
 void		apply_transformation(t_point *pos, t_matrix transformation);
 t_matrix	translation_matrix(t_point x);
 t_matrix	scaling_matrix(t_point x);
+t_matrix	shearing_matrix(t_point p1, t_point p2);
 t_matrix	rotate_x_matrix(double radians);
 t_matrix	rotate_y_matrix(double radians);
 t_matrix	rotate_z_matrix(double radians);

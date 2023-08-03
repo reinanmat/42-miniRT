@@ -33,6 +33,20 @@ t_matrix	scaling_matrix(t_point x)
 	return (a);
 }
 
+t_matrix	shearing_matrix(t_point p1, t_point p2)
+{
+	t_matrix	a;
+
+	a = identity_matrix();
+	a.matr[0][1] = p1.x;
+	a.matr[0][2] = p2.x;
+	a.matr[1][0] = p1.y;
+	a.matr[1][2] = p2.y;
+	a.matr[2][0] = p1.z;
+	a.matr[2][1] = p2.z;
+	return (a);
+}
+
 t_matrix	rotate_x_matrix(double radians)
 {
 	t_matrix	a;
