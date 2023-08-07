@@ -26,6 +26,58 @@ typedef struct s_intersection_point
 	void	*object;
 }	t_intersection_point;
 
+t_intersections	*lstlast(t_intersections *lst)
+{
+	if (!lst)
+		return (0);
+	while (lst -> next != 0)
+		lst = lst -> next;
+	return (lst);
+}
+
+void	lstclear(t_intersections **lst)
+{
+	t_intersections	*store_previous_node;
+
+	store_previous_node = *lst;
+	while (*lst != 0 && store_previous_node != 0)
+	{
+		store_previous_node = *lst;
+		*lst = (*lst)->next;
+		ft_free(store_previous_node);
+	}
+	lst = NULL;
+}
+
+t_intersections	*lstnew(double t, void *object)
+{
+	t_intersections	*new_node;
+
+	new_node = (malloc(sizeof(t_node)));
+	if (!new_node)
+		return (0);
+	new_node->t = t;
+	new_node->object = object;
+	new_node->next = NULL;
+	return (new_node);
+}
+
+void	lstadd_back(t_intersections **lst, t_intersections *new)
+{
+	t_intersections	*last_node;
+
+	if (lst && new)
+	{
+		if (*lst == NULL)
+			*lst = new;
+		else
+		{
+			last_node = lstlast(*lst);
+			last_node -> next = new;
+		}
+	}
+}
+
 
 t_data	init_data(char *filename)
 {
