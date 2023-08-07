@@ -92,6 +92,11 @@ double hit(t_intersections *intersections)
 	return (min);
 }
 
+t_point	position(t_ray ray1, double t)
+{
+	return (add(ray1.origin, s_multiply(ray1.direction, t)));
+}
+
 t_intersection_point	intersect_sphere(t_ray ray, t_sphere *sphere)
 {
 	t_intersection_point	intersect;
