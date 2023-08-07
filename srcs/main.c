@@ -6,11 +6,26 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/26 14:25:08 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/07 19:32:24 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
+
+typedef struct s_intersections
+{
+	double	t;
+	void	*object;
+	void	*next;
+}	t_intersections;
+
+typedef struct s_intersection_point
+{
+	int		hit_times;
+	double	hit[2];
+	void	*object;
+}	t_intersection_point;
+
 
 t_data	init_data(char *filename)
 {
