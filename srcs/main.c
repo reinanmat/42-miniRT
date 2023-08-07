@@ -152,13 +152,38 @@ t_data	init_data(char *filename)
 
 int	main(int argc, char **argv)
 {
-	t_data	data;
+	t_ray			ray1;
+	t_sphere		*sph;
+	t_data			data;
+	t_intersections	*intersections;
 
+	intersections = NULL;
+	data = init_data(argv[1]);
+
+	sph = data.world.objects->sp;
+
+	ray1 = ray(point(0, 0, -5), vec3(0, 0, 1));
+	intersection_calculate(ray1, sph, &intersections);
+	/* ray1 = ray(point(0, 0, -1), vec3(0, 0, 1)); */
+	/* intersection_calculate(ray1, sph, &intersections); */
+	ray1 = ray(point(0, 0, -4), vec3(0, 0, 1));
+	intersection_calculate(ray1, sph, &intersections);
+	ray1 = ray(point(0, 0, 4), vec3(0, 0, 1));
+	intersection_calculate(ray1, sph, &intersections);
+	ray1 = ray(point(0, 0, -3), vec3(0, 0, 1));
+	intersection_calculate(ray1, sph, &intersections);
+
+	print_intersection_pointsect(intersections);
+	printf("\n");
+	printf("%f\n", hit(intersections));
+	
+	/* print_intersect(intersection_calculate(ray1, sph)); */
+	if (0)
+		render(data);
+	exit(1);
 	if (argc != 2)
 		exit(1);
 	else if (received_invalid_param(argv[1]))
 		exit(1);
-	data = init_data(argv[1]);
-	render(data);
 	mlx_loop(data.mlx.mlx_ptr);
 }
