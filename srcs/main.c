@@ -78,6 +78,61 @@ void	lstadd_back(t_intersections **lst, t_intersections *new)
 	}
 }
 
+double hit(t_intersections *intersections)
+{
+	double	min;
+
+	min = INFINITY;
+	while (intersections)
+	{
+		if (intersections->t >= 0 && intersections->t < min)
+			min = intersections->t;
+		intersections = intersections->next;
+	}
+	return (min);
+}
+
+t_intersection_point	intersect_sphere(t_ray ray, t_sphere *sphere)
+{
+	t_intersection_point	intersect;
+	double	a;
+	double	b;
+	double	discriminant;
+	t_vec3	point_to_sphere;
+
+	intersect.hit_times = 0;
+	point_to_sphere = minus(ray.origin, sphere->center);
+	a = dot(ray.direction, ray.direction);
+	b = 2 * dot(ray.direction, point_to_sphere);
+	discriminant = (b * b) - 4 * a * (dot(point_to_sphere, point_to_sphere) - 1); 
+	if (discriminant < 0)
+		return (intersect);
+	intersect.hit_times = 2;
+	intersect.hit[0] = (-b - sqrt(discriminant)) / (2 * a);
+	intersect.hit[1] = (-b + sqrt(discriminant)) / (2 * a);
+	intersect.object = sphere; 
+	return (intersect);
+}
+
+void	intersection_calculate(t_ray ray, void *obj, t_intersections **intersect)
+{
+	t_intersection_point	inter_p;
+
+	inter_p = intersect_sphere(ray, obj);
+	if (inter_p.hit_times == 0)
+		return ;
+	lstadd_back(intersect, lstnew(inter_p.hit[0], obj));
+	lstadd_back(intersect, lstnew(inter_p.hit[1], obj));
+}
+
+void	print_intersection_pointsect(t_intersections *intersect)
+{
+	while (intersect)
+	{
+		printf("%f\n", intersect->t);
+		intersect = intersect->next;
+	}
+}
 
 t_data	init_data(char *filename)
 {
