@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:58:47 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/25 19:38:56 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:35:51 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -33,7 +33,7 @@ t_hittable	*init_objects(char **lines)
 	objects = NULL;
 	while (lines[i])
 	{
-		config = ft_split(lines[i], ' ');
+		config = ft_split_whitespaces(lines[i]);
 		object = create_object(config);
 		if (object)
 			hittable_add(config[0], object, &objects);
