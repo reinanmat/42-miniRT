@@ -60,9 +60,9 @@ typedef struct s_data
 
 typedef struct s_intersections
 {
-	double	t;
-	void	*object;
-	struct	s_intersections *next;
+	double					t;
+	void					*object;
+	struct s_intersections	*next;
 }	t_intersections;
 
 typedef struct s_intersection_point
@@ -73,62 +73,62 @@ typedef struct s_intersection_point
 }	t_intersection_point;
 
 //render
-int		render(t_data data);
+int				render(t_data data);
 
 //hit
-int		hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit);
-int		hit_anything(t_hittable *objects, t_ray ray, t_range range, t_hit *hit);
+int				hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit);
+int				hit_anything(t_hittable *objects, t_ray ray, t_range range, t_hit *hit);
 
 //mlx functions
-void	mlx_close_window(t_mlx *mlx);
-void	mlx_create_img(t_mlx *mlx);
-void	mlx_create_window(t_mlx *mlx);
-void	mlx_hooks(t_data *data);
-void	mlx_img_pix_put(t_img *img, int x, int y, int color);
+void			mlx_close_window(t_mlx *mlx);
+void			mlx_create_img(t_mlx *mlx);
+void			mlx_create_window(t_mlx *mlx);
+void			mlx_hooks(t_data *data);
+void			mlx_img_pix_put(t_img *img, int x, int y, int color);
 
 //utils
-void	print_matrix2(t_matrix matrix);
-void	print_point(t_point point);
-void	print_cam(t_cam cam);
-int		reset_fd(int fd, char *filename);
-char	*get_file_content(int fd, char *filename);
-char	**get_splitted_identifier(char **lines, char *identifier);
-void	assign_t_point(t_point *coordinate, char *param);
+void			print_matrix2(t_matrix matrix);
+void			print_point(t_point point);
+void			print_cam(t_cam cam);
+int				reset_fd(int fd, char *filename);
+char			*get_file_content(int fd, char *filename);
+char			**get_splitted_identifier(char **lines, char *identifier);
+void			assign_t_point(t_point *coordinate, char *param);
 
 //file parsing
-int		received_invalid_param(char *filename);
-int		expected_number_of_identifiers(char **lines);
-void	trim_lines(char **lines);
-int		map_parsed_successfully(char **lines);
-int		is_valid_identifier(char *identifier);
-int		is_valid_ambient_lighting(char **params, int number_of_params);
-int		is_valid_camera(char **params, int number_of_params);
-int		is_valid_light(char **params, int number_of_params);
-int		is_valid_sphere(char **params, int number_of_params);
-int		is_valid_plane(char **params, int number_of_params);
-int		is_valid_cylinder(char **params, int number_of_params);
-int		is_number(const char *str);
-int		set_contain_only_numbers(const char *str);
-int		is_valid_rgb_set(const char *str);
-int		is_valid_lighting_ratio(const char *str);
-int		is_valid_coordinates(const char *str);
-int		expected_number_of_fields(const char *str, int expected_fields);
-int		is_valid_3d_normalized_vec(const char *str);
-int		count_dots(const char *str);
+int				received_invalid_param(char *filename);
+int				expected_number_of_identifiers(char **lines);
+void			trim_lines(char **lines);
+int				map_parsed_successfully(char **lines);
+int				is_valid_identifier(char *identifier);
+int				is_valid_ambient_lighting(char **params, int number_of_params);
+int				is_valid_camera(char **params, int number_of_params);
+int				is_valid_light(char **params, int number_of_params);
+int				is_valid_sphere(char **params, int number_of_params);
+int				is_valid_plane(char **params, int number_of_params);
+int				is_valid_cylinder(char **params, int number_of_params);
+int				is_number(const char *str);
+int				set_contain_only_numbers(const char *str);
+int				is_valid_rgb_set(const char *str);
+int				is_valid_lighting_ratio(const char *str);
+int				is_valid_coordinates(const char *str);
+int				expected_number_of_fields(const char *str, int expected_fields);
+int				is_valid_3d_normalized_vec(const char *str);
+int				count_dots(const char *str);
 
 //init
-t_hittable	*init_objects(char **lines);
+t_hittable		*init_objects(char **lines);
 
 //linear algebra
-t_matrix	point_to_matrix(t_point point);
-t_point		matrix_to_point(t_matrix a);
-void		apply_transformation(t_point *pos, t_matrix transformation);
-t_matrix	translation_matrix(t_point x);
-t_matrix	scaling_matrix(t_point x);
-t_matrix	shearing_matrix(t_point p1, t_point p2);
-t_matrix	rotate_x_matrix(double radians);
-t_matrix	rotate_y_matrix(double radians);
-t_matrix	rotate_z_matrix(double radians);
+t_matrix		point_to_matrix(t_point point);
+t_point			matrix_to_point(t_matrix a);
+void			apply_transformation(t_point *pos, t_matrix transformation);
+t_matrix		translation_matrix(t_point x);
+t_matrix		scaling_matrix(t_point x);
+t_matrix		shearing_matrix(t_point p1, t_point p2);
+t_matrix		rotate_x_matrix(double radians);
+t_matrix		rotate_y_matrix(double radians);
+t_matrix		rotate_z_matrix(double radians);
 
 //intersection llist utils
 void			sort_lst(t_intersections **lst);
