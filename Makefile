@@ -57,6 +57,7 @@ FILES =			main \
 				aux_functions/get_file_content \
 				aux_functions/assign_t_point \
 				aux_function/lst_aux \
+				aux_function/sort_lst
 
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))
 OBJS =			$(addprefix $(OBJS_PATH)/, $(addsuffix .o, $(FILES)))

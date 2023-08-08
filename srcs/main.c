@@ -86,6 +86,7 @@ int	main(int argc, char **argv)
 	data = init_data(argv[1]);
 	sph = data.world.objects->sp;
 	ray1 = ray(point(0, 0, -5), vec3(0, 0, 1));
+	sort_lst(&intersections);
 	intersection_calculate(ray1, sph, &intersections);
 	/* ray1 = ray(point(0, 0, -1), vec3(0, 0, 1)); */
 	/* intersection_calculate(ray1, sph, &intersections); */
