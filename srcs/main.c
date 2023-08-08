@@ -6,77 +6,11 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/07 19:32:24 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:59:01 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../includes/minirt.h"
-
-typedef struct s_intersections
-{
-	double	t;
-	void	*object;
-	void	*next;
-}	t_intersections;
-
-typedef struct s_intersection_point
-{
-	int		hit_times;
-	double	hit[2];
-	void	*object;
-}	t_intersection_point;
-
-t_intersections	*lstlast(t_intersections *lst)
-{
-	if (!lst)
-		return (0);
-	while (lst -> next != 0)
-		lst = lst -> next;
-	return (lst);
-}
-
-void	lstclear(t_intersections **lst)
-{
-	t_intersections	*store_previous_node;
-
-	store_previous_node = *lst;
-	while (*lst != 0 && store_previous_node != 0)
-	{
-		store_previous_node = *lst;
-		*lst = (*lst)->next;
-		ft_free(store_previous_node);
-	}
-	lst = NULL;
-}
-
-t_intersections	*lstnew(double t, void *object)
-{
-	t_intersections	*new_node;
-
-	new_node = (malloc(sizeof(t_node)));
-	if (!new_node)
-		return (0);
-	new_node->t = t;
-	new_node->object = object;
-	new_node->next = NULL;
-	return (new_node);
-}
-
-void	lstadd_back(t_intersections **lst, t_intersections *new)
-{
-	t_intersections	*last_node;
-
-	if (lst && new)
-	{
-		if (*lst == NULL)
-			*lst = new;
-		else
-		{
-			last_node = lstlast(*lst);
-			last_node -> next = new;
-		}
-	}
-}
+#include <mlx.h>
 
 double hit(t_intersections *intersections)
 {
@@ -126,17 +60,8 @@ void	intersection_calculate(t_ray ray, void *obj, t_intersections **intersect)
 	inter_p = intersect_sphere(ray, obj);
 	if (inter_p.hit_times == 0)
 		return ;
-	lstadd_back(intersect, lstnew(inter_p.hit[0], obj));
-	lstadd_back(intersect, lstnew(inter_p.hit[1], obj));
-}
-
-void	print_intersection_pointsect(t_intersections *intersect)
-{
-	while (intersect)
-	{
-		printf("%f\n", intersect->t);
-		intersect = intersect->next;
-	}
+	intersect_add_back(intersect, new_intersect(inter_p.hit[0], obj));
+	intersect_add_back(intersect, new_intersect(inter_p.hit[1], obj));
 }
 
 t_data	init_data(char *filename)
@@ -159,9 +84,7 @@ int	main(int argc, char **argv)
 
 	intersections = NULL;
 	data = init_data(argv[1]);
-
 	sph = data.world.objects->sp;
-
 	ray1 = ray(point(0, 0, -5), vec3(0, 0, 1));
 	intersection_calculate(ray1, sph, &intersections);
 	/* ray1 = ray(point(0, 0, -1), vec3(0, 0, 1)); */
@@ -172,12 +95,7 @@ int	main(int argc, char **argv)
 	intersection_calculate(ray1, sph, &intersections);
 	ray1 = ray(point(0, 0, -3), vec3(0, 0, 1));
 	intersection_calculate(ray1, sph, &intersections);
-
-	print_intersection_pointsect(intersections);
 	printf("\n");
-	printf("%f\n", hit(intersections));
-	
-	/* print_intersect(intersection_calculate(ray1, sph)); */
 	if (0)
 		render(data);
 	exit(1);

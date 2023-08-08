@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/03 15:27:45 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:55:58 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_H
 
 # define WIDTH 1024
-# define HEIGHT 576
+# define HEIGHT 520
 # define WINDOW_NAME "minirt"
 
 # define KEY_ESC 0xff1b
@@ -57,6 +57,20 @@ typedef struct s_data
 	t_mlx	mlx;
 	t_world	world;
 }	t_data;
+
+typedef struct s_intersections
+{
+	double	t;
+	void	*object;
+	struct	s_intersections *next;
+}	t_intersections;
+
+typedef struct s_intersection_point
+{
+	int		hit_times;
+	double	hit[2];
+	void	*object;
+}	t_intersection_point;
 
 //render
 int		render(t_data data);
@@ -115,5 +129,10 @@ t_matrix	shearing_matrix(t_point p1, t_point p2);
 t_matrix	rotate_x_matrix(double radians);
 t_matrix	rotate_y_matrix(double radians);
 t_matrix	rotate_z_matrix(double radians);
+
+//intersection llist utils
+void			intersect_add_back(t_intersections **lst, t_intersections *new);
+void			clear_intersect(t_intersections **lst);
+t_intersections	*new_intersect(double t, void *object);
 
 #endif

@@ -55,7 +55,8 @@ FILES =			main \
 				init_world/init_objects \
 				aux_functions/reset_fd \
 				aux_functions/get_file_content \
-				aux_functions/assign_t_point
+				aux_functions/assign_t_point \
+				aux_function/lst_aux \
 
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))
 OBJS =			$(addprefix $(OBJS_PATH)/, $(addsuffix .o, $(FILES)))
