@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/25 19:50:38 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:20:25 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -20,8 +20,8 @@ static t_point	get_lower_left_corner(t_cam cam)
 
 	half_vertical = s_division(cam.vertical, 2);
 	half_horizontal = s_division(cam.horizontal, 2);
-	aux = minus(minus(cam.coordinate, half_horizontal), half_vertical);
-	lower_left_corner = minus(aux, (t_point){0, 0, cam.focal_length});
+	aux = sub(sub(cam.coordinate, half_horizontal), half_vertical);
+	lower_left_corner = sub(aux, (t_point){0, 0, cam.focal_length});
 	return (lower_left_corner);
 }
 
@@ -35,7 +35,7 @@ static t_cam	init_cam(char **lines)
 
 	config = get_splitted_identifier(lines, "C");
 	vertical_fov = ft_atof(config[3]);
-	vertical_fov_radians = vertical_fov * PI / 180.0;
+	vertical_fov_radians = vertical_fov * M_PI / 180.0;
 	aspect_ratio = 16.0 / 9.0;
 	cam.viewport_height = 2.0 * tan(vertical_fov_radians / 2.0);
 	cam.viewport_width = cam.viewport_height * aspect_ratio;

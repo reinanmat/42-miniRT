@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:01:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/02 18:30:50 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:03:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_vec3	add(t_vec3 a, t_vec3 b)
 	return ((t_vec3){a.x + b.x, a.y + b.y, a.z + b.z});
 }
 
-t_vec3	minus(t_vec3 a, t_vec3 b)
+t_vec3	sub(t_vec3 a, t_vec3 b)
 {
 	return ((t_vec3){a.x - b.x, a.y - b.y, a.z - b.z});
 }

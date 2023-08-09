@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:36:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/18 18:34:08 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:18:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_color	color(double r, double g, double b);
 
 //vec3 operators
 t_vec3	add(t_vec3 a, t_vec3 b);
-t_vec3	minus(t_vec3 a, t_vec3 b);
+t_vec3	sub(t_vec3 a, t_vec3 b);
 t_vec3	multiply(t_vec3 a, t_vec3 b);
 t_vec3	division(t_vec3 a, t_vec3 b);
 t_vec3	s_multiply(t_vec3 a, double n);
