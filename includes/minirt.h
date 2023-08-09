@@ -106,23 +106,7 @@ int				count_dots(const char *str);
 t_hittable		*init_objects(char **lines);
 
 //linear algebra
-t_matrix		point_to_matrix(t_point point);
-t_matrix		vec3_to_matrix(t_vec3 vec);
-t_point			matrix_to_point(t_matrix a);
-void			apply_transformation_point(t_point *pos, t_matrix transformation);
-void			apply_transformation_vec(t_vec3 *vec, t_matrix transformation);
-t_matrix		translation_matrix(t_point x);
-t_matrix		scaling_matrix(t_point x);
-t_matrix		shearing_matrix(t_point p1, t_point p2);
-t_matrix		rotate_x_matrix(double radians);
-t_matrix		rotate_y_matrix(double radians);
-t_matrix		rotate_z_matrix(double radians);
-
-//intersection llist utils
-void			sort_lst(t_intersections **lst);
-void			intersect_add_back(t_intersections **lst, t_intersections *new);
-t_intersections	*last_intersect(t_intersections *lst);
-void			clear_intersect(t_intersections **lst);
-t_intersections	*new_intersect(double t, t_hittable *object);
+void			transform_object(t_hittable *object, t_matrix transf);
+t_ray			transform_ray(t_ray	ray, t_matrix transform);
 
 #endif
