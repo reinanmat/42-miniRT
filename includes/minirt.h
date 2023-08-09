@@ -26,12 +26,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+
 # include "vec3.h"
 # include "ray.h"
 # include "world.h"
 # include "hittable.h"
 # include "matrices.h"
 # include "objects.h"
+# include "intersection.h"
 # include "../libft/libft.h"
 
 typedef struct s_img
@@ -55,20 +57,6 @@ typedef struct s_data
 	t_mlx	mlx;
 	t_world	world;
 }	t_data;
-
-typedef struct s_intersections
-{
-	double					t;
-	t_hittable				*object;
-	struct s_intersections	*next;
-}	t_intersections;
-
-typedef struct s_intersection_point
-{
-	int		hit_times;
-	double	hit[2];
-	void	*object;
-}	t_intersection_point;
 
 //render
 int				render(t_data data);
