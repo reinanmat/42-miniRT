@@ -22,26 +22,6 @@ t_data	init_data(char *filename)
 	return (data);
 }
 
-void	set_transform(t_hittable *object, t_matrix new_transform)
-{
-	if (object->type == 1)
-		object->sp->transform = multiply_matrix(object->sp->transform, new_transform);
-	if (object->type == 2)
-		object->cy->transform = multiply_matrix(object->cy->transform, new_transform);
-	if (object->type == 3)
-		object->pl->transform = multiply_matrix(object->pl->transform, new_transform);
-}
-
-t_ray	transform_ray(t_ray	ray, t_matrix transform)
-{
-	t_ray	new_ray;
-
-	new_ray = ray;
-	apply_transformation_point(&new_ray.origin, transform);
-	apply_transformation_vec(&new_ray.direction, transform);
-	return (new_ray);
-}
-
 static void	render_world3(t_world world, t_mlx mlx)
 {
 	int				x;
