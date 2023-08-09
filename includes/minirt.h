@@ -6,20 +6,18 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 17:01:03 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:53:40 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# define WIDTH 520
-# define HEIGHT 520
+# define WIDTH 720
+# define HEIGHT 720
 # define WINDOW_NAME "minirt"
 
 # define KEY_ESC 0xff1b
-
-# define PI 3.14159265358979323846264338327950288419716939937510L
 
 # include <mlx.h>
 # include <X11/keysym.h>
