@@ -11,44 +11,6 @@
 /* ************************************************************************** */
 #include "../includes/minirt.h"
 
-t_intersections	*hit(t_intersections *intersections)
-{
-	double			min;
-	t_intersections	*intersect;
-
-	intersect = NULL;
-	min = INFINITY;
-	while (intersections)
-	{
-		if (intersections->t >= 0 && intersections->t < min)
-			intersect = intersections;
-		intersections = intersections->next;
-	}
-	return (intersect);
-}
-
-t_intersection_point	intersect_sphere(t_ray ray, t_sphere *sphere)
-{
-	t_intersection_point	intersect;
-	double					a;
-	double					b;
-	double					discriminant;
-	t_vec3					point_to_sphere;
-
-	intersect.hit_times = 0;
-	point_to_sphere = minus(ray.origin, sphere->center);
-	a = dot(ray.direction, ray.direction);
-	b = 2 * dot(ray.direction, point_to_sphere);
-	discriminant = (b * b) - 4 * a * (dot(point_to_sphere, point_to_sphere) - 1);
-	if (discriminant < 0)
-		return (intersect);
-	intersect.hit_times = 2;
-	intersect.hit[0] = (-b - sqrt(discriminant)) / (2 * a);
-	intersect.hit[1] = (-b + sqrt(discriminant)) / (2 * a);
-	intersect.object = sphere;
-	return (intersect);
-}
-
 t_data	init_data(char *filename)
 {
 	t_data	data;
@@ -87,27 +49,6 @@ t_ray	transform_ray(t_ray	ray, t_matrix transform)
 	apply_transformation_point(&new_ray.origin, transform);
 	apply_transformation_vec(&new_ray.direction, transform);
 	return (new_ray);
-}
-
-void	intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **intersect)
-{
-	t_ray					tmp_ray;
-	t_intersection_point	inter_p;
-
-	while (objects)
-	{
-		if (objects->type == 1)
-		{
-			tmp_ray = transform_ray(ray, inverse(objects->sp->transform));
-			inter_p = intersect_sphere(tmp_ray, objects->sp);
-			if (inter_p.hit_times != 0)
-			{
-				intersect_add_back(intersect, new_intersect(inter_p.hit[0], objects));
-				intersect_add_back(intersect, new_intersect(inter_p.hit[1], objects));
-			}
-		}
-		objects = objects->next;
-	}
 }
 
 static void	render_world3(t_world world, t_mlx mlx)
