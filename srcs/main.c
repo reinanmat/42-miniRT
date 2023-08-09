@@ -6,24 +6,25 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/08 16:59:01 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/09 17:12:55 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
-#include <mlx.h>
 
-double hit(t_intersections *intersections)
+t_intersections	*hit(t_intersections *intersections)
 {
-	double	min;
+	double			min;
+	t_intersections	*intersect;
 
+	intersect = NULL;
 	min = INFINITY;
 	while (intersections)
 	{
 		if (intersections->t >= 0 && intersections->t < min)
-			min = intersections->t;
+			intersect = intersections;
 		intersections = intersections->next;
 	}
-	return (min);
+	return (intersect);
 }
 
 t_point	position(t_ray ray1, double t)
