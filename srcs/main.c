@@ -54,17 +54,6 @@ t_intersection_point	intersect_sphere(t_ray ray, t_sphere *sphere)
 	return (intersect);
 }
 
-void	intersection_calculate(t_ray ray, void *obj, t_intersections **intersect)
-{
-	t_intersection_point	inter_p;
-
-	inter_p = intersect_sphere(ray, obj);
-	if (inter_p.hit_times == 0)
-		return ;
-	intersect_add_back(intersect, new_intersect(inter_p.hit[0], obj));
-	intersect_add_back(intersect, new_intersect(inter_p.hit[1], obj));
-}
-
 t_data	init_data(char *filename)
 {
 	t_data	data;
@@ -74,6 +63,27 @@ t_data	init_data(char *filename)
 	mlx_create_img(&data.mlx);
 	mlx_hooks(&data);
 	return (data);
+}
+
+void	intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **intersect)
+{
+	t_ray					tmp_ray;
+	t_intersection_point	inter_p;
+
+	while (objects)
+	{
+		if (objects->type == 1)
+		{
+			tmp_ray = transform_ray(ray, inverse(objects->sp->transform));
+			inter_p = intersect_sphere(tmp_ray, objects->sp);
+			if (inter_p.hit_times != 0)
+			{
+				intersect_add_back(intersect, new_intersect(inter_p.hit[0], objects));
+				intersect_add_back(intersect, new_intersect(inter_p.hit[1], objects));
+			}
+		}
+		objects = objects->next;
+	}
 }
 
 int	main(int argc, char **argv)
