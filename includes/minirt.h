@@ -133,7 +133,8 @@ t_matrix		rotate_z_matrix(double radians);
 //intersection llist utils
 void			sort_lst(t_intersections **lst);
 void			intersect_add_back(t_intersections **lst, t_intersections *new);
+t_intersections	*last_intersect(t_intersections *lst);
 void			clear_intersect(t_intersections **lst);
-t_intersections	*new_intersect(double t, void *object);
+t_intersections	*new_intersect(double t, t_hittable *object);
 
 #endif

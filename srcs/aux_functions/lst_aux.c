@@ -6,12 +6,12 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 16:48:18 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/08 16:55:44 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/09 17:00:38 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
 
-static t_intersections	*last_intersect(t_intersections *lst)
+t_intersections	*last_intersect(t_intersections *lst)
 {
 	if (!lst)
 		return (0);
@@ -50,7 +50,7 @@ void	clear_intersect(t_intersections **lst)
 	lst = NULL;
 }
 
-t_intersections	*new_intersect(double t, void *object)
+t_intersections	*new_intersect(double t, t_hittable *object)
 {
 	t_intersections	*new_node;
 
