@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:42:20 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/02 18:57:55 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:10:22 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -21,6 +21,19 @@ t_matrix	point_to_matrix(t_point point)
 	a.matr[1][0] = point.y;
 	a.matr[2][0] = point.z;
 	a.matr[3][0] = 1;
+	return (a);
+}
+
+t_matrix	vec3_to_matrix(t_vec3 vec)
+{
+	t_matrix	a;
+
+	a.rows = 4;
+	a.cols = 1;
+	a.matr[0][0] = vec.x;
+	a.matr[1][0] = vec.y;
+	a.matr[2][0] = vec.z;
+	a.matr[3][0] = 0;
 	return (a);
 }
 
