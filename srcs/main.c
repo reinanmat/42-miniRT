@@ -32,15 +32,6 @@ void	set_transform(t_hittable *object, t_matrix new_transform)
 		object->pl->transform = multiply_matrix(object->pl->transform, new_transform);
 }
 
-void	print_intersects(t_intersections *intersections)
-{
-	while (intersections)
-	{
-		printf("%f\n", intersections->t);
-		intersections = intersections->next;
-	}
-}
-
 t_ray	transform_ray(t_ray	ray, t_matrix transform)
 {
 	t_ray	new_ray;

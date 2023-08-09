@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/02 17:39:03 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:00:11 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,15 @@ void	print_hittable(t_hittable **hittable)
 		}
 		printf("\n\n");
 		aux = aux->next;
+	}
+}
+
+void	print_intersects(t_intersections *intersections)
+{
+	while (intersections)
+	{
+		printf("%f\n", intersections->t);
+		intersections = intersections->next;
 	}
 }
 
