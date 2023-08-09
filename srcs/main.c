@@ -115,31 +115,66 @@ void	intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **in
 	}
 }
 
+static void	render_world3(t_world world, t_mlx mlx)
+{
+	int				x;
+	int				y;
+	t_ray			r;
+	t_point			pos;
+	t_point			origin;
+	double			pixel_size;
+	double			wall_size;
+	t_intersections	*intersects;
+
+	t_hittable	*object;
+
+	intersects = NULL;
+	wall_size = 20.0;
+	pixel_size = wall_size / HEIGHT;
+	y = 0;
+	origin = point(0, 0, -5);
+	/* set_transform(world.objects, translation_matrix(point(2, 0, 2))); */
+	/* set_transform(world.objects, rotate_x_matrix(M_PI / 4)); */
+	/* set_transform(world.objects, rotate_y_matrix(M_PI / 4)); */
+	/* set_transform(world.objects->next, translation_matrix(point(-2, 0, 2))); */
+	/* set_transform(world.objects->next, inverse(rotate_y_matrix(M_PI / 4))); */
+	/* set_transform(world.objects->next, inverse(rotate_x_matrix(M_PI / 4))); */
+	while (y < HEIGHT)
+	{
+		x = 0;
+		while (x < WIDTH)
+		{
+			pos = point(-wall_size/2 + x * pixel_size, wall_size/2 - y * pixel_size, wall_size);
+			r = ray(origin, normalize(minus(pos, origin)));
+			intersection_calculate(r, world.objects, &intersects);
+			if (intersects != NULL)
+			{
+				object = hit(intersects)->object;
+				mlx_img_pix_put(&mlx.img, x, y, get_color(object->sp->color));
+			}
+			clear_intersect(&intersects);
+			intersects = NULL;
+			x++;
+		}
+		y++;
+	}
+	printf("Rendered\n");
+}
+
+int	render(t_data data)
+{
+	render_world3(data.world, data.mlx);
+	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
+		data.mlx.img.mlx_img, 0, 0);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
-	t_ray			ray1;
-	t_sphere		*sph;
 	t_data			data;
-	t_intersections	*intersections;
 
-	intersections = NULL;
 	data = init_data(argv[1]);
-	sph = data.world.objects->sp;
-	ray1 = ray(point(0, 0, -5), vec3(0, 0, 1));
-	sort_lst(&intersections);
-	intersection_calculate(ray1, sph, &intersections);
-	/* ray1 = ray(point(0, 0, -1), vec3(0, 0, 1)); */
-	/* intersection_calculate(ray1, sph, &intersections); */
-	ray1 = ray(point(0, 0, -4), vec3(0, 0, 1));
-	intersection_calculate(ray1, sph, &intersections);
-	ray1 = ray(point(0, 0, 4), vec3(0, 0, 1));
-	intersection_calculate(ray1, sph, &intersections);
-	ray1 = ray(point(0, 0, -3), vec3(0, 0, 1));
-	intersection_calculate(ray1, sph, &intersections);
-	printf("\n");
-	if (0)
-		render(data);
-	exit(1);
+	render(data);
 	if (argc != 2)
 		exit(1);
 	else if (received_invalid_param(argv[1]))
