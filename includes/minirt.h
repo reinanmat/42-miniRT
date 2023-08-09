@@ -61,7 +61,7 @@ typedef struct s_data
 typedef struct s_intersections
 {
 	double					t;
-	void					*object;
+	t_hittable				*object;
 	struct s_intersections	*next;
 }	t_intersections;
 
