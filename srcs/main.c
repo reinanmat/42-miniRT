@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 17:12:55 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:18:37 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -25,11 +25,6 @@ t_intersections	*hit(t_intersections *intersections)
 		intersections = intersections->next;
 	}
 	return (intersect);
-}
-
-t_point	position(t_ray ray1, double t)
-{
-	return (add(ray1.origin, s_multiply(ray1.direction, t)));
 }
 
 t_intersection_point	intersect_sphere(t_ray ray, t_sphere *sphere)

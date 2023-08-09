@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/02 18:30:58 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:03:04 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ double	dot(t_vec3 a, t_vec3 b)
 	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }
 
-t_vec3	at(t_ray ray, double t)
+t_point	position(t_ray ray, double t)
 {
 	return (add(ray.origin, s_multiply(ray.direction, t)));
 }
