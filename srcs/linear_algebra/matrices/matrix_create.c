@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:52:06 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/02 18:31:19 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:19:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,15 @@
 
 t_matrix	identity_matrix(void)
 {
-	int			i;
-	int			j;
 	t_matrix	matrix;
 
+	matrix = (t_matrix){0};
 	matrix.rows = 4;
 	matrix.cols = 4;
-	i = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			matrix.matr[i][j] = 0;
-			if (i == j)
-				matrix.matr[i][j] = 1;
-			j++;
-		}
-		i++;
-	}
+	matrix.matr[0][0] = 1;
+	matrix.matr[1][1] = 1;
+	matrix.matr[2][2] = 1;
+	matrix.matr[3][3] = 1;
 	return (matrix);
 }
 
