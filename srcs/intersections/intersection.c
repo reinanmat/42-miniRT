@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:00:47 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:03:57 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_intersections	*hit(t_intersections *intersections)
 
 void	intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **intersect)
 {
-	t_ray					tmp_ray;
-	t_intersection_point	inter_p;
+	t_ray			tmp_ray;
+	t_inter_point	inter_p;
 
 	while (objects)
 	{
