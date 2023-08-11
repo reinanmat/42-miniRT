@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:43:53 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/20 19:06:05 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:31:12 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
@@ -42,5 +42,4 @@ int	is_valid_3d_normalized_vec(const char *str)
 	else if (!between_expected_range(str))
 		return (ft_putstr("[3DVEC] Set not between expected range\n", 0));
 	return (1);
-
 }

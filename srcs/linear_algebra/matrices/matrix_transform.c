@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:12:22 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/03 15:27:15 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:39:06 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"

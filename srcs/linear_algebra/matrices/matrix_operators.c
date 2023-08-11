@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:57:04 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/02 18:31:27 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:40:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ t_matrix	multiply_matrix(t_matrix a, t_matrix b)
 		while (j < b.cols)
 		{
 			c.matr[i][j] = (a.matr[i][0] * b.matr[0][j]) + \
-						   (a.matr[i][1] * b.matr[1][j]) + \
-						   (a.matr[i][2] * b.matr[2][j]) + \
-						   (a.matr[i][3] * b.matr[3][j]);
+					(a.matr[i][1] * b.matr[1][j]) + \
+					(a.matr[i][2] * b.matr[2][j]) + \
+					(a.matr[i][3] * b.matr[3][j]);
 			j++;
 		}
 		i++;

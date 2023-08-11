@@ -6,14 +6,14 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:31:28 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/21 12:20:48 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:30:46 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
 
-int is_number(const char *str)
+int	is_number(const char *str)
 {
-	int digit_count;
+	int	digit_count;
 	int	post_dot_count;
 
 	digit_count = 0;
