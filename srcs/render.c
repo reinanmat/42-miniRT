@@ -6,11 +6,19 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/11 15:26:25 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 19:20:40 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
+
+t_vec3	reflect(t_vec3 in, t_vec3 normal)
+{
+	double	dot_product;
+
+	dot_product = dot(in, normal);
+	return (sub(in, s_multiply(normal, 2 * dot_product)));
+}
 
 t_color	calculate_ray_color(int x, int y, t_world world)
 {
