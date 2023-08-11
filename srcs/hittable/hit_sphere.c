@@ -6,19 +6,11 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:43:39 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:22:49 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:07:12 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
-typedef struct s_bhask
-{
-	double	a;
-	double	b;
-	double	c;
-	double	dscr;
-}	t_bhask;
 
 static t_vec3	set_face_normal(t_ray ray, t_point intersection, t_sphere sp)
 {
@@ -41,10 +33,10 @@ int	hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit)
 	bhask.a = length_square(ray.direction);
 	bhask.b = dot(oc, ray.direction);
 	bhask.c = length_square(oc) - sphere.radius * sphere.radius;
-	bhask.dscr = bhask.b * bhask.b - bhask.a * bhask.c;
-	if (bhask.dscr < 0)
+	bhask.discriminant = bhask.b * bhask.b - bhask.a * bhask.c;
+	if (bhask.discriminant < 0)
 		return (0);
-	sqrtd = sqrt(bhask.dscr);
+	sqrtd = sqrt(bhask.discriminant);
 	root = (-bhask.b - sqrtd) / bhask.a;
 	if (root < range.min || root > range.max)
 	{
