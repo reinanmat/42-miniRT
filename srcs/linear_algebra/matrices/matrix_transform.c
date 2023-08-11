@@ -46,39 +46,3 @@ t_matrix	shearing_matrix(t_point p1, t_point p2)
 	a.matr[2][1] = p2.z;
 	return (a);
 }
-
-t_matrix	rotate_x_matrix(double radians)
-{
-	t_matrix	a;
-
-	a = identity_matrix();
-	a.matr[1][1] = cos(radians);
-	a.matr[1][2] = -sin(radians);
-	a.matr[2][1] = sin(radians);
-	a.matr[2][2] = cos(radians);
-	return (a);
-}
-
-t_matrix	rotate_y_matrix(double radians)
-{
-	t_matrix	a;
-
-	a = identity_matrix();
-	a.matr[0][0] = cos(radians);
-	a.matr[0][2] = sin(radians);
-	a.matr[2][0] = -sin(radians);
-	a.matr[2][2] = cos(radians);
-	return (a);
-}
-
-t_matrix	rotate_z_matrix(double radians)
-{
-	t_matrix	a;
-
-	a = identity_matrix();
-	a.matr[0][0] = cos(radians);
-	a.matr[0][1] = -sin(radians);
-	a.matr[1][0] = sin(radians);
-	a.matr[1][1] = cos(radians);
-	return (a);
-}

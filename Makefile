@@ -19,6 +19,7 @@ FILES =			main \
 				linear_algebra/vectors/extra_operations \
 				linear_algebra/matrices/matrix_create \
 				linear_algebra/matrices/matrix_operators \
+				linear_algebra/matrices/matrix_rotates \
 				linear_algebra/matrices/matrix_utils \
 				linear_algebra/matrices/matrix_transform \
 				linear_algebra/conversions \
