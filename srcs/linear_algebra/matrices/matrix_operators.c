@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:57:04 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/11 15:40:27 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 19:07:05 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ t_matrix	inverse(t_matrix a)
 {
 	int			i;
 	int			j;
-	int			det;
-	int			cof;
+	double		det;
+	double		cof;
 	t_matrix	a_inv;
 
 	i = -1;
