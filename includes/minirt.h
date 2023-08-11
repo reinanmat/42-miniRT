@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:53:40 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:26:04 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,13 @@ void			mlx_create_window(t_mlx *mlx);
 void			mlx_hooks(t_data *data);
 void			mlx_img_pix_put(t_img *img, int x, int y, int color);
 
-//utils
+//utils tests - delet
+time_t			get_time_miliseconds(void);
 void			print_matrix2(t_matrix matrix);
 void			print_point(t_point point);
 void			print_cam(t_cam cam);
+
+//utils
 int				reset_fd(int fd, char *filename);
 char			*get_file_content(int fd, char *filename);
 char			**get_splitted_identifier(char **lines, char *identifier);

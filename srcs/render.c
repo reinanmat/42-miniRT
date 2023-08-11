@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:59:02 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:26:25 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ static void	render_world3(t_world world, t_mlx mlx)
 
 	t_hittable	*object;
 
+	time_t	begin, end;
+	begin = get_time_miliseconds();
+
 	intersects = NULL;
 	wall_size = 20.0;
 	pixel_size = wall_size / HEIGHT;
 	y = 0;
 	origin = point(0, 0, -5);
 	transform_object(world.objects, scaling_matrix(point(1.5, 1, 2)));
-	print_matrix2(world.objects->sp->transform);
 	while (y < HEIGHT)
 	{
 		x = 0;
@@ -65,7 +67,8 @@ static void	render_world3(t_world world, t_mlx mlx)
 		}
 		y++;
 	}
-	printf("Rendered\n");
+	end = get_time_miliseconds();
+	printf("Rendered in %lu ms\n", end - begin);
 }
 
 int	render(t_data data)

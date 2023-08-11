@@ -6,11 +6,23 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:00:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:24:50 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
+#include <sys/time.h>
+
+//remove that file after finishing the project
+
+time_t	get_time_miliseconds(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return (((long long)tv.tv_sec)*1000)+(tv.tv_usec/1000);
+}
+
 
 void	print_matrix(double matrix[4][4])
 {
