@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:05:47 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/09 18:04:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:54:17 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -27,10 +27,10 @@ static void	apply_transformation_vec(t_vec3 *vec, t_matrix transformation)
 {
 	t_point		new_pos;
 	t_matrix	applied;
-	t_matrix	m_point;
+	t_matrix	m_vec;
 
-	m_point = vec3_to_matrix(*vec);
-	applied = multiply_matrix(transformation, m_point);
+	m_vec = vec3_to_matrix(*vec);
+	applied = multiply_matrix(transformation, m_vec);
 	new_pos = point(applied.matr[0][0], applied.matr[1][0], applied.matr[2][0]);
 	*vec = new_pos;
 }
