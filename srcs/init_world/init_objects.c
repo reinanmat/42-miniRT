@@ -6,12 +6,12 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:58:47 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/04 18:35:51 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:57:28 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
 
-void		*create_object(char **config)
+void	*create_object(char **config)
 {
 	if (ft_strcmp(config[0], "cy") == 0)
 		return (cylinder(config));
