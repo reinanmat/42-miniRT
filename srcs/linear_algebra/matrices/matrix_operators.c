@@ -68,6 +68,8 @@ t_matrix	transpose_matrix(t_matrix a)
 	t_matrix	t_a;
 
 	i = 0;
+	t_a.rows = a.rows;
+	t_a.cols = a.cols;
 	while (i < a.rows)
 	{
 		j = 0;
