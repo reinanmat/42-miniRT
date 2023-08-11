@@ -37,6 +37,16 @@ t_matrix	multiply_matrix(t_matrix a, t_matrix b)
 	return (c);
 }
 
+t_matrix	empty_matrix(void)
+{
+	t_matrix	a;
+
+	a = (t_matrix){0};
+	a.rows = 4;
+	a.cols = 4;
+	return (a);
+}
+
 t_matrix	inverse(t_matrix a)
 {
 	int			i;
@@ -47,6 +57,8 @@ t_matrix	inverse(t_matrix a)
 
 	i = -1;
 	det = determinant(a);
+	if (det == 0)
+		return (empty_matrix());
 	a_inv.rows = a.rows;
 	a_inv.cols = a.cols;
 	while (++i < a.rows)
