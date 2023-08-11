@@ -30,6 +30,16 @@ typedef struct s_inter_point
 	void	*object;
 }	t_inter_point;
 
+typedef struct s_bhask
+{
+	double	a;
+	double	b;
+	double	c;
+	double	discriminant;
+	double	s1;
+	double	s2;
+}	t_bhask;
+
 void			intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **intersect);
 t_inter_point	intersect_sphere(t_ray ray, t_sphere *sphere);
 t_intersections	*hit(t_intersections *intersections);
