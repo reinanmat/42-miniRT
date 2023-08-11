@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/11 15:26:04 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:25:55 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,6 @@ t_hittable		*init_objects(char **lines);
 //linear algebra
 void			transform_object(t_hittable *object, t_matrix transf);
 t_ray			transform_ray(t_ray	ray, t_matrix transform);
+t_vec3			normal_at(t_sphere sph, t_point world_point);
 
 #endif
