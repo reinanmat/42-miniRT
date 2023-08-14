@@ -38,6 +38,15 @@ t_vec3	normal_at(t_sphere sph, t_point world_point)
 	return (normalize(world_normal));
 }
 
+t_light	point_light(t_point pos, double intensity)
+{
+	t_light	light;
+
+	light.coordinate = pos;
+	light.brightness = intensity;
+	return (light);
+}
+
 t_data	init_data(char *filename)
 {
 	t_data	data;
