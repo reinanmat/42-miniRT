@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/11 15:35:10 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:35:31 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,21 @@
 # include "vec3.h"
 # include "matrices.h"
 
+typedef struct s_material
+{
+	double	ambient;
+	double	diffuse;
+	double	specular;
+	double	shininess;
+}	t_material;
+
 typedef struct s_sphere
 {
 	t_point		center;
 	double		radius;
 	t_color		color;
 	t_matrix	transform;
+	t_material	material;
 }	t_sphere;
 
 typedef struct s_cylinder
@@ -32,6 +41,7 @@ typedef struct s_cylinder
 	double		height;
 	t_color		color;
 	t_matrix	transform;
+	t_material	material;
 }	t_cylinder;
 
 typedef struct s_plane
@@ -40,6 +50,7 @@ typedef struct s_plane
 	t_vec3		vector;
 	t_color		color;
 	t_matrix	transform;
+	t_material	material;
 }	t_plane;
 
 t_sphere	*sphere(char **config);
