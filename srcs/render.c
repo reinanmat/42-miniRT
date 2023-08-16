@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/11 19:20:40 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:07:29 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ t_color	calculate_ray_color(int x, int y, t_world world)
 	ray = get_ray(u, v, world.cam);
 	color = ray_color(ray, world);
 	return (color);
+}
+
+static void	fix_colors(t_color *color)
+{
+	if (color->x > 1)
+		color->x = 1;
+	if (color->y > 1)
+		color->y = 1;
+	if (color->z > 1)
+		color->z = 1;
 }
 
 static void	render_world3(t_world world, t_mlx mlx)
