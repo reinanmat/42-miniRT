@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/14 18:34:10 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:02:54 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -37,7 +37,7 @@ t_color	lighting(t_light light, t_point point, t_vec3 camv, t_vec3 normalv)
 	t_material	material;
 
 	material = default_material();
-	effective_color = s_multiply((t_color){1, 1, 1}, light.brightness);
+	effective_color = s_multiply((t_color){1, 0.2, 1}, light.brightness);
 	lightv = normalize(sub(light.coordinate, point));
 	ambient = s_multiply(effective_color, material.ambient);
 	light_dot_normal = dot(lightv, normalv);
