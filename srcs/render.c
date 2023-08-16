@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/16 19:07:29 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:23:33 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,21 @@ static void	render_world3(t_world world, t_mlx mlx)
 	t_point			origin;
 	double			pixel_size;
 	double			wall_size;
+	t_point			apodka;
+	t_vec3			normalv;
 	t_intersections	*intersects;
+	t_vec3			eyev;
+	t_color			kolor;
 
 	t_hittable	*object;
 
-	time_t	begin, end;
-	begin = get_time_miliseconds();
 
 	intersects = NULL;
 	wall_size = 20.0;
 	pixel_size = wall_size / HEIGHT;
 	y = 0;
 	origin = point(0, 0, -5);
-	transform_object(world.objects, scaling_matrix(point(1.5, 1, 2)));
+	/* transform_object(world.objects, translation_matrix(point(2, 2, 2))); */
 	while (y < HEIGHT)
 	{
 		x = 0;
@@ -76,8 +78,17 @@ static void	render_world3(t_world world, t_mlx mlx)
 			intersection_calculate(r, world.objects, &intersects);
 			if (intersects != NULL)
 			{
+				sort_lst(&intersects);
+				apodka = position(r, intersects->t);
 				object = intersects->object;
-				mlx_img_pix_put(&mlx.img, x, y, get_color(object->sp->color));
+				normalv = normal_at(*object->sp, apodka);
+				eyev = s_multiply(r.direction, -1);
+				kolor = lighting(world.light, origin, eyev, normalv);
+				fix_colors(&kolor);
+				kolor.x *= 255.999;
+				kolor.y *= 255.999;
+				kolor.z *= 255.999;
+				mlx_img_pix_put(&mlx.img, x, y, get_color(kolor));
 			}
 			clear_intersect(&intersects);
 			intersects = NULL;
@@ -85,8 +96,7 @@ static void	render_world3(t_world world, t_mlx mlx)
 		}
 		y++;
 	}
-	end = get_time_miliseconds();
-	printf("Rendered in %lu ms\n", end - begin);
+	printf("finished\n");
 }
 
 int	render(t_data data)
