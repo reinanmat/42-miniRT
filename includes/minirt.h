@@ -109,9 +109,9 @@ int				count_dots(const char *str);
 t_hittable		*init_objects(char **lines);
 
 //linear algebra
-t_vec3			reflect(t_vec3 in, t_vec3 normal);
 void			transform_object(t_hittable *object, t_matrix transf);
 t_ray			transform_ray(t_ray	ray, t_matrix transform);
+t_vec3			reflect(t_vec3 in, t_vec3 normal);
 t_vec3			normal_at(t_hittable *object, t_point world_point);
 
 t_material	default_material(void);
