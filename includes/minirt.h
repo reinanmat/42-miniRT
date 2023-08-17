@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/16 18:22:59 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:23:11 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,7 @@ t_hittable		*init_objects(char **lines);
 t_vec3			reflect(t_vec3 in, t_vec3 normal);
 void			transform_object(t_hittable *object, t_matrix transf);
 t_ray			transform_ray(t_ray	ray, t_matrix transform);
-t_vec3			normal_at(t_sphere sph, t_point world_point);
-
+t_vec3			normal_at(t_hittable *object, t_point world_point);
 
 t_material	default_material(void);
 t_color		lighting(t_light light, t_point point, t_vec3 camv, t_vec3 normalv);
