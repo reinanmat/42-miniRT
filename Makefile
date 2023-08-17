@@ -11,6 +11,8 @@ FILES =			main \
 				lighting \
 				ray/ray \
 				ray/ray_color \
+				ray/reflect \
+				ray/normal_at \
 				hittable/hit \
 				hittable/hit_sphere \
 				hittable/hittable_lst \
