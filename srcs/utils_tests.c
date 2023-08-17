@@ -6,21 +6,32 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 15:12:22 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:25:52 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
-#include <sys/time.h>
 
 //remove that file after finishing the project
-
+#include <sys/time.h>
 time_t	get_time_miliseconds(void)
 {
 	struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
 	return (((long long)tv.tv_sec)*1000)+(tv.tv_usec/1000);
+}
+
+void	timer()
+{
+	static int state = 0;
+	static long long init;
+
+	if (state == 0)
+		init = get_time_miliseconds();
+	else
+		printf("%lld ms\n", get_time_miliseconds() - init);
+	state = !state;
 }
 
 

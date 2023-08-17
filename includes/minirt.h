@@ -73,7 +73,7 @@ void			mlx_hooks(t_data *data);
 void			mlx_img_pix_put(t_img *img, int x, int y, int color);
 
 //utils tests - delet
-time_t			get_time_miliseconds(void);
+void			timer();
 void			print_matrix2(t_matrix matrix);
 void			print_point(t_point point);
 void			print_cam(t_cam cam);
