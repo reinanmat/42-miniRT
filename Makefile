@@ -8,6 +8,7 @@ FILES =			main \
 				return_struct \
 				render \
 				objects \
+				lighting \
 				ray/ray \
 				ray/ray_color \
 				hittable/hit \
