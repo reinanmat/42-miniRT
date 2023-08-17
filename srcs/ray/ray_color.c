@@ -6,13 +6,13 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 13:28:55 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/26 15:07:17 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:00:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-t_color	ray_color(t_ray ray, t_world world)
+t_color	old_ray_color(t_ray ray, t_world world)
 {
 	t_color	color;
 	t_range	range;
