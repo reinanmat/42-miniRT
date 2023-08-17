@@ -16,17 +16,8 @@
 
 }
 
-t_color	calculate_ray_color(int x, int y, t_world world)
 {
-	double	u;
-	double	v;
-	t_ray	ray;
-	t_color	color;
 
-	u = (double)x / WIDTH;
-	v = (double)y / HEIGHT;
-	ray = get_ray(u, v, world.cam);
-	color = ray_color(ray, world);
 	return (color);
 }
 
