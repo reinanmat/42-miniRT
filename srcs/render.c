@@ -41,7 +41,19 @@ t_color	ray_color(t_ray ray, t_world world)
 	return (color);
 }
 
+static t_ray	get_ray(int x, int y, t_point origin)
 {
+	t_ray	ray;
+	t_point	pos;
+	double	pixel_size;
+	double	wall_size;
+
+	wall_size = 20.0;
+	pixel_size = wall_size / HEIGHT;
+	pos = point(-wall_size/2 + x * pixel_size, wall_size/2 - y * pixel_size, wall_size);
+	ray.origin = origin;
+	ray.direction = normalize(sub(pos, origin));
+	return (ray);
 }
 
 static void	render_world(t_world world, t_mlx mlx)
