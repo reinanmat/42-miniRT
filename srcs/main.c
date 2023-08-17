@@ -6,21 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/16 19:02:54 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:08:26 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
-
-t_material	default_material(void)
-{
-	t_material	m;
-
-	m.ambient = 0.1;
-	m.diffuse = 0.9;
-	m.specular = 0.9;
-	m.shininess = 200.0;
-	return (m);
-}
 
 t_color	lighting(t_light light, t_point point, t_vec3 camv, t_vec3 normalv)
 {
