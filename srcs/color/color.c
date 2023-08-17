@@ -29,6 +29,9 @@ int	get_color(t_color color)
 	int	b;
 
 	fix_colors(&color);
+	color.x *= 255.999;
+	color.y *= 255.999;
+	color.z *= 255.999;
 	r = color.x;
 	g = color.y;
 	b = color.z;

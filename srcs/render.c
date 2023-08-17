@@ -77,10 +77,6 @@ static void	render_world(t_world world, t_mlx mlx)
 				normalv = normal_at(*object->sp, apodka);
 				eyev = s_multiply(r.direction, -1);
 				kolor = lighting(world.light, origin, eyev, normalv);
-				fix_colors(&kolor);
-				kolor.x *= 255.999;
-				kolor.y *= 255.999;
-				kolor.z *= 255.999;
 				mlx_img_pix_put(&mlx.img, x, y, get_color(kolor));
 			}
 			clear_intersect(&intersects);
