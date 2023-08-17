@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/16 19:26:37 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:17:30 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **in
 			{
 				intersect_add_back(intersect, new_intersect(inter_p.hit[0], objects));
 				intersect_add_back(intersect, new_intersect(inter_p.hit[1], objects));
-				sort_lst(intersect);
 			}
 		}
 		objects = objects->next;
 	}
+	sort_lst(intersect);
 }
