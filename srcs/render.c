@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/16 19:23:33 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:56:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	fix_colors(t_color *color)
 		color->z = 1;
 }
 
-static void	render_world3(t_world world, t_mlx mlx)
+static void	render_world(t_world world, t_mlx mlx)
 {
 	int				x;
 	int				y;
@@ -101,7 +101,7 @@ static void	render_world3(t_world world, t_mlx mlx)
 
 int	render(t_data data)
 {
-	render_world3(data.world, data.mlx);
+	render_world(data.world, data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
 		data.mlx.img.mlx_img, 0, 0);
 	return (0);
