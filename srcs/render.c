@@ -27,8 +27,17 @@ t_color	calculate_color(t_world world, t_ray ray, t_intersections *intersects)
 	return (color);
 }
 
+t_color	ray_color(t_ray ray, t_world world)
 {
+	t_color			color;
+	t_intersections	*intersects;
 
+	color = point(0, 0, 0);
+	intersects = NULL;
+	intersection_calculate(ray, world.objects, &intersects);
+	if (intersects != NULL)
+		color = calculate_color(world, ray, intersects);
+	clear_intersect(&intersects);
 	return (color);
 }
 
