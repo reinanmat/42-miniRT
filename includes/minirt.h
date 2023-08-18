@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/18 15:42:01 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 16:43:15 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,61 +59,59 @@ typedef struct s_data
 }	t_data;
 
 //render
-int				render(t_data data);
+int		render(t_data data);
 
 //hit
-int				hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit);
-int				hit_anything(t_hittable *objects, t_ray ray, t_range range, t_hit *hit);
+int		hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit);
+int		hit_anything(t_hittable *objects, t_ray ray, t_range range, t_hit *hit);
 
 //mlx functions
-void			mlx_close_window(t_mlx *mlx);
-void			mlx_create_img(t_mlx *mlx);
-void			mlx_create_window(t_mlx *mlx);
-void			mlx_hooks(t_data *data);
-void			mlx_img_pix_put(t_img *img, int x, int y, int color);
+void	mlx_close_window(t_mlx *mlx);
+void	mlx_create_img(t_mlx *mlx);
+void	mlx_create_window(t_mlx *mlx);
+void	mlx_hooks(t_data *data);
+void	mlx_img_pix_put(t_img *img, int x, int y, int color);
 
 //utils tests - delet
-void			timer();
-void			print_matrix2(t_matrix matrix);
-void			print_point(t_point point);
-void			print_cam(t_cam cam);
+void	timer();
+void	print_matrix2(t_matrix matrix);
+void	print_point(t_point point);
+void	print_cam(t_cam cam);
 
 //utils
-int				reset_fd(int fd, char *filename);
-char			*get_file_content(int fd, char *filename);
-char			**get_splitted_identifier(char **lines, char *identifier);
-void			assign_t_point(t_point *coordinate, char *param);
+int		reset_fd(int fd, char *filename);
+char	*get_file_content(int fd, char *filename);
+char	**get_splitted_identifier(char **lines, char *identifier);
+void	assign_t_point(t_point *coordinate, char *param);
 
 //file parsing
-int				received_invalid_param(char *filename);
-int				expected_number_of_identifiers(char **lines);
-void			trim_lines(char **lines);
-int				map_parsed_successfully(char **lines);
-int				is_valid_identifier(char *identifier);
-int				is_valid_ambient_lighting(char **params, int number_of_params);
-int				is_valid_camera(char **params, int number_of_params);
-int				is_valid_light(char **params, int number_of_params);
-int				is_valid_sphere(char **params, int number_of_params);
-int				is_valid_plane(char **params, int number_of_params);
-int				is_valid_cylinder(char **params, int number_of_params);
-int				is_number(const char *str);
-int				set_contain_only_numbers(const char *str);
-int				is_valid_rgb_set(const char *str);
-int				is_valid_lighting_ratio(const char *str);
-int				is_valid_coordinates(const char *str);
-int				expected_number_of_fields(const char *str, int expected_fields);
-int				is_valid_3d_normalized_vec(const char *str);
-int				count_dots(const char *str);
-
+int		received_invalid_param(char *filename);
+int		expected_number_of_identifiers(char **lines);
+void	trim_lines(char **lines);
+int		map_parsed_successfully(char **lines);
+int		is_valid_identifier(char *identifier);
+int		is_valid_ambient_lighting(char **params, int number_of_params);
+int		is_valid_camera(char **params, int number_of_params);
+int		is_valid_light(char **params, int number_of_params);
+int		is_valid_sphere(char **params, int number_of_params);
+int		is_valid_plane(char **params, int number_of_params);
+int		is_valid_cylinder(char **params, int number_of_params);
+int		is_number(const char *str);
+int		set_contain_only_numbers(const char *str);
+int		is_valid_rgb_set(const char *str);
+int		is_valid_lighting_ratio(const char *str);
+int		is_valid_coordinates(const char *str);
+int		expected_number_of_fields(const char *str, int expected_fields);
+int		is_valid_3d_normalized_vec(const char *str);
+int		count_dots(const char *str);
 
 //linear algebra
-void			transform_object(t_hittable *object, t_matrix transf);
-t_ray			transform_ray(t_ray	ray, t_matrix transform);
-t_vec3			reflect(t_vec3 in, t_vec3 normal);
-t_vec3			normal_at(t_hittable *object, t_point world_point);
+void	transform_object(t_hittable *object, t_matrix transf);
+t_ray	transform_ray(t_ray	ray, t_matrix transform);
+t_vec3	reflect(t_vec3 in, t_vec3 normal);
+t_vec3	normal_at(t_hittable *object, t_point world_point);
 
-t_material	default_material(void);
-t_color		lighting(t_light light, t_point point, t_comps comps);
-t_light		point_light(t_point pos, double intensity);
+t_color	lighting(t_light light, t_point point, t_comps comps);
+t_light	point_light(t_point pos, double intensity);
 
 #endif
