@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 15:03:28 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 18:30:49 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_sphere	*sphere(char **config)
 	sp->transform = identity_matrix();
 	sp->material = default_material();
 	sp->radius = ft_atof(config[2]) / 2;
-	assign_t_point(&sp->material.color, config[3]);
 	assign_t_point(&sp->center, config[1]);
+	assign_t_color(&sp->material.color, config[3]);
 	return (sp);
 }
 
@@ -47,7 +47,7 @@ t_cylinder	*cylinder(char **config)
 	cy->material = default_material();
 	assign_t_point(&cy->center, config[1]);
 	assign_t_point(&cy->vector, config[2]);
-	assign_t_point(&cy->material.color, config[5]);
+	assign_t_color(&cy->material.color, config[5]);
 	return (cy);
 }
 
@@ -60,6 +60,6 @@ t_plane	*plane(char **config)
 	pl->material = default_material();
 	assign_t_point(&pl->center, config[1]);
 	assign_t_point(&pl->vector, config[2]);
-	assign_t_point(&pl->material.color, config[3]);
+	assign_t_color(&pl->material.color, config[3]);
 	return (pl);
 }
