@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:05:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/11 14:16:44 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:24:12 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_bhask
 	double	s2;
 }	t_bhask;
 
-void			intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **intersect);
+t_intersections	*intersection_calculate(t_ray ray, t_hittable *objects);
 t_inter_point	intersect_sphere(t_ray ray, t_sphere *sphere);
 t_intersections	*hit(t_intersections *intersections);
 

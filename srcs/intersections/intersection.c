@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 16:17:30 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/17 18:01:07 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ t_intersections	*hit(t_intersections *intersections)
 	return (intersect);
 }
 
-void	intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **intersect)
+t_intersections	*intersection_calculate(t_ray ray, t_hittable *objects)
 {
 	t_ray			tmp_ray;
+	t_intersections	*intersect;
 	t_inter_point	inter_p;
 
+	intersect = NULL;
 	while (objects)
 	{
 		if (objects->type == 1)
@@ -41,11 +43,12 @@ void	intersection_calculate(t_ray ray, t_hittable *objects, t_intersections **in
 			inter_p = intersect_sphere(tmp_ray, objects->sp);
 			if (inter_p.hit_times != 0)
 			{
-				intersect_add_back(intersect, new_intersect(inter_p.hit[0], objects));
-				intersect_add_back(intersect, new_intersect(inter_p.hit[1], objects));
+				intersect_add_back(&intersect, new_intersect(inter_p.hit[0], objects));
+				intersect_add_back(&intersect, new_intersect(inter_p.hit[1], objects));
 			}
 		}
 		objects = objects->next;
 	}
-	sort_lst(intersect);
+	sort_lst(&intersect);
+	return(intersect);
 }
