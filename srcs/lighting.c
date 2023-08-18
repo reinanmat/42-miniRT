@@ -6,13 +6,13 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 15:25:33 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 16:18:35 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-t_color	lighting(t_light light, t_point point, t_vec3 eyev, t_vec3 normalv)
+t_color	lighting(t_light light, t_point point, t_comps comps)
 {
 	t_color		color;
 	t_color		effective_color;
@@ -26,11 +26,11 @@ t_color	lighting(t_light light, t_point point, t_vec3 eyev, t_vec3 normalv)
 	double		factor;
 	t_material	material;
 
-	material = default_material();
-	effective_color = s_multiply((t_color){1, 0.2, 1}, light.brightness);
+	material = get_material(comps.object);
+	effective_color = s_multiply(get_color_hittable(comps.object), light.brightness);
 	lightv = normalize(sub(light.coordinate, point));
 	ambient = s_multiply(effective_color, material.ambient);
-	light_dot_normal = dot(lightv, normalv);
+	light_dot_normal = dot(lightv, comps.normalv);
 	reflect_dot_eye = 0.0;
 	if (light_dot_normal < 0)
 	{
@@ -40,8 +40,8 @@ t_color	lighting(t_light light, t_point point, t_vec3 eyev, t_vec3 normalv)
 	else
 	{
 		diffuse = s_multiply(effective_color, material.diffuse * light_dot_normal);
-		reflectv = reflect(s_multiply(lightv , -1), normalv);
-		reflect_dot_eye = dot(reflectv, eyev);
+		reflectv = reflect(s_multiply(lightv , -1), comps.normalv);
+		reflect_dot_eye = dot(reflectv, comps.eyev);
 	}
 	if (reflect_dot_eye <= 0)
 		specular = (t_color){0, 0, 0};
