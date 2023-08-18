@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:05 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 15:55:56 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:37:11 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	fix_colors(t_color *color)
 		color->z = 1;
 }
 
-int	get_color(t_color color)
+int	rgb_color(t_color color)
 {
 	int	r;
 	int	g;

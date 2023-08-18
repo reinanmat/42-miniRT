@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:36:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:18:27 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:40:52 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_vec3	normalize(t_vec3 a);
 double	dot(t_vec3 m1, t_vec3 m2);
 
 //color
-int		get_color(t_color color);
+int		rgb_color(t_color color);
 t_color	gradient_color(double axis, t_color a, t_color b);
 
 #endif

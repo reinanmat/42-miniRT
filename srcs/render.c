@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/18 15:56:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:42:11 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	render_world(t_world world, t_mlx mlx)
 		{
 			ray = get_ray(x, y, origin);
 			color = ray_color(ray, world);
-			mlx_img_pix_put(&mlx.img, x, y, get_color(color));
+			mlx_img_pix_put(&mlx.img, x, y, rgb_color(color));
 			x++;
 		}
 		y++;
