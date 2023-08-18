@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 15:01:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/17 18:11:16 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_plane
 	t_material	material;
 }	t_plane;
 
+t_material	default_material(void);
 t_sphere	*sphere(char **config);
 t_cylinder	*cylinder(char **config);
 t_plane		*plane(char **config);
