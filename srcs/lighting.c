@@ -12,6 +12,26 @@
 
 #include "../includes/minirt.h"
 
+t_color	get_color_hittable(t_hittable *object)
+{
+	if (object->type == 1)
+		return (object->sp->material.color);
+	else if (object->type == 2)
+		return (object->cy->material.color);
+	else
+		return (object->pl->material.color);
+}
+
+t_material	get_material(t_hittable *object)
+{
+	if (object->type == 1)
+		return (object->sp->material);
+	else if (object->type == 2)
+		return (object->cy->material);
+	else
+		return (object->pl->material);
+}
+
 t_color	lighting(t_light light, t_point point, t_comps comps)
 {
 	t_color		color;
