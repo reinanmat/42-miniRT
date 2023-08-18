@@ -61,7 +61,7 @@ FILES =			main \
 				init_world/init_objects \
 				aux_functions/reset_fd \
 				aux_functions/get_file_content \
-				aux_functions/assign_t_point \
+				aux_functions/assign_value \
 				aux_functions/lst_aux \
 				aux_functions/sort_lst
 
