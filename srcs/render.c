@@ -39,7 +39,7 @@ t_color	ray_color(t_ray ray, t_world world)
 	t_color			color;
 	t_intersections	*intersects;
 
-	color = point(0, 0, 0);
+	color = (t_color){0, 0, 0};
 	intersects = intersection_calculate(ray, world.objects);
 	if (intersects != NULL)
 		color = calculate_color(world, ray, intersects);
