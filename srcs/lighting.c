@@ -6,13 +6,13 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/18 16:18:35 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:45:01 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-t_color	get_color_hittable(t_hittable *object)
+t_color	get_color(t_hittable *object)
 {
 	if (object->type == 1)
 		return (object->sp->material.color);
@@ -47,7 +47,7 @@ t_color	lighting(t_light light, t_point point, t_comps comps)
 	t_material	material;
 
 	material = get_material(comps.object);
-	effective_color = s_multiply(get_color_hittable(comps.object), light.brightness);
+	effective_color = s_multiply(get_color(comps.object), light.brightness);
 	lightv = normalize(sub(light.coordinate, point));
 	ambient = s_multiply(effective_color, material.ambient);
 	light_dot_normal = dot(lightv, comps.normalv);
