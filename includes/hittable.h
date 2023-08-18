@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:13:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/26 15:07:39 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 16:39:51 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ typedef struct s_hittable
 	struct s_hittable	*next;
 }	t_hittable;
 
-void	hittable_add(char *identifier, void *object, t_hittable **hittable_lst);
-void	clean_hittable(t_hittable **hittable_lst);
+t_hittable	*init_objects(char **lines);
+void		hittable_add(char *type, void *object, t_hittable **header);
+void		clean_hittable(t_hittable **hittable_lst);
 
 #endif

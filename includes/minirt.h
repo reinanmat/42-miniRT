@@ -105,8 +105,6 @@ int				expected_number_of_fields(const char *str, int expected_fields);
 int				is_valid_3d_normalized_vec(const char *str);
 int				count_dots(const char *str);
 
-//init
-t_hittable		*init_objects(char **lines);
 
 //linear algebra
 void			transform_object(t_hittable *object, t_matrix transf);
