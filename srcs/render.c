@@ -6,11 +6,23 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 17:14:52 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:56:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
+
+t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
+{
+	t_comps comps;
+
+	comps.t = intersects->t;
+	comps.point = position(ray, intersects->t);
+	comps.eyev = s_multiply(ray.direction, -1);
+	comps.normalv = normal_at(intersects->object, comps.point);
+	comps.object = intersects->object;
+	return (comps);
+}
 
 t_color	calculate_color(t_world world, t_ray ray, t_intersections *intersects)
 {

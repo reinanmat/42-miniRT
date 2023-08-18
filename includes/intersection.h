@@ -30,6 +30,15 @@ typedef struct s_inter_point
 	void	*object;
 }	t_inter_point;
 
+typedef struct	s_comps
+{
+	double		t;
+	t_hittable	*object;
+	t_point		point;
+	t_vec3		eyev;
+	t_vec3		normalv;
+}	t_comps;
+
 typedef struct s_bhask
 {
 	double	a;
