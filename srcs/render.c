@@ -26,16 +26,11 @@ t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 
 t_color	calculate_color(t_world world, t_ray ray, t_intersections *intersects)
 {
-	t_point		pos;
-	t_vec3		eyev;
-	t_vec3		normalv;
-	t_color		color;
+	t_color	color;
+	t_comps	comps;
 
-	pos = position(ray, intersects->t);
-	normalv = normal_at(intersects->object, pos);
-	eyev = s_multiply(ray.direction, -1);
-	//second parameter of lighting is a point(origin cam or ray origin?)
-	color = lighting(world.light, ray.origin, eyev, normalv);
+	comps = prepare_computations(intersects, ray);
+	color = lighting(world.light, ray.origin, comps);
 	return (color);
 }
 
