@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/18 17:42:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:16:05 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_color	calculate_color(t_world world, t_ray ray, t_intersections *intersects)
 	return (color);
 }
 
-t_color	ray_color(t_ray ray, t_world world)
+t_color	color_at(t_ray ray, t_world world)
 {
 	t_color			color;
 	t_intersections	*intersects;
@@ -79,7 +79,7 @@ static void	render_world(t_world world, t_mlx mlx)
 		while (x < WIDTH)
 		{
 			ray = get_ray(x, y, origin);
-			color = ray_color(ray, world);
+			color = color_at(ray, world);
 			mlx_img_pix_put(&mlx.img, x, y, rgb_color(color));
 			x++;
 		}
