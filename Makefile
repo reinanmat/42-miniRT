@@ -51,8 +51,8 @@ FILES =			main \
 				file_parsing/parse_aux_functions/expected_number_of_fields \
 				file_parsing/parse_aux_functions/is_valid_3d_normalized_vec \
 				file_parsing/parse_aux_functions/count_dots \
-				init_world/init_world \
-				init_world/init_objects \
+				world/init_world \
+				world/init_objects \
 				aux_functions/reset_fd \
 				aux_functions/get_file_content \
 				aux_functions/get_splitted_identifier \
