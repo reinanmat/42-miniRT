@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 18:29:54 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/04 18:12:38 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:59:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ t_ray	ray(t_point origin, t_vec3 direction)
 {
 	return ((t_ray){origin, direction});
 }
-
