@@ -6,10 +6,9 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:03:04 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:53:50 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../../includes/minirt.h"
 
 double	length_square(t_vec3 a)

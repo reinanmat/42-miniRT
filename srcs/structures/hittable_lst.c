@@ -6,10 +6,9 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:33:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/18 16:41:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:54:43 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../includes/minirt.h"
 
 static void	add_node(t_hittable *new_node, t_hittable **hittable_lst)

@@ -6,10 +6,9 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 18:29:54 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 17:59:32 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:55:14 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../includes/minirt.h"
 
 t_color	color(double r, double g, double b)

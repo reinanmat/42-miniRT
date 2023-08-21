@@ -6,10 +6,9 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 16:58:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:54:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../includes/minirt.h"
 
 t_sphere	*sphere(char **config)

@@ -6,10 +6,9 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:05:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 17:06:00 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:54:30 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../includes/minirt.h"
 
 t_vec3	normal_at(t_hittable *object, t_point world_point)

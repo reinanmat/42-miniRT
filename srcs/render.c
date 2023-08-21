@@ -6,10 +6,9 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 17:16:05 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:55:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../includes/minirt.h"
 
 t_comps	prepare_computations(t_intersections *intersects, t_ray ray)

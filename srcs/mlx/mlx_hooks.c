@@ -6,10 +6,9 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:13:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/26 14:41:51 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:54:19 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../includes/minirt.h"
 
 static int	close_program(t_data *data)
