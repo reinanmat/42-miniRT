@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/18 18:24:12 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:51:04 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,6 @@ typedef struct s_data
 
 //render
 int		render(t_data data);
-
-//hit
-int		hit_sphere(t_sphere sphere, t_ray ray, t_range range, t_hit *hit);
-int		hit_anything(t_hittable *objects, t_ray ray, t_range range, t_hit *hit);
 
 //mlx functions
 void	mlx_close_window(t_mlx *mlx);

@@ -9,12 +9,8 @@ FILES =			main \
 				render \
 				objects \
 				lighting \
-				ray/ray \
-				ray/ray_color \
 				ray/reflect \
 				ray/normal_at \
-				hittable/hit \
-				hittable/hit_sphere \
 				hittable/hittable_lst \
 				hittable/clean_hittable \
 				linear_algebra/vectors/basic_operations \
@@ -30,7 +26,6 @@ FILES =			main \
 				intersections/intersection \
 				intersections/intersect_sphere \
 				color/color \
-				color/gradient_color \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
 				mlx/mlx_img_pix_put \
