@@ -10,8 +10,9 @@ FILES =			main \
 				lighting \
 				ray/reflect \
 				ray/normal_at \
-				hittable/hittable_lst \
-				hittable/clean_hittable \
+				structures/hittable_lst \
+				structures/clean_hittable \
+				structures/intersection_lst \
 				linear_algebra/vectors/basic_operations \
 				linear_algebra/vectors/scalar_operations \
 				linear_algebra/vectors/extra_operations \
@@ -57,7 +58,6 @@ FILES =			main \
 				aux_functions/get_file_content \
 				aux_functions/get_splitted_identifier \
 				aux_functions/assign_value \
-				aux_functions/lst_aux \
 				aux_functions/sort_lst
 
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))
