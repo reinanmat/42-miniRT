@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:39:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/09 18:11:22 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/23 20:07:50 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ t_matrix	shearing_matrix(t_point p1, t_point p2);
 t_matrix	rotate_x_matrix(double radians);
 t_matrix	rotate_y_matrix(double radians);
 t_matrix	rotate_z_matrix(double radians);
+t_matrix	view_transform(t_vec3 from, t_vec3 to, t_vec3 up);
 
 #endif

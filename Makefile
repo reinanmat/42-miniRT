@@ -21,6 +21,7 @@ FILES =			main \
 				linear_algebra/matrices/matrix_rotates \
 				linear_algebra/matrices/matrix_utils \
 				linear_algebra/matrices/matrix_transform \
+				linear_algebra/matrices/view_transformation \
 				linear_algebra/conversions \
 				linear_algebra/transforms \
 				intersections/intersection \
