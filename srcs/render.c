@@ -30,13 +30,11 @@ t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 	return (comps);
 }
 
-t_color	calculate_color(t_world world, t_ray ray, t_intersections *intersects)
+t_color	shade_hit(t_world world, t_comps comps)
 {
 	t_color	color;
-	t_comps	comps;
 
-	comps = prepare_computations(intersects, ray);
-	color = lighting(world.light, comps.point, comps);
+	color = lighting(world.light, comps);
 	return (color);
 }
 
