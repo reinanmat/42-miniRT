@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/23 15:09:24 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:37:55 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -20,6 +20,13 @@ t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 	comps.eyev = s_multiply(ray.direction, -1);
 	comps.normalv = normal_at(intersects->object, comps.point);
 	comps.object = intersects->object;
+	if (dot(comps.normalv, comps.eyev) < 0)
+	{
+		comps.inside = 1;
+		comps.normalv = s_multiply(comps.normalv, -1);
+	}
+	else
+		comps.inside = 0;
 	return (comps);
 }
 
