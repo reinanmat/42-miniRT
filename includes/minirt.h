@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 15:51:04 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:38:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ t_ray	transform_ray(t_ray	ray, t_matrix transform);
 t_vec3	reflect(t_vec3 in, t_vec3 normal);
 t_vec3	normal_at(t_hittable *object, t_point world_point);
 
-t_color	lighting(t_light light, t_point point, t_comps comps);
+t_color	lighting(t_light light, t_comps comps);
 t_light	point_light(t_point pos, double intensity);
 
 #endif

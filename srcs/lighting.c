@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:55:02 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:39:38 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -31,7 +31,7 @@ t_material	get_material(t_hittable *object)
 		return (object->pl->material);
 }
 
-t_color	lighting(t_light light, t_point point, t_comps comps)
+t_color	lighting(t_light light, t_comps comps)
 {
 	t_color		color;
 	t_color		effective_color;
@@ -47,7 +47,7 @@ t_color	lighting(t_light light, t_point point, t_comps comps)
 
 	material = get_material(comps.object);
 	effective_color = s_multiply(get_color(comps.object), light.brightness);
-	lightv = normalize(sub(light.coordinate, point));
+	lightv = normalize(sub(light.coordinate, comps.point));
 	ambient = s_multiply(effective_color, material.ambient);
 	light_dot_normal = dot(lightv, comps.normalv);
 	reflect_dot_eye = 0.0;
