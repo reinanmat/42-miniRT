@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:36:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 15:51:14 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/23 20:07:37 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ double	length_square(t_vec3 a);
 double	magnitude(t_vec3 a);
 t_vec3	normalize(t_vec3 a);
 double	dot(t_vec3 m1, t_vec3 m2);
+t_vec3	cross_product(t_vec3 a, t_vec3 b);
 
 //color
 int		rgb_color(t_color color);
