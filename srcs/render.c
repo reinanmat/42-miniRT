@@ -41,13 +41,15 @@ t_color	shade_hit(t_world world, t_comps comps)
 t_color	color_at(t_ray ray, t_world world)
 {
 	t_color			color;
+	t_comps			comps;
 	t_intersections	*intersects;
 
-	color = (t_color){0, 0, 0};
 	intersects = intersection_calculate(ray, world.objects);
-	if (intersects != NULL)
-		color = calculate_color(world, ray, intersects);
+	if (intersects == NULL)
+		return ((t_color){0, 0, 0});
+	comps = prepare_computations(intersects, ray);
 	clear_intersect(&intersects);
+	color = shade_hit(world, comps);
 	return (color);
 }
 
