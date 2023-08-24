@@ -55,6 +55,7 @@ FILES =			main \
 				world/init_world \
 				world/objects \
 				world/material \
+				world/camera \
 				aux_functions/reset_fd \
 				aux_functions/get_file_content \
 				aux_functions/get_splitted_identifier \
