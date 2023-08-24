@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:58:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/23 20:29:08 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/23 21:39:42 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_cam
 	t_vec3	horizontal;
 	t_vec3	vertical;
 	t_point	lower_left_corner;
+	t_matrix	t;
 }	t_cam;
 
 typedef struct s_light
@@ -51,5 +52,6 @@ typedef struct s_world
 }	t_world;
 
 t_world	init_world(char *filename);
+void	set_pixel_size(t_cam *camera);
 
 #endif
