@@ -10,6 +10,7 @@ FILES =			main \
 				lighting \
 				ray/reflect \
 				ray/normal_at \
+				ray/ray_for_pixel \
 				structures/hittable_lst \
 				structures/hittable_getters \
 				structures/clean_hittable \
