@@ -11,6 +11,7 @@ FILES =			main \
 				ray/reflect \
 				ray/normal_at \
 				structures/hittable_lst \
+				structures/hittable_getters \
 				structures/clean_hittable \
 				structures/intersection_lst \
 				linear_algebra/vectors/basic_operations \
