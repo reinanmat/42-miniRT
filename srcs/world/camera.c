@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:29:27 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/23 22:36:16 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:37:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -70,6 +70,5 @@ t_ray	ray_for_pixel(t_cam cam, int x, int y)
 	pixel = matr_product_to_point(inversed_vec_to_matr, canvas_point);
 	origin = matr_product_to_point(inversed_vec_to_matr, point(0, 0, 0));
 	direction = normalize(sub(pixel, origin));
-
 	return (ray(origin, direction));
 }
