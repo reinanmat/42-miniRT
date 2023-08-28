@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 19:14:13 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/18 18:23:57 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:59:36 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -27,5 +27,5 @@ void	assign_t_color(t_color *color, char *param)
 	t_color	tmp_color;
 
 	assign_t_point(&tmp_color, param);
-	*color = normalize(tmp_color);
+	*color = normalize_color(tmp_color);
 }
