@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/23 15:37:55 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:33:12 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -53,21 +53,6 @@ t_color	color_at(t_ray ray, t_world world)
 	return (color);
 }
 
-static t_ray	get_ray(int x, int y, t_point origin)
-{
-	t_ray	ray;
-	t_point	pos;
-	double	pixel_size;
-	double	wall_size;
-
-	wall_size = 20.0;
-	pixel_size = wall_size / HEIGHT;
-	pos = point(-wall_size/2 + x * pixel_size, wall_size/2 - y * pixel_size, wall_size);
-	ray.origin = origin;
-	ray.direction = normalize(sub(pos, origin));
-	return (ray);
-}
-
 static void	render_world(t_world world, t_mlx mlx)
 {
 	int		x;
@@ -84,7 +69,7 @@ static void	render_world(t_world world, t_mlx mlx)
 		x = 0;
 		while (x < WIDTH)
 		{
-			ray = get_ray(x, y, origin);
+			ray = ray_for_pixel(world.cam, x, y);
 			color = color_at(ray, world);
 			mlx_img_pix_put(&mlx.img, x, y, rgb_color(color));
 			x++;
