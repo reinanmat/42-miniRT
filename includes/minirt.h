@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/23 15:57:20 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:30:51 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_H
 
 # define WIDTH 720
-# define HEIGHT 720
+# define HEIGHT 360
 # define WINDOW_NAME "minirt"
 
 # define KEY_ESC 0xff1b
