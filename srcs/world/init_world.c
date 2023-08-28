@@ -6,24 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/09 18:20:25 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:58:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
-
-static t_point	get_lower_left_corner(t_cam cam)
-{
-	t_point	lower_left_corner;
-	t_point	half_vertical;
-	t_point	half_horizontal;
-	t_point	aux;
-
-	half_vertical = s_division(cam.vertical, 2);
-	half_horizontal = s_division(cam.horizontal, 2);
-	aux = sub(sub(cam.coordinate, half_horizontal), half_vertical);
-	lower_left_corner = sub(aux, (t_point){0, 0, cam.focal_length});
-	return (lower_left_corner);
-}
 
 static t_cam	init_cam(char **lines)
 {
