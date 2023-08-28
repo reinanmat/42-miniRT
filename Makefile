@@ -33,6 +33,7 @@ FILES =			main \
 				mlx/mlx_close_window \
 				mlx/mlx_create_window \
 				utils_tests \
+				test_worlds \
 				file_parsing/parse \
 				file_parsing/map_parse \
 				file_parsing/parse_aux_functions/expected_number_of_identifiers \
