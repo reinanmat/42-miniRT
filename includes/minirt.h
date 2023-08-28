@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/28 15:30:51 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:57:52 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void	timer();
 void	print_matrix2(t_matrix matrix);
 void	print_point(t_point point);
 void	print_cam(t_cam cam);
+//worlds
+t_world	default_world(void);
+t_world	complex_world(void);
 
 //utils
 int		reset_fd(int fd, char *filename);
