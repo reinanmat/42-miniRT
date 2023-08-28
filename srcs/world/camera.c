@@ -31,6 +31,14 @@ void	set_pixel_size(t_cam *camera)
 	camera->pixel_size = (camera->viewport_width * 2) / WIDTH;
 }
 
+static double	degress_to_radians(double degress)
+{
+	double	radians;
+
+	radians = degress / 180.0 * M_PI;
+	return (radians);
+}
+
 t_cam	init_camera(char **lines)
 {
 	t_cam	cam;
