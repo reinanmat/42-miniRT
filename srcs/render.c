@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/28 15:33:12 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:42:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -78,6 +78,32 @@ static void	render_world(t_world world, t_mlx mlx)
 	printf("finished\n");
 }
 
+t_world	default_world()
+{
+	t_world		world;
+	char		*config[4];
+	t_sphere	*sp1;
+	t_sphere	*sp2;
+
+	world.light = point_light(point(-10, 10, -10), 1);
+	world.objects = NULL;
+	config[0] = "sp";
+	config[1] = "0,0,0";
+	config[2] = "2";
+	config[3] = "204, 255, 153";
+	sp1 = sphere(config);
+	sp1->material.diffuse = 0.7;
+	sp1->material.specular = 0.2;
+	config[0] = "sp";
+	config[1] = "0,0,0";
+	config[2] = "2";
+	config[3] = "255, 255, 255";
+	sp2 = sphere(config);
+	sp2->transform = scaling_matrix(point(0.5, 0.5, 0.5));
+	hittable_add("sp", sp1, &world.objects);
+	hittable_add("sp", sp2, &world.objects);
+	return (world);
+}
 int	render(t_data data)
 {
 	render_world(data.world, data.mlx);
