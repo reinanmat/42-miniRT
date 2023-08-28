@@ -176,7 +176,10 @@ t_world	test_scene(void)
 
 int	render(t_data data)
 {
-	render_world(data.world, data.mlx);
+	t_world	world;
+
+	world = test_scene();
+	render_world(world, data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
 		data.mlx.img.mlx_img, 0, 0);
 	return (0);
