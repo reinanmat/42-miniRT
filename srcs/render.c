@@ -58,11 +58,9 @@ static void	render_world(t_world world, t_mlx mlx)
 	int		x;
 	int		y;
 	t_ray	ray;
-	t_point	origin;
 	t_color	color;
 
 	y = 0;
-	origin = point(0, 0, -5);
 	timer();
 	while (y < HEIGHT)
 	{
