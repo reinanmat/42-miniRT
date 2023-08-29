@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:53:15 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:03:06 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -21,7 +21,10 @@ t_intersections	*hit(t_intersections *intersections)
 	while (intersections)
 	{
 		if (intersections->t >= 0 && intersections->t < min)
+		{
 			intersect = intersections;
+			min = intersect->t;
+		}
 		intersections = intersections->next;
 	}
 	return (intersect);
