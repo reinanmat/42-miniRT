@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/28 15:55:08 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:22:36 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -14,12 +14,14 @@
 t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 {
 	t_comps comps;
+	t_intersections	*tmp_inter;
 
-	comps.t = intersects->t;
-	comps.point = position(ray, intersects->t);
+	tmp_inter = hit(intersects);
+	comps.t = tmp_inter->t;
+	comps.point = position(ray, tmp_inter->t);
 	comps.eyev = s_multiply(ray.direction, -1);
-	comps.normalv = normal_at(intersects->object, comps.point);
-	comps.object = intersects->object;
+	comps.normalv = normal_at(tmp_inter->object, comps.point);
+	comps.object = tmp_inter->object;
 	if (dot(comps.normalv, comps.eyev) < 0)
 	{
 		comps.inside = 1;
@@ -45,7 +47,7 @@ t_color	color_at(t_ray ray, t_world world)
 	t_intersections	*intersects;
 
 	intersects = intersection_calculate(ray, world.objects);
-	if (intersects == NULL)
+	if (intersects == NULL || hit(intersects) == NULL)
 		return ((t_color){0, 0, 0});
 	comps = prepare_computations(intersects, ray);
 	clear_intersect(&intersects);
