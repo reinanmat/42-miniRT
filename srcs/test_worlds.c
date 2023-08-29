@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/28 15:57:06 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:42:31 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -41,7 +41,7 @@ t_world	default_world(void)
 t_world	complex_world(void)
 {
 	t_world		world;
-	t_vec3		to;
+	t_vec3		forward;
 	t_vec3		up;
 	t_vec3		from;
 	char		*config[4];
@@ -53,11 +53,11 @@ t_world	complex_world(void)
 	t_sphere	*sp_left;
 
 	from = vec3(0, 1.5, -5);
-	to = vec3(0, 1, 0);
+	forward = normalize(sub(vec3(0, 1, 0), from));
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 3;
 	set_pixel_size(&world.cam);
-	world.cam.t = view_transform(from, to, up);
+	world.cam.t = view_transform(from, forward, up);
 
 	world.light = point_light(point(-10, 10, -10), 1);
 	world.objects = NULL;
