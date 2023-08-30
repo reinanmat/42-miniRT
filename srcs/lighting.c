@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 18:15:10 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:17:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
