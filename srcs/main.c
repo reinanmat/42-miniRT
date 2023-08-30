@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 17:09:27 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:34:41 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -35,11 +35,11 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	data = init_data(argv[1]);
-	render(data);
 	if (argc != 2)
 		exit(1);
 	else if (received_invalid_param(argv[1]))
 		exit(1);
+	data = init_data(argv[1]);
+	render(data);
 	mlx_loop(data.mlx.mlx_ptr);
 }
