@@ -106,7 +106,7 @@ int		is_valid_3d_normalized_vec(const char *str);
 int		count_dots(const char *str);
 
 //linear algebra
-void	transform_object(t_hittable *object, t_matrix transf);
+t_matrix	transform_object(t_point translation, t_vec3 scale);
 t_ray	transform_ray(t_ray	ray, t_matrix transform);
 t_vec3	reflect(t_vec3 in, t_vec3 normal);
 t_vec3	normal_at(t_hittable *object, t_point world_point);

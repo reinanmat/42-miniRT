@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:05:47 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/11 14:54:17 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:20:34 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -35,14 +35,16 @@ static void	apply_transformation_vec(t_vec3 *vec, t_matrix transformation)
 	*vec = new_pos;
 }
 
-void	transform_object(t_hittable *object, t_matrix transf)
+t_matrix	transform_object(t_point translation, t_vec3 scale)
 {
-	if (object->type == 1)
-		object->sp->transform = multiply_matrix(object->sp->transform, transf);
-	if (object->type == 2)
-		object->cy->transform = multiply_matrix(object->cy->transform, transf);
-	if (object->type == 3)
-		object->pl->transform = multiply_matrix(object->pl->transform, transf);
+	t_matrix	transform;
+	t_matrix	m_scale;;
+	t_matrix	m_translation;
+
+	m_scale = scaling_matrix(scale);
+	m_translation = translation_matrix(translation);
+	transform = multiply_matrix(m_scale, m_translation);
+	return (transform);
 }
 
 t_ray	transform_ray(t_ray	ray, t_matrix transform)
