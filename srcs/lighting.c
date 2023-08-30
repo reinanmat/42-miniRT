@@ -33,7 +33,7 @@ double	compute_reflect_dot_eye(t_light light, t_comps comps)
 
 	lightv = normalize(sub(light.coordinate, comps.point));
 	reflectv = reflect(s_multiply(lightv , -1), comps.normalv);
-	reflect_dot_eye = dot(lightv, comps.normalv);
+	reflect_dot_eye = dot(reflectv, comps.eyev);
 	return (reflect_dot_eye);
 }
 
