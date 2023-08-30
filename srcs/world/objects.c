@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/29 19:35:05 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:22:33 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -15,18 +15,16 @@ t_sphere	*sphere(char **config)
 {
 	t_sphere	*sp;
 	t_vec3		scale;
-	t_matrix	scaling;
-	t_matrix	translation;
+	t_point		translation;
 
 	sp = malloc(sizeof(t_sphere));
-	sp->material = default_material();
+	sp->center = point(0, 0, 0);
 	sp->radius = ft_atof(config[2]) / 2;
-	assign_t_point(&sp->center, config[1]);
+	sp->material = default_material();
 	assign_t_color(&sp->material.color, config[3]);
+	assign_t_point(&translation, config[1]);
 	scale = vec3(sp->radius, sp->radius, sp->radius);
-	translation = translation_matrix(sp->center);
-	scaling = scaling_matrix(scale);
-	sp->transform = multiply_matrix(translation, scaling);
+	sp->transform = transform_object(translation, scale);
 	return (sp);
 }
 
