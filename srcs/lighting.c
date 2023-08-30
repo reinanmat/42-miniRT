@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/29 21:09:26 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:45:44 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -76,7 +76,7 @@ t_color	compute_final_color(t_color ambient, t_color diffuse, t_color specular)
 	t_color	color;
 
 	color = add(ambient, add(diffuse, specular));
-	return (normalize_color(color));
+	return (color);
 }
 
 t_color	lighting(t_light light, t_comps comps)
