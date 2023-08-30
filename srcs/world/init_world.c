@@ -6,48 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/09 18:20:25 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:58:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
-
-static t_point	get_lower_left_corner(t_cam cam)
-{
-	t_point	lower_left_corner;
-	t_point	half_vertical;
-	t_point	half_horizontal;
-	t_point	aux;
-
-	half_vertical = s_division(cam.vertical, 2);
-	half_horizontal = s_division(cam.horizontal, 2);
-	aux = sub(sub(cam.coordinate, half_horizontal), half_vertical);
-	lower_left_corner = sub(aux, (t_point){0, 0, cam.focal_length});
-	return (lower_left_corner);
-}
-
-static t_cam	init_cam(char **lines)
-{
-	t_cam	cam;
-	char	**config;
-	double	aspect_ratio;
-	double	vertical_fov;
-	double	vertical_fov_radians;
-
-	config = get_splitted_identifier(lines, "C");
-	vertical_fov = ft_atof(config[3]);
-	vertical_fov_radians = vertical_fov * M_PI / 180.0;
-	aspect_ratio = 16.0 / 9.0;
-	cam.viewport_height = 2.0 * tan(vertical_fov_radians / 2.0);
-	cam.viewport_width = cam.viewport_height * aspect_ratio;
-	cam.focal_length = 1.0;
-	assign_t_point(&cam.coordinate, config[1]);
-	assign_t_point(&cam.orientation_vec, config[2]);
-	cam.horizontal = (t_point){cam.viewport_width, 0, 0};
-	cam.vertical = (t_point){0, cam.viewport_height, 0};
-	cam.lower_left_corner = get_lower_left_corner(cam);
-	ft_free_matrix((void **)config);
-	return (cam);
-}
 
 static t_amb_light	init_ambient_light(char **lines)
 {
@@ -85,7 +47,7 @@ t_world	init_world(char *filename)
 	lines = ft_split(file_content, '\n');
 	free(file_content);
 	trim_lines(lines);
-	world.cam = init_cam(lines);
+	world.cam = init_camera(lines);
 	world.ambient_light = init_ambient_light(lines);
 	world.light = init_light(lines);
 	world.objects = init_objects(lines);

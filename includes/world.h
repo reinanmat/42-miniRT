@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:58:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/07/25 18:52:34 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:28:48 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@
 
 typedef struct s_cam
 {
-	double	fov;
-	double	viewport_height;
-	double	viewport_width;
-	double	focal_length;
-	t_point	coordinate;
-	t_vec3	orientation_vec;
-	t_vec3	horizontal;
-	t_vec3	vertical;
-	t_point	lower_left_corner;
+	double		fov;
+	double		viewport_height;
+	double		viewport_width;
+	double		pixel_size;
+	t_point		coordinate;
+	t_vec3		orientation_vec;
+	t_matrix	t;
 }	t_cam;
 
 typedef struct s_light
@@ -50,5 +48,7 @@ typedef struct s_world
 }	t_world;
 
 t_world	init_world(char *filename);
+t_cam	init_camera(char **lines);
+void	set_pixel_size(t_cam *camera);
 
 #endif

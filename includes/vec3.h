@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:36:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/23 20:07:37 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:59:05 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ t_vec3	cross_product(t_vec3 a, t_vec3 b);
 
 //color
 int		rgb_color(t_color color);
+t_color	normalize_color(t_color	color);
 
 #endif

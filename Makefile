@@ -10,7 +10,9 @@ FILES =			main \
 				lighting \
 				ray/reflect \
 				ray/normal_at \
+				ray/ray_for_pixel \
 				structures/hittable_lst \
+				structures/hittable_getters \
 				structures/clean_hittable \
 				structures/intersection_lst \
 				linear_algebra/vectors/basic_operations \
@@ -33,6 +35,7 @@ FILES =			main \
 				mlx/mlx_close_window \
 				mlx/mlx_create_window \
 				utils_tests \
+				test_worlds \
 				file_parsing/parse \
 				file_parsing/map_parse \
 				file_parsing/parse_aux_functions/expected_number_of_identifiers \
@@ -55,6 +58,7 @@ FILES =			main \
 				world/init_world \
 				world/objects \
 				world/material \
+				world/camera \
 				aux_functions/reset_fd \
 				aux_functions/get_file_content \
 				aux_functions/get_splitted_identifier \
