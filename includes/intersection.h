@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:05:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/23 14:55:04 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:26:54 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct	s_comps
 	double		t;
 	t_hittable	*object;
 	t_point		point;
+	t_point		over_point;
 	t_vec3		eyev;
 	t_vec3		normalv;
 }	t_comps;
