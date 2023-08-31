@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 21:17:39 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:18:47 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -87,7 +87,7 @@ static void	render_world(t_world world, t_mlx mlx)
 
 int	render(t_data data)
 {
-	render_world(complex_world(), data.mlx);
+	render_world(data.world, data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
 		data.mlx.img.mlx_img, 0, 0);
 	return (0);
