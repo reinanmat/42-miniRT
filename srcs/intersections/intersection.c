@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/29 16:03:06 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:18:33 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -58,5 +58,5 @@ t_intersections	*intersection_calculate(t_ray ray, t_hittable *objects)
 		objects = objects->next;
 	}
 	sort_lst(&intersect);
-	return(intersect);
+	return (intersect);
 }

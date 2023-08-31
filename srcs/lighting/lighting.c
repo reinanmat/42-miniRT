@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 19:42:26 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:17:06 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -32,7 +32,7 @@ double	compute_reflect_dot_eye(t_light light, t_comps comps)
 	double	reflect_dot_eye;
 
 	lightv = normalize(sub(light.coordinate, comps.over_point));
-	reflectv = reflect(s_multiply(lightv , -1), comps.normalv);
+	reflectv = reflect(s_multiply(lightv, -1), comps.normalv);
 	reflect_dot_eye = dot(reflectv, comps.eyev);
 	return (reflect_dot_eye);
 }

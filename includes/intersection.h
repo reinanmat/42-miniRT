@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:05:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 19:26:54 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:09:03 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_inter_point
 	void	*object;
 }	t_inter_point;
 
-typedef struct	s_comps
+typedef struct s_comps
 {
 	int			inside;
 	double		t;

@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:05:47 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/30 16:20:34 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:15:08 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -38,7 +38,7 @@ static void	apply_transformation_vec(t_vec3 *vec, t_matrix transformation)
 t_matrix	transform_object(t_point translation, t_vec3 scale)
 {
 	t_matrix	transform;
-	t_matrix	m_scale;;
+	t_matrix	m_scale;
 	t_matrix	m_translation;
 
 	m_scale = scaling_matrix(scale);

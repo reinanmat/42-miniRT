@@ -6,14 +6,14 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 19:42:52 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:17:39 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
 
 t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 {
-	t_comps comps;
+	t_comps			comps;
 	t_intersections	*tmp_inter;
 
 	tmp_inter = hit(intersects);

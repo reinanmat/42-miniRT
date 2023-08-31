@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:01:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/23 20:06:09 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:10:38 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_vec3	division(t_vec3 a, t_vec3 b)
 	return ((t_vec3){a.x / b.x, a.y / b.y, a.z / b.z});
 }
 
-t_vec3		cross_product(t_vec3 a, t_vec3 b)
+t_vec3	cross_product(t_vec3 a, t_vec3 b)
 {
 	t_vec3	c;
 
