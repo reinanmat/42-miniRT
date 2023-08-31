@@ -19,6 +19,8 @@
 
 # define KEY_ESC 0xff1b
 
+# define EPSILON 0.00001
+
 # include <mlx.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
