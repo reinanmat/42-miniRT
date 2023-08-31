@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 18:17:32 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:42:26 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 
 t_color	compute_specular(double reflect_dot_eye, t_comps comps, t_light light)
 {
@@ -31,7 +31,7 @@ double	compute_reflect_dot_eye(t_light light, t_comps comps)
 	t_vec3	reflectv;
 	double	reflect_dot_eye;
 
-	lightv = normalize(sub(light.coordinate, comps.point));
+	lightv = normalize(sub(light.coordinate, comps.over_point));
 	reflectv = reflect(s_multiply(lightv , -1), comps.normalv);
 	reflect_dot_eye = dot(reflectv, comps.eyev);
 	return (reflect_dot_eye);
@@ -42,7 +42,7 @@ double	compute_light_dot_normal(t_light light, t_comps comps)
 	t_vec3	lightv;
 	double	light_dot_normal;
 
-	lightv = normalize(sub(light.coordinate, comps.point));
+	lightv = normalize(sub(light.coordinate, comps.over_point));
 	light_dot_normal = dot(lightv, comps.normalv);
 	return (light_dot_normal);
 }
@@ -81,9 +81,9 @@ t_color	compute_final_color(t_color ambient, t_color diffuse, t_color specular)
 
 t_color	lighting(t_light light, t_comps comps)
 {
+	t_color		ambient;
 	t_color		diffuse;
 	t_color		specular;
-	t_color		ambient;
 	double		reflect_dot_eye;
 	double		light_dot_normal;
 

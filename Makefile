@@ -7,7 +7,7 @@ LIBFT_PATH =	./libft
 FILES =			main \
 				return_struct \
 				render \
-				lighting \
+				lighting/lighting \
 				ray/reflect \
 				ray/normal_at \
 				ray/ray_for_pixel \
