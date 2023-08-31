@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:05:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:54:30 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:11:26 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -19,12 +19,7 @@ t_vec3	normal_at(t_hittable *object, t_point world_point)
 	t_vec3		object_normal;
 	t_matrix	normal_as_matrix;
 
-	if (object->type == 1)
-		inv_matrix = inverse(object->sp->transform);
-	if (object->type == 2)
-		inv_matrix = inverse(object->cy->transform);
-	if (object->type == 3)
-		inv_matrix = inverse(object->pl->transform);
+	inv_matrix = inverse(get_transform(object));
 	object_point = matrix_to_point(multiply_matrix(inv_matrix, point_to_matrix(world_point)));
 	object_normal = sub(object_point, point(0, 0, 0));
 	normal_as_matrix = point_to_matrix(object_normal);
