@@ -36,7 +36,11 @@ t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 t_color	shade_hit(t_world world, t_comps comps)
 {
 	t_color	color;
+	int		shadowed;
 
+	shadowed = is_shadowed(world, comps.over_point);
+	if (shadowed)
+		return ((t_color){0.1, 0.1, 0.1});
 	color = lighting(world.light, comps);
 	return (color);
 }
@@ -83,7 +87,7 @@ static void	render_world(t_world world, t_mlx mlx)
 
 int	render(t_data data)
 {
-	render_world(data.world, data.mlx);
+	render_world(complex_world(), data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
 		data.mlx.img.mlx_img, 0, 0);
 	return (0);
