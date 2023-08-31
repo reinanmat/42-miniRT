@@ -8,6 +8,7 @@ FILES =			main \
 				return_struct \
 				render \
 				lighting/lighting \
+				lighting/is_shadowed \
 				ray/reflect \
 				ray/normal_at \
 				ray/ray_for_pixel \

@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 17:20:44 by revieira         ###   ########.fr       */
+/*   Updated: 2023/08/30 20:56:41 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ t_color	color_at(t_ray ray, t_world world);
 
 t_color	lighting(t_light light, t_comps comps);
 t_light	point_light(t_point pos, double intensity);
+int		is_shadowed(t_world world, t_point point);
 
 #endif
