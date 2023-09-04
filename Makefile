@@ -29,6 +29,7 @@ FILES =			main \
 				linear_algebra/transforms \
 				intersections/intersection \
 				intersections/intersect_sphere \
+				intersections/intersect_plane \
 				color/color \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
