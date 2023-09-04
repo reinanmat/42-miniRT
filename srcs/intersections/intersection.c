@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 21:18:33 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:42:24 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -44,6 +44,13 @@ void	intersection(t_ray ray, t_hittable *obj, t_intersections **intersects)
 			intersect_add_back(intersects, new_intersect(inter_p.hit[0], obj));
 			intersect_add_back(intersects, new_intersect(inter_p.hit[1], obj));
 		}
+	}
+	if (obj->type == 3)
+	{
+		tmp_ray = transform_ray(ray, inverse(obj->pl->transform));
+		inter_p = intersect_plane(tmp_ray, obj->pl);
+		if (inter_p.hit_times != 0)
+			intersect_add_back(intersects, new_intersect(inter_p.hit[0], obj));
 	}
 }
 
