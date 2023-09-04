@@ -29,7 +29,7 @@ t_vec3	normal_at(t_hittable *object, t_point world_point)
 
 	inv_matrix = inverse(get_transform(object));
 	object_point = matrix_to_point(multiply_matrix(inv_matrix, point_to_matrix(world_point)));
-	object_normal = sub(object_point, point(0, 0, 0));
+	object_normal = local_normal_at(object, object_point);
 	normal_as_matrix = point_to_matrix(object_normal);
 	world_normal = matrix_to_point(multiply_matrix(transpose_matrix(inv_matrix), normal_as_matrix));
 	return (normalize(world_normal));
