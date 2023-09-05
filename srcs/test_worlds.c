@@ -6,10 +6,75 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/29 18:42:31 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:08:23 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
+
+t_world	room(void)
+{
+	t_world		world;
+	char		*config[4];
+	t_vec3		forward;
+	t_vec3		up;
+	t_vec3		from;
+	t_plane		*floor;
+	t_plane		*roof;
+	t_plane		*wall;
+	t_plane		*wall_right;
+	t_plane		*wall_left;
+
+	from = vec3(0, 0, -5);
+	forward = vec3(0, 0, 1);
+	up = vec3(0, 1, 0);
+	world.cam.fov = M_PI / 2;
+	set_pixel_size(&world.cam);
+	world.cam.t = view_transform(from, forward, up);
+
+	world.light = point_light(point(0, 0, 0), 1);
+
+	world.objects = NULL;
+	config[0] = "pl";
+	config[1] = "0,0,0";
+	config[2] = "0,1,0";
+	config[3] = "255,255,255";
+
+	floor = plane(config);
+	floor->material.color = color(0, 1, 0);
+	floor->transform = translation_matrix(point(0, -4, 0));
+
+	roof = plane(config);
+	roof->material.color = color(0, 0, 1);
+	roof->transform = translation_matrix(point(0, 4, 0));
+
+	wall_right = plane(config);
+	wall_right->material.color = color(0, 1, 1);
+	wall_right->transform = multiply_matrix(translation_matrix(point(5, 0, 0)), rotate_z_matrix(M_PI / 2));
+
+	wall_left = plane(config);
+	wall_left->material.color = color(1, 1, 0);
+	wall_left->transform = multiply_matrix(translation_matrix(point(-5, 0, 0)), rotate_z_matrix(M_PI /2));
+
+	wall = plane(config);
+	wall->material.color = color(1, 0, 0);
+	wall->transform = multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_x_matrix(M_PI / 2));
+
+	config[0] = "sp";
+	config[1] = "0,0,0";
+	config[2] = "2";
+	config[3] = "255,255,255";
+	t_sphere	*sp = sphere(config);
+	sp->material.color = color(1, 1, 1);
+	sp->transform = translation_matrix(point(0, 0, 0));
+	
+	hittable_add("pl", floor, &world.objects);
+	hittable_add("pl", roof, &world.objects);
+	hittable_add("pl", wall, &world.objects);
+	hittable_add("pl", wall_left, &world.objects);
+	hittable_add("pl", wall_right, &world.objects);
+	/* hittable_add("sp", sp, &world.objects); */
+	return (world);
+}
 
 t_world	default_world(void)
 {
