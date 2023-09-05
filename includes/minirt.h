@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 21:20:05 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:03:07 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void		print_cam(t_cam cam);
 //worlds
 t_world		default_world(void);
 t_world		complex_world(void);
+t_world		room(void);
 
 //utils
 int			reset_fd(int fd, char *filename);
