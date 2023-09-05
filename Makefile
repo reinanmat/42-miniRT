@@ -70,7 +70,7 @@ FILES =			main \
 SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))
 OBJS =			$(addprefix $(OBJS_PATH)/, $(addsuffix .o, $(FILES)))
 
-CFLAGS = 		-Wall -Wextra -Werror -g3
+CFLAGS = 		-Wall -Wextra -Werror -O3
 LIBXFLAGS =		-lmlx -lXext -lX11 -lm -lz
 LIBFTFLAGS =	-L $(LIBFT_PATH) -lft
 
