@@ -6,17 +6,30 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:05:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 14:34:55 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/06 17:37:30 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
+
+static t_vec3	local_normal_cylinder(t_cylinder *cylinder, t_point local_point)
+{
+	double	distance;
+
+	distance = local_point.x * local_point.x + local_point.z * local_point.z;
+	if (distance < 1 && local_point.y >= cylinder->max - EPSILON)
+		return (vec3(0, 1, 0));
+	else if (distance < 1 && local_point.y <= cylinder->min + EPSILON)
+		return (vec3(0, -1, 0));
+	else
+		return (vec3(local_point.x, 0, local_point.y));
+}
 
 t_vec3	local_normal_at(t_hittable *object, t_point local_point)
 {
 	if (object->type == 1)
 		return (sub(local_point, point(0, 0, 0)));
 	else if (object->type == 2)
-		return (vec3(local_point.x, 0, local_point.z));
+		return (local_normal_cylinder(object->cy, local_point));
 	else
 		return (vec3(0, 1, 0));
 }
