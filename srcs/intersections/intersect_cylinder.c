@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:26 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/06 18:29:57 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:15:36 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -29,6 +29,32 @@ static t_bhask	calculate_bhaskara(t_ray ray)
 	bhask.s1 = (-bhask.b - root) / (2 * bhask.a);
 	bhask.s2 = (-bhask.b + root) / (2 * bhask.a);
 	return (bhask);
+}
+
+int	check_cap(t_ray ray, double t)
+{
+	double	x;
+	double	z;
+
+	x = ray.origin.x + t * ray.direction.x;
+	z = ray.origin.z + t * ray.direction.z;
+	if ((x * x) + (z * z) <= 1)
+		return (1);
+	return (0);
+}
+
+void	intersect_caps(t_ray ray, t_cylinder *cylinder, t_inter_point *inters)
+{
+	double	t;
+
+	if (fabs(ray.direction.y) < EPSILON)
+		return ;
+	t = (cylinder->min - ray.origin.y) / ray.direction.y;
+	if (check_cap(ray, t))
+		inters->hit[inters->hit_times++] = t;
+	t = (cylinder->max - ray.origin.y) / ray.direction.y;
+	if (check_cap(ray, t))
+		inters->hit[inters->hit_times++] = t;
 }
 
 t_inter_point	intersect_cylinder(t_ray ray, t_cylinder *cylinder)
