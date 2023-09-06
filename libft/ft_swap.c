@@ -6,12 +6,12 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:52:14 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/01/02 18:54:18 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:31:04 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-void	ft_swap(int *a, int *b)
+void	ft_swap(double *a, double *b)
 {
-	int	tmp;
+	double	tmp;
 
 	tmp = *a;
 	*a = *b;
