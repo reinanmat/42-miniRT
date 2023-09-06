@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:51:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 15:19:22 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:35:52 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -65,7 +65,7 @@ void	test_cylinder(void)
 	t_ray	ray12 = ray(point(0, 3, -2), normalize(vec3(0, -1, 2)));
 	t_ray	ray13 = ray(point(0, 4, -2), normalize(vec3(0, -1, 1)));
 	t_ray	ray14 = ray(point(0, 0, -2), normalize(vec3(0, 1, 2)));
-	t_ray	ray15 = ray(point(0, -1, -2), normalize(vec3(0, 1, 2)));
+	t_ray	ray15 = ray(point(0, -1, -2), normalize(vec3(0, 1, 1)));
 
 	inters = intersect_cylinder(ray11, cy);
 	printf("Intersect ray11? %d >> t0: %f t1: %f\n", inters.hit_times, inters.hit[0], inters.hit[1]);
