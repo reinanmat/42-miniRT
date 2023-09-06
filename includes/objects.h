@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/17 18:11:16 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:35:38 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_cylinder
 	t_vec3		vector;
 	double		diameter;
 	double		height;
+	double		min;
+	double		max;
 	t_matrix	transform;
 	t_material	material;
 }	t_cylinder;
