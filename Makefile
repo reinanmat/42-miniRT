@@ -2,6 +2,7 @@
 NAME = 			miniRT
 SRCS_PATH =		./srcs
 OBJS_PATH =		./objs
+TESTS_PATH =	./tests
 LIBFT_PATH =	./libft
 
 FILES =			main \
@@ -37,8 +38,6 @@ FILES =			main \
 				mlx/mlx_img_pix_put \
 				mlx/mlx_close_window \
 				mlx/mlx_create_window \
-				utils_tests \
-				test_worlds \
 				file_parsing/parse \
 				file_parsing/map_parse \
 				file_parsing/parse_aux_functions/expected_number_of_identifiers \
@@ -68,8 +67,10 @@ FILES =			main \
 				aux_functions/assign_value \
 				aux_functions/sort_lst
 
-SRCS =			$(addprefix $(SRCS_PATH)/, $(addsuffix .c, $(FILES)))
-OBJS =			$(addprefix $(OBJS_PATH)/, $(addsuffix .o, $(FILES)))
+TEST_FILES =	cylinder worlds utils_tests unit_shapes
+
+SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
+OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}
 
 CFLAGS = 		-Wall -Wextra -Werror -O3
 LIBXFLAGS =		-lmlx -lXext -lX11 -lm -lz
@@ -84,6 +85,10 @@ $(NAME): $(OBJS) $(LIBFT_PATH)/libft.a
 	cc $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
+	@mkdir -p $(@D)
+	cc $(CFLAGS) -I ./includes -c $< -o $@
+
+$(OBJS_PATH)/%.o: $(TESTS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
 	cc $(CFLAGS) -I ./includes -c $< -o $@
 
