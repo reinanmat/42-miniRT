@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_worlds.c                                      :+:      :+:    :+:   */
+/*   worlds.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/05 20:24:43 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/06 14:47:19 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -79,94 +79,27 @@ t_world	room(void)
 t_world	default_world(void)
 {
 	t_world		world;
-	char		*config[6];
-	t_cylinder	*cyl1;
-	t_ray		ray1;
-	t_ray		ray2;
-	t_ray		ray3;
-	t_ray		ray4;
-	t_ray		ray5;
-	t_ray		ray6;
-	t_ray		ray7;
-	t_ray		ray8;
-	t_ray		ray9;
-	t_ray		ray10;
-	t_ray		ray11;
-	t_ray		ray12;
-	t_ray		ray13;
-	t_ray		ray14;
-	t_ray		ray15;
-	t_inter_point	in1;
-
-	ray1 = ray(point(1, 0, -5), normalize(vec3(0, 0, 1)));
-	ray2 = ray(point(0, 0, -5), normalize(vec3(0, 0, 1)));
-	ray3 = ray(point(0.5, 0, -5), normalize(vec3(0.1, 1, 1)));
-	ray4 = ray(point(0, 1.5, -2), normalize(vec3(0, 0, 1)));
-
-	ray5 = ray(point(0, 1.5, 0), normalize(vec3(0.1, 1, 0)));
-	ray6 = ray(point(0, 3, -5), normalize(vec3(0, 0, 1)));
-	ray7 = ray(point(0, 0, -5), normalize(vec3(0, 0, 1)));
-	ray8 = ray(point(0, 2, -5), normalize(vec3(0, 0, 1)));
-	ray9 = ray(point(0, 1, -5), normalize(vec3(0, 0, 1)));
-	ray10 = ray(point(0, 1.5, -2), normalize(vec3(0, 0, 1)));
-
-	ray11 = ray(point(0, 3, 0), normalize(vec3(0, -1, 0)));
-	ray12 = ray(point(0, 3, -2), normalize(vec3(0, -1, 2)));
-	ray13 = ray(point(0, 4, -2), normalize(vec3(0, -1, 1)));
-	ray14 = ray(point(0, 0, -2), normalize(vec3(0, 1, 2)));
-	ray15 = ray(point(0, -1, -2), normalize(vec3(0, 1, 2)));
+	char		*config[4];
+	t_sphere	*sp1;
+	t_sphere	*sp2;
 
 	world.light = point_light(point(-10, 10, -10), 1);
 	world.objects = NULL;
-	config[0] = "cy";
+	config[0] = "sp";
 	config[1] = "0,0,0";
-	config[2] = "0, 1, 0";
-	config[3] = "1";
-	config[4] = "1";
-	config[5] = "1, 1, 1";
-	cyl1 = cylinder(config);
-	cyl1->min = 1;
-	cyl1->max = 2;
-	cyl1->material.diffuse = 0.7;
-	cyl1->material.specular = 0.2;
-	cyl1->transform = identity_matrix();
-	hittable_add("cy", cyl1, &world.objects);
-	in1 = intersect_cylinder(ray1, cyl1); printf("Intersect ray1? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray2, cyl1);
-	printf("Intersect ray2? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray3, cyl1);
-	printf("Intersect ray3? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray4, cyl1);
-	printf("Intersect ray4? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-
-	printf("====================================\n");
-
-	in1 = intersect_cylinder(ray5, cyl1);
-	printf("Intersect ray5? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray6, cyl1);
-	printf("Intersect ray6? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray7, cyl1);
-	printf("Intersect ray7? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray8, cyl1);
-	printf("Intersect ray8? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray9, cyl1);
-	printf("Intersect ray9? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray10, cyl1);
-	printf("Intersect ray10? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-
-	printf("====================================\n");
-
-	in1 = intersect_cylinder(ray11, cyl1);
-	printf("Intersect ray11? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray12, cyl1);
-	printf("Intersect ray12? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray13, cyl1);
-	printf("Intersect ray13? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray14, cyl1);
-	printf("Intersect ray14? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-	in1 = intersect_cylinder(ray15, cyl1);
-	printf("Intersect ray15? %d >> t0: %f t1: %f\n", in1.hit_times, in1.hit[0], in1.hit[1]);
-
+	config[2] = "2";
+	config[3] = "204, 255, 153";
+	sp1 = sphere(config);
+	sp1->material.diffuse = 0.7;
+	sp1->material.specular = 0.2;
+	config[0] = "sp";
+	config[1] = "0,0,0";
+	config[2] = "2";
+	config[3] = "255, 255, 255";
+	sp2 = sphere(config);
+	sp2->transform = scaling_matrix(point(0.5, 0.5, 0.5));
+	hittable_add("sp", sp1, &world.objects);
+	hittable_add("sp", sp2, &world.objects);
 	return (world);
 }
 
@@ -176,7 +109,7 @@ t_world	complex_world(void)
 	t_vec3		forward;
 	t_vec3		up;
 	t_vec3		from;
-	char		*config[6];
+	char		*config[4];
 	t_sphere	*floor;
 	t_sphere	*left_wall;
 	t_sphere	*right_wall;
@@ -184,17 +117,14 @@ t_world	complex_world(void)
 	t_sphere	*sp_right;
 	t_sphere	*sp_left;
 
-	t_cylinder	*cy;
-
-	from = vec3(0, 0, -5);
-	forward = vec3(0, 0.1, 1);
-	/* forward = normalize(sub(vec3(0, 0, 1), from)); */
+	from = vec3(0, 1.5, -5);
+	forward = normalize(sub(vec3(0, 1, 0), from));
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 3;
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
 
-	world.light = point_light(point(0, 0, -5), 1);
+	world.light = point_light(point(-10, 10, -10), 1);
 	world.objects = NULL;
 
 	config[0] = "sp";
@@ -207,18 +137,6 @@ t_world	complex_world(void)
 	sp_middle = sphere(config);
 	sp_left = sphere(config);
 	sp_right = sphere(config);
-
-	config[0] = "cy";
-	config[1] = "0,0,0";
-	config[2] = "0, 1, 0";
-	config[3] = "1";
-	config[4] = "1";
-	config[5] = "1, 1, 1";
-	cy = cylinder(config);
-	cy->min = 1;
-	cy->max = 2;
-	cy->transform = identity_matrix();
-	cy->material.color = color(0, 1, 0);
 
 	floor->transform = scaling_matrix(point(10, 0.01, 10));
 	floor->material.specular = 0;
@@ -245,12 +163,11 @@ t_world	complex_world(void)
 	sp_left->material.diffuse = 0.7;
 	sp_left->material.specular = 0.3;
 
-	hittable_add("cy", cy, &world.objects);
-	/* hittable_add("sp", floor, &world.objects); */
-	/* hittable_add("sp", left_wall, &world.objects); */
-	/* hittable_add("sp", right_wall, &world.objects); */
-	/* hittable_add("sp", sp_middle, &world.objects); */
-	/* hittable_add("sp", sp_right, &world.objects); */
-	/* hittable_add("sp", sp_left, &world.objects); */
+	hittable_add("sp", floor, &world.objects);
+	hittable_add("sp", left_wall, &world.objects);
+	hittable_add("sp", right_wall, &world.objects);
+	hittable_add("sp", sp_middle, &world.objects);
+	hittable_add("sp", sp_right, &world.objects);
+	hittable_add("sp", sp_left, &world.objects);
 	return (world);
 }

@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:55:20 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:11:06 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -33,7 +33,6 @@ void	timer()
 	state = !state;
 }
 
-
 void	print_matrix(double matrix[4][4])
 {
 	for (int i = 0; i < 4; ++i) {
@@ -55,7 +54,6 @@ void	print_matrix2(t_matrix matrix)
 		printf("|\n");
 	}
 }
-
 
 void	print_hittable(t_hittable **hittable)
 {
@@ -96,6 +94,18 @@ void	print_intersects(t_intersections *intersections)
 		printf("%f\n", intersections->t);
 		intersections = intersections->next;
 	}
+}
+
+void	print(char *str1, t_point *p1, char *str2, t_point *p2)
+{
+	if (str1)
+		printf("%s", str1);
+	if (p1)
+		print_point(*p1);
+	if (str2)
+		printf("%s", str2);
+	if (p2)
+		print_point(*p2);
 }
 
 void	print_point(t_point point)
