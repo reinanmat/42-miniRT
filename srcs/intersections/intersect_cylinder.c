@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:26 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/05 20:14:29 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:29:57 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -16,7 +16,7 @@ static t_bhask	calculate_bhaskara(t_ray ray)
 	double	root;
 	t_bhask	bhask;
 
-	bhask.discriminant = 0;
+	bhask.discriminant = -1;
 	bhask.a = (ray.direction.x * ray.direction.x) + (ray.direction.z * ray.direction.z);
 	if (fabs(bhask.a) < EPSILON)
 		return (bhask);
