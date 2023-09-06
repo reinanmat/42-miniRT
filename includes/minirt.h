@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 15:17:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:39:52 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void		test_cylinder(void);
 t_world		room(void);
 t_world		default_world(void);
 t_world		complex_world(void);
+t_world		cylinder_world(void);
 t_plane		*unit_plane(void);
 t_sphere	*unit_sphere(void);
 t_cylinder	*unit_cylinder(void);
