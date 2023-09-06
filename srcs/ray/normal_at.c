@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:05:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/04 14:32:16 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:31:35 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -15,6 +15,8 @@ static t_vec3	local_normal_at(t_hittable *object, t_point local_point)
 {
 	if (object->type == 1)
 		return (sub(local_point, point(0, 0, 0)));
+	else if (object->type == 2)
+		return (vec3(local_point.x, 0, local_point.z));
 	else
 		return (vec3(0, 1, 0));
 }
