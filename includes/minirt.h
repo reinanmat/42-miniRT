@@ -104,6 +104,7 @@ t_matrix	transform_object(t_point translation, t_vec3 scale);
 t_ray		transform_ray(t_ray	ray, t_matrix transform);
 t_vec3		reflect(t_vec3 in, t_vec3 normal);
 t_vec3		normal_at(t_hittable *object, t_point world_point);
+t_vec3		local_normal_at(t_hittable *object, t_point local_point);
 
 t_color		color_at(t_ray ray, t_world world);
 
