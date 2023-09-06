@@ -21,8 +21,8 @@ static t_bhask	calculate_bhaskara(t_ray ray)
 	if (fabs(bhask.a) < EPSILON)
 		return (bhask);
 	bhask.b = 2 * ray.origin.x * ray.direction.x + 2 * ray.origin.z * ray.direction.z;
-	bhask.c = (ray.origin.x * ray.origin.x) + (ray.origin.z * ray.origin.z) - 1;
-	bhask.discriminant = (bhask.b * bhask.b) - 4 * bhask.a * bhask.c;
+	bhask.c = ray.origin.x * ray.origin.x + ray.origin.z * ray.origin.z - 1;
+	bhask.discriminant = bhask.b * bhask.b - 4 * bhask.a * bhask.c;
 	if (bhask.discriminant < 0)
 		return (bhask);
 	root = sqrt(bhask.discriminant);
@@ -67,21 +67,17 @@ t_inter_point	intersect_cylinder(t_ray ray, t_cylinder *cylinder)
 	inter.object = cylinder;
 	inter.hit_times = 0;
 	bhask = calculate_bhaskara(ray);
-	if (bhask.discriminant < 0)
-		return (inter);
-	if (bhask.s1 > bhask.s2)
-		ft_swap(&bhask.s1, &bhask.s2);
-	y_first_inter = ray.origin.y + bhask.s1 * ray.direction.y;
-	if (cylinder->min < y_first_inter && y_first_inter < cylinder->max)
+	if (bhask.discriminant >= 0)
 	{
-		inter.hit[0] = bhask.s1;
-		inter.hit_times++;
+		if (bhask.s1 > bhask.s2)
+			ft_swap(&bhask.s1, &bhask.s2);
+		y_first_inter = ray.origin.y + bhask.s1 * ray.direction.y;
+		if (cylinder->min < y_first_inter && y_first_inter < cylinder->max)
+			inter.hit[inter.hit_times++] = bhask.s1;
+		y_second_inter = ray.origin.y + bhask.s2 * ray.direction.y;
+		if (cylinder->min < y_second_inter && y_second_inter < cylinder->max)
+			inter.hit[inter.hit_times++] = bhask.s2;
 	}
-	y_second_inter = ray.origin.y + bhask.s2 * ray.direction.y;
-	if (cylinder->min < y_second_inter && y_second_inter < cylinder->max)
-	{
-		inter.hit[1] = bhask.s2;
-		inter.hit_times++;
-	}
+	intersect_caps(ray, cylinder, &inter);
 	return (inter);
 }
