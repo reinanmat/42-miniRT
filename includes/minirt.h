@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/05 16:03:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:17:42 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,6 @@ void		mlx_create_window(t_mlx *mlx);
 void		mlx_hooks(t_data *data);
 void		mlx_img_pix_put(t_img *img, int x, int y, int color);
 
-//utils tests - delet
-void		timer(void);
-void		print_matrix2(t_matrix matrix);
-void		print_point(t_point point);
-void		print_cam(t_cam cam);
-//worlds
-t_world		default_world(void);
-t_world		complex_world(void);
-t_world		room(void);
 
 //utils
 int			reset_fd(int fd, char *filename);
@@ -119,5 +110,19 @@ t_color		color_at(t_ray ray, t_world world);
 t_color		lighting(t_light light, t_comps comps);
 t_light		point_light(t_point pos, double intensity);
 int			is_shadowed(t_world world, t_point point);
+
+//utils tests - delet
+void		timer(void);
+void		print_matrix2(t_matrix matrix);
+void		print_point(t_point point);
+void		print_cam(t_cam cam);
+void		print(char *str1, t_point *p1, char *str2, t_point *p2);
+void		test_cylinder(void);
+t_world		room(void);
+t_world		default_world(void);
+t_world		complex_world(void);
+t_plane		*unit_plane(void);
+t_sphere	*unit_sphere(void);
+t_cylinder	*unit_cylinder(void);
 
 #endif
