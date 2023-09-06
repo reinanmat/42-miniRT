@@ -30,6 +30,7 @@ FILES =			main \
 				intersections/intersection \
 				intersections/intersect_sphere \
 				intersections/intersect_plane \
+				intersections/intersect_cylinder \
 				color/color \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
