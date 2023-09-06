@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 15:11:06 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:23:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -101,11 +101,12 @@ void	print(char *str1, t_point *p1, char *str2, t_point *p2)
 	if (str1)
 		printf("%s", str1);
 	if (p1)
-		print_point(*p1);
+		printf("(%f %f %f)", p1->x, p1->y, p1->z);
 	if (str2)
 		printf("%s", str2);
 	if (p2)
-		print_point(*p2);
+		printf("(%f %f %f)", p2->x, p2->y, p2->z);
+	printf("\n");
 }
 
 void	print_point(t_point point)
