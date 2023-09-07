@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:43:53 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/11 15:31:12 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/07 11:56:12 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
@@ -15,22 +15,42 @@ static int	between_expected_range(const char *str)
 {
 	int		i;
 	double	value;
-	char	**rgb;
+	char	**vec;
 
 	i = 0;
-	rgb = ft_split(str, ',');
-	while (rgb[i])
+	vec = ft_split(str, ',');
+	while (vec[i])
 	{
-		value = atof(rgb[i]);
+		value = atof(vec[i]);
 		if (value < -1.0 || value > 1.0)
 		{
-			ft_free_matrix((void **)rgb);
+			ft_free_matrix((void **)vec);
 			return (0);
 		}
 		i++;
 	}
-	ft_free_matrix((void **)rgb);
+	ft_free_matrix((void **)vec);
 	return (1);
+}
+
+static int	vec_is_normalized(const char *str)
+{
+	char	**vec;
+	double	x;
+	double	y;
+	double	z;
+	double	mag;
+	/*
+	Perguntar pro Lucas sobre a parada do Epsilon envolvido na conta da magnitude
+	*/
+	vec = ft_split(str, ',');
+	x = atof(vec[0]);
+	y = atof(vec[1]);
+	z = atof(vec[2]);
+	mag = magnitude(vec3(x, y, z));
+	if (mag == 1)
+		return (1);
+	return (0);
 }
 
 int	is_valid_3d_normalized_vec(const char *str)
@@ -41,5 +61,7 @@ int	is_valid_3d_normalized_vec(const char *str)
 		return (ft_putstr("[3DVEC] Set does not contain only numbers\n", 0));
 	else if (!between_expected_range(str))
 		return (ft_putstr("[3DVEC] Set not between expected range\n", 0));
+	else if (!vec_is_normalized(str))
+		return (ft_putstr("[3DVEC] Set not normalized\n", 0));
 	return (1);
 }
