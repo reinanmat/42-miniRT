@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:43:53 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/07 11:56:12 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:15:30 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
@@ -40,15 +40,13 @@ static int	vec_is_normalized(const char *str)
 	double	y;
 	double	z;
 	double	mag;
-	/*
-	Perguntar pro Lucas sobre a parada do Epsilon envolvido na conta da magnitude
-	*/
+
 	vec = ft_split(str, ',');
 	x = atof(vec[0]);
 	y = atof(vec[1]);
 	z = atof(vec[2]);
 	mag = magnitude(vec3(x, y, z));
-	if (mag == 1)
+	if (double_equals(mag, 1))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/08 13:48:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:13:16 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void		mlx_img_pix_put(t_img *img, int x, int y, int color);
 
 //utils
 int			reset_fd(int fd, char *filename);
+int			double_equals(double a, double b);
 char		*get_file_content(int fd, char *filename);
 char		**get_splitted_identifier(char **lines, char *identifier);
 void		assign_t_point(t_point *coordinate, char *param);
