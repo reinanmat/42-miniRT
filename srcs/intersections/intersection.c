@@ -6,28 +6,20 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 17:34:37 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:24:42 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
 
 t_intersections	*hit(t_intersections *intersections)
 {
-	double			min;
-	t_intersections	*intersect;
-
-	intersect = NULL;
-	min = INFINITY;
 	while (intersections)
 	{
-		if (intersections->t >= 0 && intersections->t < min)
-		{
-			intersect = intersections;
-			min = intersect->t;
-		}
+		if (intersections->t >= 0)
+			return (intersections);
 		intersections = intersections->next;
 	}
-	return (intersect);
+	return (NULL);
 }
 
 void	intersection(t_ray ray, t_hittable *obj, t_intersections **intersects)
