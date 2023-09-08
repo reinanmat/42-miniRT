@@ -22,38 +22,43 @@ t_intersections	*hit(t_intersections *intersections)
 	return (NULL);
 }
 
-void	intersection(t_ray ray, t_hittable *obj, t_intersections **intersects)
+static void	hit_sp(t_ray ray, t_hittable *obj, t_intersections **inters)
 {
 	t_ray			tmp_ray;
 	t_inter_point	inter_p;
 
-	if (obj->type == 1)
+	tmp_ray = transform_ray(ray, inverse(obj->sp->transform));
+	inter_p = intersect_sphere(tmp_ray, obj->sp);
+	if (inter_p.hit_times != 0)
 	{
-		tmp_ray = transform_ray(ray, inverse(obj->sp->transform));
-		inter_p = intersect_sphere(tmp_ray, obj->sp);
-		if (inter_p.hit_times != 0)
-		{
-			intersect_add_back(intersects, new_intersect(inter_p.hit[0], obj));
-			intersect_add_back(intersects, new_intersect(inter_p.hit[1], obj));
-		}
+		intersect_add_back(inters, new_intersect(inter_p.hit[0], obj));
+		intersect_add_back(inters, new_intersect(inter_p.hit[1], obj));
 	}
-	if (obj->type == 2)
+}
+
+static void	hit_cy(t_ray ray, t_hittable *obj, t_intersections **inters)
+{
+	t_ray			tmp_ray;
+	t_inter_point	inter_p;
+
+	tmp_ray = transform_ray(ray, inverse(obj->cy->transform));
+	inter_p = intersect_cylinder(tmp_ray, obj->cy);
+	if (inter_p.hit_times != 0)
 	{
-		tmp_ray = transform_ray(ray, inverse(obj->cy->transform));
-		inter_p = intersect_cylinder(tmp_ray, obj->cy);
-		if (inter_p.hit_times != 0)
-		{
-			intersect_add_back(intersects, new_intersect(inter_p.hit[0], obj));
-			intersect_add_back(intersects, new_intersect(inter_p.hit[1], obj));
-		}
+		intersect_add_back(inters, new_intersect(inter_p.hit[0], obj));
+		intersect_add_back(inters, new_intersect(inter_p.hit[1], obj));
 	}
-	if (obj->type == 3)
-	{
-		tmp_ray = transform_ray(ray, inverse(obj->pl->transform));
-		inter_p = intersect_plane(tmp_ray, obj->pl);
-		if (inter_p.hit_times != 0)
-			intersect_add_back(intersects, new_intersect(inter_p.hit[0], obj));
-	}
+}
+
+static void	hit_pl(t_ray ray, t_hittable *obj, t_intersections **inters)
+{
+	t_ray			tmp_ray;
+	t_inter_point	inter_p;
+
+	tmp_ray = transform_ray(ray, inverse(obj->pl->transform));
+	inter_p = intersect_plane(tmp_ray, obj->pl);
+	if (inter_p.hit_times != 0)
+		intersect_add_back(inters, new_intersect(inter_p.hit[0], obj));
 }
 
 t_intersections	*intersection_calculate(t_ray ray, t_hittable *objects)
@@ -63,7 +68,12 @@ t_intersections	*intersection_calculate(t_ray ray, t_hittable *objects)
 	intersect = NULL;
 	while (objects)
 	{
-		intersection(ray, objects, &intersect);
+		if (objects->type == 1)
+			hit_sp(ray, objects, &intersect);
+		else if (objects->type == 2)
+			hit_cy(ray, objects, &intersect);
+		else
+			hit_pl(ray, objects, &intersect);
 		objects = objects->next;
 	}
 	sort_lst(&intersect);
