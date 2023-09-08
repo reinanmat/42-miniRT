@@ -6,10 +6,62 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 14:47:19 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:52:14 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
+
+t_world	test_multiple_objects()
+{
+	t_world		world;
+	t_vec3		forward;
+	t_vec3		up;
+	t_vec3		from;
+
+	t_sphere	*sp1;
+	t_sphere	*sp2;
+	t_sphere	*sp3;
+	t_sphere	*sp4;
+	t_sphere	*sp5;
+
+	from = vec3(0, 0, -5);
+	forward = vec3(0, 0, 1);
+	up = vec3(0, 1, 0);
+	world.cam.fov = M_PI / 2;
+	set_pixel_size(&world.cam);
+	world.cam.t = view_transform(from, forward, up);
+	world.light = point_light(point(0, 0, -5), 1);
+
+	world.objects = NULL;
+
+	sp1 = unit_sphere();
+	sp1->material.color = color(1, 0, 0);
+	sp1->transform = multiply_matrix(translation_matrix(point(0, 0, 0)), scaling_matrix(point(0.5, 0.5, 0.5)));
+
+	sp2 = unit_sphere();
+	sp2->material.color = color(0, 1, 0);
+	sp2->transform = multiply_matrix(translation_matrix(point(0, 0, 2)), scaling_matrix(point(0.5, 2, 1)));
+
+	sp3 = unit_sphere();
+	sp3->material.color = color(0, 0, 1);
+	sp3->transform = multiply_matrix(translation_matrix(point(0, 0, 3)), scaling_matrix(point(2, 0.5, 1)));
+
+	sp4 = unit_sphere();
+	sp4->material.color = color(0, 1, 1);
+	sp4->transform = multiply_matrix(translation_matrix(point(0, 0, 5)), scaling_matrix(point(3, 3, 1)));
+
+	sp5 = unit_sphere();
+	sp5->material.color = color(1, 1, 0);
+	sp5->transform = multiply_matrix(translation_matrix(point(0, 0, 8)), scaling_matrix(point(5, 5, 1)));
+
+	hittable_add("sp", sp1, &world.objects);
+	hittable_add("sp", sp2, &world.objects);
+	hittable_add("sp", sp3, &world.objects);
+	hittable_add("sp", sp4, &world.objects);
+	hittable_add("sp", sp5, &world.objects);
+
+	return (world);
+}
 
 t_world	room(void)
 {
