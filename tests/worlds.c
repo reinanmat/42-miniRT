@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/08 13:52:14 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:10:02 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -81,6 +81,8 @@ t_world	room(void)
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
+	world.ambient_light.light_ratio = 1;
+	world.ambient_light.color = (t_color){1, 1, 1};
 	world.cam.t = view_transform(from, forward, up);
 
 	world.light = point_light(point(0, 0, 0), 1);
@@ -119,12 +121,12 @@ t_world	room(void)
 	sp->material.color = color(1, 1, 1);
 	sp->transform = translation_matrix(point(0, 0, 0));
 	
-	hittable_add("pl", floor, &world.objects);
-	hittable_add("pl", roof, &world.objects);
-	hittable_add("pl", wall, &world.objects);
-	hittable_add("pl", wall_left, &world.objects);
-	hittable_add("pl", wall_right, &world.objects);
-	/* hittable_add("sp", sp, &world.objects); */
+	/* hittable_add("pl", floor, &world.objects); */
+	/* hittable_add("pl", roof, &world.objects); */
+	/* hittable_add("pl", wall, &world.objects); */
+	/* hittable_add("pl", wall_left, &world.objects); */
+	/* hittable_add("pl", wall_right, &world.objects); */
+	hittable_add("sp", sp, &world.objects);
 	return (world);
 }
 

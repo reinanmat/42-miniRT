@@ -66,7 +66,8 @@ FILES =			main \
 				aux_functions/get_file_content \
 				aux_functions/get_splitted_identifier \
 				aux_functions/assign_value \
-				aux_functions/sort_lst
+				aux_functions/sort_lst \
+				aux_functions/double_equals
 
 TEST_FILES =	cylinder worlds utils_tests unit_shapes
 

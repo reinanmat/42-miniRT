@@ -6,20 +6,21 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/07 12:05:35 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:08:16 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
 
-static t_color	compute_color(t_color amb, t_color diffuse, t_color specular)
+static t_color	compute_color(t_color amb, t_color diffuse, t_color specular, t_comps comps, t_world world)
 {
 	t_color	color;
 
 	color = add(amb, add(diffuse, specular));
+	color = add(color, multiply(get_color(comps.object), s_multiply(world.ambient_light.color, world.ambient_light.light_ratio)));
 	return (color);
 }
 
-t_color	lighting(t_light light, t_comps comps)
+t_color	lighting(t_light light, t_comps comps, t_world world)
 {
 	t_color		ambient;
 	t_color		diffuse;
@@ -39,5 +40,5 @@ t_color	lighting(t_light light, t_comps comps)
 	}
 	if (reflect_dot_eye > 0)
 		specular = compute_specular(reflect_dot_eye, comps, light);
-	return (compute_color(ambient, diffuse, specular));
+	return (compute_color(ambient, diffuse, specular, comps, world));
 }

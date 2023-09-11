@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/05 14:08:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:08:47 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -41,7 +41,7 @@ t_color	shade_hit(t_world world, t_comps comps)
 	shadowed = is_shadowed(world, comps.over_point);
 	if (shadowed)
 		return ((t_color){0.1, 0.1, 0.1});
-	color = lighting(world.light, comps);
+	color = lighting(world.light, comps, world);
 	return (color);
 }
 
@@ -87,6 +87,7 @@ static void	render_world(t_world world, t_mlx mlx)
 
 int	render(t_data data)
 {
+	data.world = room();
 	render_world(data.world, data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
 		data.mlx.img.mlx_img, 0, 0);
