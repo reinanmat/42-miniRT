@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 14:44:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:52:31 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # define WINDOW_NAME "minirt"
 
 # define KEY_ESC 0xff1b
+
+# define AMBIENT 0
+# define DIFFUSE 1
+# define SPECULAR 2
 
 # define EPSILON 0.00001
 
@@ -110,7 +114,7 @@ t_vec3		local_normal_at(t_hittable *object, t_point local_point);
 t_color		color_at(t_ray ray, t_world world);
 
 //lighting
-t_color		lighting(t_light light, t_comps comps, t_world world, int is_shadowed);
+t_color		lighting(t_light light, t_comps comps, t_amb_light amb, int shadow);
 t_light		point_light(t_point pos, double intensity);
 int			is_shadowed(t_world world, t_point point);
 t_color		compute_specular(double reflect_dot_eye, t_comps comps, t_light light);
