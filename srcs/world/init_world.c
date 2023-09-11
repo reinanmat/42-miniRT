@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/28 16:58:58 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:05:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -18,7 +18,7 @@ static t_amb_light	init_ambient_light(char **lines)
 
 	config = get_splitted_identifier(lines, "A");
 	amb_light.light_ratio = ft_atof(config[1]);
-	assign_t_point(&amb_light.color, config[2]);
+	assign_t_color(&amb_light.color, config[2]);
 	ft_free_matrix((void **)config);
 	return (amb_light);
 }
