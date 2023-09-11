@@ -44,18 +44,37 @@ t_matrix	get_orientation(t_vec3 a)
 		return (rotate_x_matrix(-M_PI / 2));
 }
 
+t_matrix	transform_cy(t_cylinder *cy, t_matrix cy_scale)
+{
+	t_matrix	translation_by_rot;
+	t_matrix	transformed_cy;
+	t_matrix	orientation_to_matrix;
+	t_matrix	translation_matr;
+
+	translation_matr = translation_matrix(cy->center);
+	orientation_to_matrix = get_orientation(cy->vector);
+	translation_by_rot = multiply_matrix(translation_matr, orientation_to_matrix);
+	transformed_cy = multiply_matrix(translation_by_rot, cy_scale);
+	return (transformed_cy);
+}
+
 t_cylinder	*cylinder(char **config)
 {
 	t_cylinder	*cy;
+	t_vec3		cy_scale;
 
 	cy = malloc(sizeof(t_cylinder));
 	cy->height = ft_atof(config[4]);
 	cy->diameter = ft_atof(config[3]);
+	cy->min = -(cy->height / 2);
+	cy->max = cy->height / 2;
 	cy->transform = identity_matrix();
 	cy->material = default_material();
 	assign_t_point(&cy->center, config[1]);
 	assign_t_point(&cy->vector, config[2]);
 	assign_t_color(&cy->material.color, config[5]);
+	cy_scale = vec3(cy->diameter / 2, cy->diameter / 2, cy->diameter / 2);
+	cy->transform = transform_cy(cy, scaling_matrix(cy_scale));
 	return (cy);
 }
 
