@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 16:44:24 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:52:40 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ char	*get_file_content(int fd, char *filename);
 char	**get_splitted_identifier(char **lines, char *identifier);
 void	assign_t_point(t_point *coordinate, char *param);
 void	assign_t_color(t_color *color, char *param);
+int		check_equal_vec3(t_vec3 a, t_vec3 b);
 
 //file parsing
 int		received_invalid_param(char *filename);
