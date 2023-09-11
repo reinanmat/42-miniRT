@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:51:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 19:31:55 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 16:08:43 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -28,11 +28,11 @@ t_world	cylinder_world(void)
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
 
-	world.light = point_light(point(0, 0, -5), 1);
+	world.light = point_light(point(-10, 10, -5), 1);
 	world.objects = NULL;
 
 	cy1 = unit_cylinder();
-	cy1->max = 2;
+	cy1->max = 1;
 	cy1->min = -2;
 	cy2 = unit_cylinder();
 	/* cy2->max = 1.5; */
@@ -41,15 +41,27 @@ t_world	cylinder_world(void)
 	cy3 = unit_cylinder();
 	cy3->max = 2.5;
 	cy3->min = -2;
+	
+	t_plane		*pl;
+	t_sphere	*sp;
 
-	cy1->material.color = color(1, 0, 0);
-	cy2->material.color = color(1, 0, 0);
-	cy3->material.color = color(0, 0, 1);
-	cy1->transform = multiply_matrix(translation_matrix(point(1.2, -1, 0)), rotate_z_matrix(M_PI/2));
-	cy2->transform = translation_matrix(point(0, 1, 0));
-	cy3->transform = translation_matrix(point(-2, 0, 0));
+	sp = unit_sphere();
+	sp->material.color = color(0, 0, 0);
+	sp->transform = scaling_matrix(point(2, 2, 2));
+	pl = unit_plane();
+	pl->transform = multiply_matrix(translation_matrix(point(0, 0, 50)), rotate_x_matrix(M_PI / 2));
+	pl->material.color = color(1, 1, 1);
+
+	cy1->material.color = color(0, 0, 0);
+	/* cy2->material.color = color(1, 0, 0); */
+	/* cy3->material.color = color(0, 0, 1); */
+	cy1->transform = translation_matrix(point(0, 1, 0));
+	/* cy2->transform = translation_matrix(point(0, 1, 0)); */
+	/* cy3->transform = translation_matrix(point(-2, 0, 0)); */
 	hittable_add("cy", cy1, &world.objects);
-	hittable_add("cy", cy2, &world.objects);
+	hittable_add("sp", sp, &world.objects);
+	hittable_add("pl", pl, &world.objects);
+	/* hittable_add("cy", cy2, &world.objects); */
 	/* hittable_add("cy", cy3, &world.objects); */
 	return (world);
 }
