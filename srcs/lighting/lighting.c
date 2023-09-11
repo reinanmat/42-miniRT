@@ -6,17 +6,19 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 14:56:04 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:56:36 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
 
-static t_color	compute_color(t_color amb, t_color diffuse, t_color specular, t_comps comps, t_world world)
+static t_color	compute_color(t_color colors[3], t_comps comps, t_amb_light amb)
 {
 	t_color	color;
+	t_color	amb_color;
 
-	color = add(amb, add(diffuse, specular));
-	color = add(color, multiply(get_color(comps.object), s_multiply(world.ambient_light.color, world.ambient_light.light_ratio)));
+	amb_color = s_multiply(amb.color, amb.light_ratio);
+	color = add(colors[AMBIENT], add(colors[DIFFUSE], colors[SPECULAR]));
+	color = add(color, multiply(get_color(comps.object), amb_color));
 	return (color);
 }
 
