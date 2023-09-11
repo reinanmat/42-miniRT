@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 16:23:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:04:38 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -51,7 +51,10 @@ t_color	color_at(t_ray ray, t_world world)
 
 	intersects = intersection_calculate(ray, world.objects);
 	if (intersects == NULL || hit(intersects) == NULL)
+	{
+		clear_intersect(&intersects);
 		return ((t_color){0, 0, 0});
+	}
 	comps = prepare_computations(intersects, ray);
 	clear_intersect(&intersects);
 	color = shade_hit(world, comps);

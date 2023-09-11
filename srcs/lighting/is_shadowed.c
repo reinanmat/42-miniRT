@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:33:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/30 19:42:45 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:09:55 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -45,6 +45,10 @@ int	is_shadowed(t_world world, t_point point)
 	intersections = intersection_calculate(light_ray, world.objects);
 	closest_intersection = hit(intersections);
 	if (closest_intersection && closest_intersection->t < distance)
+	{
+		clear_intersect(&intersections);
 		return (1);
+	}
+	clear_intersect(&intersections);
 	return (0);
 }

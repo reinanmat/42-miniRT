@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:43:53 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/08 18:15:30 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:03:45 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
@@ -45,6 +45,7 @@ static int	vec_is_normalized(const char *str)
 	x = atof(vec[0]);
 	y = atof(vec[1]);
 	z = atof(vec[2]);
+	ft_free_matrix((void **)vec);
 	mag = magnitude(vec3(x, y, z));
 	if (double_equals(mag, 1))
 		return (1);
