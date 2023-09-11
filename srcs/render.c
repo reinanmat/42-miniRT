@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 14:43:06 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 16:02:55 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -39,7 +39,7 @@ t_color	shade_hit(t_world world, t_comps comps)
 	int		shadowed;
 
 	shadowed = is_shadowed(world, comps.over_point);
-	color = lighting(world.light, comps, world, shadowed);
+	color = lighting(world.light, comps, world.ambient_light, shadowed);
 	return (color);
 }
 
