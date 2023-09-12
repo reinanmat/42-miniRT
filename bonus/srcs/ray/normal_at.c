@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:05:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:56:12 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 20:13:04 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -24,14 +24,30 @@ static t_vec3	local_normal_cylinder(t_cylinder *cylinder, t_point local_point)
 		return (vec3(local_point.x, 0, local_point.z));
 }
 
+static t_vec3	local_normal_cone(t_point local_point)
+{
+	double	y;
+	double	squared_x;
+	double	squared_z;
+
+	squared_x = local_point.x * local_point.x;
+	squared_z = local_point.z * local_point.z;
+	y = sqrt(squared_x + squared_z);
+	if (local_point.y > 0)
+		y *= -1;
+	return (vec3(local_point.x, y, local_point.z));
+}
+
 t_vec3	local_normal_at(t_hittable *object, t_point local_point)
 {
 	if (object->type == 1)
 		return (sub(local_point, point(0, 0, 0)));
 	else if (object->type == 2)
 		return (local_normal_cylinder(object->cy, local_point));
-	else
+	else if (object->type == 3)
 		return (vec3(0, 1, 0));
+	else
+		return (local_normal_cone(local_point));
 }
 
 t_point	get_object_point(t_matrix inv_matrix, t_point world_point)
