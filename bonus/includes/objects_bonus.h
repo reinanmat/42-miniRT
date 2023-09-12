@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:42:49 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 19:07:03 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,18 @@ typedef struct s_plane
 	t_matrix	transform;
 	t_material	material;
 }	t_plane;
+
+typedef struct s_cone
+{
+	t_point		center;
+	t_vec3		vector;
+	double		diameter;
+	double		height;
+	double		min;
+	double		max;
+	t_matrix	transform;
+	t_material	material;
+}	t_cone;
 
 t_material	default_material(void);
 t_sphere	*sphere(char **config);
