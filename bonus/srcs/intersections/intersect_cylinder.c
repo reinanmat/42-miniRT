@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:26 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 17:58:01 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 19:04:39 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -33,7 +33,7 @@ static t_bhask	calculate_bhaskara(t_ray ray)
 	return (bhask);
 }
 
-int	check_cap(t_ray ray, double t)
+static int	check_cap(t_ray ray, double t)
 {
 	double	x;
 	double	z;
@@ -45,7 +45,7 @@ int	check_cap(t_ray ray, double t)
 	return (0);
 }
 
-void	intersect_caps(t_ray ray, t_cylinder *cylinder, t_inter_point *inters)
+static void	intersect_caps(t_ray ray, t_cylinder *cylinder, t_inter_point *inters)
 {
 	double	t;
 
