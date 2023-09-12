@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:31:39 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/24 17:59:39 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:55:53 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 int	parse_element(char *identifier, char **element)
 {

@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:58:52 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:53:10 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:58:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static t_bhask	calculate_bhaskara(t_ray ray, t_sphere *sphere)
 {

@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:59:19 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:54:02 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:00:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 void	mlx_close_window(t_mlx *mlx)
 {

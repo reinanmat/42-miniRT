@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 18:22:05 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/20 17:03:43 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:55:07 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 int	is_valid_lighting_ratio(const char *str)
 {

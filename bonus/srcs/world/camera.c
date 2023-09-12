@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:29:27 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/29 18:32:01 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:57:08 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 void	set_pixel_size(t_cam *camera)
 {

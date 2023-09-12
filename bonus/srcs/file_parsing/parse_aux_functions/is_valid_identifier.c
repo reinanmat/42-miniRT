@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:26:54 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/10 15:50:57 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:55:01 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 int	is_valid_identifier(char *identifier)
 {

@@ -9,7 +9,7 @@
 /*   Updated: 2023/09/07 12:01:49 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 t_color	compute_specular(double reflect_dot_eye, t_comps comps, t_light light)
 {

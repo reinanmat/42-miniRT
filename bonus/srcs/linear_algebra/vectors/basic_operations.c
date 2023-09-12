@@ -6,11 +6,11 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:01:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 21:10:38 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:59:28 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 t_vec3	add(t_vec3 a, t_vec3 b)
 {

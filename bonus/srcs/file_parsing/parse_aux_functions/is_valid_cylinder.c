@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:59:12 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/21 12:31:08 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:54:55 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 int	is_valid_cylinder(char **params, int number_of_params)
 {

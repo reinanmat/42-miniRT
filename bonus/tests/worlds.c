@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 12:10:02 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:02:39 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt.h"
+#include "../includes/minirt_bonus.h"
 
 t_world	test_multiple_objects()
 {

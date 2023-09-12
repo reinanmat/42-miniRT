@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 18:29:54 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:55:14 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:56:59 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt.h"
+#include "../includes/minirt_bonus.h"
 
 t_color	color(double r, double g, double b)
 {

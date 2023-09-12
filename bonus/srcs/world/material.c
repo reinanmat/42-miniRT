@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:55:37 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 14:27:15 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:57:19 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 t_material	default_material(void)
 {

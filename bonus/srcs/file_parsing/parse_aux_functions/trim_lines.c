@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:09:38 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/11 14:26:23 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:55:39 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 void	trim_lines(char **lines)
 {

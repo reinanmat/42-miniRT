@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:26 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/07 12:24:21 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:58:01 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static t_bhask	calculate_bhaskara(t_ray ray)
 {

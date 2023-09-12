@@ -6,11 +6,11 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:57:03 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/11 19:06:22 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:59:12 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 double	minor(t_matrix a, int row, int col)
 {

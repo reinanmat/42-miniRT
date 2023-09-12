@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:29:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/28 16:30:30 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:56:24 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static double	get_world_x(t_cam camera, int x)
 {

@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/11 15:05:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:57:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static t_amb_light	init_ambient_light(char **lines)
 {

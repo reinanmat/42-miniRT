@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 16:52:49 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/08 16:55:15 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:53:17 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static void	swap_intersect_nodes(t_intersections *a, t_intersections *b)
 {

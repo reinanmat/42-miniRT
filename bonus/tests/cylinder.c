@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:51:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 16:08:43 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:02:20 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt.h"
+#include "../includes/minirt_bonus.h"
 
 t_world	cylinder_world(void)
 {

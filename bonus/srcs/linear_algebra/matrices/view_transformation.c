@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:39:49 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/07 12:20:26 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:59:17 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 static void	set_values_on_given_col(t_matrix *matrix, int col, t_vec3 a)
 {

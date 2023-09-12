@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:37:54 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:54:39 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:00:56 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 void	clean_hittable(t_hittable **hittable_lst)
 {

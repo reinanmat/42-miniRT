@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:36:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 19:17:47 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:00:38 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 void	mlx_img_pix_put(t_img *img, int x, int y, int color)
 {

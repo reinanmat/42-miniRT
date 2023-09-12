@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_aux.c                                          :+:      :+:    :+:   */
+/*   intersection_lst.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 16:48:18 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/09 17:00:38 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:01:15 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 t_intersections	*last_intersect(t_intersections *lst)
 {

@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/08 13:24:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:58:20 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 t_intersections	*hit(t_intersections *intersections)
 {

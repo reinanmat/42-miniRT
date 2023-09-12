@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:58:35 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/21 12:14:44 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:55:13 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 int	is_valid_plane(char **params, int number_of_params)
 {

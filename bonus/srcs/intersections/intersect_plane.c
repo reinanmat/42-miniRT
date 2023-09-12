@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:10:06 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/07 12:25:17 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:58:10 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 t_inter_point	intersect_plane(t_ray ray, t_plane *plane)
 {

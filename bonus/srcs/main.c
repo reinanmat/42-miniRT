@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 16:34:41 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:56:52 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt.h"
+#include "../includes/minirt_bonus.h"
 
 t_light	point_light(t_point pos, double intensity)
 {

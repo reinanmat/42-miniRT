@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:05:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/07 12:16:00 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:56:12 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static t_vec3	local_normal_cylinder(t_cylinder *cylinder, t_point local_point)
 {

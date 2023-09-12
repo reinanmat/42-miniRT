@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:13:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:54:19 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:00:29 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static int	close_program(t_data *data)
 {

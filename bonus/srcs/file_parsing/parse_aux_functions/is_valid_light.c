@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:56:19 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/21 12:23:57 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:18:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 int	is_valid_light(char **params, int number_of_params)
 {

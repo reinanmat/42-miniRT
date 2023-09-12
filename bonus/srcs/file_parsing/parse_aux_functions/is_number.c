@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:31:28 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/11 15:30:46 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:54:17 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 int	is_number(const char *str)
 {

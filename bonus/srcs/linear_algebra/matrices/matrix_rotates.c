@@ -6,11 +6,11 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:37:37 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/11 15:38:21 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:59:00 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 t_matrix	rotate_x_matrix(double radians)
 {

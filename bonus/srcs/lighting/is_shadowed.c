@@ -9,7 +9,7 @@
 /*   Updated: 2023/09/11 17:09:55 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static t_ray	get_light_ray(t_light light, t_point point)
 {

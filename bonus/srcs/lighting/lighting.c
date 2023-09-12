@@ -9,7 +9,7 @@
 /*   Updated: 2023/09/11 15:56:36 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static t_color	compute_color(t_color colors[3], t_comps comps, t_amb_light amb)
 {

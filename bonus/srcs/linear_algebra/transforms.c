@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:05:47 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/30 21:15:08 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:59:57 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 static void	apply_transformation_point(t_point *pos, t_matrix transformation)
 {

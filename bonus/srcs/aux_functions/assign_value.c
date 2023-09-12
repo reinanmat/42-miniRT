@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 19:14:13 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/28 11:59:36 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:52:53 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/minirt.h"
+#include "../../includes/minirt_bonus.h"
 
 void	assign_t_point(t_point *coordinate, char *param)
 {

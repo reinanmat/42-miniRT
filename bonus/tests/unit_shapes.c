@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:00:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 15:05:23 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:02:26 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt.h"
+#include "../includes/minirt_bonus.h"
 
 t_sphere	*unit_sphere(void)
 {

@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:51:36 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/20 17:08:15 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:54:28 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 int	is_valid_ambient_lighting(char **params, int number_of_params)
 {

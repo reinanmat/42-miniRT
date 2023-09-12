@@ -1,8 +1,16 @@
-NAME = 			miniRT
-SRCS_PATH =		./mandatory/srcs
-OBJS_PATH =		./objs
-TESTS_PATH =	./mandatory/tests
-LIBFT_PATH =	./libft
+NAME 				= miniRT
+SRCS_PATH 			= ./mandatory/srcs
+OBJS_PATH 			= ./objs
+TESTS_PATH 			= ./mandatory/tests
+INCLUDE_PATH		= ./mandatory/includes/
+
+NAME_BONUS			= miniRT_BONUS
+BONUS_SRCS_PATH 	= ./bonus/srcs
+BONUS_OBJS_PATH		= ./bonus_objs
+BONUS_TESTS_PATH	= ./bonus/tests
+BONUS_INCLUDE_PATH	= ./bonus/includes/
+
+LIBFT_PATH 			= ./libft
 
 FILES =			main \
 				return_struct \
@@ -75,6 +83,9 @@ TEST_FILES =	cylinder worlds utils_tests unit_shapes
 SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
 OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}
 
+SRCS_BONUS =	${FILES:%=$(BONUS_SRCS_PATH)/%.c} ${TEST_FILES:%=$(BONUS_TESTS_PATH)/%.c}
+OBJS_BONUS =	${FILES:%=$(BONUS_OBJS_PATH)/%.o} ${TEST_FILES:%=$(BONUS_OBJS_PATH)/%.o}
+
 CFLAGS = 		-Wall -Wextra -Werror -O3
 LIBXFLAGS =		-lmlx -lXext -lX11 -lm -lz
 LIBFTFLAGS =	-L $(LIBFT_PATH) -lft
@@ -84,19 +95,36 @@ all: libft $(NAME)
 libft:
 	@make -C $(LIBFT_PATH) --no-print-directory
 
+bonus: libft $(NAME_BONUS)
+
+$(BONUS_OBJS_PATH)/%.o: $(BONUS_SRCS_PATH)/%.c | $(BONUS_OBJS_PATH)
+	@mkdir -p $(@D)
+	clang $(CFLAGS) -I $(BONUS_INCLUDE_PATH) -c $< -o $@
+
+$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT_PATH)/libft.a
+	clang $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBFTFLAGS) $(LIBXFLAGS)
+
+$(BONUS_OBJS_PATH)/%.o: $(BONUS_TESTS_PATH)/%.c | $(BONUS_OBJS_PATH)
+	@mkdir -p $(@D)
+	clang $(CFLAGS) -I $(BONUS_OBJS_PATH) -c $< -o $@
+
+
 $(NAME): $(OBJS) $(LIBFT_PATH)/libft.a
 	clang $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
-	clang $(CFLAGS) -I ./includes -c $< -o $@
+	clang $(CFLAGS) -I $(OBJS_PATH) -c $< -o $@
 
 $(OBJS_PATH)/%.o: $(TESTS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
-	clang $(CFLAGS) -I ./includes -c $< -o $@
+	clang $(CFLAGS) -I $(OBJS_PATH) -c $< -o $@
 
 $(OBJS_PATH):
 	mkdir -p $(OBJS_PATH)
+
+$(BONUS_OBJS_PATH):
+	mkdir -p $(BONUS_OBJS_PATH)
 
 $(LIBFT_PATH)/libft.a:
 	make -C $(LIBFT_PATH) --no-print-directory

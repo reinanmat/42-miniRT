@@ -6,10 +6,10 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:55:08 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/20 18:15:39 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:54:36 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../../includes/minirt.h"
+#include "../../../includes/minirt_bonus.h"
 
 static int	between_expected_range(const char *str)
 {

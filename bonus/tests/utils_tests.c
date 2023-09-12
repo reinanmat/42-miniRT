@@ -6,10 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 16:23:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:02:31 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt.h"
+#include "../includes/minirt_bonus.h"
 
 //remove that file after finishing the project
 #include <sys/time.h>
