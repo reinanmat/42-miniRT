@@ -40,6 +40,7 @@ FILES =			main \
 				intersections/intersect_sphere \
 				intersections/intersect_plane \
 				intersections/intersect_cylinder \
+				intersections/intersect_cone \
 				color/color \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
@@ -107,7 +108,6 @@ $(NAME_BONUS): $(OBJS_BONUS) $(LIBFT_PATH)/libft.a
 $(BONUS_OBJS_PATH)/%.o: $(BONUS_TESTS_PATH)/%.c | $(BONUS_OBJS_PATH)
 	@mkdir -p $(@D)
 	clang $(CFLAGS) -I $(BONUS_OBJS_PATH) -c $< -o $@
-
 
 $(NAME): $(OBJS) $(LIBFT_PATH)/libft.a
 	clang $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)

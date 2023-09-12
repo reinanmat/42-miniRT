@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:05:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:41:24 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 19:21:24 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_intersections	*intersection_calculate(t_ray ray, t_hittable *objects);
 t_inter_point	intersect_sphere(t_ray ray, t_sphere *sphere);
 t_inter_point	intersect_plane(t_ray ray, t_plane *plane);
 t_inter_point	intersect_cylinder(t_ray ray, t_cylinder *cylinder);
+t_inter_point	intersect_cone(t_ray ray, t_cone *cone);
 t_intersections	*hit(t_intersections *intersections);
 
 //intersection list utils
