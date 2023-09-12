@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 18:52:40 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:27:45 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # include "matrices.h"
 # include "objects.h"
 # include "intersection.h"
-# include "../libft/libft.h"
+# include "../../libft/libft.h"
 
 typedef struct s_img
 {

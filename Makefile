@@ -1,8 +1,7 @@
-
 NAME = 			miniRT
-SRCS_PATH =		./srcs
+SRCS_PATH =		./mandatory/srcs
 OBJS_PATH =		./objs
-TESTS_PATH =	./tests
+TESTS_PATH =	./mandatory/tests
 LIBFT_PATH =	./libft
 
 FILES =			main \
@@ -86,15 +85,15 @@ libft:
 	@make -C $(LIBFT_PATH) --no-print-directory
 
 $(NAME): $(OBJS) $(LIBFT_PATH)/libft.a
-	cc $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)
+	clang $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
-	cc $(CFLAGS) -I ./includes -c $< -o $@
+	clang $(CFLAGS) -I ./includes -c $< -o $@
 
 $(OBJS_PATH)/%.o: $(TESTS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
-	cc $(CFLAGS) -I ./includes -c $< -o $@
+	clang $(CFLAGS) -I ./includes -c $< -o $@
 
 $(OBJS_PATH):
 	mkdir -p $(OBJS_PATH)
