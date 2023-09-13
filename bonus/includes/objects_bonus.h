@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 14:41:45 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:32:24 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_material
 	double		specular;
 	double		shininess;
 	t_color		color;
+	int			has_pattern;
 	t_pattern	pattern;
 }	t_material;
 
