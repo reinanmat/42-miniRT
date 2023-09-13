@@ -38,6 +38,7 @@ typedef struct s_sphere
 	t_point		center;
 	double		radius;
 	t_matrix	transform;
+	t_matrix	inv_transform;
 	t_material	material;
 }	t_sphere;
 
@@ -50,6 +51,7 @@ typedef struct s_cylinder
 	double		min;
 	double		max;
 	t_matrix	transform;
+	t_matrix	inv_transform;
 	t_material	material;
 }	t_cylinder;
 
@@ -58,6 +60,7 @@ typedef struct s_plane
 	t_point		center;
 	t_vec3		vector;
 	t_matrix	transform;
+	t_matrix	inv_transform;
 	t_material	material;
 }	t_plane;
 
@@ -70,6 +73,7 @@ typedef struct s_cone
 	double		min;
 	double		max;
 	t_matrix	transform;
+	t_matrix	inv_transform;
 	t_material	material;
 }	t_cone;
 
