@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:13:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 19:45:36 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:55:43 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_hittable
 	t_plane				*pl;
 	t_sphere			*sp;
 	t_cylinder			*cy;
-	t_cone				*cone;
+	t_cone				*co;
 	struct s_hittable	*next;
 }	t_hittable;
 
