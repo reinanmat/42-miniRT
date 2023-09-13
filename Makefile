@@ -40,7 +40,6 @@ FILES =			main \
 				intersections/intersect_sphere \
 				intersections/intersect_plane \
 				intersections/intersect_cylinder \
-				intersections/intersect_cone \
 				color/color \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
@@ -78,14 +77,17 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
+FILES_BONUS =	$(FILES) intersections/intersect_cone
 
-TEST_FILES =	cylinder worlds utils_tests unit_shapes cone
+TEST_FILES	=	cylinder worlds utils_tests unit_shapes
+
+TEST_FILES_BONUS	=	$(TEST_FILES) cone
 
 SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
 OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}
 
-SRCS_BONUS =	${FILES:%=$(BONUS_SRCS_PATH)/%.c} ${TEST_FILES:%=$(BONUS_TESTS_PATH)/%.c}
-OBJS_BONUS =	${FILES:%=$(BONUS_OBJS_PATH)/%.o} ${TEST_FILES:%=$(BONUS_OBJS_PATH)/%.o}
+SRCS_BONUS =	${FILES_BONUS:%=$(BONUS_SRCS_PATH)/%.c} ${TEST_FILES_BONUS:%=$(BONUS_TESTS_PATH)/%.c}
+OBJS_BONUS =	${FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o} ${TEST_FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o}
 
 CC = cc
 CFLAGS = 		-Wall -Wextra -Werror -O3
