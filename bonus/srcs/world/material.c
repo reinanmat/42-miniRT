@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:55:37 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:57:19 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:43:16 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -19,5 +19,6 @@ t_material	default_material(void)
 	m.diffuse = 0.9;
 	m.specular = 0.9;
 	m.shininess = 200.0;
+	m.pattern = stripe_pattern(color(1, 1, 1), color(0, 0, 0));
 	return (m);
 }
