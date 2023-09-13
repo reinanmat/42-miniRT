@@ -4,7 +4,7 @@ OBJS_PATH 			= ./objs
 TESTS_PATH 			= ./mandatory/tests
 INCLUDE_PATH		= ./mandatory/includes/
 
-NAME_BONUS			= miniRT_BONUS
+NAME_BONUS			= miniRT_bonus
 BONUS_SRCS_PATH 	= ./bonus/srcs
 BONUS_OBJS_PATH		= ./bonus_objs
 BONUS_TESTS_PATH	= ./bonus/tests
