@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 19:07:03 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:18:52 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ t_material	default_material(void);
 t_sphere	*sphere(char **config);
 t_cylinder	*cylinder(char **config);
 t_plane		*plane(char **config);
+t_cone		*cone(char **config);
 
 #endif

@@ -6,10 +6,28 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:57:26 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:18:33 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
+
+t_cone	*cone(char **config)
+{
+	t_cone	*co;
+
+	co = malloc(sizeof(t_cone));
+	co->height = ft_atof(config[4]);
+	co->diameter = ft_atof(config[3]);
+	co->min = -(co->height / 2);
+	co->max = co->height / 2;
+	co->transform = identity_matrix();
+	co->material = default_material();
+	assign_t_point(&co->center, config[1]);
+	assign_t_point(&co->vector, config[2]);
+	assign_t_color(&co->material.color, config[5]);
+	co->transform = identity_matrix();
+	return (co);
+}
 
 t_sphere	*sphere(char **config)
 {
