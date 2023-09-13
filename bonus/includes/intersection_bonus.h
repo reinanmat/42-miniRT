@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:05:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 19:21:24 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:04:41 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_intersections
 typedef struct s_inter_point
 {
 	int		hit_times;
-	double	hit[2];
+	double	hit[4];
 	void	*object;
 }	t_inter_point;
 
