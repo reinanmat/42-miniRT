@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 19:01:50 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:03:00 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -87,7 +87,7 @@ t_world	room(void)
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
-	world.ambient_light.light_ratio = 0.3;
+	world.ambient_light.light_ratio = 0.5;
 	world.ambient_light.color = (t_color){1, 1, 1};
 	world.cam.t = view_transform(from, forward, up);
 
@@ -101,10 +101,11 @@ t_world	room(void)
 
 	floor = plane(config);
 	floor->material.color = color(0, 1, 0);
-	floor->material.has_pattern = 1;
-	floor->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 1, 1), identity_matrix());
 	floor->transform = translation_matrix(point(0, -4, 0));
 	floor->inv_transform = inverse(floor->transform);
+	floor->material.has_pattern = 1;
+	floor->material.pattern.type = 3;
+	floor->material.pattern = set_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix());
 
 	roof = plane(config);
 	roof->material.color = color(0, 0, 1);
@@ -126,7 +127,8 @@ t_world	room(void)
 	wall->transform = multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_x_matrix(M_PI / 2));
 	wall->inv_transform = inverse(wall->transform);
 	wall->material.has_pattern = 1;
-	wall->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 1, 1), identity_matrix());
+	wall->material.pattern.type = 1;
+	wall->material.pattern = set_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix());
 
 	config[0] = "sp";
 	config[1] = "0,0,0";
@@ -136,15 +138,16 @@ t_world	room(void)
 	sp->material.color = color(1, 0, 0);
 	sp->transform = translation_matrix(point(0, 0, 0));
 	sp->inv_transform = inverse(sp->transform);
-	sp->material.has_pattern = 1;
-	sp->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 1, 1), identity_matrix());
+	/* sp->material.has_pattern = 1; */
+	/* sp->material.pattern.type = 3; */
+	/* sp->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix()); */
 	
 	/* hittable_add("pl", floor, &world.objects); */
-	hittable_add("pl", roof, &world.objects);
+	/* hittable_add("pl", roof, &world.objects); */
 	hittable_add("pl", wall, &world.objects);
 	/* hittable_add("pl", wall_left, &world.objects); */
 	/* hittable_add("pl", wall_right, &world.objects); */
-	hittable_add("sp", sp, &world.objects);
+	/* hittable_add("sp", sp, &world.objects); */
 	return (world);
 }
 
