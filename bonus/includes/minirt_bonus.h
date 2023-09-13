@@ -130,6 +130,7 @@ void	print_cam(t_cam cam);
 void	print(char *str1, t_point *p1, char *str2, t_point *p2);
 void	test_cylinder(void);
 void	test_cone(void);
+void	test_pattern(void);
 t_world	room(void);
 t_world	default_world(void);
 t_world	complex_world(void);
