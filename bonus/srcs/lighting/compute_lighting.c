@@ -6,22 +6,22 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:00:59 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/07 12:01:49 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:13:18 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
 
 t_color	compute_specular(double reflect_dot_eye, t_comps comps, t_light light)
 {
-	t_material	material;
+	t_material	m;
 	t_color		white;
 	double		factor;
 	t_color		specular;
 
-	material = get_material(comps.object);
-	factor = pow(reflect_dot_eye, material.shininess);
+	m = get_material(comps.object);
+	factor = pow(reflect_dot_eye, m.shininess);
 	white = (t_color){1, 1, 1};
-	specular = s_multiply(white, light.brightness * material.specular * factor);
+	specular = s_multiply(white, light.brightness * m.specular * factor);
 	return (specular);
 }
 
@@ -51,11 +51,13 @@ t_color	compute_diffuse(t_light light, double light_dot_normal, t_comps comps)
 {
 	t_color		diffuse;
 	t_color		effective_color;
-	t_material	material;
+	t_color		object_color;
+	t_material	m;
 
-	material = get_material(comps.object);
-	effective_color = s_multiply(get_color(comps.object), light.brightness);
-	diffuse = s_multiply(effective_color, material.diffuse * light_dot_normal);
+	m = get_material(comps.object);
+	object_color = get_color(comps.object, comps.over_point);
+	effective_color = s_multiply(object_color, light.brightness);
+	diffuse = s_multiply(effective_color, m.diffuse * light_dot_normal);
 	return (diffuse);
 }
 
@@ -63,10 +65,12 @@ t_color	compute_ambient(t_light light, t_comps comps)
 {
 	t_color		ambient;
 	t_color		effective_color;
-	t_material	material;
+	t_color		object_color;
+	t_material	m;
 
-	material = get_material(comps.object);
-	effective_color = s_multiply(get_color(comps.object), light.brightness);
-	ambient = s_multiply(effective_color, material.ambient);
+	m = get_material(comps.object);
+	object_color = get_color(comps.object, comps.over_point);
+	effective_color = s_multiply(object_color, light.brightness);
+	ambient = s_multiply(effective_color, m.ambient);
 	return (ambient);
 }

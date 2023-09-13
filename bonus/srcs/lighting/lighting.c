@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:23:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 15:56:36 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:10:03 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -15,10 +15,12 @@ static t_color	compute_color(t_color colors[3], t_comps comps, t_amb_light amb)
 {
 	t_color	color;
 	t_color	amb_color;
+	t_color	object_color;
 
+	object_color = get_color(comps.object, comps.over_point);
 	amb_color = s_multiply(amb.color, amb.light_ratio);
 	color = add(colors[AMBIENT], add(colors[DIFFUSE], colors[SPECULAR]));
-	color = add(color, multiply(get_color(comps.object), amb_color));
+	color = add(color, multiply(object_color, amb_color));
 	return (color);
 }
 
