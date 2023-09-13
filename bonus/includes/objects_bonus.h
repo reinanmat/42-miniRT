@@ -86,7 +86,8 @@ t_plane		*plane(char **config);
 t_cone		*cone(char **config);
 
 //patterns
-t_pattern	stripe_pattern(t_color a, t_color b);
-t_color		stripe_at(t_pattern parttern, t_point point);
+t_color		stripe_at_obj(t_pattern pattern, t_matrix inv_transform, t_point p);
+t_pattern	stripe_pattern(t_color a, t_color b, t_matrix transform);
+t_color		stripe_at(t_pattern pattern, t_point point);
 
 #endif
