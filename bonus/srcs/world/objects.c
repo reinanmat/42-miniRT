@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 13:18:33 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:34:17 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -26,6 +26,7 @@ t_cone	*cone(char **config)
 	assign_t_point(&co->vector, config[2]);
 	assign_t_color(&co->material.color, config[5]);
 	co->transform = identity_matrix();
+	co->inv_transform = inverse(co->transform);
 	return (co);
 }
 
@@ -43,6 +44,7 @@ t_sphere	*sphere(char **config)
 	assign_t_point(&translation, config[1]);
 	scale = vec3(sp->radius, sp->radius, sp->radius);
 	sp->transform = transform_object(translation, scale);
+	sp->inv_transform = inverse(sp->transform);
 	return (sp);
 }
 
@@ -93,6 +95,7 @@ t_cylinder	*cylinder(char **config)
 	assign_t_color(&cy->material.color, config[5]);
 	cy_scale = vec3(cy->diameter / 2, cy->diameter / 2, cy->diameter / 2);
 	cy->transform = transform_cy(cy, scaling_matrix(cy_scale));
+	cy->inv_transform = inverse(cy->transform);
 	return (cy);
 }
 
@@ -102,6 +105,7 @@ t_plane	*plane(char **config)
 
 	pl = malloc(sizeof(t_plane));
 	pl->transform = identity_matrix();
+	pl->inv_transform = inverse(pl->transform);
 	pl->material = default_material();
 	assign_t_point(&pl->center, config[1]);
 	assign_t_point(&pl->vector, config[2]);
