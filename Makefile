@@ -77,11 +77,11 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
-FILES_BONUS =	$(FILES) intersections/intersect_cone
+FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
 
-TEST_FILES_BONUS	=	$(TEST_FILES) cone
+TEST_FILES_BONUS	=	$(TEST_FILES) cone pattern
 
 SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
 OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}
