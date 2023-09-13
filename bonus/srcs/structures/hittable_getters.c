@@ -15,10 +15,14 @@ t_color	get_color(t_hittable *object, t_point point)
 {
 	t_color		object_color;
 	t_material	m;
+	t_matrix	inv_transform;
 	
 	m = get_material(object);
 	if (m.has_pattern)
-		object_color = stripe_at(m.pattern, point);
+	{
+		inv_transform = get_inv_transform(object);
+		object_color = stripe_at_obj(m.pattern, inv_transform, point);
+	}
 	else
 		object_color = m.color;
 	return (object_color);
