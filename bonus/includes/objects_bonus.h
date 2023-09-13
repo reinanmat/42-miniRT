@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 13:18:52 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:41:45 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@
 # include "vec3_bonus.h"
 # include "matrices_bonus.h"
 
+typedef struct	s_pattern
+{
+	t_color	a;
+	t_color	b;
+}	t_pattern;
+
 typedef struct s_material
 {
-	double	ambient;
-	double	diffuse;
-	double	specular;
-	double	shininess;
-	t_color	color;
+	double		ambient;
+	double		diffuse;
+	double		specular;
+	double		shininess;
+	t_color		color;
+	t_pattern	pattern;
 }	t_material;
 
 typedef struct s_sphere
@@ -70,5 +77,9 @@ t_sphere	*sphere(char **config);
 t_cylinder	*cylinder(char **config);
 t_plane		*plane(char **config);
 t_cone		*cone(char **config);
+
+//patterns
+t_pattern	stripe_pattern(t_color a, t_color b);
+t_color		stripe_at(t_pattern parttern, t_point point);
 
 #endif
