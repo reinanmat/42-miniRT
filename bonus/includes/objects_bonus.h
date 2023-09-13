@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 16:32:24 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:38:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 
 typedef struct	s_pattern
 {
-	t_color	a;
-	t_color	b;
+	t_color		a;
+	t_color		b;
+	t_matrix	transform;
+	t_matrix	inv_transform;
 }	t_pattern;
 
 typedef struct s_material
