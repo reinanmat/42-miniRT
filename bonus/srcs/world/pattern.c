@@ -6,12 +6,12 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:42:30 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 19:06:18 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:59:42 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
 
-t_pattern	stripe_pattern(t_color a, t_color b, t_matrix transform)
+t_pattern	set_pattern(t_color a, t_color b, t_matrix transform)
 {
 	t_pattern	pattern;
 	
@@ -22,11 +22,49 @@ t_pattern	stripe_pattern(t_color a, t_color b, t_matrix transform)
 	return (pattern);
 }
 
-t_color	stripe_at(t_pattern pattern, t_point point)
+t_color	stripe_pattern(t_pattern pattern, t_point point)
 {
 	if ((int)floor(point.x) % 2 == 0)
 		return (pattern.a);
 	return (pattern.b);
+}
+
+t_color	ring_pattern(t_pattern pattern, t_point point)
+{
+	if ((int)floor(sqrt(point.x + point.z)) % 2 == 0)
+		return (pattern.a);
+	return (pattern.b);
+}
+
+t_color	checkers_pattern(t_pattern pattern, t_point point)
+{
+	if ((int)(fabs(point.x) + fabs(point.z) + fabs(point.z)) % 2 == 0)
+		return (pattern.a);
+	return (pattern.b);
+}
+
+t_color	gradient_pattern(t_pattern pattern, t_point point)
+{
+	t_point	distance;
+	double	fraction;
+	t_color	final_color;
+
+	distance = sub(pattern.b, pattern.a);
+	fraction = point.x - floor(point.x);
+	final_color = sub(pattern.a, s_multiply(distance, fraction));
+	return (final_color);
+}
+
+t_color	stripe_at(t_pattern pattern, t_point point)
+{
+	if (pattern.type == 1)
+		return (stripe_pattern(pattern, point));	
+	else if (pattern.type == 1)
+		return (gradient_pattern(pattern, point));
+	else if (pattern.type == 2)
+		return (ring_pattern(pattern, point));
+	else
+		return (checkers_pattern(pattern, point));
 }
 
 t_color	stripe_at_obj(t_pattern pattern, t_matrix inv_transform, t_point p)
