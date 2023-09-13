@@ -79,7 +79,7 @@ FILES =			main \
 				aux_functions/check_equal_vec3
 
 
-TEST_FILES =	cylinder worlds utils_tests unit_shapes
+TEST_FILES =	cylinder worlds utils_tests unit_shapes cone
 
 SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
 OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}

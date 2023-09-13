@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 19:23:42 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:27:55 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ void	print_point(t_point point);
 void	print_cam(t_cam cam);
 void	print(char *str1, t_point *p1, char *str2, t_point *p2);
 void	test_cylinder(void);
+void	test_cone(void);
 t_world	room(void);
 t_world	default_world(void);
 t_world	complex_world(void);
@@ -137,6 +138,6 @@ t_world	cylinder_world(void);
 t_plane		*unit_plane(void);
 t_sphere	*unit_sphere(void);
 t_cylinder	*unit_cylinder(void);
-t_world		test_cone();
+t_cone		*unit_cone(void);
 
 #endif
