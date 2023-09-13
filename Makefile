@@ -133,13 +133,23 @@ clean:
 	rm -rf $(OBJS_PATH)
 	make -C $(LIBFT_PATH) clean --no-print-directory
 
+clean_bonus:
+	rm -rf $(BONUS_OBJS_PATH)
+	make -C $(LIBFT_PATH) clean --no-print-directory
+
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_PATH) fclean --no-print-directory
+
+fclean_bonus: clean_bonus
+	rm -f $(NAME_BONUS)
 	make -C $(LIBFT_PATH) fclean --no-print-directory
 
 valg: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes ./miniRT $(param1)
 
 re: fclean all
+
+rebonus: fclean_bonus bonus
 
 .PHONY: all clean fclean re
