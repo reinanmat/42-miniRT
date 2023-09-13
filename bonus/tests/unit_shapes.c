@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:00:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 19:15:54 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:19:17 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -37,6 +37,22 @@ t_plane	*unit_plane(void)
 	pl = plane(config);
 	pl->transform = identity_matrix();
 	return (pl);
+}
+
+t_cone	*unit_cone(void)
+{
+	char		*config[6];
+	t_cone		*co;
+
+	config[0] = "co";
+	config[1] = "0,0,0";
+	config[2] = "0, 1, 0";
+	config[3] = "1";
+	config[4] = "1";
+	config[5] = "1, 1, 1";
+	co = cone(config);
+	co->transform = identity_matrix();
+	return (co);
 }
 
 t_cylinder	*unit_cylinder(void)
