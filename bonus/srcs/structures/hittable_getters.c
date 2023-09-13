@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 16:08:54 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:33:07 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -32,6 +32,18 @@ t_material	get_material(t_hittable *object)
 		return (object->cy->material);
 	else
 		return (object->pl->material);
+}
+
+t_matrix	get_inv_transform(t_hittable *object)
+{
+	if (object->type == 1)
+		return (object->sp->inv_transform);
+	else if (object->type == 2)
+		return (object->cy->inv_transform);
+	else if (object->type == 3)
+		return (object->pl->inv_transform);
+	else
+		return (object->co->inv_transform);
 }
 
 t_matrix	get_transform(t_hittable *object)
