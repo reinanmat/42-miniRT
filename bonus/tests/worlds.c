@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 13:29:20 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:01:50 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -37,22 +37,28 @@ t_world	test_multiple_objects()
 	sp1 = unit_sphere();
 	sp1->material.color = color(1, 0, 0);
 	sp1->transform = multiply_matrix(translation_matrix(point(0, 0, 0)), scaling_matrix(point(0.5, 0.5, 0.5)));
+	sp1->inv_transform = inverse(sp1->transform);
+	sp1->inv_transform = inverse(sp1->inv_transform);
 
 	sp2 = unit_sphere();
 	sp2->material.color = color(0, 1, 0);
 	sp2->transform = multiply_matrix(translation_matrix(point(0, 0, 2)), scaling_matrix(point(0.5, 2, 1)));
+	sp2->inv_transform = inverse(sp2->inv_transform);
 
 	sp3 = unit_sphere();
 	sp3->material.color = color(0, 0, 1);
 	sp3->transform = multiply_matrix(translation_matrix(point(0, 0, 3)), scaling_matrix(point(2, 0.5, 1)));
+	sp3->inv_transform = inverse(sp3->inv_transform);
 
 	sp4 = unit_sphere();
 	sp4->material.color = color(0, 1, 1);
 	sp4->transform = multiply_matrix(translation_matrix(point(0, 0, 5)), scaling_matrix(point(3, 3, 1)));
+	sp4->inv_transform = inverse(sp4->inv_transform);
 
 	sp5 = unit_sphere();
 	sp5->material.color = color(1, 1, 0);
 	sp5->transform = multiply_matrix(translation_matrix(point(0, 0, 8)), scaling_matrix(point(5, 5, 1)));
+	sp5->inv_transform = inverse(sp5->inv_transform);
 
 	hittable_add("sp", sp1, &world.objects);
 	hittable_add("sp", sp2, &world.objects);
@@ -81,11 +87,11 @@ t_world	room(void)
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
-	world.ambient_light.light_ratio = 1;
+	world.ambient_light.light_ratio = 0.3;
 	world.ambient_light.color = (t_color){1, 1, 1};
 	world.cam.t = view_transform(from, forward, up);
 
-	world.light = point_light(point(0, 0, 0), 1);
+	world.light = point_light(point(0, 0, -5), 1);
 
 	world.objects = NULL;
 	config[0] = "pl";
@@ -95,35 +101,47 @@ t_world	room(void)
 
 	floor = plane(config);
 	floor->material.color = color(0, 1, 0);
+	floor->material.has_pattern = 1;
+	floor->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 1, 1), identity_matrix());
 	floor->transform = translation_matrix(point(0, -4, 0));
+	floor->inv_transform = inverse(floor->transform);
 
 	roof = plane(config);
 	roof->material.color = color(0, 0, 1);
 	roof->transform = translation_matrix(point(0, 4, 0));
+	roof->inv_transform = inverse(roof->transform);
 
 	wall_right = plane(config);
 	wall_right->material.color = color(0, 1, 1);
 	wall_right->transform = multiply_matrix(translation_matrix(point(5, 0, 0)), rotate_z_matrix(M_PI / 2));
+	wall_right->inv_transform = inverse(wall_right->transform);
 
 	wall_left = plane(config);
 	wall_left->material.color = color(1, 1, 0);
 	wall_left->transform = multiply_matrix(translation_matrix(point(-5, 0, 0)), rotate_z_matrix(M_PI /2));
+	wall_left->inv_transform = inverse(wall_left->transform);
 
 	wall = plane(config);
-	wall->material.color = color(1, 0, 0);
+	wall->material.color = color(1, 1, 1);
 	wall->transform = multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_x_matrix(M_PI / 2));
+	wall->inv_transform = inverse(wall->transform);
+	wall->material.has_pattern = 1;
+	wall->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 1, 1), identity_matrix());
 
 	config[0] = "sp";
 	config[1] = "0,0,0";
 	config[2] = "2";
 	config[3] = "255,255,255";
 	t_sphere	*sp = sphere(config);
-	sp->material.color = color(1, 1, 1);
+	sp->material.color = color(1, 0, 0);
 	sp->transform = translation_matrix(point(0, 0, 0));
+	sp->inv_transform = inverse(sp->transform);
+	sp->material.has_pattern = 1;
+	sp->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 1, 1), identity_matrix());
 	
 	/* hittable_add("pl", floor, &world.objects); */
-	/* hittable_add("pl", roof, &world.objects); */
-	/* hittable_add("pl", wall, &world.objects); */
+	hittable_add("pl", roof, &world.objects);
+	hittable_add("pl", wall, &world.objects);
 	/* hittable_add("pl", wall_left, &world.objects); */
 	/* hittable_add("pl", wall_right, &world.objects); */
 	hittable_add("sp", sp, &world.objects);
@@ -193,26 +211,32 @@ t_world	complex_world(void)
 	sp_right = sphere(config);
 
 	floor->transform = scaling_matrix(point(10, 0.01, 10));
+	floor->inv_transform = inverse(floor->transform);
 	floor->material.specular = 0;
 	floor->material.color = color(1, 0.9, 0.9);
 
 	left_wall->transform = multiply_matrix(multiply_matrix(multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_y_matrix(-M_PI/4)), rotate_x_matrix(M_PI/2)), scaling_matrix(point(10, 0.01, 10)));
+	left_wall->inv_transform = inverse(left_wall->transform);
 	left_wall->material = floor->material;
 
 	right_wall->transform = multiply_matrix(multiply_matrix(multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_y_matrix(M_PI/4)), rotate_x_matrix(M_PI/2)), scaling_matrix(point(10, 0.01, 10)));
+	right_wall->inv_transform = inverse(right_wall->transform);
 	right_wall->material = floor->material;
 
 	sp_middle->transform = translation_matrix(point(-0.5, 1, 0.5));
+	sp_middle->inv_transform = inverse(sp_middle->transform);
 	sp_middle->material.color = color(0.1, 1, 0.5);
 	sp_middle->material.diffuse = 0.7;
 	sp_middle->material.specular = 0.3;
 
 	sp_right->transform = multiply_matrix(translation_matrix(point(1.5, 0.5, -0.5)), scaling_matrix(point(0.5, 0.5, 0.5)));
+	sp_right->inv_transform = inverse(sp_right->transform);
 	sp_right->material.color = color(0.5, 1, 0.1);
 	sp_right->material.diffuse = 0.7;
 	sp_right->material.specular = 0.3;
 
 	sp_left->transform = multiply_matrix(translation_matrix(point(-1.5, 0.33, -0.75)), scaling_matrix(point(0.33, 0.33, 0.33)));
+	sp_left->inv_transform = inverse(sp_left->transform);
 	sp_left->material.color = color(1, 0.8, 0.1);
 	sp_left->material.diffuse = 0.7;
 	sp_left->material.specular = 0.3;

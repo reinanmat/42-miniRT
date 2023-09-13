@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:39:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 15:51:31 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:42:36 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -21,7 +21,7 @@ void	test_pattern(void)
 
 	white = color(1, 1, 1);
 	black = color(0, 0, 0);
-	pattern = stripe_pattern(white, black);
+	pattern = stripe_pattern(white, black, identity_matrix());
 
 	printf("\n======================STRIPE_PATTERN_Y=======================\n");
 	
@@ -100,7 +100,7 @@ void	test_pattern(void)
 	obj->sp->material.diffuse = 0;
 	obj->sp->material.specular = 0;
 	obj->sp->material.has_pattern = 1;
-	obj->sp->material.pattern = stripe_pattern(white, black);
+	obj->sp->material.pattern = stripe_pattern(white, black, identity_matrix());
 	comps.object = obj;
 
 	comps.over_point = point(0.9, 0, 0);
