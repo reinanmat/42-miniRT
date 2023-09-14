@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:58 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:34:15 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -17,8 +17,10 @@ t_color	get_color(t_hittable *object)
 		return (object->sp->material.color);
 	else if (object->type == 2)
 		return (object->cy->material.color);
-	else
+	else if (object->type == 3)
 		return (object->pl->material.color);
+	else
+		return (object->co->material.color);
 }
 
 t_material	get_material(t_hittable *object)
@@ -27,8 +29,10 @@ t_material	get_material(t_hittable *object)
 		return (object->sp->material);
 	else if (object->type == 2)
 		return (object->cy->material);
-	else
+	else if (object->type == 3)
 		return (object->pl->material);
+	else
+		return (object->co->material);
 }
 
 t_matrix	get_transform(t_hittable *object)
