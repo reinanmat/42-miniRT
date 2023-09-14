@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 20:20:41 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:00:23 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -18,9 +18,9 @@ t_world	test_cone()
 	t_vec3	up;
 	t_vec3	from;
 	t_cone	*cone;
-	t_inter_point	inter;
-	t_hittable		hittable;
-	t_intersections	*intersect;
+	/* t_inter_point	inter; */
+	t_hittable		*hittable;
+	/* t_intersections	*intersect; */
 
 	from = vec3(0, 0, -5);
 	forward = vec3(0, 0, 1);
@@ -28,39 +28,36 @@ t_world	test_cone()
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
+	hittable = malloc(sizeof(t_hittable));
+	world.objects = hittable;
 	cone = malloc(sizeof(t_cone));
 	cone->max = INFINITY;
 	cone->min = -INFINITY;
+	cone->height = INFINITY;
 	cone->center = (t_point){0, 0, 0};
-	cone->vector = (t_point){0, 1, 0};
+	cone->vector = vec3(0, 1, 0);
 	cone->diameter = 1;
 	cone->transform = identity_matrix();
-	hittable.cone = cone;
-	hittable.type = 4;
-	hittable.next = NULL;
-	inter = intersect_cone(ray((t_point){0, 0, -5}, vec3(0, 0, 1)), cone);
-	printf("%f %f\n", inter.hit[0], inter.hit[1]);
-	inter = intersect_cone(ray((t_point){0, 0, -5}, normalize(vec3(1, 1, 1))), cone);
-	printf("%f %f\n", inter.hit[0], inter.hit[1]);
-	inter = intersect_cone(ray((t_point){1, 1, -5}, normalize(vec3(-0.5, -1, 1))), cone);
-	printf("%f %f\n", inter.hit[0], inter.hit[1]);
-	intersect = intersection_calculate(ray((t_point){0, 0, -1}, normalize(vec3(0, 1, 1))), &hittable);
-	if (!intersect)
-		printf("Intersect returned null\n");
-	else
-	{
-		inter = intersect_cone(ray((t_point){0, 0, -1}, normalize(vec3(0, 1, 1))), cone);
-		printf("hit count: %d => t: %f\n", inter.hit_times, intersect->t);
-	}
-	cone->max = 0.5;
-	cone->min = -0.5;
-	intersect = intersection_calculate(ray((t_point){0, 0, -5}, normalize(vec3(0, 1, 0))), &hittable);
-	inter = intersect_cone(ray((t_point){0, 0, -5}, normalize(vec3(0, 1, 0))), cone);
-	printf("hit: %d\n", inter.hit_times);
-	inter = intersect_cone(ray((t_point){0, 0, -0.25}, normalize(vec3(0, 1, 1))), cone);
-	printf("hit: %d\n", inter.hit_times);
-	inter = intersect_cone(ray((t_point){0, 0, -0.25}, normalize(vec3(0, 1, 0))), cone);
-	printf("hit: %d\n", inter.hit_times);
+	cone->material = default_material();
+	hittable->next = NULL;
+	hittable_add("cone", cone, &hittable);
+	/* inter = intersect_cone(ray((t_point){0, 0, -5}, vec3(0, 0, 1)), cone); */
+	/* printf("%f %f\n", inter.hit[0], inter.hit[1]); */
+	/* inter = intersect_cone(ray((t_point){0, 0, -5}, normalize(vec3(1, 1, 1))), cone); */
+	/* printf("%f %f\n", inter.hit[0], inter.hit[1]); */
+	/* inter = intersect_cone(ray((t_point){1, 1, -5}, normalize(vec3(-0.5, -1, 1))), cone); */
+	/* printf("%f %f\n", inter.hit[0], inter.hit[1]); */
+	/* intersect = intersection_calculate(ray((t_point){0, 0, -1}, normalize(vec3(0, 1, 1))), &hittable); */
+	/* inter = intersect_cone(ray((t_point){0, 0, -1}, normalize(vec3(0, 1, 1))), cone); */
+	/* cone->max = 0.5; */
+	/* cone->min = -0.5; */
+	/* intersect = intersection_calculate(ray((t_point){0, 0, -5}, normalize(vec3(0, 1, 0))), &hittable); */
+	/* inter = intersect_cone(ray((t_point){0, 0, -5}, normalize(vec3(0, 1, 0))), cone); */
+	/* printf("hit: %d\n", inter.hit_times); */
+	/* inter = intersect_cone(ray((t_point){0, 0, -0.25}, normalize(vec3(0, 1, 1))), cone); */
+	/* printf("hit: %d\n", inter.hit_times); */
+	/* inter = intersect_cone(ray((t_point){0, 0, -0.25}, normalize(vec3(0, 1, 0))), cone); */
+	/* printf("hit: %d\n", inter.hit_times); */
 	return (world);
 }
 
