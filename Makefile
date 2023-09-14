@@ -77,11 +77,15 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
+<<<<<<< HEAD
 FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
 
 TEST_FILES_BONUS	=	$(TEST_FILES) cone pattern
+=======
+TEST_FILES =	cylinder worlds utils_tests unit_shapes
+>>>>>>> fix: makefile had wrong field when building test files
 
 SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
 OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}
@@ -127,7 +131,7 @@ $(BONUS_OBJS_PATH)/%.o: $(BONUS_SRCS_PATH)/%.c | $(BONUS_OBJS_PATH)
 
 $(BONUS_OBJS_PATH)/%.o: $(BONUS_TESTS_PATH)/%.c | $(BONUS_OBJS_PATH)
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I $(BONUS_OBJS_PATH) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(BONUS_INCLUDE_PATH) -c $< -o $@
 
 $(BONUS_OBJS_PATH):
 	mkdir -p $(BONUS_OBJS_PATH)
