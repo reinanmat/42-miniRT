@@ -120,7 +120,6 @@ t_world	test_multiple_objects()
 t_world	room(void)
 {
 	t_world		world;
-	char		*config[4];
 	t_vec3		forward;
 	t_vec3		up;
 	t_vec3		from;
@@ -132,97 +131,54 @@ t_world	room(void)
 
 	from = vec3(0, 0, -5);
 	forward = vec3(0, 0, 1);
+	/* forward = normalize(vec3(2, -2, 2)); */
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
-	world.ambient_light.light_ratio = 0.5;
+	world.ambient_light.light_ratio = 0.2;
 	world.ambient_light.color = (t_color){1, 1, 1};
 	world.cam.t = view_transform(from, forward, up);
 
-	world.light = point_light(point(0, 0, -5), 1);
+	world.light = point_light(point(-10, 10, -10), 1);
 
 	world.objects = NULL;
-	config[0] = "pl";
-	config[1] = "0,0,0";
-	config[2] = "0,1,0";
-	config[3] = "255,255,255";
 
-	floor = plane(config);
+	floor = unit_plane();
 	floor->material.color = color(0, 1, 0);
-	floor->transform = translation_matrix(point(0, -4, 0));
+	floor->transform = translation_matrix(point(0, -1, 0));
 	floor->inv_transform = inverse(floor->transform);
-	floor->material.has_pattern = 1;
-	floor->material.pattern.type = 3;
-	floor->material.pattern = set_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix());
 
-	roof = plane(config);
+	roof = unit_plane();
 	roof->material.color = color(0, 0, 1);
 	roof->transform = translation_matrix(point(0, 4, 0));
 	roof->inv_transform = inverse(roof->transform);
 
-	wall_right = plane(config);
+	wall_right = unit_plane();
 	wall_right->material.color = color(0, 1, 1);
 	wall_right->transform = multiply_matrix(translation_matrix(point(5, 0, 0)), rotate_z_matrix(M_PI / 2));
 	wall_right->inv_transform = inverse(wall_right->transform);
 
-	wall_left = plane(config);
+	wall_left = unit_plane();
 	wall_left->material.color = color(1, 1, 0);
 	wall_left->transform = multiply_matrix(translation_matrix(point(-5, 0, 0)), rotate_z_matrix(M_PI /2));
 	wall_left->inv_transform = inverse(wall_left->transform);
 
-	wall = plane(config);
+	wall = unit_plane();
 	wall->material.color = color(1, 1, 1);
 	wall->transform = multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_x_matrix(M_PI / 2));
 	wall->inv_transform = inverse(wall->transform);
-	wall->material.has_pattern = 1;
-	wall->material.pattern.type = 1;
-	wall->material.pattern = set_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix());
 
-	config[0] = "sp";
-	config[1] = "0,0,0";
-	config[2] = "2";
-	config[3] = "255,255,255";
-	t_sphere	*sp = sphere(config);
+	t_sphere	*sp = unit_sphere();
 	sp->material.color = color(1, 0, 0);
-	sp->transform = translation_matrix(point(0, 0, 0));
+	sp->transform = scaling_matrix(point(1, 1, 1));
 	sp->inv_transform = inverse(sp->transform);
-	/* sp->material.has_pattern = 1; */
-	/* sp->material.pattern.type = 3; */
-	/* sp->material.pattern = stripe_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix()); */
-	
-	/* hittable_add("pl", floor, &world.objects); */
-	/* hittable_add("pl", roof, &world.objects); */
+
+	hittable_add("pl", floor, &world.objects);
+	hittable_add("pl", roof, &world.objects);
 	hittable_add("pl", wall, &world.objects);
-	/* hittable_add("pl", wall_left, &world.objects); */
-	/* hittable_add("pl", wall_right, &world.objects); */
-	/* hittable_add("sp", sp, &world.objects); */
-	return (world);
-}
-
-t_world	default_world(void)
-{
-	t_world		world;
-	char		*config[4];
-	t_sphere	*sp1;
-	t_sphere	*sp2;
-
-	world.light = point_light(point(-10, 10, -10), 1);
-	world.objects = NULL;
-	config[0] = "sp";
-	config[1] = "0,0,0";
-	config[2] = "2";
-	config[3] = "204, 255, 153";
-	sp1 = sphere(config);
-	sp1->material.diffuse = 0.7;
-	sp1->material.specular = 0.2;
-	config[0] = "sp";
-	config[1] = "0,0,0";
-	config[2] = "2";
-	config[3] = "255, 255, 255";
-	sp2 = sphere(config);
-	sp2->transform = scaling_matrix(point(0.5, 0.5, 0.5));
-	hittable_add("sp", sp1, &world.objects);
-	hittable_add("sp", sp2, &world.objects);
+	hittable_add("pl", wall_left, &world.objects);
+	hittable_add("pl", wall_right, &world.objects);
+	hittable_add("sp", sp, &world.objects);
 	return (world);
 }
 
