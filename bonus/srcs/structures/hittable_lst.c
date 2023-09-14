@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:33:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 18:01:10 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:46:24 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -35,6 +35,7 @@ void	add_sphere(t_sphere *sp, t_hittable **hittable_lst)
 	new_node->sp = sp;
 	new_node->cy = NULL;
 	new_node->pl = NULL;
+	new_node->cone = NULL;
 	new_node->next = NULL;
 	add_node(new_node, hittable_lst);
 }
@@ -48,6 +49,7 @@ void	add_cylinder(t_cylinder *cy, t_hittable **hittable_lst)
 	new_node->cy = cy;
 	new_node->sp = NULL;
 	new_node->pl = NULL;
+	new_node->cone = NULL;
 	new_node->next = NULL;
 	add_node(new_node, hittable_lst);
 }
@@ -61,6 +63,21 @@ void	add_plane(t_plane *pl, t_hittable **hittable_lst)
 	new_node->pl = pl;
 	new_node->sp = NULL;
 	new_node->cy = NULL;
+	new_node->cone = NULL;
+	new_node->next = NULL;
+	add_node(new_node, hittable_lst);
+}
+
+void	add_cone(t_cone *cone, t_hittable **hittable_lst)
+{
+	t_hittable	*new_node;
+
+	new_node = ft_calloc(sizeof(t_hittable), 1);
+	new_node->type = 4;
+	new_node->pl = NULL;
+	new_node->sp = NULL;
+	new_node->cy = NULL;
+	new_node->cone = cone;
 	new_node->next = NULL;
 	add_node(new_node, hittable_lst);
 }
@@ -73,4 +90,6 @@ void	hittable_add(char *type, void *object, t_hittable **header)
 		add_cylinder((t_cylinder *)object, header);
 	else if (ft_strcmp(type, "pl") == 0)
 		add_plane((t_plane *)object, header);
+	else
+		add_cone((t_cone *)object, header);
 }
