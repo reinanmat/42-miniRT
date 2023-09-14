@@ -6,10 +6,37 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:13:41 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 14:04:18 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:38:16 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
+
+t_world	cone_world(void)
+{
+	t_world		world;
+	t_vec3		forward;
+	t_vec3		up;
+	t_vec3		from;
+	t_cone	*cone;
+
+	from = vec3(0, 0, -5);
+	forward = vec3(0, 0, 1);
+	up = vec3(0, 1, 0);
+	world.cam.fov = M_PI / 2;
+	set_pixel_size(&world.cam);
+	world.cam.t = view_transform(from, forward, up);
+
+	world.light = point_light(point(0, 0, -5), 1);
+	world.objects = NULL;
+
+	cone = unit_cone();
+	cone->material.color = color(1, 0, 0);
+	/* cone->max = 5; */
+	/* cone->min = -5; */
+	
+	hittable_add("co", cone, &world.objects);
+	return (world);
+}
 
 void	test_cone()
 {
