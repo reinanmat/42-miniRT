@@ -77,7 +77,6 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
-TEST_FILES =	cylinder worlds utils_tests unit_shapes
 FILES_BONUS =	$(FILES) intersections/intersect_cone
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
@@ -99,19 +98,6 @@ all: libft $(NAME)
 
 libft:
 	@make -C $(LIBFT_PATH) --no-print-directory
-
-bonus: libft $(NAME_BONUS)
-
-$(BONUS_OBJS_PATH)/%.o: $(BONUS_SRCS_PATH)/%.c | $(BONUS_OBJS_PATH)
-	@mkdir -p $(@D)
-	clang $(CFLAGS) -I $(BONUS_INCLUDE_PATH) -c $< -o $@
-
-$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT_PATH)/libft.a
-	clang $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBFTFLAGS) $(LIBXFLAGS)
-
-$(BONUS_OBJS_PATH)/%.o: $(BONUS_TESTS_PATH)/%.c | $(BONUS_OBJS_PATH)
-	@mkdir -p $(@D)
-	clang $(CFLAGS) -I $(BONUS_INCLUDE_PATH) -c $< -o $@
 
 $(LIBFT_PATH)/libft.a:
 	make -C $(LIBFT_PATH) --no-print-directory

@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/14 12:30:29 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:22:27 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -88,7 +88,7 @@ static void	render_world(t_world world, t_mlx mlx)
 
 int	render(t_data data)
 {
-	data.world = test_cone();
+	test_cone();
 	render_world(data.world, data.mlx);
 	mlx_put_image_to_window(data.mlx.mlx_ptr, data.mlx.win_ptr,
 		data.mlx.img.mlx_img, 0, 0);
