@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:39:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 20:08:51 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:25:41 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -136,5 +136,59 @@ void	test_pattern(void)
 	pattern.type = 1;
 	result = stripe_at_obj(pattern, get_inv_transform(obj), point(2.5, 0, 0));
 	print("Expected: ", &white, " Result: ", &result);
+
+	printf("\n=====================GRADIENT_PATTERN========================\n");
+	t_color	expected;
+	pattern = set_pattern(white, black, identity_matrix());
+	pattern.type = 2;
+	result = stripe_at(pattern, point(0, 0, 0));
+	print("Expected: ", &white, " Result: ", &result);
+
+	result = stripe_at(pattern, point(0.25, 0, 0));
+	expected = color(0.75, 0.75, 0.75);
+	print("Expected: ", &expected, " Result: ", &result);
+
+	result = stripe_at(pattern, point(0.5, 0, 0));
+	expected = color(0.5, 0.5, 0.5);
+	print("Expected: ", &expected, " Result: ", &result);
+
+	result = stripe_at(pattern, point(0.75, 0, 0));
+	expected = color(0.25, 0.25, 0.25);
+	print("Expected: ", &expected, " Result: ", &result);
+
+	printf("\n=======================RING_PATTERN==========================\n");
+	pattern = set_pattern(white, black, identity_matrix());
+	pattern.type = 3;
+	result = stripe_at(pattern, point(0, 0, 0));
+	print("Expected: ", &white, " Result: ", &result);
+	result = stripe_at(pattern, point(1, 0, 0));
+	print("Expected: ", &black, " Result: ", &result);
+	result = stripe_at(pattern, point(0, 0, 1));
+	print("Expected: ", &black, " Result: ", &result);
+	result = stripe_at(pattern, point(0.708, 0, 0.708));
+	print("Expected: ", &black, " Result: ", &result);
 	
+	printf("\n=====================CHECKER_PATTERN=========================\n");
+	pattern = set_pattern(white, black, identity_matrix());
+	pattern.type = 4;
+	result = stripe_at(pattern, point(0, 0, 0));
+	print("Expected: ", &white, " Result: ", &result);
+	result = stripe_at(pattern, point(0.99, 0, 0));
+	print("Expected: ", &white, " Result: ", &result);
+	result = stripe_at(pattern, point(1.01, 0, 0));
+	print("Expected: ", &black, " Result: ", &result);
+	printf("\n");
+	result = stripe_at(pattern, point(0, 0, 0));
+	print("Expected: ", &white, " Result: ", &result);
+	result = stripe_at(pattern, point(0, 0.99, 0));
+	print("Expected: ", &white, " Result: ", &result);
+	result = stripe_at(pattern, point(0, 1.01, 0));
+	print("Expected: ", &black, " Result: ", &result);
+	printf("\n");
+	result = stripe_at(pattern, point(0, 0, 0));
+	print("Expected: ", &white, " Result: ", &result);
+	result = stripe_at(pattern, point(0, 0, 0.99));
+	print("Expected: ", &white, " Result: ", &result);
+	result = stripe_at(pattern, point(0, 0, 1.01));
+	print("Expected: ", &black, " Result: ", &result);
 }
