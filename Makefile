@@ -78,7 +78,6 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
-
 TEST_FILES =	cylinder worlds utils_tests unit_shapes
 
 SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
@@ -107,7 +106,7 @@ $(NAME_BONUS): $(OBJS_BONUS) $(LIBFT_PATH)/libft.a
 
 $(BONUS_OBJS_PATH)/%.o: $(BONUS_TESTS_PATH)/%.c | $(BONUS_OBJS_PATH)
 	@mkdir -p $(@D)
-	clang $(CFLAGS) -I $(BONUS_OBJS_PATH) -c $< -o $@
+	clang $(CFLAGS) -I $(BONUS_INCLUDE_PATH) -c $< -o $@
 
 $(NAME): $(OBJS) $(LIBFT_PATH)/libft.a
 	clang $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)
