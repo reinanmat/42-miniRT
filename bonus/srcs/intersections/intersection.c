@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 19:50:03 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:56:28 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -66,8 +66,8 @@ static void	hit_cone(t_ray ray, t_hittable *obj, t_intersections **inters)
 	t_ray			tmp_ray;
 	t_inter_point	inter_p;
 
-	tmp_ray = transform_ray(ray, inverse(obj->cone->transform));
-	inter_p = intersect_cone(tmp_ray, obj->cone);
+	tmp_ray = transform_ray(ray, inverse(obj->co->transform));
+	inter_p = intersect_cone(tmp_ray, obj->co);
 	if (inter_p.hit_times != 0)
 	{
 		intersect_add_back(inters, new_intersect(inter_p.hit[0], obj));

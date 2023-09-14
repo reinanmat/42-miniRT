@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 19:50:52 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:55:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -40,5 +40,5 @@ t_matrix	get_transform(t_hittable *object)
 	else if (object->type == 3)
 		return (object->pl->transform);
 	else
-		return (object->cone->transform);
+		return (object->co->transform);
 }
