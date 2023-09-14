@@ -6,10 +6,58 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 20:03:00 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:29:57 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
+
+t_world	chess2()
+{
+	t_world	world;
+
+	t_vec3	forward;
+	t_vec3	up;
+	t_vec3	from;
+
+	t_plane		*pl;
+	t_sphere	*sp;
+	t_cylinder	*cy;
+
+	from = vec3(0, 0, -5);
+	forward = vec3(0, 0, 1);
+	up = vec3(0, 1, 0);
+	world.cam.fov = M_PI / 2;
+	set_pixel_size(&world.cam);
+	world.cam.t = view_transform(from, forward, up);
+	world.light = point_light(point(-10, 10, -10), 1);
+	world.ambient_light.color = color(1, 1, 1);
+	world.ambient_light.light_ratio = 0.1;
+
+	world.objects = NULL;
+
+	pl = unit_plane();
+	pl->transform = translation_matrix(point(0, -1, 0));
+	pl->inv_transform = inverse(pl->transform);
+	pl->material.has_pattern = 1;
+	pl->material.pattern = set_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix());
+	pl->material.pattern.type = 4;
+
+	sp = unit_sphere();
+	sp->material.has_pattern = 1;
+	sp->material.pattern = set_pattern(color(1, 0, 0), color(1, 0.2, 0), identity_matrix());
+	sp->material.pattern.type = 2;
+
+	cy = unit_cylinder();
+	cy->transform = translation_matrix(point(2, 0, 0));
+	cy->max = 2;
+	cy->min = -2;
+	cy->inv_transform = inverse(pl->transform);
+
+	hittable_add("pl", pl, &world.objects);
+	hittable_add("sp", sp, &world.objects);
+	hittable_add("cy", cy, &world.objects);
+	return (world);
+}
 
 t_world	test_multiple_objects()
 {
