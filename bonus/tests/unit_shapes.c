@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:00:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 13:19:17 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:42:18 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -52,6 +52,8 @@ t_cone	*unit_cone(void)
 	config[5] = "1, 1, 1";
 	co = cone(config);
 	co->transform = identity_matrix();
+	co->max = INFINITY;
+	co->min = -INFINITY;
 	return (co);
 }
 
@@ -68,5 +70,7 @@ t_cylinder	*unit_cylinder(void)
 	config[5] = "1, 1, 1";
 	cy = cylinder(config);
 	cy->transform = identity_matrix();
+	cy->max = INFINITY;
+	cy->min = -INFINITY;
 	return (cy);
 }
