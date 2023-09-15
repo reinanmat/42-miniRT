@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 13:42:02 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 17:54:12 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:22:51 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt_bonus.h"
@@ -29,5 +29,5 @@ int	expected_number_of_identifiers(char **lines)
 		l_identifier += lines[i][0] == 'L';
 		i++;
 	}
-	return (a_identifier == 1 && c_identifier == 1 && l_identifier == 1);
+	return (a_identifier == 1 && c_identifier == 1 && l_identifier >= 1);
 }
