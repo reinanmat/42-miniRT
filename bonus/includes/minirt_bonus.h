@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 16:27:53 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:19:29 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,7 @@ t_color	color_at(t_ray ray, t_world world);
 
 //lighting
 t_color	lighting(t_light light, t_comps comps, t_amb_light amb, int shadow);
-t_light	point_light(t_point pos, double intensity);
-int		is_shadowed(t_world world, t_point point);
+int		is_shadowed(t_world world, t_light light, t_point point);
 t_color	compute_specular(double reflect_dot_eye, t_comps comps, t_light light);
 double	compute_reflect_dot_eye(t_light light, t_comps comps);
 double	compute_light_dot_normal(t_light light, t_comps comps);
@@ -123,6 +122,7 @@ t_color	compute_diffuse(t_light light, double light_dot_normal, t_comps comps);
 t_color	compute_ambient(t_light light, t_comps comps);
 
 //utils tests - delet
+t_light	*point_light(t_point pos, double intensity);
 void	timer(void);
 void	print_matrix2(t_matrix matrix);
 void	print_point(t_point point);
