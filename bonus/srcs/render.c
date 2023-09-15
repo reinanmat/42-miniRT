@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 16:28:06 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:28:38 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -35,12 +35,21 @@ t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 
 t_color	shade_hit(t_world world, t_comps comps)
 {
-	t_color	color;
+	int		i;
 	int		shadowed;
+	t_color	final_color;
+	t_color	color;
 
-	shadowed = is_shadowed(world, comps.over_point);
-	color = lighting(world.light, comps, world.ambient_light, shadowed);
-	return (color);
+	i = 0;
+	final_color = (t_color){0, 0, 0};
+	while (i < world.amount_of_lights)
+	{
+		shadowed = is_shadowed(world, world.light[i], comps.over_point);
+		color = lighting(world.light[i], comps, world.ambient_light, shadowed);
+		final_color = add(final_color, color);
+		i++;
+	}
+	return (final_color);
 }
 
 t_color	color_at(t_ray ray, t_world world)
