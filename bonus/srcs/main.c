@@ -6,17 +6,18 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:56:52 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:18:05 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
 
-t_light	point_light(t_point pos, double intensity)
+t_light	*point_light(t_point pos, double intensity)
 {
-	t_light	light;
+	t_light	*light;
 
-	light.coordinate = pos;
-	light.brightness = intensity;
+	light = malloc(sizeof(t_light));
+	light->coordinate = pos;
+	light->brightness = intensity;
 	return (light);
 }
 
