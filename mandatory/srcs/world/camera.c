@@ -41,13 +41,12 @@ static t_vec3	get_correct_up(t_vec3 orientation_vec)
 	t_vec3	up;
 	double	dot_prod;
 
+	up = vec3(0, 1, 0);
 	dot_prod = dot(orientation_vec, up);
 	if (double_equals(dot_prod, 1))
 		up = vec3(1, 0, 0);
 	else if (double_equals(dot_prod, -1))
 		up = vec3(-1, 0, 0);
-	else
-		up = vec3(0, 1, 0);
 	return (up);
 }
 
