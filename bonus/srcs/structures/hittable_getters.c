@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 18:33:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:01:26 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -16,7 +16,7 @@ t_color	get_color(t_hittable *object, t_point point)
 	t_color		object_color;
 	t_material	m;
 	t_matrix	inv_transform;
-	
+
 	m = get_material(object);
 	if (m.has_pattern)
 	{
