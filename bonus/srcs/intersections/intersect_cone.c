@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:03:40 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 19:14:32 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/15 18:02:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -37,32 +37,6 @@ static t_bhask	calculate_bhaskara(t_ray ray)
 	return (bhask);
 }
 
-static int	check_cap(t_ray ray, double t)
-{
-	double	x;
-	double	z;
-
-	x = ray.origin.x + t * ray.direction.x;
-	z = ray.origin.z + t * ray.direction.z;
-	if ((x * x) + (z * z) <= 1)
-		return (1);
-	return (0);
-}
-
-static void	intersect_caps(t_ray ray, t_cone *cone, t_inter_point *inters)
-{
-	double	t;
-
-	if (fabs(ray.direction.y) < EPSILON)
-		return ;
-	t = (cone->min - ray.origin.y) / ray.direction.y;
-	if (check_cap(ray, t))
-		inters->hit[inters->hit_times++] = t;
-	t = (cone->max - ray.origin.y) / ray.direction.y;
-	if (check_cap(ray, t))
-		inters->hit[inters->hit_times++] = t;
-}
-
 t_inter_point	intersect_cone(t_ray ray, t_cone *cone)
 {
 	t_inter_point	inter;
@@ -84,6 +58,5 @@ t_inter_point	intersect_cone(t_ray ray, t_cone *cone)
 		if (cone->min < y_second_inter && y_second_inter < cone->max)
 			inter.hit[inter.hit_times++] = bhask.s2;
 	}
-	intersect_caps(ray, cone, &inter);
 	return (inter);
 }
