@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:39:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/14 14:25:41 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:25:15 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -21,8 +21,7 @@ void	test_pattern(void)
 
 	white = color(1, 1, 1);
 	black = color(0, 0, 0);
-	pattern.type = 1;
-	pattern = set_pattern(white, black, identity_matrix());
+	pattern = set_pattern(1, white, black, identity_matrix());
 
 	printf("\n======================STRIPE_PATTERN_Y=======================\n");
 	
@@ -103,7 +102,7 @@ void	test_pattern(void)
 	obj->sp->material.diffuse = 0;
 	obj->sp->material.specular = 0;
 	obj->sp->material.has_pattern = 1;
-	obj->sp->material.pattern = set_pattern(white, black, identity_matrix());
+	obj->sp->material.pattern = set_pattern(1, white, black, identity_matrix());
 	comps.object = obj;
 
 	comps.over_point = point(0.9, 0, 0);
@@ -118,29 +117,25 @@ void	test_pattern(void)
 	
 	obj->sp->transform = scaling_matrix(point(2, 2, 2));
 	obj->sp->inv_transform = inverse(scaling_matrix(point(2, 2, 2)));
-	pattern = set_pattern(white, black, identity_matrix());
-	pattern.type = 1;
+	pattern = set_pattern(1, white, black, identity_matrix());
 	result = stripe_at_obj(pattern, get_inv_transform(obj), point(1.5, 0, 0));
 	print("Expected: ", &white, " Result: ", &result);
 
 	obj->sp->transform = identity_matrix();
 	obj->sp->inv_transform = identity_matrix();
-	pattern = set_pattern(white, black, scaling_matrix(point(2, 2, 2)));
-	pattern.type = 1;
+	pattern = set_pattern(1, white, black, scaling_matrix(point(2, 2, 2)));
 	result = stripe_at_obj(pattern, get_inv_transform(obj), point(1.5, 0, 0));
 	print("Expected: ", &white, " Result: ", &result);
 
 	obj->sp->transform = scaling_matrix(point(2, 2, 2));
 	obj->sp->inv_transform = inverse(scaling_matrix(point(2, 2, 2)));
-	pattern = set_pattern(white, black, translation_matrix(point(0.5, 0, 0)));
-	pattern.type = 1;
+	pattern = set_pattern(1, white, black, translation_matrix(point(0.5, 0, 0)));
 	result = stripe_at_obj(pattern, get_inv_transform(obj), point(2.5, 0, 0));
 	print("Expected: ", &white, " Result: ", &result);
 
 	printf("\n=====================GRADIENT_PATTERN========================\n");
 	t_color	expected;
-	pattern = set_pattern(white, black, identity_matrix());
-	pattern.type = 2;
+	pattern = set_pattern(2, white, black, identity_matrix());
 	result = stripe_at(pattern, point(0, 0, 0));
 	print("Expected: ", &white, " Result: ", &result);
 
@@ -157,8 +152,7 @@ void	test_pattern(void)
 	print("Expected: ", &expected, " Result: ", &result);
 
 	printf("\n=======================RING_PATTERN==========================\n");
-	pattern = set_pattern(white, black, identity_matrix());
-	pattern.type = 3;
+	pattern = set_pattern(3, white, black, identity_matrix());
 	result = stripe_at(pattern, point(0, 0, 0));
 	print("Expected: ", &white, " Result: ", &result);
 	result = stripe_at(pattern, point(1, 0, 0));
@@ -169,8 +163,7 @@ void	test_pattern(void)
 	print("Expected: ", &black, " Result: ", &result);
 	
 	printf("\n=====================CHECKER_PATTERN=========================\n");
-	pattern = set_pattern(white, black, identity_matrix());
-	pattern.type = 4;
+	pattern = set_pattern(4, white, black, identity_matrix());
 	result = stripe_at(pattern, point(0, 0, 0));
 	print("Expected: ", &white, " Result: ", &result);
 	result = stripe_at(pattern, point(0.99, 0, 0));
