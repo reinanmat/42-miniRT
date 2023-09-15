@@ -6,17 +6,18 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:42:30 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/14 14:31:44 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:21:03 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
 
-t_pattern	set_pattern(t_color a, t_color b, t_matrix transform)
+t_pattern	set_pattern(int type, t_color a, t_color b, t_matrix transform)
 {
 	t_pattern	pattern;
 	
 	pattern.a = a;
 	pattern.b = b;
+	pattern.type = type;
 	pattern.transform = transform;
 	pattern.inv_transform = inverse(transform);
 	return (pattern);
