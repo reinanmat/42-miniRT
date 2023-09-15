@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:05:47 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 17:59:57 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:25:19 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -43,7 +43,7 @@ t_matrix	transform_object(t_point translation, t_vec3 scale)
 
 	m_scale = scaling_matrix(scale);
 	m_translation = translation_matrix(translation);
-	transform = multiply_matrix(m_scale, m_translation);
+	transform = multiply_matrix(m_translation, m_scale);
 	return (transform);
 }
 
