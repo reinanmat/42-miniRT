@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:29:27 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/08/29 18:32:01 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:03:21 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -31,7 +31,7 @@ void	set_pixel_size(t_cam *camera)
 	camera->pixel_size = (camera->viewport_width * 2) / WIDTH;
 }
 
-static double	degress_to_radians(double degress)
+static double	degrees_to_radians(double degress)
 {
 	double	radians;
 
@@ -47,7 +47,7 @@ t_cam	init_camera(char **lines)
 	config = get_splitted_identifier(lines, "C");
 	assign_t_point(&cam.coordinate, config[1]);
 	assign_t_point(&cam.orientation_vec, config[2]);
-	cam.fov = degress_to_radians(ft_atof(config[3]));
+	cam.fov = degrees_to_radians(ft_atof(config[3]));
 	set_pixel_size(&cam);
 	cam.t = view_transform(cam.coordinate, cam.orientation_vec, vec3(0, 1, 0));
 	ft_free_matrix((void **)config);
