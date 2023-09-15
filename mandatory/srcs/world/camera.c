@@ -39,8 +39,24 @@ static double	degrees_to_radians(double degress)
 	return (radians);
 }
 
+static t_vec3	get_correct_up(t_vec3 orientation_vec)
+{
+	t_vec3	up;
+	double	dot_prod;
+
+	dot_prod = dot(orientation_vec, up);
+	if (double_equals(dot_prod, 1))
+		up = vec3(1, 0, 0);
+	else if (double_equals(dot_prod, -1))
+		up = vec3(-1, 0, 0);
+	else
+		up = vec3(0, 1, 0);
+	return (up);
+}
+
 t_cam	init_camera(char **lines)
 {
+	t_vec3	up;
 	t_cam	cam;
 	char	**config;
 
@@ -49,7 +65,8 @@ t_cam	init_camera(char **lines)
 	assign_t_point(&cam.orientation_vec, config[2]);
 	cam.fov = degrees_to_radians(ft_atof(config[3]));
 	set_pixel_size(&cam);
-	cam.t = view_transform(cam.coordinate, cam.orientation_vec, vec3(0, 1, 0));
+	up = get_correct_up(cam.orientation_vec);
+	cam.t = view_transform(cam.coordinate, cam.orientation_vec, up);
 	ft_free_matrix((void **)config);
 	return (cam);
 }
