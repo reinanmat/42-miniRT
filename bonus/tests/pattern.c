@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:39:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 14:25:15 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:20:56 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -83,7 +83,7 @@ void	test_pattern(void)
 	printf("\n==================LIGHTING_WITH_A_PATTERN====================\n");
 
 	t_comps		comps;
-	t_light		light;
+	t_light		*light;
 	t_amb_light	amb_light;
 	t_hittable	*obj;
 	t_sphere	*sp;
@@ -106,11 +106,11 @@ void	test_pattern(void)
 	comps.object = obj;
 
 	comps.over_point = point(0.9, 0, 0);
-	result = lighting(light, comps, amb_light, 0);
+	result = lighting(*light, comps, amb_light, 0);
 	print("Expected: ", &white, " Result: ", &result);
 
 	comps.over_point = point(1.1, 0, 0);
-	result = lighting(light, comps, amb_light, 0);
+	result = lighting(*light, comps, amb_light, 0);
 	print("Expected: ", &black, " Result: ", &result);
 
 	printf("\n===================TRANSFORMING_PATTERNS=====================\n");
