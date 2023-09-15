@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 16:20:56 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:29:17 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
