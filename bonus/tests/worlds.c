@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 15:56:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:20:56 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -22,14 +22,15 @@ t_world	chess2()
 	t_plane		*pl;
 	t_sphere	*sp;
 	t_cylinder	*cy;
+	t_cone		*co;
 
-	from = vec3(0, 0, -5);
-	forward = vec3(0, 0, 1);
+	from = vec3(0, 2, -5);
+	forward = normalize(vec3(0, -2, 5));
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
-	world.light = point_light(point(-10, 10, -10), 1);
+	world.light = point_light(point(-3, 7, -5), 1);
 	world.ambient_light.color = color(1, 1, 1);
 	world.ambient_light.light_ratio = 0.1;
 
@@ -42,18 +43,31 @@ t_world	chess2()
 	pl->material.pattern = set_pattern(4, color(1, 1, 1), color(0, 0, 0), identity_matrix());
 
 	sp = unit_sphere();
+	sp->transform = translation_matrix(point(-3, 0, 0));
+	sp->inv_transform = inverse(sp->transform);
 	sp->material.has_pattern = 1;
-	sp->material.pattern = set_pattern(2, color(1, 0, 0), color(1, 0.2, 0), identity_matrix());
+	sp->material.pattern = set_pattern(4, color(1, 1, 1), color(0, 1, 0), scaling_matrix(point(0.3, 0.3, 0.3)));
 
 	cy = unit_cylinder();
-	cy->transform = translation_matrix(point(2, 0, 0));
-	cy->max = 2;
-	cy->min = -2;
-	cy->inv_transform = inverse(pl->transform);
+	cy->transform = translation_matrix(point(3, 0, 0));
+	cy->inv_transform = inverse(cy->transform);
+	cy->max = 1;
+	cy->min = -1;
+	cy->material.has_pattern = 1;
+	cy->material.pattern = set_pattern(4, color(1, 1, 1), color(0, 0, 1), scaling_matrix(point(0.3, 0.3, 0.3)));
+
+	co = unit_cone();
+	co->transform = translation_matrix(point(0, 0, -1));
+	co->inv_transform = inverse(co->transform);
+	co->max = 1;
+	co->min = -1;
+	co->material.has_pattern = 1;
+	co->material.pattern = set_pattern(4, color(1, 1, 1), color(1, 0, 0), scaling_matrix(point(0.3, 0.3, 0.3)));
 
 	hittable_add("pl", pl, &world.objects);
 	hittable_add("sp", sp, &world.objects);
 	hittable_add("cy", cy, &world.objects);
+	hittable_add("co", co, &world.objects);
 	return (world);
 }
 
