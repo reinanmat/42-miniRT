@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/11 12:10:02 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:27:48 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -193,26 +193,32 @@ t_world	complex_world(void)
 	sp_right = sphere(config);
 
 	floor->transform = scaling_matrix(point(10, 0.01, 10));
+	floor->inv_transform = inverse(floor->transform);
 	floor->material.specular = 0;
 	floor->material.color = color(1, 0.9, 0.9);
 
 	left_wall->transform = multiply_matrix(multiply_matrix(multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_y_matrix(-M_PI/4)), rotate_x_matrix(M_PI/2)), scaling_matrix(point(10, 0.01, 10)));
+	left_wall->inv_transform = inverse(left_wall->transform);
 	left_wall->material = floor->material;
 
 	right_wall->transform = multiply_matrix(multiply_matrix(multiply_matrix(translation_matrix(point(0, 0, 5)), rotate_y_matrix(M_PI/4)), rotate_x_matrix(M_PI/2)), scaling_matrix(point(10, 0.01, 10)));
+	right_wall->inv_transform = inverse(right_wall->transform);
 	right_wall->material = floor->material;
 
 	sp_middle->transform = translation_matrix(point(-0.5, 1, 0.5));
+	sp_middle->inv_transform = inverse(sp_middle->transform);
 	sp_middle->material.color = color(0.1, 1, 0.5);
 	sp_middle->material.diffuse = 0.7;
 	sp_middle->material.specular = 0.3;
 
 	sp_right->transform = multiply_matrix(translation_matrix(point(1.5, 0.5, -0.5)), scaling_matrix(point(0.5, 0.5, 0.5)));
+	sp_right->inv_transform = inverse(sp_right->transform);
 	sp_right->material.color = color(0.5, 1, 0.1);
 	sp_right->material.diffuse = 0.7;
 	sp_right->material.specular = 0.3;
 
 	sp_left->transform = multiply_matrix(translation_matrix(point(-1.5, 0.33, -0.75)), scaling_matrix(point(0.33, 0.33, 0.33)));
+	sp_left->inv_transform = inverse(sp_left->transform);
 	sp_left->material.color = color(1, 0.8, 0.1);
 	sp_left->material.diffuse = 0.7;
 	sp_left->material.specular = 0.3;
