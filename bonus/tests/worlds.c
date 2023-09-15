@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/14 18:29:57 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:55:06 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -39,13 +39,11 @@ t_world	chess2()
 	pl->transform = translation_matrix(point(0, -1, 0));
 	pl->inv_transform = inverse(pl->transform);
 	pl->material.has_pattern = 1;
-	pl->material.pattern = set_pattern(color(1, 1, 1), color(0, 0, 0), identity_matrix());
-	pl->material.pattern.type = 4;
+	pl->material.pattern = set_pattern(4, color(1, 1, 1), color(0, 0, 0), identity_matrix());
 
 	sp = unit_sphere();
 	sp->material.has_pattern = 1;
-	sp->material.pattern = set_pattern(color(1, 0, 0), color(1, 0.2, 0), identity_matrix());
-	sp->material.pattern.type = 2;
+	sp->material.pattern = set_pattern(2, color(1, 0, 0), color(1, 0.2, 0), identity_matrix());
 
 	cy = unit_cylinder();
 	cy->transform = translation_matrix(point(2, 0, 0));

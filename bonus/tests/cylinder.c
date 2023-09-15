@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:51:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 18:02:20 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:54:18 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -48,14 +48,17 @@ t_world	cylinder_world(void)
 	sp = unit_sphere();
 	sp->material.color = color(0, 0, 0);
 	sp->transform = scaling_matrix(point(2, 2, 2));
+	sp->inv_transform = inverse(sp->transform);
 	pl = unit_plane();
 	pl->transform = multiply_matrix(translation_matrix(point(0, 0, 50)), rotate_x_matrix(M_PI / 2));
+	pl->inv_transform = inverse(pl->transform);
 	pl->material.color = color(1, 1, 1);
 
 	cy1->material.color = color(0, 0, 0);
 	/* cy2->material.color = color(1, 0, 0); */
 	/* cy3->material.color = color(0, 0, 1); */
 	cy1->transform = translation_matrix(point(0, 1, 0));
+	cy1->inv_transform = inverse(cy1->transform);
 	/* cy2->transform = translation_matrix(point(0, 1, 0)); */
 	/* cy3->transform = translation_matrix(point(-2, 0, 0)); */
 	hittable_add("cy", cy1, &world.objects);
