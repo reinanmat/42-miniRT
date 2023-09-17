@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:13:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 18:00:29 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/17 19:54:11 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -14,6 +14,7 @@
 static int	close_program(t_data *data)
 {
 	mlx_close_window(&data->mlx);
+	ft_free(data->world.light);
 	clean_hittable(&data->world.objects);
 	exit(0);
 }
