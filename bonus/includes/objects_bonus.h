@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 14:21:31 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:17:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ typedef struct	s_pattern
 	t_matrix	inv_transform;
 }	t_pattern;
 
+typedef struct s_texture
+{
+	int		height;
+	int		width;
+	t_color	**map_texture;
+}	t_texture;
+
 typedef struct s_material
 {
 	double		ambient;
@@ -34,6 +41,7 @@ typedef struct s_material
 	t_color		color;
 	int			has_pattern;
 	t_pattern	pattern;
+	t_texture	texture;
 }	t_material;
 
 typedef struct s_sphere
@@ -90,5 +98,7 @@ t_cone		*cone(char **config);
 t_color		stripe_at_obj(t_pattern pattern, t_matrix inv_transform, t_point p);
 t_color		stripe_at(t_pattern pattern, t_point point);
 t_pattern	set_pattern(int type, t_color a, t_color b, t_matrix transform);
+t_texture	get_map_texture(void);
+t_color		uv_pattern_at(t_texture t, double u, double v);
 
 #endif
