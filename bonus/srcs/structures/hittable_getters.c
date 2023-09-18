@@ -6,10 +6,33 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 16:28:45 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:21:10 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
+
+t_color	get_color_texture(t_texture t, t_point p)
+{
+	/* double	longi; */
+	/* double	lati; */
+	double	u;
+	double	v;
+
+	/* longi = atan2(p.x, p.z); */
+	/* lati = acos(p.y / 1); */
+	/* u = (longi + M_PI) / (2 * M_PI); */
+	/* v = (lati + M_PI/2) / M_PI; */
+
+	double theta = atan2(p.x, p.z);
+	double radius = magnitude(p);
+	double phi = acos(p.y / radius);
+
+	double raw_u = theta / (2 * M_PI);
+
+	u = 1 - (raw_u + 0.5);
+	v = 1 - phi / M_PI;
+	return (uv_pattern_at(t, u, v));
+}
 
 t_color	get_color(t_hittable *object, t_point point)
 {
@@ -18,6 +41,7 @@ t_color	get_color(t_hittable *object, t_point point)
 	t_matrix	inv_transform;
 
 	m = get_material(object);
+	return (get_color_texture(m.texture, point));
 	if (m.has_pattern)
 	{
 		inv_transform = get_inv_transform(object);
