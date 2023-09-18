@@ -20,6 +20,7 @@ t_color	uv_pattern_at(t_texture t, double u, double v)
 		printf("error u or v\n");
 		exit(1);
 	}
+	v = 1 - v;
 	x = floor(u * (t.width - 1));
 	y = floor(v * (t.height - 1));
 	if (t.map_texture[y][x].x == 0 && t.map_texture[y][x].y == 0 && t.map_texture[y][x].z == 0)
@@ -32,8 +33,8 @@ static void	get_width_and_height(t_texture *t, char *info)
 	char	**values;
 	
 	values = ft_split_whitespaces(info);
-	t->height = ft_atoi(values[0]);
-	t->width = ft_atoi(values[1]);
+	t->width = ft_atoi(values[0]);
+	t->height = ft_atoi(values[1]);
 	ft_free_matrix((void **)values);
 }
 
@@ -89,11 +90,11 @@ t_texture	get_map_texture(void)
 	get_width_and_height(&t, lines[1]);
 	printf("height %d, width %d\n", t.height, t.width);
 
-	t.map_texture = ft_calloc(sizeof(t_color *), t.height + 1);
+	t.map_texture = ft_calloc(sizeof(t_color *), t.height);
 	int	i = 0;
 	while (i < t.height)
 	{
-		t.map_texture[i] = ft_calloc(sizeof(t_color), t.width + 1);
+		t.map_texture[i] = ft_calloc(sizeof(t_color), t.width);
 		i++;
 	}
 	i = 3;
