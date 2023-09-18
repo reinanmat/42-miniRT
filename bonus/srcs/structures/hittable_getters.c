@@ -6,22 +6,15 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/18 16:21:10 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:53:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
 
 t_color	get_color_texture(t_texture t, t_point p)
 {
-	/* double	longi; */
-	/* double	lati; */
 	double	u;
 	double	v;
-
-	/* longi = atan2(p.x, p.z); */
-	/* lati = acos(p.y / 1); */
-	/* u = (longi + M_PI) / (2 * M_PI); */
-	/* v = (lati + M_PI/2) / M_PI; */
 
 	double theta = atan2(p.x, p.z);
 	double radius = magnitude(p);
