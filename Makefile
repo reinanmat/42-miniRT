@@ -77,7 +77,7 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
-FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern
+FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern texture_map
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
 
@@ -90,7 +90,7 @@ SRCS_BONUS =	${FILES_BONUS:%=$(BONUS_SRCS_PATH)/%.c} ${TEST_FILES_BONUS:%=$(BONU
 OBJS_BONUS =	${FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o} ${TEST_FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o}
 
 CC = cc
-CFLAGS = 		-Wall -Wextra -Werror -O3
+CFLAGS = 		-Wall -Wextra -Werror -g3
 LIBXFLAGS =		-lmlx -lXext -lX11 -lm -lz
 LIBFTFLAGS =	-L $(LIBFT_PATH) -lft
 
