@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 16:29:17 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:58:01 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -33,6 +33,7 @@ t_world	chess2()
 	world.light = point_light(point(-3, 7, -5), 1);
 	world.ambient_light.color = color(1, 1, 1);
 	world.ambient_light.light_ratio = 0.1;
+	world.amount_of_lights = 1;
 
 	world.objects = NULL;
 
@@ -91,6 +92,7 @@ t_world	test_multiple_objects()
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
 	world.light = point_light(point(0, 0, -5), 1);
+	world.amount_of_lights = 1;
 
 	world.objects = NULL;
 
@@ -152,6 +154,7 @@ t_world	room(void)
 	world.cam.t = view_transform(from, forward, up);
 
 	world.light = point_light(point(-10, 10, -10), 1);
+	world.amount_of_lights = 1;
 
 	world.objects = NULL;
 
@@ -216,6 +219,7 @@ t_world	complex_world(void)
 	world.cam.t = view_transform(from, forward, up);
 
 	world.light = point_light(point(-10, 10, -10), 1);
+	world.amount_of_lights = 1;
 	world.objects = NULL;
 
 	config[0] = "sp";
