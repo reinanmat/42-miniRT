@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/19 15:36:02 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:17:36 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -27,22 +27,6 @@ t_sphere	*sphere(char **config)
 	sp->transform = transform_object(translation, scale);
 	sp->inv_transform = inverse(sp->transform);
 	return (sp);
-}
-
-t_matrix	get_orientation(t_vec3 a)
-{
-	if (check_equal_vec3(a, vec3(0, 1, 0)))
-		return (identity_matrix());
-	else if (check_equal_vec3(a, vec3(0, -1, 0)))
-		return (rotate_x_matrix(M_PI));
-	else if (check_equal_vec3(a, vec3(1, 0, 0)))
-		return (rotate_z_matrix(-M_PI / 2));
-	else if (check_equal_vec3(a, vec3(-1, 0, 0)))
-		return (rotate_z_matrix(M_PI / 2));
-	else if (check_equal_vec3(a, vec3(0, 0, 1)))
-		return (rotate_x_matrix(M_PI / 2));
-	else// if (check_equal_vec3(a, vec3(0, 0, -1)))
-		return (rotate_x_matrix(-M_PI / 2));
 }
 
 t_matrix	transform_cy(t_cylinder *cy, t_matrix cy_scale)

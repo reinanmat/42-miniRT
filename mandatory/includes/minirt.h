@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/19 14:50:00 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:24:28 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,14 @@ void	mlx_hooks(t_data *data);
 void	mlx_img_pix_put(t_img *img, int x, int y, int color);
 
 //utils
-int		reset_fd(int fd, char *filename);
-int		double_equals(double a, double b);
-char	*get_file_content(int fd, char *filename);
-char	**get_splitted_identifier(char **lines, char *identifier);
-void	assign_t_point(t_point *coordinate, char *param);
-void	assign_t_color(t_color *color, char *param);
-int		check_equal_vec3(t_vec3 a, t_vec3 b);
+int			reset_fd(int fd, char *filename);
+int			double_equals(double a, double b);
+char		*get_file_content(int fd, char *filename);
+char		**get_splitted_identifier(char **lines, char *identifier);
+void		assign_t_point(t_point *coordinate, char *param);
+void		assign_t_color(t_color *color, char *param);
+int			check_equal_vec3(t_vec3 a, t_vec3 b);
+t_matrix	get_orientation(t_vec3 a);
 
 //file parsing
 int		received_invalid_param(char *filename);
