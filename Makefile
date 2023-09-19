@@ -5,7 +5,6 @@ TESTS_PATH =	./mandatory/tests
 LIBFT_PATH =	./libft
 
 FILES =			main \
-				return_struct \
 				render \
 				lighting_and_shadow/shade_hit \
 				lighting_and_shadow/lighting \
@@ -17,6 +16,7 @@ FILES =			main \
 				structures/hittable_getters \
 				structures/clean_hittable \
 				structures/intersection_lst \
+				structures/create_structure \
 				linear_algebra/vectors/basic_operations \
 				linear_algebra/vectors/scalar_operations \
 				linear_algebra/vectors/extra_operations \
