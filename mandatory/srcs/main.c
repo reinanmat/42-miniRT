@@ -6,19 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:11:03 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/30 16:34:41 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:11:59 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
-
-t_light	point_light(t_point pos, double intensity)
-{
-	t_light	light;
-
-	light.coordinate = pos;
-	light.brightness = intensity;
-	return (light);
-}
 
 t_data	init_data(char *filename)
 {
