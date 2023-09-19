@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/19 18:43:27 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:18:53 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -28,7 +28,6 @@ t_sphere	*sphere(char **config)
 	sp->inv_transform = inverse(sp->transform);
 	return (sp);
 }
-
 
 t_matrix	transform_cy_pl(t_vec3 a, t_point center, t_matrix scale)
 {
