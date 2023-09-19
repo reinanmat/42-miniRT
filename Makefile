@@ -14,6 +14,7 @@ LIBFT_PATH 			= ./libft
 
 FILES =			main \
 				render \
+				color \
 				lighting_and_shadow/shade_hit \
 				lighting_and_shadow/lighting \
 				lighting_and_shadow/is_shadowed \
@@ -40,7 +41,6 @@ FILES =			main \
 				intersections/intersect_sphere \
 				intersections/intersect_plane \
 				intersections/intersect_cylinder \
-				color/color \
 				mlx/mlx_hooks \
 				mlx/mlx_create_img \
 				mlx/mlx_img_pix_put \
