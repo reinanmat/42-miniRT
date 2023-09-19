@@ -17,7 +17,6 @@ FILES =			main \
 				render \
 				lighting/lighting \
 				lighting/is_shadowed \
-				lighting/compute_lighting \
 				ray/reflect \
 				ray/normal_at \
 				ray/ray_for_pixel \
