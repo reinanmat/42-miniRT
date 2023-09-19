@@ -75,7 +75,8 @@ FILES =			main \
 				aux_functions/assign_value \
 				aux_functions/sort_lst \
 				aux_functions/double_equals \
-				aux_functions/check_equal_vec3
+				aux_functions/check_equal_vec3 \
+				aux_functions/get_orientation
 
 FILES_BONUS =	$(FILES) \
 				intersections/intersect_cone \
