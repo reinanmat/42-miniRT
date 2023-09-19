@@ -6,15 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:53:50 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:41:25 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
-
-double	length_square(t_vec3 a)
-{
-	return (a.x * a.x + a.y * a.y + a.z * a.z);
-}
 
 double	magnitude(t_vec3 a)
 {
@@ -34,4 +29,14 @@ double	dot(t_vec3 a, t_vec3 b)
 t_point	position(t_ray ray, double t)
 {
 	return (add(ray.origin, s_multiply(ray.direction, t)));
+}
+
+t_vec3	cross_product(t_vec3 a, t_vec3 b)
+{
+	t_vec3	c;
+
+	c.x = (a.y * b.z) - (a.z * b.y);
+	c.y = (a.z * b.x) - (a.x * b.z);
+	c.z = (a.x * b.y) - (a.y * b.x);
+	return (c);
 }
