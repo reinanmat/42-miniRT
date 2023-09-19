@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 19:20:58 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:36:02 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -92,36 +92,4 @@ t_plane	*plane(char **config)
 	assign_t_point(&pl->vector, config[2]);
 	assign_t_color(&pl->material.color, config[3]);
 	return (pl);
-}
-
-void	*create_object(char **config)
-{
-	if (ft_strcmp(config[0], "cy") == 0)
-		return (cylinder(config));
-	else if (ft_strcmp(config[0], "sp") == 0)
-		return (sphere(config));
-	else if (ft_strcmp(config[0], "pl") == 0)
-		return (plane(config));
-	return (NULL);
-}
-
-t_hittable	*init_objects(char **lines)
-{
-	int			i;
-	void		*object;
-	char		**config;
-	t_hittable	*objects;
-
-	i = 0;
-	objects = NULL;
-	while (lines[i])
-	{
-		config = ft_split_whitespaces(lines[i]);
-		object = create_object(config);
-		if (object)
-			hittable_add(config[0], object, &objects);
-		ft_free_matrix((void **)config);
-		i++;
-	}
-	return (objects);
 }
