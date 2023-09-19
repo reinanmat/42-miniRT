@@ -15,8 +15,9 @@ LIBFT_PATH 			= ./libft
 FILES =			main \
 				return_struct \
 				render \
-				lighting/lighting \
-				lighting/is_shadowed \
+				lighting_and_shadow/shade_hit \
+				lighting_and_shadow/lighting \
+				lighting_and_shadow/is_shadowed \
 				ray/reflect \
 				ray/normal_at \
 				ray/ray_for_pixel \
