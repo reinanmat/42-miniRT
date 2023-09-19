@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/06 16:23:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:09:35 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -31,6 +31,15 @@ void	timer()
 	else
 		printf("%lld ms\n", get_time_miliseconds() - init);
 	state = !state;
+}
+
+t_light	point_light(t_point pos, double intensity)
+{
+	t_light	light;
+
+	light.coordinate = pos;
+	light.brightness = intensity;
+	return (light);
 }
 
 void	print_matrix(double matrix[4][4])
