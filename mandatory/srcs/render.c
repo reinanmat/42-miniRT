@@ -6,22 +6,22 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 19:24:09 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:49:35 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
 
-t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
+static t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 {
 	t_comps			comps;
-	t_intersections	*tmp_inter;
+	t_intersections	*closest_intersection;
 
-	tmp_inter = hit(intersects);
-	comps.t = tmp_inter->t;
-	comps.point = position(ray, tmp_inter->t);
+	closest_intersection = hit(intersects);
+	comps.t = closest_intersection->t;
+	comps.point = position(ray, closest_intersection->t);
 	comps.eyev = s_multiply(ray.direction, -1);
-	comps.normalv = normal_at(tmp_inter->object, comps.point);
-	comps.object = tmp_inter->object;
+	comps.normalv = normal_at(closest_intersection->object, comps.point);
+	comps.object = closest_intersection->object;
 	if (dot(comps.normalv, comps.eyev) < 0)
 	{
 		comps.inside = 1;
