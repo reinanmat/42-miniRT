@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:27:45 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:56:46 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 # define AMBIENT 0
 # define DIFFUSE 1
-# define SPECULAR 2
 
 # define EPSILON 0.00001
 
