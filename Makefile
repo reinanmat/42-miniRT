@@ -6,7 +6,6 @@ LIBFT_PATH =	./libft
 
 FILES =			main \
 				render \
-				color \
 				lighting_and_shadow/shade_hit \
 				lighting_and_shadow/lighting \
 				lighting_and_shadow/is_shadowed \
@@ -61,6 +60,7 @@ FILES =			main \
 				world/objects \
 				world/material \
 				world/camera \
+				aux_functions/color \
 				aux_functions/reset_fd \
 				aux_functions/get_file_content \
 				aux_functions/get_splitted_identifier \
