@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/19 13:49:35 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:49:10 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt.h"
@@ -31,16 +31,6 @@ static t_comps	prepare_computations(t_intersections *intersects, t_ray ray)
 		comps.inside = 0;
 	comps.over_point = add(comps.point, s_multiply(comps.normalv, EPSILON));
 	return (comps);
-}
-
-t_color	shade_hit(t_world world, t_comps comps)
-{
-	t_color	color;
-	int		shadowed;
-
-	shadowed = is_shadowed(world, comps.over_point);
-	color = lighting(world.light, comps, world.ambient_light, shadowed);
-	return (color);
 }
 
 t_color	color_at(t_ray ray, t_world world)
