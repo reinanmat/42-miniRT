@@ -84,15 +84,15 @@ libft:
 	@make -C $(LIBFT_PATH) --no-print-directory
 
 $(NAME): $(OBJS) $(LIBFT_PATH)/libft.a
-	clang $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)
+	cc $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTFLAGS) $(LIBXFLAGS)
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
-	clang $(CFLAGS) -I ./includes -c $< -o $@
+	cc $(CFLAGS) -I ./includes -c $< -o $@
 
 $(OBJS_PATH)/%.o: $(TESTS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
-	clang $(CFLAGS) -I ./includes -c $< -o $@
+	cc $(CFLAGS) -I ./includes -c $< -o $@
 
 $(OBJS_PATH):
 	mkdir -p $(OBJS_PATH)
