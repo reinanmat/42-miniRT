@@ -11,6 +11,40 @@
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
 
+static double	compute_light_dot_normal(t_light light, t_comps comps)
+{
+	t_vec3	lightv;
+	double	light_dot_normal;
+
+	lightv = normalize(sub(light.coordinate, comps.over_point));
+	light_dot_normal = dot(lightv, comps.normalv);
+	return (light_dot_normal);
+}
+
+static t_color	compute_diffuse(t_light light, double light_dot_normal, t_comps comps)
+{
+	t_color		diffuse;
+	t_color		effective_color;
+	t_material	material;
+
+	material = get_material(comps.object);
+	effective_color = s_multiply(get_color(comps.object), light.brightness);
+	diffuse = s_multiply(effective_color, material.diffuse * light_dot_normal);
+	return (diffuse);
+}
+
+static t_color	compute_ambient(t_light light, t_comps comps)
+{
+	t_color		ambient;
+	t_color		effective_color;
+	t_material	material;
+
+	material = get_material(comps.object);
+	effective_color = s_multiply(get_color(comps.object), light.brightness);
+	ambient = s_multiply(effective_color, material.ambient);
+	return (ambient);
+}
+
 static t_color	compute_color(t_color colors[2], t_comps comps, t_amb_light amb)
 {
 	t_color	color;
