@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/19 17:17:36 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:43:27 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -29,17 +29,18 @@ t_sphere	*sphere(char **config)
 	return (sp);
 }
 
-t_matrix	transform_cy(t_cylinder *cy, t_matrix cy_scale)
+
+t_matrix	transform_cy_pl(t_vec3 a, t_point center, t_matrix scale)
 {
 	t_matrix	translation_by_rot;
 	t_matrix	transformed_cy;
-	t_matrix	orientation_to_matrix;
+	t_matrix	orientation_to_matr;
 	t_matrix	translation_matr;
 
-	translation_matr = translation_matrix(cy->center);
-	orientation_to_matrix = get_orientation(cy->vector);
-	translation_by_rot = multiply_matrix(translation_matr, orientation_to_matrix);
-	transformed_cy = multiply_matrix(translation_by_rot, cy_scale);
+	translation_matr = translation_matrix(center);
+	orientation_to_matr = get_orientation(a);
+	translation_by_rot = multiply_matrix(translation_matr, orientation_to_matr);
+	transformed_cy = multiply_matrix(translation_by_rot, scale);
 	return (transformed_cy);
 }
 
@@ -59,7 +60,7 @@ t_cylinder	*cylinder(char **config)
 	assign_t_point(&cy->vector, config[2]);
 	assign_t_color(&cy->material.color, config[5]);
 	cy_scale = vec3(cy->diameter / 2, cy->diameter / 2, cy->diameter / 2);
-	cy->transform = transform_cy(cy, scaling_matrix(cy_scale));
+	cy->transform = transform_cy_pl(cy->vector, cy->center, scaling_matrix(cy_scale));
 	cy->inv_transform = inverse(cy->transform);
 	return (cy);
 }
@@ -70,10 +71,11 @@ t_plane	*plane(char **config)
 
 	pl = malloc(sizeof(t_plane));
 	pl->transform = identity_matrix();
-	pl->inv_transform = inverse(pl->transform);
 	pl->material = default_material();
 	assign_t_point(&pl->center, config[1]);
 	assign_t_point(&pl->vector, config[2]);
 	assign_t_color(&pl->material.color, config[3]);
+	pl->transform = transform_cy_pl(pl->vector, pl->center, identity_matrix());
+	pl->inv_transform = inverse(pl->transform);
 	return (pl);
 }
