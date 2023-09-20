@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:22:10 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 18:02:31 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:55:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -31,6 +31,16 @@ void	timer()
 	else
 		printf("%lld ms\n", get_time_miliseconds() - init);
 	state = !state;
+}
+
+t_light	*point_light(t_point pos, double intensity)
+{
+	t_light	*light;
+
+	light = malloc(sizeof(t_light));
+	light->coordinate = pos;
+	light->brightness = intensity;
+	return (light);
 }
 
 void	print_matrix(double matrix[4][4])
