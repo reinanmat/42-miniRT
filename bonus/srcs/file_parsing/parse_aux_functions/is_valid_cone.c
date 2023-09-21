@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_cylinder.c                                :+:      :+:    :+:   */
+/*   is_valid_cone.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 13:59:12 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/21 18:52:46 by fnacarel         ###   ########.fr       */
+/*   Created: 2023/09/21 18:56:57 by fnacarel          #+#    #+#             */
+/*   Updated: 2023/09/21 18:58:02 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt_bonus.h"
 
-int	is_valid_cylinder(char **params, int number_of_params)
+int	is_valid_cone(char **params, int number_of_params)
 {
 	if (number_of_params != 5)
 		return (ft_putstr("Error\n", 0));

@@ -67,6 +67,8 @@ FILES =			main \
 				file_parsing/parse_aux_functions/count_dots \
 				file_parsing/parse_aux_functions/is_valid_texture \
 				file_parsing/parse_aux_functions/is_valid_pattern \
+				file_parsing/parse_aux_functions/is_valid_material_type \
+				file_parsing/parse_aux_functions/is_valid_cone \
 				world/init_world \
 				world/objects \
 				world/material \

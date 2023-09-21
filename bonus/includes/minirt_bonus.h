@@ -105,6 +105,8 @@ int		is_valid_3d_normalized_vec(const char *str);
 int		count_dots(const char *str);
 int		is_valid_texture(char *str);
 int		is_valid_pattern(char *str);
+int		is_valid_material_type(char *str);
+int		is_valid_cone(char **params, int number_of_params);
 
 //linear algebra
 t_ray	transform_ray(t_ray	ray, t_matrix transform);

@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:31:39 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 17:55:53 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:56:32 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -26,8 +26,10 @@ int	parse_element(char *identifier, char **element)
 		return (is_valid_sphere(element, number_of_params));
 	else if (ft_strcmp(identifier, "pl") == 0)
 		return (is_valid_plane(element, number_of_params));
-	else
+	else if (ft_strcmp(identifier, "cy") == 0)
 		return (is_valid_cylinder(element, number_of_params));
+	else
+		return (is_valid_cone(element, number_of_params));
 }
 
 int	map_parsed_successfully(char **lines)
