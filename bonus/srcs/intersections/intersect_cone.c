@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:03:40 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/15 18:02:27 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:25:24 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -44,8 +44,10 @@ t_inter_point	intersect_cone(t_ray ray, t_cone *cone)
 	double			y_first_inter;
 	double			y_second_inter;
 
-	inter.object = cylinder;
+	inter.object = cone;
 	inter.hit_times = 0;
+	inter.hit[0] = -1;
+	inter.hit[1] = -1;
 	bhask = calculate_bhaskara(ray);
 	if (bhask.discriminant >= 0)
 	{
