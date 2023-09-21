@@ -81,7 +81,7 @@ FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern world/texture
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
 
-TEST_FILES_BONUS	=	$(TEST_FILES) cone pattern
+TEST_FILES_BONUS	=	$(TEST_FILES) cone
 
 SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
 OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}
