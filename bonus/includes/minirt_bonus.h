@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/18 15:18:44 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:51:47 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,6 @@ double	compute_reflect_dot_eye(t_light light, t_comps comps);
 double	compute_light_dot_normal(t_light light, t_comps comps);
 t_color	compute_diffuse(t_light light, double light_dot_normal, t_comps comps);
 t_color	compute_ambient(t_light light, t_comps comps);
-
-t_texture	get_map_texture(void);
 
 //utils tests - delet
 t_light	*point_light(t_point pos, double intensity);
