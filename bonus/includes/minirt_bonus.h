@@ -137,6 +137,7 @@ t_world	complex_world(void);
 t_world	test_multiple_objects(void);
 t_world	cylinder_world(void);
 t_world	chess2(void);
+t_world	doguinho(void);
 t_world	cone_world(void);
 t_plane		*unit_plane(void);
 t_sphere	*unit_sphere(void);
