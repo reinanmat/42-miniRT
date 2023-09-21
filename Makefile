@@ -77,7 +77,7 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
-FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern texture_map
+FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern world/texture
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
 

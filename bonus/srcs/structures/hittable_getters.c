@@ -6,19 +6,19 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/18 18:53:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:44:37 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
 
-t_color	get_color_texture(t_texture t, t_point p)
+t_color	get_texture_color(t_texture t, t_point point)
 {
 	double	u;
 	double	v;
 
-	double theta = atan2(p.x, p.z);
-	double radius = magnitude(p);
-	double phi = acos(p.y / radius);
+	double theta = atan2(point.x, point.z);
+	double radius = magnitude(point);
+	double phi = acos(point.y / radius);
 
 	double raw_u = theta / (2 * M_PI);
 
@@ -27,21 +27,26 @@ t_color	get_color_texture(t_texture t, t_point p)
 	return (uv_pattern_at(t, u, v));
 }
 
+t_color	get_pattern_color(t_pattern p, t_hittable *object, t_point point)
+{
+	t_matrix	inv_transform;
+
+	inv_transform = get_inv_transform(object);
+	return (stripe_at_obj(p, inv_transform, point));
+}
+
 t_color	get_color(t_hittable *object, t_point point)
 {
 	t_color		object_color;
-	t_material	m;
-	t_matrix	inv_transform;
+	t_material	material;
 
-	m = get_material(object);
-	return (get_color_texture(m.texture, point));
-	if (m.has_pattern)
-	{
-		inv_transform = get_inv_transform(object);
-		object_color = stripe_at_obj(m.pattern, inv_transform, point);
-	}
+	material = get_material(object);
+	if (material.type_material == PATTERN)
+		object_color = get_pattern_color(material.pattern, object, point);
+	else if (material.type_material == TEXTURE)
+		object_color = get_texture_color(material.texture, point);
 	else
-		object_color = m.color;
+		object_color = material.color;
 	return (object_color);
 }
 

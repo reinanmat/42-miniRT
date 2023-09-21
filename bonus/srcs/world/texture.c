@@ -8,7 +8,7 @@
 /*   Updated: 2023/09/18 15:00:08 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minirt_bonus.h"
+#include "../../includes/minirt_bonus.h"
 
 t_color	uv_pattern_at(t_texture t, double u, double v)
 {
@@ -71,21 +71,20 @@ static void set_color(t_texture *t, int curr_row, char *line)
 	ft_free_matrix((void **)info);
 }
 
-t_texture	get_map_texture(void)
+t_texture	set_texture(char *config)
 {
 	int			fd;
-	char		ppm_file[] = "./imagem.ppm";
 	char		*content;
 	char		**lines;
 	t_texture	t;
 
-	fd = open(ppm_file, O_RDONLY);
+	fd = open(config, O_RDONLY);
 	if (fd == -1)
 	{
 		ft_putstr_fd("Error in file of texture\n", 2);
 		exit(1);
 	}
-	content = get_file_content(fd, ppm_file);
+	content = get_file_content(fd, config);
 	lines = ft_split(content, '\n');
 	get_width_and_height(&t, lines[1]);
 	printf("height %d, width %d\n", t.height, t.width);
