@@ -6,10 +6,69 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/18 12:58:01 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:22:07 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
+
+t_material	unit_pattern(char *pattern, char *color_a, char *color_b)
+{
+	t_material	material;
+	char 		**config;
+
+	config = ft_calloc(sizeof(char *), 4);
+	config[0] = ft_strdup(pattern);
+	config[1] = ft_strdup(color_a);
+	config[2] = ft_strdup(color_b);
+	config[3] = NULL;
+	material = set_material(config);
+	return (material);
+}
+
+t_material	unit_texture(char *file)
+{
+	t_material	material;
+	char 		**config;
+
+	config = ft_calloc(sizeof(char *), 2);
+	config[0] = ft_strdup(file);
+	material = set_material(config);
+	return (material);
+}
+
+t_world	doguinho()
+{
+	t_world	world;
+
+	t_vec3	forward;
+	t_vec3	up;
+	t_vec3	from;
+	t_sphere	*sp;
+
+	from = vec3(0, 0, 7);
+	forward = vec3(0, 0, -1);
+	up = vec3(0, 1, 0);
+
+	world.cam.fov = M_PI / 2;
+	set_pixel_size(&world.cam);
+	world.cam.t = view_transform(from, forward, up);
+
+	world.amount_of_lights = 1;
+	world.light = point_light(point(0, 0, 7), 1);
+
+	world.ambient_light.color = color(1, 1, 1);
+	world.ambient_light.light_ratio = 0.1;
+
+	world.objects = NULL;
+
+	sp = unit_sphere();
+	sp->transform = multiply_matrix(rotate_z_matrix(M_PI), scaling_matrix(point(3, 3, 3)));
+	sp->inv_transform = inverse(sp->transform);
+	sp->material = unit_texture("./bonus/textures/doguinho.ppm");
+
+	hittable_add("sp", sp, &world.objects);
+	return (world);
+}
 
 t_world	chess2()
 {
@@ -24,51 +83,52 @@ t_world	chess2()
 	t_cylinder	*cy;
 	t_cone		*co;
 
-	from = vec3(0, 2, -5);
-	forward = normalize(vec3(0, -2, 5));
+	from = vec3(0, 3, 5);
+	forward = normalize(s_multiply(from, -1));
 	up = vec3(0, 1, 0);
+
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
-	world.light = point_light(point(-3, 7, -5), 1);
+
+	world.amount_of_lights = 1;
+	world.light = point_light(point(0, 0, -5), 1);
+
 	world.ambient_light.color = color(1, 1, 1);
 	world.ambient_light.light_ratio = 0.1;
-	world.amount_of_lights = 1;
 
 	world.objects = NULL;
 
 	pl = unit_plane();
 	pl->transform = translation_matrix(point(0, -1, 0));
 	pl->inv_transform = inverse(pl->transform);
-	pl->material.has_pattern = 1;
-	pl->material.pattern = set_pattern(4, color(1, 1, 1), color(0, 0, 0), identity_matrix());
+	pl->material = unit_pattern("CHECKER", "255,255,255", "0,0,0");
 
 	sp = unit_sphere();
 	sp->transform = translation_matrix(point(-3, 0, 0));
 	sp->inv_transform = inverse(sp->transform);
-	sp->material.has_pattern = 1;
-	sp->material.pattern = set_pattern(4, color(1, 1, 1), color(0, 1, 0), scaling_matrix(point(0.3, 0.3, 0.3)));
+	sp->material = unit_texture("./bonus/textures/doguinho.ppm");
+	/* sp->material = unit_pattern("CHECKER", "255,255,255", "0,255,0"); */
 
 	cy = unit_cylinder();
 	cy->transform = translation_matrix(point(3, 0, 0));
 	cy->inv_transform = inverse(cy->transform);
 	cy->max = 1;
 	cy->min = -1;
-	cy->material.has_pattern = 1;
-	cy->material.pattern = set_pattern(4, color(1, 1, 1), color(0, 0, 1), scaling_matrix(point(0.3, 0.3, 0.3)));
+	cy->material = unit_pattern("CHECKER", "255,255,255", "0,0,255");
 
 	co = unit_cone();
 	co->transform = translation_matrix(point(0, 0, -1));
 	co->inv_transform = inverse(co->transform);
 	co->max = 1;
 	co->min = -1;
-	co->material.has_pattern = 1;
-	co->material.pattern = set_pattern(4, color(1, 1, 1), color(1, 0, 0), scaling_matrix(point(0.3, 0.3, 0.3)));
+	co->material = unit_pattern("STRIPE", "255,255,255", "0,0,255");
 
 	hittable_add("pl", pl, &world.objects);
 	hittable_add("sp", sp, &world.objects);
 	hittable_add("cy", cy, &world.objects);
 	hittable_add("co", co, &world.objects);
+
 	return (world);
 }
 
@@ -100,27 +160,26 @@ t_world	test_multiple_objects()
 	sp1->material.color = color(1, 0, 0);
 	sp1->transform = multiply_matrix(translation_matrix(point(0, 0, 0)), scaling_matrix(point(0.5, 0.5, 0.5)));
 	sp1->inv_transform = inverse(sp1->transform);
-	sp1->inv_transform = inverse(sp1->inv_transform);
 
 	sp2 = unit_sphere();
 	sp2->material.color = color(0, 1, 0);
 	sp2->transform = multiply_matrix(translation_matrix(point(0, 0, 2)), scaling_matrix(point(0.5, 2, 1)));
-	sp2->inv_transform = inverse(sp2->inv_transform);
+	sp2->inv_transform = inverse(sp2->transform);
 
 	sp3 = unit_sphere();
 	sp3->material.color = color(0, 0, 1);
 	sp3->transform = multiply_matrix(translation_matrix(point(0, 0, 3)), scaling_matrix(point(2, 0.5, 1)));
-	sp3->inv_transform = inverse(sp3->inv_transform);
+	sp3->inv_transform = inverse(sp3->transform);
 
 	sp4 = unit_sphere();
 	sp4->material.color = color(0, 1, 1);
 	sp4->transform = multiply_matrix(translation_matrix(point(0, 0, 5)), scaling_matrix(point(3, 3, 1)));
-	sp4->inv_transform = inverse(sp4->inv_transform);
+	sp4->inv_transform = inverse(sp4->transform);
 
 	sp5 = unit_sphere();
 	sp5->material.color = color(1, 1, 0);
 	sp5->transform = multiply_matrix(translation_matrix(point(0, 0, 8)), scaling_matrix(point(5, 5, 1)));
-	sp5->inv_transform = inverse(sp5->inv_transform);
+	sp5->inv_transform = inverse(sp5->transform);
 
 	hittable_add("sp", sp1, &world.objects);
 	hittable_add("sp", sp2, &world.objects);
@@ -149,12 +208,13 @@ t_world	room(void)
 	up = vec3(0, 1, 0);
 	world.cam.fov = M_PI / 2;
 	set_pixel_size(&world.cam);
-	world.ambient_light.light_ratio = 0.2;
-	world.ambient_light.color = (t_color){1, 1, 1};
 	world.cam.t = view_transform(from, forward, up);
 
-	world.light = point_light(point(-10, 10, -10), 1);
+	world.ambient_light.light_ratio = 0.2;
+	world.ambient_light.color = (t_color){1, 1, 1};
+
 	world.amount_of_lights = 1;
+	world.light = point_light(point(0, 0, -5), 1);
 
 	world.objects = NULL;
 
@@ -203,7 +263,6 @@ t_world	complex_world(void)
 	t_vec3		forward;
 	t_vec3		up;
 	t_vec3		from;
-	char		*config[4];
 	t_sphere	*floor;
 	t_sphere	*left_wall;
 	t_sphere	*right_wall;
@@ -218,20 +277,19 @@ t_world	complex_world(void)
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
 
+	world.ambient_light.light_ratio = 0.1;
+	world.ambient_light.color = (t_color){1, 1, 1};
+
 	world.light = point_light(point(-10, 10, -10), 1);
 	world.amount_of_lights = 1;
 	world.objects = NULL;
 
-	config[0] = "sp";
-	config[1] = "0,0,0";
-	config[2] = "2";
-	config[3] = "255, 255, 255";
-	floor = sphere(config);
-	left_wall = sphere(config);
-	right_wall = sphere(config);
-	sp_middle = sphere(config);
-	sp_left = sphere(config);
-	sp_right = sphere(config);
+	floor = unit_sphere();
+	left_wall = unit_sphere();
+	right_wall = unit_sphere();
+	sp_middle = unit_sphere();
+	sp_left = unit_sphere();
+	sp_right = unit_sphere();
 
 	floor->transform = scaling_matrix(point(10, 0.01, 10));
 	floor->inv_transform = inverse(floor->transform);

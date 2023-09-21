@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:51:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 14:54:18 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:01:53 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -28,7 +28,8 @@ t_world	cylinder_world(void)
 	set_pixel_size(&world.cam);
 	world.cam.t = view_transform(from, forward, up);
 
-	world.light = point_light(point(-10, 10, -5), 1);
+	world.amount_of_lights = 1;
+	world.light = point_light(point(0, 0, -5), 1);
 	world.objects = NULL;
 
 	cy1 = unit_cylinder();
