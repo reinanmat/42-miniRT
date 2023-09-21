@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/20 17:51:47 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:58:30 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int		is_valid_coordinates(const char *str);
 int		expected_number_of_fields(const char *str, int expected_fields);
 int		is_valid_3d_normalized_vec(const char *str);
 int		count_dots(const char *str);
+int		is_valid_pattern(char *str);
 
 //linear algebra
 t_ray	transform_ray(t_ray	ray, t_matrix transform);
