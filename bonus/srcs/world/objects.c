@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/13 18:34:17 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:27:46 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -20,11 +20,9 @@ t_cone	*cone(char **config)
 	co->diameter = ft_atof(config[3]);
 	co->min = -(co->height / 2);
 	co->max = co->height / 2;
-	co->transform = identity_matrix();
-	co->material = default_material();
 	assign_t_point(&co->center, config[1]);
 	assign_t_point(&co->vector, config[2]);
-	assign_t_color(&co->material.color, config[5]);
+	co->material = set_material(&config[5]);
 	co->transform = identity_matrix();
 	co->inv_transform = inverse(co->transform);
 	return (co);
@@ -39,10 +37,9 @@ t_sphere	*sphere(char **config)
 	sp = malloc(sizeof(t_sphere));
 	sp->center = point(0, 0, 0);
 	sp->radius = ft_atof(config[2]) / 2;
-	sp->material = default_material();
-	assign_t_color(&sp->material.color, config[3]);
 	assign_t_point(&translation, config[1]);
 	scale = vec3(sp->radius, sp->radius, sp->radius);
+	sp->material = set_material(&config[3]);
 	sp->transform = transform_object(translation, scale);
 	sp->inv_transform = inverse(sp->transform);
 	return (sp);
@@ -89,11 +86,10 @@ t_cylinder	*cylinder(char **config)
 	cy->min = -(cy->height / 2);
 	cy->max = cy->height / 2;
 	cy->transform = identity_matrix();
-	cy->material = default_material();
 	assign_t_point(&cy->center, config[1]);
 	assign_t_point(&cy->vector, config[2]);
-	assign_t_color(&cy->material.color, config[5]);
 	cy_scale = vec3(cy->diameter / 2, cy->diameter / 2, cy->diameter / 2);
+	cy->material = set_material(&config[5]);
 	cy->transform = transform_cy(cy, scaling_matrix(cy_scale));
 	cy->inv_transform = inverse(cy->transform);
 	return (cy);
@@ -104,12 +100,11 @@ t_plane	*plane(char **config)
 	t_plane	*pl;
 
 	pl = malloc(sizeof(t_plane));
-	pl->transform = identity_matrix();
-	pl->inv_transform = inverse(pl->transform);
-	pl->material = default_material();
 	assign_t_point(&pl->center, config[1]);
 	assign_t_point(&pl->vector, config[2]);
-	assign_t_color(&pl->material.color, config[3]);
+	pl->material = set_material(&config[3]);
+	pl->transform = identity_matrix();
+	pl->inv_transform = inverse(pl->transform);
 	return (pl);
 }
 
@@ -121,6 +116,8 @@ void	*create_object(char **config)
 		return (sphere(config));
 	else if (ft_strcmp(config[0], "pl") == 0)
 		return (plane(config));
+	else if (ft_strcmp(config[0], "co") == 0)
+		return (cone(config));
 	return (NULL);
 }
 
