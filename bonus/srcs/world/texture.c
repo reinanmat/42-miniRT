@@ -1,11 +1,12 @@
-/* ************************************************************************** */ /*                                                                            */
+/* ************************************************************************** */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture_map.c                                      :+:      :+:    :+:   */
+/*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 13:23:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/18 15:00:08 by revieira         ###   ########.fr       */
+/*   Created: 2023/09/21 19:55:33 by revieira          #+#    #+#             */
+/*   Updated: 2023/09/21 20:08:37 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -74,17 +75,22 @@ static void set_color(t_texture *t, int curr_row, char *line)
 t_texture	set_texture(char *config)
 {
 	int			fd;
+	char		*filename;
 	char		*content;
 	char		**lines;
 	t_texture	t;
 
-	fd = open(config, O_RDONLY);
+	if (ft_strcmp("DOGUINHO", config) == 0)
+		filename = ft_strdup("./bonus/textures/doguinho.ppm");
+	else
+		fd = -1;
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
 		ft_putstr_fd("Error in file of texture\n", 2);
 		exit(1);
 	}
-	content = get_file_content(fd, config);
+	content = get_file_content(fd, filename);
 	lines = ft_split(content, '\n');
 	get_width_and_height(&t, lines[1]);
 	printf("height %d, width %d\n", t.height, t.width);
