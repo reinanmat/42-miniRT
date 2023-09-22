@@ -65,10 +65,6 @@ FILES =			main \
 				file_parsing/parse_aux_functions/expected_number_of_fields \
 				file_parsing/parse_aux_functions/is_valid_3d_normalized_vec \
 				file_parsing/parse_aux_functions/count_dots \
-				file_parsing/parse_aux_functions/is_valid_texture \
-				file_parsing/parse_aux_functions/is_valid_pattern \
-				file_parsing/parse_aux_functions/is_valid_material_type \
-				file_parsing/parse_aux_functions/is_valid_cone \
 				world/init_world \
 				world/objects \
 				world/material \
@@ -81,7 +77,14 @@ FILES =			main \
 				aux_functions/double_equals \
 				aux_functions/check_equal_vec3
 
-FILES_BONUS =	$(FILES) intersections/intersect_cone world/pattern world/texture
+FILES_BONUS =	$(FILES) \
+				intersections/intersect_cone \
+				world/pattern \
+				world/texture \
+				file_parsing/parse_aux_functions/is_valid_texture \
+				file_parsing/parse_aux_functions/is_valid_pattern \
+				file_parsing/parse_aux_functions/is_valid_material_type \
+				file_parsing/parse_aux_functions/is_valid_cone \
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
 
