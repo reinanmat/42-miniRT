@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/22 19:11:56 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/22 19:58:07 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -40,7 +40,7 @@ t_cone	*cone(char **config)
 	radius = co->diameter / 2;
 	scale = scaling_matrix(vec3(radius, radius, radius));
 	co->material = set_material(config[6]);
-	co->transform = transform_cy_pl_co(co->vector, co->center, scale); 
+	co->transform = transform_cy_pl_co(co->vector, co->center, scale);
 	co->inv_transform = inverse(co->transform);
 	return (co);
 }
@@ -85,13 +85,15 @@ t_cylinder	*cylinder(char **config)
 
 t_plane	*plane(char **config)
 {
-	t_plane	*pl;
+	t_plane		*pl;
+	t_matrix	identity_matr;
 
+	identity_matr = identity_matrix();
 	pl = malloc(sizeof(t_plane));
 	pl->material = set_material(config[3]);
 	assign_t_point(&pl->center, config[1]);
 	assign_t_point(&pl->vector, config[2]);
-	pl->transform = transform_cy_pl_co(pl->vector, pl->center, identity_matrix());
+	pl->transform = transform_cy_pl_co(pl->vector, pl->center, identity_matr);
 	pl->inv_transform = inverse(pl->transform);
 	return (pl);
 }

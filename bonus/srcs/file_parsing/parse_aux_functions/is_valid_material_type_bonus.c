@@ -6,12 +6,12 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:48:45 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/21 18:50:35 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:56:38 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt_bonus.h"
 
-int is_valid_material_type(char *str)
+int	is_valid_material_type(char *str)
 {
 	int	valid_rgb;
 	int	valid_texture;
@@ -22,4 +22,3 @@ int is_valid_material_type(char *str)
 	valid_pattern = is_valid_pattern(str);
 	return (valid_rgb || valid_texture || valid_pattern);
 }
-
