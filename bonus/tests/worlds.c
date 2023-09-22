@@ -6,35 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:53:28 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/21 16:22:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/21 19:59:03 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
-
-t_material	unit_pattern(char *pattern, char *color_a, char *color_b)
-{
-	t_material	material;
-	char 		**config;
-
-	config = ft_calloc(sizeof(char *), 4);
-	config[0] = ft_strdup(pattern);
-	config[1] = ft_strdup(color_a);
-	config[2] = ft_strdup(color_b);
-	config[3] = NULL;
-	material = set_material(config);
-	return (material);
-}
-
-t_material	unit_texture(char *file)
-{
-	t_material	material;
-	char 		**config;
-
-	config = ft_calloc(sizeof(char *), 2);
-	config[0] = ft_strdup(file);
-	material = set_material(config);
-	return (material);
-}
 
 t_world	doguinho()
 {
@@ -64,7 +39,7 @@ t_world	doguinho()
 	sp = unit_sphere();
 	sp->transform = multiply_matrix(rotate_z_matrix(M_PI), scaling_matrix(point(3, 3, 3)));
 	sp->inv_transform = inverse(sp->transform);
-	sp->material = unit_texture("./bonus/textures/doguinho.ppm");
+	/* sp->material = unit_texture("./bonus/textures/doguinho.ppm"); */
 
 	hittable_add("sp", sp, &world.objects);
 	return (world);
@@ -102,12 +77,10 @@ t_world	chess2()
 	pl = unit_plane();
 	pl->transform = translation_matrix(point(0, -1, 0));
 	pl->inv_transform = inverse(pl->transform);
-	pl->material = unit_pattern("CHECKER", "255,255,255", "0,0,0");
 
 	sp = unit_sphere();
 	sp->transform = translation_matrix(point(-3, 0, 0));
 	sp->inv_transform = inverse(sp->transform);
-	sp->material = unit_texture("./bonus/textures/doguinho.ppm");
 	/* sp->material = unit_pattern("CHECKER", "255,255,255", "0,255,0"); */
 
 	cy = unit_cylinder();
@@ -115,14 +88,12 @@ t_world	chess2()
 	cy->inv_transform = inverse(cy->transform);
 	cy->max = 1;
 	cy->min = -1;
-	cy->material = unit_pattern("CHECKER", "255,255,255", "0,0,255");
 
 	co = unit_cone();
 	co->transform = translation_matrix(point(0, 0, -1));
 	co->inv_transform = inverse(co->transform);
 	co->max = 1;
 	co->min = -1;
-	co->material = unit_pattern("STRIPE", "255,255,255", "0,0,255");
 
 	hittable_add("pl", pl, &world.objects);
 	hittable_add("sp", sp, &world.objects);
