@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/21 18:58:30 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:40:40 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ t_color	color_at(t_ray ray, t_world world);
 
 //lighting
 t_color	lighting(t_light light, t_comps comps, t_amb_light amb, int shadow);
+t_color	shade_hit(t_world world, t_comps comps);
 int		is_shadowed(t_world world, t_light light, t_point point);
 t_color	compute_specular(double reflect_dot_eye, t_comps comps, t_light light);
 double	compute_reflect_dot_eye(t_light light, t_comps comps);

@@ -78,14 +78,15 @@ FILES =			main \
 				aux_functions/check_equal_vec3 \
 				aux_functions/get_orientation
 
-FILES_BONUS =	$(FILES) \
-				intersections/intersect_cone \
-				world/pattern \
-				world/texture \
-				file_parsing/parse_aux_functions/is_valid_texture \
-				file_parsing/parse_aux_functions/is_valid_pattern \
-				file_parsing/parse_aux_functions/is_valid_material_type \
-				file_parsing/parse_aux_functions/is_valid_cone \
+FILES_BONUS =	${FILES:%=%_bonus} \
+				intersections/intersect_cone_bonus \
+				world/pattern_bonus \
+				world/texture_bonus \
+				lighting_and_shadow/compute_lighting_bonus \
+				file_parsing/parse_aux_functions/is_valid_texture_bonus \
+				file_parsing/parse_aux_functions/is_valid_pattern_bonus \
+				file_parsing/parse_aux_functions/is_valid_material_type_bonus \
+				file_parsing/parse_aux_functions/is_valid_cone_bonus \
 
 TEST_FILES	=	cylinder worlds utils_tests unit_shapes
 

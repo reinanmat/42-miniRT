@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:39:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/12 17:41:47 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:44:25 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_matrix	vec3_to_matrix(t_vec3 vec);
 t_point		matrix_to_point(t_matrix a);
 
 //matrices transforms
+t_matrix	get_orientation(t_vec3 a);
 t_matrix	transform_object(t_point translation, t_vec3 scale);
 t_matrix	translation_matrix(t_point x);
 t_matrix	scaling_matrix(t_point x);
