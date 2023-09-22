@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:29:27 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 17:57:08 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/22 19:51:20 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -31,25 +31,41 @@ void	set_pixel_size(t_cam *camera)
 	camera->pixel_size = (camera->viewport_width * 2) / WIDTH;
 }
 
-static double	degress_to_radians(double degress)
+static double	degrees_to_radians(double degrees)
 {
 	double	radians;
 
-	radians = degress / 180.0 * M_PI;
+	radians = degrees / 180.0 * M_PI;
 	return (radians);
+}
+
+static t_vec3	get_correct_up(t_vec3 orientation_vec)
+{
+	t_vec3	up;
+	double	dot_prod;
+
+	up = vec3(0, 1, 0);
+	dot_prod = dot(orientation_vec, up);
+	if (double_equals(dot_prod, 1))
+		up = vec3(1, 0, 0);
+	else if (double_equals(dot_prod, -1))
+		up = vec3(-1, 0, 0);
+	return (up);
 }
 
 t_cam	init_camera(char **lines)
 {
+	t_vec3	up;
 	t_cam	cam;
 	char	**config;
 
 	config = get_splitted_identifier(lines, "C");
 	assign_t_point(&cam.coordinate, config[1]);
 	assign_t_point(&cam.orientation_vec, config[2]);
-	cam.fov = degress_to_radians(ft_atof(config[3]));
+	cam.fov = degrees_to_radians(ft_atof(config[3]));
 	set_pixel_size(&cam);
-	cam.t = view_transform(cam.coordinate, cam.orientation_vec, vec3(0, 1, 0));
+	up = get_correct_up(cam.orientation_vec);
+	cam.t = view_transform(cam.coordinate, cam.orientation_vec, up);
 	ft_free_matrix((void **)config);
 	return (cam);
 }
