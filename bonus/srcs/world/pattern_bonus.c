@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:42:30 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/20 15:30:22 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/23 17:00:53 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -48,9 +48,11 @@ t_color	stripe_at_obj(t_pattern pattern, t_matrix inv_transform, t_point p)
 {
 	t_matrix	object_point;
 	t_point		pattern_point;
+	t_matrix	inv_by_obj_point;
 
 	object_point = multiply_matrix(inv_transform, point_to_matrix(p));
-	pattern_point = matrix_to_point(multiply_matrix(pattern.inv_transform, object_point));
+	inv_by_obj_point = multiply_matrix(pattern.inv_transform, object_point);
+	pattern_point = matrix_to_point(inv_by_obj_point);
 	if (pattern.type == STRIPE_PATTERN)
 		return (stripe_pattern(pattern, pattern_point));
 	else if (pattern.type == GRADIENT_PATTERN)

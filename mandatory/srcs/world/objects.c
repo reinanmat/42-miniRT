@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:14:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/22 18:18:53 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/23 17:10:04 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -46,7 +46,8 @@ t_matrix	transform_cy_pl(t_vec3 a, t_point center, t_matrix scale)
 t_cylinder	*cylinder(char **config)
 {
 	t_cylinder	*cy;
-	t_vec3		cy_scale;
+	t_vec3		cy_scale_vec;
+	t_matrix	cy_scale_matrix;
 
 	cy = malloc(sizeof(t_cylinder));
 	cy->height = ft_atof(config[4]);
@@ -58,8 +59,9 @@ t_cylinder	*cylinder(char **config)
 	assign_t_point(&cy->center, config[1]);
 	assign_t_point(&cy->vector, config[2]);
 	assign_t_color(&cy->material.color, config[5]);
-	cy_scale = vec3(cy->diameter / 2, cy->diameter / 2, cy->diameter / 2);
-	cy->transform = transform_cy_pl(cy->vector, cy->center, scaling_matrix(cy_scale));
+	cy_scale_vec = vec3(cy->diameter / 2, cy->diameter / 2, cy->diameter / 2);
+	cy_scale_matrix = scaling_matrix(cy_scale_vec);
+	cy->transform = transform_cy_pl(cy->vector, cy->center, cy_scale_matrix);
 	cy->inv_transform = inverse(cy->transform);
 	return (cy);
 }

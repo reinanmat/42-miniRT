@@ -6,25 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:33:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 16:28:59 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:47:04 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
-
-static void	add_node(t_hittable *new_node, t_hittable **hittable_lst)
-{
-	t_hittable	*aux;
-
-	if (hittable_lst && *hittable_lst)
-	{
-		aux = *hittable_lst;
-		while (aux->next)
-			aux = aux->next;
-		aux->next = new_node;
-	}
-	else
-		*hittable_lst = new_node;
-}
 
 void	add_sphere(t_sphere *sp, t_hittable **hittable_lst)
 {

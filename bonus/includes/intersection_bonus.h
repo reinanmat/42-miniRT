@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:05:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/20 17:26:01 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/23 17:04:06 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,11 @@ void			intersect_add_back(t_intersections **lst, t_intersections *new);
 t_intersections	*last_intersect(t_intersections *lst);
 void			clear_intersect(t_intersections **lst);
 t_intersections	*new_intersect(double t, t_hittable *object);
+
+//hitting objects
+void	hit_sp(t_ray ray, t_hittable *obj, t_intersections **inters);
+void	hit_cy(t_ray ray, t_hittable *obj, t_intersections **inters);
+void	hit_pl(t_ray ray, t_hittable *obj, t_intersections **inters);
+void	hit_cone(t_ray ray, t_hittable *obj, t_intersections **inters);
 
 #endif

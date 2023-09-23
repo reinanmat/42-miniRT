@@ -80,8 +80,12 @@ FILES =			main \
 
 FILES_BONUS =	${FILES:%=%_bonus} \
 				intersections/intersect_cone_bonus \
+				intersections/hit_objects_bonus \
+				ray/specific_normals_bonus \
 				world/pattern_bonus \
 				world/texture_bonus \
+				world/init_objects_bonus \
+				structures/get_transforms_bonus \
 				lighting_and_shadow/compute_lighting_bonus \
 				file_parsing/parse_aux_functions/is_valid_texture_bonus \
 				file_parsing/parse_aux_functions/is_valid_pattern_bonus \

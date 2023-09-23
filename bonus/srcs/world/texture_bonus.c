@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:55:33 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/21 20:08:37 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:57:42 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -24,22 +24,20 @@ t_color	uv_pattern_at(t_texture t, double u, double v)
 	v = 1 - v;
 	x = floor(u * (t.width - 1));
 	y = floor(v * (t.height - 1));
-	if (t.map_texture[y][x].x == 0 && t.map_texture[y][x].y == 0 && t.map_texture[y][x].z == 0)
-		printf("(%d, %d) is black\n", x, y);
 	return (t.map_texture[y][x]);
 }
 
 static void	get_width_and_height(t_texture *t, char *info)
 {
 	char	**values;
-	
+
 	values = ft_split_whitespaces(info);
 	t->width = ft_atoi(values[0]);
 	t->height = ft_atoi(values[1]);
 	ft_free_matrix((void **)values);
 }
 
-static void set_color(t_texture *t, int curr_row, char *line)
+static void	set_color(t_texture *t, int curr_row, char *line)
 {
 	int		i;
 	int		j;

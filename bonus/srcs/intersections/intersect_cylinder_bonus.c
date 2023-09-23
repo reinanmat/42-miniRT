@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:26 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 19:04:39 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:40:19 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -45,16 +45,16 @@ static int	check_cap(t_ray ray, double t)
 	return (0);
 }
 
-static void	intersect_caps(t_ray ray, t_cylinder *cylinder, t_inter_point *inters)
+static void	intersect_caps(t_ray ray, t_cylinder *cyl, t_inter_point *inters)
 {
 	double	t;
 
 	if (fabs(ray.direction.y) < EPSILON)
 		return ;
-	t = (cylinder->min - ray.origin.y) / ray.direction.y;
+	t = (cyl->min - ray.origin.y) / ray.direction.y;
 	if (check_cap(ray, t))
 		inters->hit[inters->hit_times++] = t;
-	t = (cylinder->max - ray.origin.y) / ray.direction.y;
+	t = (cyl->max - ray.origin.y) / ray.direction.y;
 	if (check_cap(ray, t))
 		inters->hit[inters->hit_times++] = t;
 }

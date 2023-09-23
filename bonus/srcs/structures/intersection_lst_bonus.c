@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 16:48:18 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 18:01:15 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:47:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -61,4 +61,19 @@ t_intersections	*new_intersect(double t, t_hittable *object)
 	new_node->object = object;
 	new_node->next = NULL;
 	return (new_node);
+}
+
+void	add_node(t_hittable *new_node, t_hittable **hittable_lst)
+{
+	t_hittable	*aux;
+
+	if (hittable_lst && *hittable_lst)
+	{
+		aux = *hittable_lst;
+		while (aux->next)
+			aux = aux->next;
+		aux->next = new_node;
+	}
+	else
+		*hittable_lst = new_node;
 }

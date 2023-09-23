@@ -6,10 +6,36 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:03:40 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/21 15:25:24 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:35:05 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
+
+static double	get_bhask_a(t_ray ray)
+{
+	double	x_sqrd;
+	double	y_sqrd;
+	double	z_sqrd;
+
+	x_sqrd = ray.direction.x * ray.direction.x;
+	y_sqrd = ray.direction.y * ray.direction.y;
+	z_sqrd = ray.direction.z * ray.direction.z;
+	return (x_sqrd - y_sqrd + z_sqrd);
+}
+
+static double	get_bhask_b(t_ray ray)
+{
+	return (2 * ray.origin.x * ray.direction.x - \
+			2 * ray.origin.y * ray.direction.y + \
+			2 * ray.origin.z * ray.direction.z);
+}
+
+static double	get_bhask_c(t_ray ray)
+{
+	return (ray.origin.x * ray.origin.x - \
+		ray.origin.y * ray.origin.y + \
+		ray.origin.z * ray.origin.z);
+}
 
 static t_bhask	calculate_bhaskara(t_ray ray)
 {
@@ -17,11 +43,11 @@ static t_bhask	calculate_bhaskara(t_ray ray)
 	t_bhask	bhask;
 
 	bhask.discriminant = -1;
-	bhask.a = (ray.direction.x * ray.direction.x) - (ray.direction.y * ray.direction.y) + (ray.direction.z * ray.direction.z);
+	bhask.a = get_bhask_a(ray);
 	if (fabs(bhask.a) < EPSILON)
 		return (bhask);
-	bhask.b = (2 * ray.origin.x * ray.direction.x) - (2 * ray.origin.y * ray.direction.y) + (2 * ray.origin.z * ray.direction.z);
-	bhask.c = (ray.origin.x * ray.origin.x) - (ray.origin.y * ray.origin.y) + (ray.origin.z * ray.origin.z);
+	bhask.b = get_bhask_b(ray);
+	bhask.c = get_bhask_c(ray);
 	if (bhask.a == 0 && bhask.b != 0)
 	{
 		bhask.s1 = -bhask.c / 2 * bhask.b;
