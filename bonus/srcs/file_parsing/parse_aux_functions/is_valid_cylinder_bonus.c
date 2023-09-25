@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:59:12 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/21 18:52:46 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:03:56 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt_bonus.h"
@@ -24,6 +24,6 @@ int	is_valid_cylinder(char **params, int number_of_params)
 	else if (!is_number(params[4]))
 		return (0);
 	else if (!is_valid_material_type(params[5]))
-		return (0);
+		return (ft_putstr("[CY-MTYPE] Invalid material type\n", 0));
 	return (1);
 }
