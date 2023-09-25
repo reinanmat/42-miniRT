@@ -84,6 +84,7 @@ FILES_BONUS =	${FILES:%=%_bonus} \
 				ray/specific_normals_bonus \
 				world/pattern_bonus \
 				world/texture_bonus \
+				world/texture_map_bonus \
 				world/init_objects_bonus \
 				structures/get_transforms_bonus \
 				lighting_and_shadow/compute_lighting_bonus \

@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/21 19:54:47 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:03:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,15 @@ t_cone		*cone(char **config);
 t_material	set_material(char *config);
 
 t_color		stripe_at_obj(t_pattern pattern, t_matrix inv_transform, t_point p);
+t_color		stripe_pattern(t_pattern pattern, t_point point);
+t_color		ring_pattern(t_pattern pattern, t_point point);
+t_color		checkers_pattern(t_pattern pattern, t_point point);
+t_color		gradient_pattern(t_pattern pattern, t_point point);
 
 t_texture	set_texture(char *config);
 t_color		uv_pattern_at(t_texture t, double u, double v);
+t_color		sphere_map(t_texture texture, t_point point);
+t_color		plane_map(t_texture texture, t_point point);
+t_color		cylinder_and_cone_map(t_texture texture, t_point point);
 
 #endif

@@ -6,53 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:13:46 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 14:08:52 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:08:04 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
-
-t_color	sphere_map(t_texture t, t_point point)
-{
-	double	u;
-	double	v;
-	double	radius;
-	double	phi;
-	double	raw_u;
-
-	raw_u = atan2(point.x, point.z) / (2 * M_PI);
-	radius = magnitude(point);
-	phi = acos(point.y / radius);
-	u = 1 - (raw_u + 0.5);
-	v = 1 - phi / M_PI;
-	return (uv_pattern_at(t, u, v));
-}
-
-t_color	 plane_map(t_texture t, t_point point)
-{
-	double u;
-	double v;
-
-	point.x = point.x - floor(point.x);
-	point.z = point.z - floor(point.z);
-	u = fmod(point.x, 1.0);
-	v = fmod(point.z, 1.0);
-	return (uv_pattern_at(t, u, v));
-}
-
-t_color	cylinder_map(t_texture t, t_point point)
-{
-	double	u;
-	double	v;
-	double	theta;
-	double	raw_u;
-
-	theta = atan2(point.x, point.z);
-	raw_u = theta / (2 * M_PI);
-	u = 1 - (raw_u + 0.5);
-	point.y = point.y - floor(point.y);
-	v = fmod(point.y, 1);
-	return (uv_pattern_at(t, u, v));
-}
 
 t_color	get_texture_color(t_texture t, t_hittable *object, t_point point)
 {
