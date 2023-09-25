@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:55:33 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 19:49:59 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/25 20:08:38 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -57,51 +57,42 @@ static void	set_color(t_texture *t, int curr_row, char *line)
 	}
 }
 
-char	*get_corresponding_ppm(char *texture)
+char	**get_ppm_lines(char *filename)
 {
-	if (ft_strcmp(texture, "DOG") == 0)
-		return (ft_strdup("./bonus/textures/dog.ppm"));
-	else if (ft_strcmp(texture, "EARTH") == 0)
-		return (ft_strdup("./bonus/textures/earth.ppm"));
-	return (NULL);
+	int		fd;
+	char	*content;
+	char	**lines;
+
+	fd = open(filename, O_RDONLY);
+	content = get_file_content(fd, filename);
+	lines = ft_split(content, '\n');
+	ft_free(content);
+	return (lines);
 }
 
 t_texture	set_texture(char *config)
 {
-	int			fd;
-	char		*filename;
-	char		*content;
-	char		**lines;
 	t_texture	t;
+	int			col;
+	int			row;
+	char		**lines;
+	char		*filename;
 
+	col = -1;
+	row = 0;
 	filename = get_corresponding_ppm(config);
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		ft_putstr_fd("Error in file of texture\n", 2);
-		exit(1);
-	}
-	content = get_file_content(fd, filename);
-	lines = ft_split(content, '\n');
+	lines = get_ppm_lines(filename);
 	get_width_and_height(&t, lines[1]);
-	printf("height %d, width %d\n", t.height, t.width);
 	t.map_texture = ft_calloc(sizeof(t_color *), t.height);
-	int	i = 0;
-	while (i < t.height)
+	while (++col < t.height)
+		t.map_texture[col] = ft_calloc(sizeof(t_color), t.width);
+	col = 3;
+	while (lines[col] && row != t.height)
 	{
-		t.map_texture[i] = ft_calloc(sizeof(t_color), t.width);
-		i++;
-	}
-	i = 3;
-	int row = 0;
-	while (lines[i] && row != t.height)
-	{
-		set_color(&t, row, lines[i]);
+		set_color(&t, row, lines[col]);
 		row++;
-		i++;
+		col++;
 	}
-	ft_free(content);
 	ft_free_matrix((void **)lines);
-	printf("Created Texture\n");
 	return (t);
 }
