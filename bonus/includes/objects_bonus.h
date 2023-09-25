@@ -104,15 +104,12 @@ t_cone		*cone(char **config);
 
 //material
 t_material	set_material(char *config);
-
-t_color		stripe_at_obj(t_pattern pattern, t_matrix inv_transform, t_point p);
 t_color		stripe_pattern(t_pattern pattern, t_point point);
 t_color		ring_pattern(t_pattern pattern, t_point point);
 t_color		checkers_pattern(t_pattern pattern, t_point point);
 t_color		gradient_pattern(t_pattern pattern, t_point point);
 
 t_texture	set_texture(char *config);
-t_color		uv_pattern_at(t_texture t, double u, double v);
 t_color		sphere_map(t_texture texture, t_point point);
 t_color		plane_map(t_texture texture, t_point point);
 t_color		cylinder_and_cone_map(t_texture texture, t_point point);

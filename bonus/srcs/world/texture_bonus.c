@@ -6,26 +6,10 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:55:33 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/23 16:57:42 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:21:21 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
-
-t_color	uv_pattern_at(t_texture t, double u, double v)
-{
-	int	x;
-	int	y;
-
-	if (u > 1 || u < 0 || v > 1 || v < 0)
-	{
-		printf("error u or v\n");
-		exit(1);
-	}
-	v = 1 - v;
-	x = floor(u * (t.width - 1));
-	y = floor(v * (t.height - 1));
-	return (t.map_texture[y][x]);
-}
 
 static void	get_width_and_height(t_texture *t, char *info)
 {
