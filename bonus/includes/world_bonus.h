@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:58:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 20:04:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:16:39 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ typedef struct s_cam
 
 typedef struct s_light
 {
-	t_point	coordinate;
 	double	brightness;
+	t_point	coordinate;
+	t_color	color;
 }	t_light;
 
 typedef struct s_amb_light

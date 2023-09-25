@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:17:17 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/17 19:23:55 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:20:50 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -56,6 +56,7 @@ static t_light	*init_light(int number_of_lights, char **lines)
 			config = get_splitted_identifier(&lines[i], "L");
 			lights[j].brightness = ft_atof(config[2]);
 			assign_t_point(&lights[j].coordinate, config[1]);
+			assign_t_color(&lights[j].color, config[3]);
 			ft_free_matrix((void **)config);
 			j++;
 		}
