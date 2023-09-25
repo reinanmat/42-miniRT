@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 15:03:32 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:57:22 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "vec3_bonus.h"
 # include "matrices_bonus.h"
 
-typedef struct	s_pattern
+typedef struct s_pattern
 {
 	int			type;
 	t_color		a;
@@ -104,12 +104,11 @@ t_cone		*cone(char **config);
 
 //material
 t_material	set_material(char *config);
+t_texture	set_texture(char *config);
 t_color		stripe_pattern(t_pattern pattern, t_point point);
 t_color		ring_pattern(t_pattern pattern, t_point point);
 t_color		checkers_pattern(t_pattern pattern, t_point point);
 t_color		gradient_pattern(t_pattern pattern, t_point point);
-
-t_texture	set_texture(char *config);
 t_color		sphere_map(t_texture texture, t_point point);
 t_color		plane_map(t_texture texture, t_point point);
 t_color		cylinder_and_cone_map(t_texture texture, t_point point);
