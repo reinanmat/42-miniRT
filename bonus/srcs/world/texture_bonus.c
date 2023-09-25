@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:55:33 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 15:21:21 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:14:14 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -21,37 +21,40 @@ static void	get_width_and_height(t_texture *t, char *info)
 	ft_free_matrix((void **)values);
 }
 
-static void	set_color(t_texture *t, int curr_row, char *line)
+int	get_value(char *str, int *iter)
 {
-	int		i;
-	int		j;
-	t_color	tmp;
-	int		third_color;
-	char	**info;
+	int	i;
+	int	value;
 
 	i = 0;
-	j = 0;
-	third_color = 0;
-	info = ft_split_whitespaces(line);
-	while (info[i])
+	value = 0;
+	while (str[i] == ' ' || str[i] == '	')
+		i++;
+	while (ft_isdigit(str[i]))
 	{
-		if (third_color == 0 && ++third_color)
-			tmp.x = ft_atoi(info[i]);
-		else if (third_color == 1 && ++third_color)
-			tmp.y = ft_atoi(info[i]);
-		else if (third_color == 2 && ++third_color)
-			tmp.z = ft_atoi(info[i]);
-		if (third_color == 3)
-		{
-			t->map_texture[curr_row][j] = normalize_color(tmp);
-			third_color = 0;
-			j++;
-		}
-		if (t->width == j)
-			break ;
+		value = value * 10 + (str[i] - '0');
 		i++;
 	}
-	ft_free_matrix((void **)info);
+	*iter = *iter + i;
+	return (value);
+}
+
+static void	set_color(t_texture *t, int curr_row, char *line)
+{
+	int		j;
+	int		i;
+	t_color	tmp;
+
+	j = 0;
+	i = 0;
+	while (line [i] && j < t->width)
+	{
+		tmp.x = get_value(&line[i], &i);
+		tmp.y = get_value(&line[i], &i);
+		tmp.z = get_value(&line[i], &i);
+		t->map_texture[curr_row][j] = normalize_color(tmp);
+		j++;
+	}
 }
 
 t_texture	set_texture(char *config)
