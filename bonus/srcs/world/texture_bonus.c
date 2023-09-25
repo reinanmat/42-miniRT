@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:55:33 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 19:14:14 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:49:59 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -57,6 +57,15 @@ static void	set_color(t_texture *t, int curr_row, char *line)
 	}
 }
 
+char	*get_corresponding_ppm(char *texture)
+{
+	if (ft_strcmp(texture, "DOG") == 0)
+		return (ft_strdup("./bonus/textures/dog.ppm"));
+	else if (ft_strcmp(texture, "EARTH") == 0)
+		return (ft_strdup("./bonus/textures/earth.ppm"));
+	return (NULL);
+}
+
 t_texture	set_texture(char *config)
 {
 	int			fd;
@@ -65,10 +74,7 @@ t_texture	set_texture(char *config)
 	char		**lines;
 	t_texture	t;
 
-	if (ft_strcmp("DOGUINHO", config) == 0)
-		filename = ft_strdup("./bonus/textures/doguinho.ppm");
-	else
-		fd = -1;
+	filename = get_corresponding_ppm(config);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
@@ -79,7 +85,6 @@ t_texture	set_texture(char *config)
 	lines = ft_split(content, '\n');
 	get_width_and_height(&t, lines[1]);
 	printf("height %d, width %d\n", t.height, t.width);
-
 	t.map_texture = ft_calloc(sizeof(t_color *), t.height);
 	int	i = 0;
 	while (i < t.height)

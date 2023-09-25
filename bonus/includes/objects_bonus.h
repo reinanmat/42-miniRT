@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:51:18 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 15:57:22 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:45:42 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ t_color		gradient_pattern(t_pattern pattern, t_point point);
 t_color		sphere_map(t_texture texture, t_point point);
 t_color		plane_map(t_texture texture, t_point point);
 t_color		cylinder_and_cone_map(t_texture texture, t_point point);
+char		*get_corresponding_ppm(char *texture);
 
 #endif
