@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:38:15 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 15:11:09 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:59:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -16,11 +16,6 @@ static t_color	uv_texture_at(t_texture texture, double u, double v)
 	int	x;
 	int	y;
 
-	if (u > 1 || u < 0 || v > 1 || v < 0)
-	{
-		printf("error\nu:%f	v:%f\n", u, v);
-		exit(1);
-	}
 	v = 1 - v;
 	x = floor(u * (texture.width - 1));
 	y = floor(v * (texture.height - 1));
