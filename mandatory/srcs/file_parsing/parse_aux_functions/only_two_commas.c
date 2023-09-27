@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_coordinates.c                             :+:      :+:    :+:   */
+/*   only_two_commas.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/20 17:05:14 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/27 18:34:14 by fnacarel         ###   ########.fr       */
+/*   Created: 2023/09/27 18:32:04 by fnacarel          #+#    #+#             */
+/*   Updated: 2023/09/27 18:32:15 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
 
-int	is_valid_coordinates(const char *str)
+int	only_two_commas(const char *str)
 {
-	if (!expected_number_of_fields(str, 3))
-		return (ft_putstr("[COORDS] Unexpected number of params\n", 0));
-	else if (!set_contain_only_numbers(str))
-		return (ft_putstr("[COORDS] Set does not contain only numbers\n", 0));
-	else if (!only_two_commas(str))
-		return (ft_putstr("[COORDS] X,Y,Z\n", 0));
-	return (1);
+	int	i;
+	int	comma;
+
+	i = 0;
+	comma = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+			comma++;
+		i++;
+	}
+	if (comma == 2)
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 18:25:07 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/07/21 12:33:27 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:31:58 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt.h"
@@ -41,5 +41,7 @@ int	is_valid_rgb_set(const char *str)
 		return (ft_putstr("[RGB] Set does not contain only numbers\n", 0));
 	else if (!between_expected_range(str))
 		return (ft_putstr("[RGB] Set not between expected range\n", 0));
+	else if (!only_two_commas(str))
+		return (ft_putstr("[RGB]: R,G,B\n", 0));
 	return (1);
 }
