@@ -6,14 +6,14 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:37:54 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/27 16:17:58 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:29:14 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
 
 static void	clean_texture(t_texture t)
 {
-	int	 i;
+	int	i;
 
 	i = 0;
 	while (i < t.height)
