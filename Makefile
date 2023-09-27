@@ -163,9 +163,6 @@ fclean_bonus: clean_bonus
 	rm -f $(NAME_BONUS)
 	make -C $(LIBFT_PATH) fclean --no-print-directory
 
-valg: $(NAME)
-	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes ./miniRT $(param1)
-
 re: fclean all
 
 rebonus: fclean_bonus bonus
