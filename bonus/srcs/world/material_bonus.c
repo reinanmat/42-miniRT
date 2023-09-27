@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:55:37 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/21 19:54:29 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:32:50 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -25,17 +25,27 @@ static t_pattern	set_pattern(char *config)
 {
 	t_pattern	p;
 
+	p.a = color(1, 1, 1);
+	p.b = color(0, 0, 0);
+	p.transform = scaling_matrix(point(0.5, 0.5, 0.5));
 	if (ft_strcmp("GRADIENT", config) == 0)
+	{
+		p.a = color(1, 0, 0);
+		p.b = color(0, 1, 0);
+		p.transform = scaling_matrix(point(0.15, 0.15, 0.15));
 		p.type = GRADIENT_PATTERN;
+	}
 	else if (ft_strcmp("STRIPE", config) == 0)
+	{
+		p.a = color(1, 0, 0.8);
+		p.b = color(1, 0.2, 1);
+		p.transform = scaling_matrix(point(0.05, 0.05, 0.05));
 		p.type = STRIPE_PATTERN;
+	}
 	else if (ft_strcmp("RING", config) == 0)
 		p.type = RING_PATTERN;
 	else
 		p.type = CHECKER_PATTERN;
-	p.a = color(1, 1, 1);
-	p.b = color(0, 0, 0);
-	p.transform = scaling_matrix(point(0.5, 0.5, 0.5));
 	p.inv_transform = inverse(p.transform);
 	return (p);
 }
