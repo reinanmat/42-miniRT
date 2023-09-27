@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:25:59 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/22 16:40:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:26:13 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minirt_bonus.h"
@@ -59,7 +59,6 @@ static void	render_world(t_world world, t_mlx mlx)
 	t_color	color;
 
 	y = 0;
-	timer();
 	while (y < HEIGHT)
 	{
 		x = 0;
@@ -72,8 +71,6 @@ static void	render_world(t_world world, t_mlx mlx)
 		}
 		y++;
 	}
-	timer();
-	printf("finished\n");
 }
 
 int	render(t_data data)

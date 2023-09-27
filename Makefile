@@ -1,13 +1,11 @@
 NAME 				= miniRT
 SRCS_PATH 			= ./mandatory/srcs
 OBJS_PATH 			= ./objs
-TESTS_PATH 			= ./mandatory/tests
 INCLUDE_PATH		= ./mandatory/includes/
 
 NAME_BONUS			= miniRT_bonus
 BONUS_SRCS_PATH 	= ./bonus/srcs
 BONUS_OBJS_PATH		= ./bonus_objs
-BONUS_TESTS_PATH	= ./bonus/tests
 BONUS_INCLUDE_PATH	= ./bonus/includes/
 
 LIBFT_PATH 			= ./libft
@@ -94,15 +92,11 @@ FILES_BONUS =	${FILES:%=%_bonus} \
 				file_parsing/parse_aux_functions/is_valid_material_type_bonus \
 				file_parsing/parse_aux_functions/is_valid_cone_bonus \
 
-TEST_FILES	=	cylinder worlds utils_tests unit_shapes
+SRCS =			${FILES:%=$(SRCS_PATH)/%.c}
+OBJS =			${FILES:%=$(OBJS_PATH)/%.o}
 
-TEST_FILES_BONUS	=	$(TEST_FILES) cone
-
-SRCS =			${FILES:%=$(SRCS_PATH)/%.c} ${TEST_FILES:%=$(TESTS_PATH)/%.c}
-OBJS =			${FILES:%=$(OBJS_PATH)/%.o} ${TEST_FILES:%=$(OBJS_PATH)/%.o}
-
-SRCS_BONUS =	${FILES_BONUS:%=$(BONUS_SRCS_PATH)/%.c} ${TEST_FILES_BONUS:%=$(BONUS_TESTS_PATH)/%.c}
-OBJS_BONUS =	${FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o} ${TEST_FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o}
+SRCS_BONUS =	${FILES_BONUS:%=$(BONUS_SRCS_PATH)/%.c}
+OBJS_BONUS =	${FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o}
 
 CC = cc
 CFLAGS = 		-Wall -Wextra -Werror -g -O3
@@ -124,10 +118,6 @@ $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -I $(OBJS_PATH) -c $< -o $@
 
-$(OBJS_PATH)/%.o: $(TESTS_PATH)/%.c | $(OBJS_PATH)
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I $(OBJS_PATH) -c $< -o $@
-
 $(OBJS_PATH):
 	mkdir -p $(OBJS_PATH)
 
@@ -137,10 +127,6 @@ $(NAME_BONUS): $(OBJS_BONUS) $(LIBFT_PATH)/libft.a
 	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBFTFLAGS) $(LIBXFLAGS)
 
 $(BONUS_OBJS_PATH)/%.o: $(BONUS_SRCS_PATH)/%.c | $(BONUS_OBJS_PATH)
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I $(BONUS_INCLUDE_PATH) -c $< -o $@
-
-$(BONUS_OBJS_PATH)/%.o: $(BONUS_TESTS_PATH)/%.c | $(BONUS_OBJS_PATH)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -I $(BONUS_INCLUDE_PATH) -c $< -o $@
 
