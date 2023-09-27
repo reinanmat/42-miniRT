@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:55:33 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/25 20:08:38 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 13:21:44 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -93,6 +93,7 @@ t_texture	set_texture(char *config)
 		row++;
 		col++;
 	}
+	ft_free(filename);
 	ft_free_matrix((void **)lines);
 	return (t);
 }
