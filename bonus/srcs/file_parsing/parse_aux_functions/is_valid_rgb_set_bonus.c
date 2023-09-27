@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 18:25:07 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/25 19:00:16 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:38:29 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt_bonus.h"
@@ -40,6 +40,8 @@ int	is_valid_rgb_set(const char *str)
 	else if (!set_contain_only_numbers(str))
 		return (0);
 	else if (!between_expected_range(str))
+		return (0);
+	else if (!only_two_commas(str))
 		return (0);
 	return (1);
 }

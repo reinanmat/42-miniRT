@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:32:12 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/22 16:40:40 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:41:32 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int		is_valid_texture(char *str);
 int		is_valid_pattern(char *str);
 int		is_valid_material_type(char *str);
 int		is_valid_cone(char **params, int number_of_params);
+int		only_two_commas(const char *str);
 
 //linear algebra
 t_ray	transform_ray(t_ray	ray, t_matrix transform);
