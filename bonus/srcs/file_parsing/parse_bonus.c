@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:04:20 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/12 17:55:58 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:31:41 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -48,7 +48,8 @@ int	has_invalid_identifier(char **lines)
 		if (!is_valid_identifier(splitted_identifer[0]))
 		{
 			ft_putstr_fd("Invalid identifier '", 2);
-			ft_putstr_fd(splitted_identifer[0], 2);
+			if (splitted_identifer[0])
+				ft_putstr_fd(splitted_identifer[0], 2);
 			ft_putstr_fd("' not supported.\n", 2);
 			ft_free_matrix((void **)splitted_identifer);
 			return (1);

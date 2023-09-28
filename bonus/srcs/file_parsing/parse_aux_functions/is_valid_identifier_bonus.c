@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:26:54 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/22 19:00:24 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:32:17 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../../includes/minirt_bonus.h"
@@ -29,6 +29,8 @@ static int	is_valid_objects(char *identifier)
 
 int	is_valid_identifier(char *identifier)
 {
+	if (!identifier)
+		return (0);
 	if (is_valid_environment(identifier) || is_valid_objects(identifier))
 		return (1);
 	return (0);
