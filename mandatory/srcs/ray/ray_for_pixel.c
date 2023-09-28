@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:29:24 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/28 16:30:30 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/28 19:01:04 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -43,12 +43,10 @@ t_ray	ray_for_pixel(t_cam cam, int x, int y)
 	t_point		origin;
 	t_vec3		direction;
 	t_point		canvas_point;
-	t_matrix	inversed_vec_to_matr;
 
 	canvas_point = point(get_world_x(cam, x), get_world_y(cam, y), -1);
-	inversed_vec_to_matr = inverse(cam.t);
-	pixel = matr_product_to_point(inversed_vec_to_matr, canvas_point);
-	origin = matr_product_to_point(inversed_vec_to_matr, point(0, 0, 0));
+	pixel = matr_product_to_point(cam.inv_transform, canvas_point);
+	origin = matr_product_to_point(cam.inv_transform, point(0, 0, 0));
 	direction = normalize(sub(pixel, origin));
 	return (ray(origin, direction));
 }

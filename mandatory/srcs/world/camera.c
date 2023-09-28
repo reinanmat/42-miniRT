@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:29:27 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/15 20:07:27 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/28 19:00:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -62,7 +62,8 @@ t_cam	init_camera(char **lines)
 	cam.fov = degrees_to_radians(ft_atof(config[3]));
 	set_pixel_size(&cam);
 	up = get_correct_up(cam.orientation_vec);
-	cam.t = view_transform(cam.coordinate, cam.orientation_vec, up);
+	cam.transform = view_transform(cam.coordinate, cam.orientation_vec, up);
+	cam.inv_transform = inverse(cam.transform);
 	ft_free_matrix((void **)config);
 	return (cam);
 }

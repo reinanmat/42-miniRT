@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:58:43 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/28 17:28:48 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:59:29 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef struct s_cam
 	double		pixel_size;
 	t_point		coordinate;
 	t_vec3		orientation_vec;
-	t_matrix	t;
+	t_matrix	transform;
+	t_matrix	inv_transform;
 }	t_cam;
 
 typedef struct s_light
