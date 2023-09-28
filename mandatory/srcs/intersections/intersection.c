@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:57:42 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/15 19:23:12 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:20:49 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -56,7 +56,7 @@ static void	hit_pl(t_ray ray, t_hittable *obj, t_intersections **inters)
 	t_inter_point	inter_p;
 
 	tmp_ray = transform_ray(ray, obj->pl->inv_transform);
-	inter_p = intersect_plane(tmp_ray, obj->pl);
+	inter_p = intersect_plane(tmp_ray);
 	if (inter_p.hit_times != 0)
 		intersect_add_back(inters, new_intersect(inter_p.hit[0], obj));
 }

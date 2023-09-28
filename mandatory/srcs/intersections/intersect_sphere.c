@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:58:52 by revieira          #+#    #+#             */
-/*   Updated: 2023/08/21 18:53:10 by revieira         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:14:13 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -42,6 +42,5 @@ t_inter_point	intersect_sphere(t_ray ray, t_sphere *sphere)
 	intersect.hit_times = 2;
 	intersect.hit[0] = bhask.s1;
 	intersect.hit[1] = bhask.s2;
-	intersect.object = sphere;
 	return (intersect);
 }
