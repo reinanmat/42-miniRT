@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:26 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/07 12:24:21 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:15:29 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt.h"
@@ -66,7 +66,6 @@ t_inter_point	intersect_cylinder(t_ray ray, t_cylinder *cylinder)
 	double			y_first_inter;
 	double			y_second_inter;
 
-	inter.object = cylinder;
 	inter.hit_times = 0;
 	bhask = calculate_bhaskara(ray);
 	if (bhask.discriminant >= 0)

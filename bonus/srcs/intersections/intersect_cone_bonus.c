@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:03:40 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/23 16:35:05 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:18:48 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -70,7 +70,6 @@ t_inter_point	intersect_cone(t_ray ray, t_cone *cone)
 	double			y_first_inter;
 	double			y_second_inter;
 
-	inter.object = cone;
 	inter.hit_times = 0;
 	inter.hit[0] = -1;
 	inter.hit[1] = -1;

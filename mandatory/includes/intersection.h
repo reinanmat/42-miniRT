@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:05:51 by revieira          #+#    #+#             */
-/*   Updated: 2023/09/05 18:05:43 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:23:45 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_inter_point
 {
 	int		hit_times;
 	double	hit[2];
-	void	*object;
 }	t_inter_point;
 
 typedef struct s_comps
@@ -53,8 +52,8 @@ typedef struct s_bhask
 
 t_intersections	*intersection_calculate(t_ray ray, t_hittable *objects);
 t_inter_point	intersect_sphere(t_ray ray, t_sphere *sphere);
-t_inter_point	intersect_plane(t_ray ray, t_plane *plane);
 t_inter_point	intersect_cylinder(t_ray ray, t_cylinder *cylinder);
+t_inter_point	intersect_plane(t_ray ray);
 t_intersections	*hit(t_intersections *intersections);
 
 //intersection list utils

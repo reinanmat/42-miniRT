@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 17:02:37 by fnacarel          #+#    #+#             */
-/*   Updated: 2023/09/23 17:03:00 by fnacarel         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:19:14 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minirt_bonus.h"
@@ -45,7 +45,7 @@ void	hit_pl(t_ray ray, t_hittable *obj, t_intersections **inters)
 	t_inter_point	inter_p;
 
 	tmp_ray = transform_ray(ray, obj->pl->inv_transform);
-	inter_p = intersect_plane(tmp_ray, obj->pl);
+	inter_p = intersect_plane(tmp_ray);
 	if (inter_p.hit_times != 0)
 		intersect_add_back(inters, new_intersect(inter_p.hit[0], obj));
 }
