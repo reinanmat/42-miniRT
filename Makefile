@@ -99,7 +99,7 @@ SRCS_BONUS =	${FILES_BONUS:%=$(BONUS_SRCS_PATH)/%.c}
 OBJS_BONUS =	${FILES_BONUS:%=$(BONUS_OBJS_PATH)/%.o}
 
 CC = cc
-CFLAGS = 		-Wall -Wextra -Werror -g -O3
+CFLAGS = 		-Wall -Wextra -Werror -O3
 LIBXFLAGS =		-lmlx -lXext -lX11 -lm -lz
 LIBFTFLAGS =	-L $(LIBFT_PATH) -lft
 
